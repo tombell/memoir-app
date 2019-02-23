@@ -3,5 +3,9 @@
   "private": true,
   "devDependencies": {
     "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "preact": "^8.4.2",
+    "preact-router": "^2.6.1"
   }
 }

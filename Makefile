@@ -3,6 +3,9 @@ all: dev
 dev:
 	@npx rollup -c -w
 
+lint:
+	@npx eslint --ext .js,.jsx,.ts,.tsx src test
+
 test:
 	@npx ava
 

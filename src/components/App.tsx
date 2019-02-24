@@ -3,9 +3,13 @@ import { Router } from 'preact-router';
 
 import Header from './Header';
 
+import Tracklists from '../pages/Tracklists';
+
 export default () => (
   <div>
     <Header />
-    <Router />
+    <Router>
+      <Tracklists path="/" />
+    </Router>
   </div>
 );

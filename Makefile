@@ -18,4 +18,4 @@ serve:
 clean:
 	@rm -fr public/app.min.* .rpt2_cache
 
-.PHONY: all dev test serve clean
+.PHONY: all dev dist lint test serve clean

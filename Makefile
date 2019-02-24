@@ -3,6 +3,9 @@ all: dev
 dev:
 	@npx rollup -c -w
 
+dist:
+	@BUILD=production npx rollup -c
+
 lint:
 	@npx eslint --ext .js,.jsx,.ts,.tsx src test
 

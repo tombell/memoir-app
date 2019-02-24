@@ -1,7 +1,5 @@
-import { h, Component } from 'preact';
+import { h, FunctionalComponent } from 'preact';
 
-export default class Tracklists extends Component {
-  render() {
-    return <h2>Tracklists</h2>;
-  }
-}
+const Tracklists: FunctionalComponent = () => <h2>Tracklists</h2>;
+
+export default Tracklists;

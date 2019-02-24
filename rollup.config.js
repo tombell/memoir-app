@@ -13,6 +13,9 @@ export default {
     sourcemap: true,
   },
   treeshake: true,
+  watch: {
+    clearScreen: false,
+  },
   plugins: [
     commonjs(),
     resolve(),

@@ -1,3 +1,5 @@
+/* global MEMOIR_API_URL */
+
 const URL = MEMOIR_API_URL;
 
 export interface Track {
@@ -18,5 +20,5 @@ export interface Tracklist {
 
 export async function apiRequest(endpoint: string) {
   const resp = await fetch(`${URL}${endpoint}`);
-  return await resp.json();
+  return resp.json();
 }

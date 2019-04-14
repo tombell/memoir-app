@@ -7,8 +7,6 @@ module.exports = {
     react: { pragma: 'h' },
   },
   rules: {
-    '@typescript-eslint/no-unused-vars': 'warn',
-    'no-unused-vars': 'off',
     'react/no-unknown-property': ['error', { ignore: 'class' }],
   },
 };

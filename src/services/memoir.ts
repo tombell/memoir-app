@@ -22,3 +22,12 @@ export async function apiRequest(endpoint: string) {
   const resp = await fetch(`${URL}${endpoint}`);
   return resp.json();
 }
+
+export async function fetchTracklists() {
+  try {
+    const tracklists: Tracklist[] = await apiRequest('/tracklists');
+    return tracklists;
+  } catch (err) {
+    return null;
+  }
+}

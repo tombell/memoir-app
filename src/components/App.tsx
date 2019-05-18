@@ -1,24 +1,23 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
-import { sheet } from '../nano';
+import Tracklists from '../pages/Tracklists';
+import Tracklist from '../pages/Tracklist';
 
 import Header from './Header';
 
-import Tracklists from '../pages/Tracklists';
+import { sheet } from '../nano';
 
-const styles = sheet!({
-  page: {
-    margin: '0 auto',
-    width: '620px',
-  },
-});
+import styles from './App.styles';
+
+const css = sheet!(styles);
 
 export default () => (
-  <div class={styles.page}>
+  <div class={css.page}>
     <Header />
     <Router>
       <Tracklists path="/" />
+      <Tracklist path="/:id" />
     </Router>
   </div>
 );

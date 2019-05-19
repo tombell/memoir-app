@@ -35,6 +35,7 @@
   "dependencies": {
     "nano-css": "^5.1.0",
     "preact": "^8.4.2",
-    "preact-router": "^2.6.1"
+    "preact-router": "^2.6.1",
+    "tiny-date-format": "^0.1.1"
   }
 }

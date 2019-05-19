@@ -20,11 +20,13 @@ export default (props: Props) => {
 
   return (
     <div class={styles.page}>
-      <Header />
-      <Router>
-        <TracklistsPage path="/" fetchTracklists={fetchTracklists} />
-        <TracklistPage path="/:id" fetchTracklist={fetchTracklist} />
-      </Router>
+      <div class={styles.pageColumn}>
+        <Header />
+        <Router>
+          <TracklistsPage path="/" fetchTracklists={fetchTracklists} />
+          <TracklistPage path="/:id" fetchTracklist={fetchTracklist} />
+        </Router>
+      </div>
     </div>
   );
 };

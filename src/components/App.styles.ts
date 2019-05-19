@@ -10,7 +10,14 @@ global!({
 
 export default sheet!({
   page: {
-    margin: '0 auto',
+    display: 'flex',
+    'flex-direction': 'column',
+    'align-items': 'center',
+    'justify-content': 'center',
+  },
+
+  pageColumn: {
+    flex: 1,
     width: '960px',
   },
 });

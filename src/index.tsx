@@ -7,6 +7,6 @@ import App from './components/App';
 const props = {
   fetchTracklists,
   fetchTracklist,
-}
+};
 
 render(<App {...props} />, document.getElementById('root')!);

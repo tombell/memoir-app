@@ -1,7 +1,9 @@
 import { h, Component } from 'preact';
-import { Link, RoutableProps } from 'preact-router';
+import { RoutableProps } from 'preact-router';
 
 import { Tracklist } from '../services/memoir/types';
+
+import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
   fetchTracklists(): Promise<Tracklist[] | null>;
@@ -38,7 +40,7 @@ export default class TracklistsPage extends Component<Props, State> {
       return null;
     }
 
-    return tracklists.map(tracklist => <p><Link href={`/${tracklist.id}`}>{tracklist.name}</Link></p>);
+    return tracklists.map(tracklist => <TracklistItem tracklist={tracklist} />);
   }
 
   render() {
@@ -47,7 +49,6 @@ export default class TracklistsPage extends Component<Props, State> {
     if (isLoading) {
       return (
         <div>
-          <h2>Tracklists</h2>
           <p>Loading...</p>
         </div>
       );
@@ -55,7 +56,6 @@ export default class TracklistsPage extends Component<Props, State> {
 
     return (
       <div>
-        <h2>Tracklists</h2>
         {this.renderTracklists()}
       </div>
     );

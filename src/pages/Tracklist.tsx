@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist } from '../services/memoir/types';
+import { Tracklist, Track } from '../services/memoir/types';
 
 interface Props extends RoutableProps {
   id?: string;
@@ -32,6 +32,22 @@ export default class TracklistPage extends Component<Props, State> {
     this.setState({ isLoading: false, tracklist });
   }
 
+  static renderTracks(tracks?: Track[]) {
+    if (!tracks) {
+      return null;
+    }
+
+    const elements = tracks.map(track => (
+      <li>
+        {track.artist}
+        {' - '}
+        {track.name}
+      </li>
+    ));
+
+    return <ol>{elements}</ol>;
+  }
+
   renderTracklist() {
     const { tracklist } = this.state;
 
@@ -39,7 +55,12 @@ export default class TracklistPage extends Component<Props, State> {
       return null;
     }
 
-    return <h3>{tracklist.name}</h3>;
+    return (
+      <div>
+        <h3>{tracklist.name}</h3>
+        {TracklistPage.renderTracks(tracklist.tracks)}
+      </div>
+    );
   }
 
   render() {

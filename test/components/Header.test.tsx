@@ -1,6 +1,5 @@
 import { h } from 'preact';
 import { shallow } from 'preact-render-spy';
-
 import test from 'ava';
 
 import Header from '../../src/components/Header';

@@ -15,4 +15,4 @@ export default (props: Props) => {
       <Link href={`/${tracklist.id}`}>{tracklist.name}</Link>
     </p>
   );
-}
+};

@@ -5,6 +5,8 @@ import { Tracklist } from '../services/memoir/types';
 
 import TracklistItem from '../components/TracklistItem';
 
+import styles from './Tracklists.styles';
+
 interface Props extends RoutableProps {
   fetchTracklists(): Promise<Tracklist[] | null>;
 }
@@ -48,14 +50,14 @@ export default class TracklistsPage extends Component<Props, State> {
 
     if (isLoading) {
       return (
-        <div>
+        <div class={styles.tracklists}>
           <p>Loading...</p>
         </div>
       );
     }
 
     return (
-      <div>
+      <div class={styles.tracklists}>
         {this.renderTracklists()}
       </div>
     );

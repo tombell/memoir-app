@@ -19,8 +19,8 @@ export default (props: Props) => {
   const { fetchTracklist, fetchTracklists } = props;
 
   return (
-    <div class={styles.page}>
-      <div class={styles.pageColumn}>
+    <div class={styles.container}>
+      <div class={styles.column}>
         <Header />
         <Router>
           <TracklistsPage path="/" fetchTracklists={fetchTracklists} />

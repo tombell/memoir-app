@@ -5,6 +5,6 @@ import styles from './Header.styles';
 
 export default () => (
   <h1>
-    <Link href="/" class={styles.header}>Memoir</Link>
+    <Link href="/" class={styles.link}>Memoir</Link>
   </h1>
 );

@@ -9,15 +9,14 @@ global!({
 });
 
 export default sheet!({
-  page: {
-    display: 'flex',
-    'flex-direction': 'column',
+  container: {
     'align-items': 'center',
+    display: 'flex',
     'justify-content': 'center',
   },
 
-  pageColumn: {
+  column: {
     flex: 1,
-    width: '960px',
+    'max-width': '960px',
   },
-});
+}, 'page');

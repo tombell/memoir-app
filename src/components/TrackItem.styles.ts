@@ -1,31 +1,26 @@
 import { sheet } from '../services/nano';
 
 export default sheet!({
-  track: {
-    display: 'grid',
-    'line-height': 1.7,
-    'grid-template-columns': '35px auto 250px',
+  container: {
+    'align-items': 'center',
+    display: 'flex',
     margin: '0 0 12px 0',
   },
 
-  trackNumberContainer: {
-    'align-items': 'center',
-    display: 'flex',
-  },
-
-  trackNumber: {
+  number: {
     flex: 1,
     'font-size': '10px',
     'font-weight': 'bold',
     opacity: 0.5,
   },
 
-  trackDetails: {
-    'font-weight': 600,
-    margin: '0 10px 0 0',
+  details: {
+    flex: 10,
   },
 
-  trackTags: {
-    'text-align': 'right',
+  tags: {
+    display: 'flex',
+    flex: 4,
+    'justify-content': 'flex-end',
   },
-});
+}, 'track');

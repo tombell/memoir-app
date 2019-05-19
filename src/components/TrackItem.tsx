@@ -15,18 +15,18 @@ export default (props: Props) => {
   const { trackNumber, track } = props;
 
   return (
-    <div class={styles.track}>
-      <div class={styles.trackNumberContainer}>
-        <span class={styles.trackNumber}>#{trackNumber}</span>
+    <div class={styles.container}>
+      <div class={styles.number}>
+        <span>#{trackNumber}</span>
       </div>
 
-      <span class={styles.trackDetails}>
+      <span class={styles.details}>
         {`${track.artist} - ${track.name}`}
       </span>
 
-      <div class={styles.trackTags}>
-        <Tag label={track.bpm} />
+      <div class={styles.tags}>
         <Tag label={track.genre} />
+        <Tag label={track.bpm} />
       </div>
     </div>
   );

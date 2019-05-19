@@ -15,10 +15,9 @@ export default sheet!({
 
   trackNumber: {
     flex: 1,
-    'font-size': '11px',
+    'font-size': '10px',
     'font-weight': 'bold',
     opacity: 0.5,
-    'text-align': 'center',
   },
 
   trackDetails: {

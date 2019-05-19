@@ -30,7 +30,7 @@ export default class Tracklists extends Component<any, State> {
       return null;
     }
 
-    return tracklists.map(tracklist => <p>{tracklist.name}</p>);
+    return tracklists.map(tracklist => <p><a href={`/${tracklist.id}`}>{tracklist.name}</a></p>);
   }
 
   render() {

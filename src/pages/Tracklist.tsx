@@ -39,11 +39,7 @@ export default class TracklistPage extends Component<Props, State> {
       return null;
     }
 
-    return (
-      <h3>
-        {tracklist.name}
-      </h3>
-    );
+    return <h3>{tracklist.name}</h3>;
   }
 
   render() {
@@ -54,8 +50,8 @@ export default class TracklistPage extends Component<Props, State> {
       return (
         <div>
           <h2>
-            Tracklist:&nbsp;
-            {id}
+            {'Tracklist: '}
+            <span>{id}</span>
           </h2>
           <p>Loading...</p>
         </div>
@@ -65,8 +61,8 @@ export default class TracklistPage extends Component<Props, State> {
     return (
       <div>
         <h2>
-          Tracklist:&nbsp;
-          {id}
+          {'Tracklist: '}
+          <span>{id}</span>
         </h2>
         {this.renderTracklist()}
       </div>

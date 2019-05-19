@@ -11,6 +11,6 @@ global!({
 export default sheet!({
   page: {
     margin: '0 auto',
-    width: '690px',
+    width: '960px',
   },
 });

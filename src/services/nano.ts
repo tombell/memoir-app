@@ -11,4 +11,9 @@ addonSheet(nano);
 
 const { global, rule, sheet } = nano;
 
-export { global, rule, sheet, nano };
+export {
+  global,
+  rule,
+  sheet,
+  nano,
+};

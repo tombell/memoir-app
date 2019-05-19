@@ -3,6 +3,8 @@ import { RoutableProps } from 'preact-router';
 
 import { Tracklist, Track } from '../services/memoir/types';
 
+import Tag from '../components/Tag';
+
 interface Props extends RoutableProps {
   id?: string;
   fetchTracklist(id: string): Promise<Tracklist | null>;
@@ -16,11 +18,7 @@ interface State {
 export default class TracklistPage extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-
-    this.state = {
-      isLoading: false,
-      tracklist: null,
-    };
+    this.state = { isLoading: false, tracklist: null };
   }
 
   async componentWillMount() {
@@ -42,6 +40,9 @@ export default class TracklistPage extends Component<Props, State> {
         {track.artist}
         {' - '}
         {track.name}
+        {' '}
+        <Tag label={track.bpm} />
+        <Tag label={track.genre} />
       </li>
     ));
 
@@ -63,17 +64,24 @@ export default class TracklistPage extends Component<Props, State> {
     );
   }
 
+  renderGenres() {
+    const { tracklist } = this.state;
+
+    if (!tracklist || !tracklist.tracks) {
+      return null;
+    }
+
+    const genres = [...new Set(tracklist.tracks.map((track: Track) => track.genre))];
+
+    return genres.map(genre => <Tag label={genre} />);
+  }
+
   render() {
-    const { id } = this.props;
     const { isLoading } = this.state;
 
     if (isLoading) {
       return (
         <div>
-          <h2>
-            {'Tracklist: '}
-            <span>{id}</span>
-          </h2>
           <p>Loading...</p>
         </div>
       );
@@ -81,10 +89,7 @@ export default class TracklistPage extends Component<Props, State> {
 
     return (
       <div>
-        <h2>
-          {'Tracklist: '}
-          <span>{id}</span>
-        </h2>
+        {this.renderGenres()}
         {this.renderTracklist()}
       </div>
     );

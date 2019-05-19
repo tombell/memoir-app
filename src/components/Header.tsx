@@ -1,3 +1,4 @@
 import { h } from 'preact';
+import { Link } from 'preact-router';
 
-export default () => <h1>Memoir</h1>;
+export default () => <h1><Link href="/">Memoir</Link></h1>;

@@ -34,7 +34,7 @@ export async function fetchTracklists() {
 
 export async function fetchTracklist(id: string) {
   try {
-    const tracklist: Tracklist = await apiRequest(`/trackists/${id}`);
+    const tracklist: Tracklist = await apiRequest(`/tracklists/${id}`);
     return tracklist;
   } catch {
     return null;

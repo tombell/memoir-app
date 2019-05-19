@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist } from '../services/memoir';
+import { Tracklist } from '../services/memoir/types';
 
 interface Props extends RoutableProps {
   id?: string;

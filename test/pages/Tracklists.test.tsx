@@ -4,7 +4,7 @@ import test from 'ava';
 
 import TracklistsPage from '../../src/pages/Tracklists';
 
-import { Tracklist } from '../../src/services/memoir';
+import { Tracklist } from '../../src/services/memoir/types';
 
 const fetchTracklistsStub = (): Promise<Tracklist[] | null> => new Promise(resolve => resolve([]));
 

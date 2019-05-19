@@ -1,4 +1,10 @@
 import { h } from 'preact';
 import { Link } from 'preact-router';
 
-export default () => <h1><Link href="/">Memoir</Link></h1>;
+import styles from './Header.styles';
+
+export default () => (
+  <h1>
+    <Link href="/" class={styles.header}>Memoir</Link>
+  </h1>
+);

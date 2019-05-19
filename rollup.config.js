@@ -28,7 +28,7 @@ export default {
     resolve(),
     replace(config),
     typescript(),
-    !production && serve('public'),
+    !production && serve({ contentBase: 'public', historyApiFallback: true }),
     production && uglify(),
   ],
 };

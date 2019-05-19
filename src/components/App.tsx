@@ -15,12 +15,16 @@ interface Props {
   fetchTracklist(id: string): Promise<Tracklist | null>;
 }
 
-export default (props: Props) => (
-  <div class={styles.page}>
-    <Header />
-    <Router>
-      <TracklistsPage path="/" fetchTracklists={props.fetchTracklists} />
-      <TracklistPage path="/:id" fetchTracklist={props.fetchTracklist} />
-    </Router>
-  </div>
-);
+export default (props: Props) => {
+  const { fetchTracklist, fetchTracklists } = props;
+
+  return (
+    <div class={styles.page}>
+      <Header />
+      <Router>
+        <TracklistsPage path="/" fetchTracklists={fetchTracklists} />
+        <TracklistPage path="/:id" fetchTracklist={fetchTracklist} />
+      </Router>
+    </div>
+  );
+};

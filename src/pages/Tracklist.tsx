@@ -4,6 +4,9 @@ import { RoutableProps } from 'preact-router';
 import { Tracklist, Track } from '../services/memoir/types';
 
 import Tag from '../components/Tag';
+import TrackItem from '../components/TrackItem';
+
+import styles from './Tracklist.styles';
 
 interface Props extends RoutableProps {
   id?: string;
@@ -30,54 +33,26 @@ export default class TracklistPage extends Component<Props, State> {
     this.setState({ isLoading: false, tracklist });
   }
 
+  static renderGenreTags(tracks?: Track[]) {
+    if (!tracks) {
+      return null;
+    }
+
+    const genres = [...new Set(tracks.map((track: Track) => track.genre))];
+
+    return genres.map(genre => <Tag label={genre} />);
+  }
+
   static renderTracks(tracks?: Track[]) {
     if (!tracks) {
       return null;
     }
 
-    const elements = tracks.map(track => (
-      <li>
-        {track.artist}
-        {' - '}
-        {track.name}
-        {' '}
-        <Tag label={track.bpm} />
-        <Tag label={track.genre} />
-      </li>
-    ));
-
-    return <ol>{elements}</ol>;
-  }
-
-  renderTracklist() {
-    const { tracklist } = this.state;
-
-    if (!tracklist) {
-      return null;
-    }
-
-    return (
-      <div>
-        <h3>{tracklist.name}</h3>
-        {TracklistPage.renderTracks(tracklist.tracks)}
-      </div>
-    );
-  }
-
-  renderGenres() {
-    const { tracklist } = this.state;
-
-    if (!tracklist || !tracklist.tracks) {
-      return null;
-    }
-
-    const genres = [...new Set(tracklist.tracks.map((track: Track) => track.genre))];
-
-    return genres.map(genre => <Tag label={genre} />);
+    return tracks.map((track, i) => <TrackItem trackNumber={i + 1} track={track} />);
   }
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, tracklist } = this.state;
 
     if (isLoading) {
       return (
@@ -87,10 +62,21 @@ export default class TracklistPage extends Component<Props, State> {
       );
     }
 
+    if (!tracklist) {
+      return (
+        <div>
+          <p>Could not load tracklist</p>
+        </div>
+      );
+    }
+
     return (
       <div>
-        {this.renderGenres()}
-        {this.renderTracklist()}
+        <h3>{tracklist.name}</h3>
+        <div class={styles.genres}>
+          {TracklistPage.renderGenreTags(tracklist.tracks)}
+        </div>
+        {TracklistPage.renderTracks(tracklist.tracks)}
       </div>
     );
   }

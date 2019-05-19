@@ -8,7 +8,7 @@ interface State {
   tracklists: Tracklist[] | null;
 }
 
-export default class Tracklists extends Component<any, State> {
+export default class TracklistsPage extends Component<any, State> {
   constructor() {
     super();
 

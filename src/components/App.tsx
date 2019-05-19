@@ -1,8 +1,8 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
-import Tracklists from '../pages/Tracklists';
-import Tracklist from '../pages/Tracklist';
+import TracklistsPage from '../pages/Tracklists';
+import TracklistPage from '../pages/Tracklist';
 
 import Header from './Header';
 
@@ -16,8 +16,8 @@ export default () => (
   <div class={css.page}>
     <Header />
     <Router>
-      <Tracklists path="/" />
-      <Tracklist path="/:id" />
+      <TracklistsPage path="/" />
+      <TracklistPage path="/:id" />
     </Router>
   </div>
 );

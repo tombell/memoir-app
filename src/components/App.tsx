@@ -1,6 +1,8 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
+import { fetchTracklists, fetchTracklist } from '../services/memoir';
+
 import TracklistsPage from '../pages/Tracklists';
 import TracklistPage from '../pages/Tracklist';
 
@@ -16,8 +18,8 @@ export default () => (
   <div class={css.page}>
     <Header />
     <Router>
-      <TracklistsPage path="/" />
-      <TracklistPage path="/:id" />
+      <TracklistsPage path="/" fetchTracklists={fetchTracklists} />
+      <TracklistPage path="/:id" fetchTracklist={fetchTracklist} />
     </Router>
   </div>
 );

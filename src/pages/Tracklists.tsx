@@ -1,16 +1,20 @@
 import { h, Component } from 'preact';
-import { Link } from 'preact-router';
+import { Link, RoutableProps } from 'preact-router';
 
-import { Tracklist, fetchTracklists } from '../services/memoir';
+import { Tracklist } from '../services/memoir';
+
+interface Props extends RoutableProps {
+  fetchTracklists(): Promise<Tracklist[] | null>;
+}
 
 interface State {
   isLoading: boolean;
   tracklists: Tracklist[] | null;
 }
 
-export default class TracklistsPage extends Component<any, State> {
-  constructor() {
-    super();
+export default class TracklistsPage extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
 
     this.state = {
       isLoading: false,
@@ -20,7 +24,10 @@ export default class TracklistsPage extends Component<any, State> {
 
   async componentWillMount() {
     this.setState({ isLoading: true });
+
+    const { fetchTracklists } = this.props;
     const tracklists = await fetchTracklists();
+
     this.setState({ isLoading: false, tracklists });
   }
 

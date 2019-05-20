@@ -1,4 +1,4 @@
-import { global, sheet } from '../services/nano';
+import { global, sheet } from '../utils/nano';
 
 global!({
   body: {

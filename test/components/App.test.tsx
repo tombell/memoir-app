@@ -13,6 +13,7 @@ const fetchTracklistStub = (id: string): Promise<Tracklist | null> => (
     id,
     name: 'Testing',
     date: '2019-05-19T00:00:00Z',
+    trackCount: 14,
   }))
 );
 

@@ -65,7 +65,7 @@ export default class TracklistPage extends Component<Props, State> {
     if (!tracklist) {
       return (
         <div>
-          <p>Could not load tracklist</p>
+          <p>Could not fetch tracklist</p>
         </div>
       );
     }

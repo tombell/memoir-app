@@ -2,15 +2,15 @@ import { sheet } from '../utils/nano';
 
 export default sheet!({
   container: {
-    'align-items': 'center',
+    alignItems: 'center',
     display: 'flex',
     margin: '0 0 12px 0',
   },
 
   number: {
-    'flex-basis': '10%',
-    'font-size': '10px',
-    'font-weight': 'bold',
+    flexBasis: '10%',
+    fontSize: '10px',
+    fontWeight: 'bold',
     opacity: 0.5,
   },
 
@@ -21,6 +21,6 @@ export default sheet!({
   tags: {
     display: 'flex',
     flex: 4,
-    'justify-content': 'flex-end',
+    justifyContent: 'flex-end',
   },
 }, 'track');

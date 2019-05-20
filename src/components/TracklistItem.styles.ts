@@ -3,15 +3,15 @@ import { sheet } from '../utils/nano';
 
 export default sheet!({
   item: {
-    'align-items': 'center',
+    alignItems: 'center',
     display: 'flex',
     margin: '0 0 15px 0',
   },
 
   date: {
-    'flex-basis': '10%',
-    'font-size': '10px',
-    'font-weight': 'bold',
+    flexBasis: '10%',
+    fontSize: '10px',
+    fontWeight: 'bold',
     opacity: 0.5,
   },
 
@@ -21,7 +21,7 @@ export default sheet!({
 
   link: {
     color: colors.primary,
-    'text-decoration': 'none',
+    textDecoration: 'none',
     ':hover': {
       color: colors.secondary,
     },
@@ -30,6 +30,6 @@ export default sheet!({
   tracks: {
     display: 'flex',
     flex: 1,
-    'justify-content': 'flex-end',
+    justifyContent: 'flex-end',
   },
 }, 'tracklist');

@@ -4,7 +4,7 @@ import { sheet } from '../utils/nano';
 export default sheet!({
   link: {
     color: colors.primary,
-    'text-decoration': 'none',
+    textDecoration: 'none',
     ':hover': {
       color: colors.secondary,
     },

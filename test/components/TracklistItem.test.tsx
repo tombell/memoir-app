@@ -6,13 +6,18 @@ import TracklistItem from '../../src/components/TracklistItem';
 
 test('renders tracklist item component', async t => {
   const tracklist = {
-    id: '1',
+    id: '4ee730f5-97a5-4d2a-b06e-32fcb518bbcb',
     name: 'Testing Tracklist 1',
     date: '2019-05-20T00:00:00Z',
   }
 
   const ctx = render(<TracklistItem tracklist={tracklist} />);
 
-  t.is(ctx.find('._tracklist-date').text(), '20/05/2019', 'has tracklist date');
-  t.is(ctx.find('._tracklist-name').text(), 'Testing Tracklist 1', 'has tracklist name')
+  t.is(ctx.find('._tracklist-date').text(), '20/05/2019', 'has tracklist date text');
+  t.is(ctx.find('._tracklist-name').text(), 'Testing Tracklist 1', 'has tracklist name text');
+
+  const link = ctx.find<any, {}>('._tracklist-link');
+
+  t.is(link.length, 1, 'has tracklist link');
+  t.is(link.attr('href'), '/4ee730f5-97a5-4d2a-b06e-32fcb518bbcb', 'has tracklist link href attr');
 });

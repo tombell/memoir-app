@@ -1,5 +1,4 @@
 import { h } from 'preact';
-import { Link } from 'preact-router';
 
 import { Tracklist } from '../services/memoir/types';
 
@@ -19,9 +18,9 @@ export default (props: { tracklist: Tracklist }) => {
       </div>
 
       <h3 class={styles.name}>
-        <Link class={styles.link} href={`/${tracklist.id}`}>
+        <a class={styles.link} href={`/${tracklist.id}`}>
           {tracklist.name}
-        </Link>
+        </a>
       </h3>
     </div>
   );

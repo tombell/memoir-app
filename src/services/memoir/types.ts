@@ -11,5 +11,6 @@ export interface Tracklist {
   id: string;
   name: string;
   date: string;
+  trackCount: number;
   tracks?: Track[];
 }

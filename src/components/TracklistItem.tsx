@@ -12,16 +12,20 @@ export default (props: { tracklist: Tracklist }) => {
   const { tracklist } = props;
 
   return (
-    <div class={styles.tracklist}>
+    <div class={styles.item}>
       <div class={styles.date}>
-        <Tag label={formatDate(tracklist.date)} />
+        <span>{formatDate(tracklist.date)}</span>
       </div>
 
-      <h3 class={styles.name}>
+      <div class={styles.name}>
         <a class={styles.link} href={`/${tracklist.id}`}>
           {tracklist.name}
         </a>
-      </h3>
+      </div>
+
+      <div class={styles.tracks}>
+        <Tag label={`${tracklist.trackCount} Tracks`} />
+      </div>
     </div>
   );
 };

@@ -1,34 +1,34 @@
 import { sheet } from '../services/nano';
 
 export default sheet!({
-  tracklist: {
-    display: 'grid',
-    'grid-template-columns': 'auto auto',
-    'flex-grow': 1,
-    'justify-content': 'left',
-    padding: '2px',
-    width: '40%',
+  item: {
+    'align-items': 'center',
+    display: 'flex',
+    margin: '0 0 15px 0',
+  },
+
+  date: {
+    'flex-basis': '10%',
+    'font-size': '10px',
+    'font-weight': 'bold',
+    opacity: 0.5,
   },
 
   name: {
+    flex: 3,
   },
 
   link: {
     color: '#e8dcd8',
     'text-decoration': 'none',
     ':hover': {
-      color: '#e96467',
+      color: '#4789ff',
     },
   },
 
-  date: {
+  tracks: {
     display: 'flex',
-    'align-items': 'center',
-    'margin-left': 'auto',
-
-    span: {
-      'min-width': '70px',
-      'text-align': 'center',
-    }
+    flex: 1,
+    'justify-content': 'flex-end',
   },
 }, 'tracklist');

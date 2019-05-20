@@ -2,7 +2,7 @@ import { sheet } from '../services/nano';
 
 export default sheet!({
   label: {
-    background: '#424e2a',
+    background: '#4789ff',
     'border-radius': '3px',
     color: '#e8dcd8',
     'font-size': '11px',

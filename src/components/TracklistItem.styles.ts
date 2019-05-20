@@ -1,3 +1,4 @@
+import colors from '../utils/colors';
 import { sheet } from '../utils/nano';
 
 export default sheet!({
@@ -19,10 +20,10 @@ export default sheet!({
   },
 
   link: {
-    color: '#e8dcd8',
+    color: colors.primary,
     'text-decoration': 'none',
     ':hover': {
-      color: '#4789ff',
+      color: colors.secondary,
     },
   },
 

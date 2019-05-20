@@ -1,10 +1,11 @@
+import colors from '../utils/colors';
 import { sheet } from '../utils/nano';
 
 export default sheet!({
   label: {
-    background: '#4789ff',
+    background: colors.secondary,
     'border-radius': '3px',
-    color: '#e8dcd8',
+    color: colors.primary,
     'font-size': '11px',
     'font-weight': 'bold',
     margin: '0 5px 0 0',

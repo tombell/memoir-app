@@ -17,7 +17,7 @@ export default (props: Props) => {
   return (
     <div class={styles.container}>
       <div class={styles.number}>
-        <span>#{trackNumber}</span>
+        <span>{`#${trackNumber}`}</span>
       </div>
 
       <span class={styles.details}>

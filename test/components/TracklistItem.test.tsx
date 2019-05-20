@@ -10,7 +10,7 @@ test('renders tracklist item component', async t => {
     name: 'Testing Tracklist 1',
     date: '2019-05-20T00:00:00Z',
     trackCount: 3,
-  }
+  };
 
   const ctx = render(<TracklistItem tracklist={tracklist} />);
 

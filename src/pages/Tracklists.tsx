@@ -17,11 +17,7 @@ interface State {
 export default class TracklistsPage extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-
-    this.state = {
-      isLoading: false,
-      tracklists: null,
-    };
+    this.state = { isLoading: false, tracklists: null };
   }
 
   async componentWillMount() {
@@ -54,10 +50,6 @@ export default class TracklistsPage extends Component<Props, State> {
       );
     }
 
-    return (
-      <div>
-        {this.renderTracklists()}
-      </div>
-    );
+    return <div>{this.renderTracklists()}</div>;
   }
 }

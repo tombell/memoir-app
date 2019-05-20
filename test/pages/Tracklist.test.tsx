@@ -4,9 +4,9 @@ import test from 'ava';
 
 import TracklistPage from '../../src/pages/Tracklist';
 
-import { Tracklist } from '../../src/services/memoir/types';
+import { FetchTracklist } from '../../src/services/memoir/types';
 
-const fetchTracklistStub = (id: string): Promise<Tracklist | null> => (
+const fetchTracklistStub: FetchTracklist = (id) => (
   new Promise(resolve => resolve({
     id,
     name: 'Testing',

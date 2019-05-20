@@ -4,9 +4,9 @@ import test from 'ava';
 
 import TracklistsPage from '../../src/pages/Tracklists';
 
-import { Tracklist } from '../../src/services/memoir/types';
+import { FetchTracklists } from '../../src/services/memoir/types';
 
-const fetchTracklistsStub = (): Promise<Tracklist[] | null> => new Promise(resolve => resolve([]));
+const fetchTracklistsStub: FetchTracklists = () => new Promise(resolve => resolve([]));
 
 test('renders tracklists component', async t => {
   const ctx = render(<TracklistsPage fetchTracklists={fetchTracklistsStub} />);

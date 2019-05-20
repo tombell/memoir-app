@@ -1,12 +1,12 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist } from '../services/memoir/types';
+import { Tracklist, FetchTracklists } from '../services/memoir/types';
 
 import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
-  fetchTracklists(): Promise<Tracklist[] | null>;
+  fetchTracklists: FetchTracklists;
 }
 
 interface State {

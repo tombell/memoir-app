@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist, Track } from '../services/memoir/types';
+import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 
 import Tag from '../components/Tag';
 import TrackItem from '../components/TrackItem';
@@ -10,7 +10,7 @@ import styles from './Tracklist.styles';
 
 interface Props extends RoutableProps {
   id?: string;
-  fetchTracklist(id: string): Promise<Tracklist | null>;
+  fetchTracklist: FetchTracklist;
 }
 
 interface State {

@@ -14,3 +14,7 @@ export interface Tracklist {
   trackCount: number;
   tracks?: Track[];
 }
+
+export type FetchTracklists = () => Promise<Tracklist[] | null>;
+
+export type FetchTracklist = (id: string) => Promise<Tracklist | null>;

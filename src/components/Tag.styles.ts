@@ -5,7 +5,7 @@ export default sheet!({
   label: {
     background: colors.secondary,
     'border-radius': '3px',
-    color: colors.primary,
+    color: '#fff',
     'font-size': '11px',
     'font-weight': 'bold',
     margin: '0 5px 0 0',

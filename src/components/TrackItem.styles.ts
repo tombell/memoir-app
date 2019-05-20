@@ -8,7 +8,7 @@ export default sheet!({
   },
 
   number: {
-    flex: 1,
+    'flex-basis': '10%',
     'font-size': '10px',
     'font-weight': 'bold',
     opacity: 0.5,

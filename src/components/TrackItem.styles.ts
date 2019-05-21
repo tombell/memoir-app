@@ -16,6 +16,7 @@ export default sheet!({
 
   details: {
     flex: 10,
+    padding: '0 0 0 5px',
   },
 
   tags: {

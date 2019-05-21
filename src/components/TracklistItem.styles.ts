@@ -17,6 +17,7 @@ export default sheet!({
 
   name: {
     flex: 3,
+    padding: '0 0 0 5px',
   },
 
   link: {

@@ -1,10 +1,16 @@
+import queries from '../utils/media-queries';
 import { sheet } from '../utils/nano';
 
 export default sheet!({
   container: {
     alignItems: 'center',
     display: 'flex',
+    flexWrap: 'wrap-reverse',
     margin: '0 0 12px 0',
+
+    [queries.mobile]: {
+      margin: '0 0 20px 0',
+    },
   },
 
   number: {
@@ -22,6 +28,13 @@ export default sheet!({
   tags: {
     display: 'flex',
     flex: 4,
+    flexWrap: 'wrap',
     justifyContent: 'flex-end',
+
+    [queries.mobile]: {
+      flexBasis: '100%',
+      justifyContent: 'flex-start',
+      margin: '5px 0 0 0',
+    },
   },
 }, 'track');

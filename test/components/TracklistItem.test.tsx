@@ -14,10 +14,10 @@ test('renders tracklist item component', async t => {
 
   const ctx = render(<TracklistItem tracklist={tracklist} />);
 
-  t.is(ctx.find('._tracklist-date').text(), '20/05/2019', 'has tracklist date text');
-  t.is(ctx.find('._tracklist-name').text(), 'Testing Tracklist 1', 'has tracklist name text');
+  t.is(ctx.find('.tracklist-item-date').text(), '20/05/2019', 'has tracklist date text');
+  t.is(ctx.find('.tracklist-item-name').text(), 'Testing Tracklist 1', 'has tracklist name text');
 
-  const link = ctx.find<any, {}>('._tracklist-link');
+  const link = ctx.find<any, {}>('.tracklist-item-link');
 
   t.is(link.length, 1, 'has tracklist link');
   t.is(link.attr('href'), '/4ee730f5-97a5-4d2a-b06e-32fcb518bbcb', 'has tracklist link href attr');

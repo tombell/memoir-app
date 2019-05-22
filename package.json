@@ -1,17 +1,6 @@
 {
   "name": "memoir-app",
   "private": true,
-  "ava": {
-    "compileEnhancements": false,
-    "extensions": [
-      "ts",
-      "tsx"
-    ],
-    "require": [
-      "ts-node/register",
-      "./test/helpers/setup-env"
-    ]
-  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "ava": "^1.4.1",

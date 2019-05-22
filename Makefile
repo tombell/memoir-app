@@ -1,7 +1,7 @@
 all: dev
 
 dev:
-	@npx rollup -c -w
+	@BUILD=development npx rollup -c -w
 
 dist:
 	@npx sass src/styles/app.scss public/app.css
@@ -17,10 +17,7 @@ lint:
 test:
 	@npx ava
 
-serve:
-	@npx serve -s public
-
 clean:
-	@rm -fr public/app.min.* .rpt2_cache
+	@rm -fr public/app.* .rpt2_cache
 
-.PHONY: all dev dist lint test serve clean
+.PHONY: all dev dist css lint test clean

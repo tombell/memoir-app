@@ -15,7 +15,7 @@ const config = {
 export default {
   input: 'src/index.tsx',
   output: {
-    file: 'public/app.min.js',
+    file: 'public/app.js',
     format: 'iife',
     sourcemap: true,
   },

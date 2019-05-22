@@ -63,7 +63,8 @@ typings/
 # rollup-plugin-typescript2 cache directory
 .rpt2_cache
 
-app.min.js
-app.min.js.map
+# built assets in the public directory
 app.css
 app.css.map
+app.js
+app.js.map

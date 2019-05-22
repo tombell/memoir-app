@@ -65,3 +65,5 @@ typings/
 
 app.min.js
 app.min.js.map
+app.css
+app.css.map

@@ -4,7 +4,7 @@ dev:
 	@BUILD=development npx rollup -c -w
 
 dist:
-	@npx sass src/styles/app.scss public/app.css
+	@npx sass -s compressed src/styles/app.scss public/app.css
 	@BUILD=production npx rollup -c
 
 css:

@@ -6,8 +6,6 @@ import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 import Tag from '../components/Tag';
 import TrackItem from '../components/TrackItem';
 
-import styles from './Tracklist.styles';
-
 interface Props extends RoutableProps {
   id?: string;
   fetchTracklist: FetchTracklist;
@@ -40,7 +38,11 @@ export default class TracklistPage extends Component<Props, State> {
 
     const genres = [...new Set(tracks.map((track: Track) => track.genre))];
 
-    return genres.map(genre => <Tag label={genre} />);
+    return (
+      <div>
+        {genres.map(genre => <Tag label={genre} />)}
+      </div>
+    );
   }
 
   static renderTracks(tracks?: Track[]) {
@@ -73,9 +75,7 @@ export default class TracklistPage extends Component<Props, State> {
     return (
       <div>
         <h3>{tracklist.name}</h3>
-        <div class={styles.genres}>
-          {TracklistPage.renderGenreTags(tracklist.tracks)}
-        </div>
+        {TracklistPage.renderGenreTags(tracklist.tracks)}
         {TracklistPage.renderTracks(tracklist.tracks)}
       </div>
     );

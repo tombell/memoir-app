@@ -8,8 +8,6 @@ import TracklistPage from '../pages/Tracklist';
 
 import Header from './Header';
 
-import styles from './App.styles';
-
 interface Props {
   fetchTracklists: FetchTracklists;
   fetchTracklist: FetchTracklist;
@@ -19,8 +17,8 @@ export default (props: Props) => {
   const { fetchTracklist, fetchTracklists } = props;
 
   return (
-    <div class={styles.container}>
-      <div class={styles.column}>
+    <div class="page-container">
+      <div class="page-column">
         <Header />
         <Router>
           <TracklistsPage path="/" fetchTracklists={fetchTracklists} />

@@ -34,7 +34,6 @@
     "undom": "^0.4.0"
   },
   "dependencies": {
-    "nano-css": "^5.1.0",
     "preact": "^8.4.2",
     "preact-router": "^2.6.1"
   }

@@ -3,7 +3,7 @@ import { RoutableProps } from 'preact-router';
 
 import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 
-import Tag from '../components/Tag';
+import GenreList from '../components/GenreList';
 import TrackItem from '../components/TrackItem';
 
 interface Props extends RoutableProps {
@@ -38,11 +38,7 @@ export default class TracklistPage extends Component<Props, State> {
 
     const genres = [...new Set(tracks.map((track: Track) => track.genre))];
 
-    return (
-      <div>
-        {genres.map(genre => <Tag label={genre} />)}
-      </div>
-    );
+    return <GenreList genres={genres} />;
   }
 
   static renderTracks(tracks?: Track[]) {

@@ -69,10 +69,15 @@ export default class TracklistPage extends Component<Props, State> {
     }
 
     return (
-      <div>
-        <h3>{tracklist.name}</h3>
-        {TracklistPage.renderGenreTags(tracklist.tracks)}
-        {TracklistPage.renderTracks(tracklist.tracks)}
+      <div class="tracklist">
+        <h2 class="tracklist-header">{tracklist.name}</h2>
+        <div class="tracklist-genres">
+          {TracklistPage.renderGenreTags(tracklist.tracks)}
+        </div>
+
+        <div class="tracklist-tracks">
+          {TracklistPage.renderTracks(tracklist.tracks)}
+        </div>
       </div>
     );
   }

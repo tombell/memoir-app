@@ -18,13 +18,15 @@ export default (props: Props) => {
         <span>{`#${trackNumber}`}</span>
       </div>
 
-      <span class="track-item-details">
-        {`${track.artist} - ${track.name}`}
-      </span>
+      <div class="track-item-details">
+        <div class="track-item-name">
+          {`${track.artist} - ${track.name}`}
+        </div>
 
-      <div class="track-item-tags">
-        <Tag label={track.genre} />
-        <Tag label={track.bpm} />
+        <div class="track-item-tags">
+          <Tag label={track.genre} />
+          <Tag label={track.bpm} />
+        </div>
       </div>
     </div>
   );

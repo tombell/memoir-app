@@ -1,37 +1,45 @@
 .track-item {
   align-items: center;
   display: flex;
-  flex-wrap: wrap-reverse;
   margin: 0 0 12px 0;
 
+  @include phone {
+    margin: 0 0 20px 0;
+  }
+
   .track-item-number {
-    flex-basis: 10%;
+    flex: 1;
     font-size: 10px;
     font-weight: bold;
     color: $grey-1;
   }
 
   .track-item-details {
-    flex: 10;
-    padding: 0 0 0 5px;
-  }
-
-  .track-item-tags {
+    align-items: center;
     display: flex;
-    flex: 4;
+    flex: 9;
     flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-}
+    padding: 0 0 0 5px;
 
-@media screen and (min-width: 320px) {
-  .track-item {
-    margin: 0 0 20px 0;
+    .track-item-name {
+      flex: 5;
+
+      @include phone {
+        flex-basis: 100%;
+      }
+    }
 
     .track-item-tags {
-      flex-basis: 100%;
-      justify-content: flex-start;
-      margin: 5px 0 0 0;
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+
+      @include phone {
+        flex-basis: 100%;
+        justify-content: flex-start;
+        margin: 5px 0 0 0;
+      }
     }
   }
 }

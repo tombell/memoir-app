@@ -1,10 +1,10 @@
 module.exports = {
   ignoreFiles: ['**/reset.scss'],
-  extends: ['stylelint-config-standard'],
-  plugins: [
-    'stylelint-order',
-    'stylelint-scss',
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-recommended-scss',
   ],
+  plugins: ['stylelint-order'],
   rules: {
     'order/properties-order': [
       'position',

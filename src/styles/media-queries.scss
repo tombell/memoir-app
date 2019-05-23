@@ -1,0 +1,5 @@
+@mixin phone {
+  @media only screen and (max-device-width: 812px) {
+    @content;
+  }
+}

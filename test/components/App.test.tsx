@@ -26,6 +26,5 @@ test('renders app component', async t => {
   const ctx = render(<App {...props} />);
 
   t.is(ctx.find('div').exists(), true, 'has parent container');
-  t.is(ctx.find('h1').exists(), true, 'has top-level header');
-  t.is(ctx.find('h1').text(), 'Memoir', 'has top-level header text');
+  t.is(ctx.find('.header').exists(), true, 'has top-level header');
 });

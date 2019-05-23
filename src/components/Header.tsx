@@ -1,7 +1,9 @@
 import { h } from 'preact';
 
 export default () => (
-  <h1>
-    <a class="header-link" href="/">Memoir</a>
-  </h1>
+  <header class="header">
+    <a class="header-link" href="/">
+      <img class="header-logo" src="/images/logo.svg" alt="Memoir" />
+    </a>
+  </header>
 );

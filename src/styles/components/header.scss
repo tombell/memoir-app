@@ -1,8 +1,12 @@
-.header-link {
-  color: $primary-color;
-  text-decoration: none;
+.header {
+  width: 120px;
+  margin: 1em auto 4em;
 
-  &:hover {
-    color: $secondary-color;
+  @include phone {
+    margin: 1em auto 2em;
+  }
+
+  .header-logo {
+    width: 120px;
   }
 }

@@ -12,6 +12,11 @@
     font-size: 10px;
     font-weight: bold;
     color: $grey-1;
+
+    @include phone {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .track-item-details {
@@ -23,6 +28,7 @@
 
     .track-item-name {
       flex: 5;
+      margin: 0 0 5px 0;
 
       @include phone {
         flex-basis: 100%;

@@ -1,6 +1,6 @@
 # Memoir App
 
-The [preact][preact] based application for [Memoir][memoir].
+A [Preact][preact] based front-end application for [Memoir][memoir].
 
 [preact]: https://github.com/developit/preact
 [memoir]: https://github.com/tombell/memoir

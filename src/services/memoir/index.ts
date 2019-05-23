@@ -27,7 +27,7 @@ export async function fetchTracklist(id: string) {
   }
 }
 
-export async function fetchTracklistsByTrackId(id: string) {
+export async function fetchTracklistsByTrack(id: string) {
   try {
     const tracklists: Tracklist[] = await apiRequest(`/tracks/${id}/tracklists`);
     return tracklists;

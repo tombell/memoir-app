@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { render } from 'preact-render-spy';
 import test from 'ava';
 
-import { FetchTracklists, FetchTracklist, FetchTracklistsByTrackId } from '../../src/services/memoir/types';
+import { FetchTracklists, FetchTracklist, FetchTracklistsByTrack } from '../../src/services/memoir/types';
 
 import App from '../../src/components/App';
 
@@ -17,7 +17,7 @@ const fetchTracklistStub: FetchTracklist = (id: string) => (
   }))
 );
 
-const fetchTracklistsByTrackIdStub: FetchTracklistsByTrackId = () => (
+const fetchTracklistsByTrackStub: FetchTracklistsByTrack = () => (
   new Promise(resolve => resolve([]))
 );
 
@@ -25,7 +25,7 @@ test('renders app component', async t => {
   const props = {
     fetchTracklist: fetchTracklistStub,
     fetchTracklists: fetchTracklistsStub,
-    fetchTracklistsByTrackId: fetchTracklistsByTrackIdStub,
+    fetchTracklistsByTrack: fetchTracklistsByTrackStub,
   };
 
   const ctx = render(<App {...props} />);

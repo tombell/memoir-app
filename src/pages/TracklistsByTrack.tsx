@@ -1,13 +1,13 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist, FetchTracklistsByTrackId } from '../services/memoir/types';
+import { Tracklist, FetchTracklistsByTrack } from '../services/memoir/types';
 
 import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
   id?: string;
-  fetchTracklistsByTrackId: FetchTracklistsByTrackId;
+  fetchTracklistsByTrack: FetchTracklistsByTrack;
 }
 
 interface State {
@@ -24,8 +24,8 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
   async componentWillMount() {
     this.setState({ isLoading: true });
 
-    const { id, fetchTracklistsByTrackId } = this.props;
-    const tracklists = await fetchTracklistsByTrackId(id!);
+    const { id, fetchTracklistsByTrack } = this.props;
+    const tracklists = await fetchTracklistsByTrack(id!);
 
     this.setState({ isLoading: false, tracklists });
   }

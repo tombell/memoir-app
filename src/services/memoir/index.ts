@@ -26,3 +26,12 @@ export async function fetchTracklist(id: string) {
     return null;
   }
 }
+
+export async function fetchTracklistsByTrackId(id: string) {
+  try {
+    const tracklists: Tracklist[] = await apiRequest(`/tracks/${id}/tracklists`);
+    return tracklists;
+  } catch {
+    return null;
+  }
+}

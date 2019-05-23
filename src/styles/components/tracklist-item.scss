@@ -1,32 +1,50 @@
 .tracklist-item {
   align-items: center;
   display: flex;
-  margin: 0 0 15px 0;
+  flex-wrap: wrap;
+  margin: 0 0 12px 0;
+
+  @include phone {
+    margin: 0 0 20px 0;
+  }
 
   .tracklist-item-date {
-    flex-basis: 10%;
+    flex: 2;
     font-size: 10px;
     font-weight: bold;
     color: $grey-1;
-  }
 
-  .tracklist-item-name {
-    flex: 3;
-    padding: 0 0 0 5px;
-
-    .tracklist-item-link {
-      color: $primary-color;
-      text-decoration: none;
-
-      &:hover {
-        color: $secondary-color;
-      }
+    @include phone {
+      display: flex;
+      justify-content: center;
     }
   }
 
-  .tracklist-item-tracks {
+  .tracklist-item-details {
+    align-items: center;
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
+    flex: 8;
+    flex-wrap: wrap;
+
+    .tracklist-item-name {
+      flex: 5;
+      margin: 0 0 5px 0;
+
+      @include phone {
+        flex-basis: 100%;
+      }
+    }
+
+    .tracklist-item-tracks {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+
+      @include phone {
+        flex-basis: 100%;
+        justify-content: flex-start;
+        margin: 5px 0 0 0;
+      }
+    }
   }
 }

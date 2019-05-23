@@ -10,20 +10,22 @@ export default (props: { tracklist: Tracklist }) => {
   const { tracklist } = props;
 
   return (
-    <div class="tracklist-item">
-      <div class="tracklist-item-date">
-        <span>{formatDate(tracklist.date)}</span>
-      </div>
+    <a class="tracklist-item-link" href={`/${tracklist.id}`}>
+      <div class="tracklist-item">
+        <div class="tracklist-item-date">
+          <span>{formatDate(tracklist.date)}</span>
+        </div>
 
-      <div class="tracklist-item-name">
-        <a class="tracklist-item-link" href={`/${tracklist.id}`}>
-          {tracklist.name}
-        </a>
-      </div>
+        <div class="tracklist-item-details">
+          <div class="tracklist-item-name">
+            {tracklist.name}
+          </div>
 
-      <div class="tracklist-item-tracks">
-        <Tag label={`${tracklist.trackCount} Tracks`} />
+          <div class="tracklist-item-tracks">
+            <Tag label={`${tracklist.trackCount} Tracks`} />
+          </div>
+        </div>
       </div>
-    </div>
+    </a>
   );
 };

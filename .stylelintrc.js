@@ -1,9 +1,6 @@
 module.exports = {
   ignoreFiles: ['**/reset.scss'],
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-recommended-scss',
-  ],
+  extends: ['stylelint-config-standard-scss'],
   plugins: ['stylelint-order'],
   rules: {
     'order/properties-order': [

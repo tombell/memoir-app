@@ -1,54 +1,32 @@
 .track-item {
   align-items: center;
   display: flex;
-  margin: 0 0 12px 0;
-
-  @include phone {
-    margin: 0 0 20px 0;
-  }
+  margin: 0 0 20px 0;
 
   .track-item-number {
     flex: 1;
     display: flex;
-    padding: 0 12px 0 0;
+    padding: 0 8px 0 0;
     font-size: 10px;
     font-weight: bold;
     color: $grey-1;
     justify-content: flex-end;
-
-    @include phone {
-      display: flex;
-      justify-content: center;
-    }
   }
 
   .track-item-details {
     align-items: center;
     display: flex;
-    flex: 15;
+    flex: 12;
     flex-wrap: wrap;
 
     .track-item-name {
-      flex: 4;
+      flex-basis: 100%;
       margin: 0 0 5px 0;
       font-weight: bold;
-
-      @include phone {
-        flex-basis: 100%;
-      }
     }
 
     .track-item-tags {
-      flex: 2;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-
-      @include phone {
-        flex-basis: 100%;
-        justify-content: flex-start;
-        margin: 5px 0 0 0;
-      }
+      flex-basis: 100%;
     }
   }
 }

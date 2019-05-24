@@ -3,6 +3,7 @@ import { RoutableProps } from 'preact-router';
 
 import { Tracklist, FetchTracklists } from '../services/memoir/types';
 
+import LoadingSpinner from '../components/LoadingSpinner';
 import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
@@ -46,6 +47,7 @@ export default class TracklistsPage extends Component<Props, State> {
       // TODO: add timeout to only show loading >2 seconds waiting.
       return (
         <div>
+          <LoadingSpinner />
           <p>Loading...</p>
         </div>
       );

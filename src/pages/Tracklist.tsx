@@ -4,8 +4,9 @@ import { RoutableProps } from 'preact-router';
 import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 
 import GenreList from '../components/GenreList';
-import TrackItem from '../components/TrackItem';
+import LoadingSpinner from '../components/LoadingSpinner';
 import NotFound from '../components/NotFound';
+import TrackItem from '../components/TrackItem';
 
 interface Props extends RoutableProps {
   id?: string;
@@ -56,6 +57,7 @@ export default class TracklistPage extends Component<Props, State> {
     if (isLoading) {
       return (
         <div>
+          <LoadingSpinner />
           <p>Loading...</p>
         </div>
       );

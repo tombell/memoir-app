@@ -40,14 +40,23 @@ export default class TracklistsPage extends Component<Props, State> {
   }
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, tracklists } = this.state;
 
     if (isLoading) {
+      // TODO: add timeout to only show loading >2 seconds waiting.
       return (
         <div>
           <p>Loading...</p>
         </div>
       );
+    }
+
+    if (!tracklists) {
+      // TODO: error getting tracklists.
+    }
+
+    if (tracklists && tracklists.length === 0) {
+      // TODO: no tracklists found.
     }
 
     return <div>{this.renderTracklists()}</div>;

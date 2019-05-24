@@ -1,7 +1,11 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
-import { FetchTracklists, FetchTracklist, FetchTracklistsByTrack } from '../services/memoir/types';
+import {
+  FetchTracklists,
+  FetchTracklist,
+  FetchTracklistsByTrack,
+} from '../services/memoir/types';
 
 import TracklistsPage from '../pages/Tracklists';
 import TracklistPage from '../pages/Tracklist';
@@ -25,7 +29,10 @@ export default (props: Props) => {
         <Router>
           <TracklistsPage path="/" fetchTracklists={fetchTracklists} />
           <TracklistPage path="/:id" fetchTracklist={fetchTracklist} />
-          <TracklistsByTrack path="/track/:id" fetchTracklistsByTrack={fetchTracklistsByTrack} />
+          <TracklistsByTrack
+            path="/track/:id"
+            fetchTracklistsByTrack={fetchTracklistsByTrack}
+          />
         </Router>
       </div>
     </div>

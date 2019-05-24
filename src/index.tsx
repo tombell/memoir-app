@@ -1,6 +1,10 @@
 import { h, render } from 'preact';
 
-import { fetchTracklists, fetchTracklist, fetchTracklistsByTrack } from './services/memoir';
+import {
+  fetchTracklists,
+  fetchTracklist,
+  fetchTracklistsByTrack,
+} from './services/memoir';
 
 import App from './components/App';
 

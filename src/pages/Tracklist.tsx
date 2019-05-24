@@ -48,7 +48,9 @@ export default class TracklistPage extends Component<Props, State> {
       return null;
     }
 
-    return tracks.map((track, i) => <TrackItem trackNumber={i + 1} track={track} />);
+    return tracks.map((track, i) => (
+      <TrackItem trackNumber={i + 1} track={track} />
+    ));
   }
 
   render() {
@@ -64,7 +66,9 @@ export default class TracklistPage extends Component<Props, State> {
     }
 
     if (!tracklist) {
-      return <NotFound text="The tracklist you're looking for cannot be found" />;
+      return (
+        <NotFound text="The tracklist you're looking for cannot be found" />
+      );
     }
 
     return (

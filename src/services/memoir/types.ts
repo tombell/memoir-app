@@ -19,4 +19,6 @@ export type FetchTracklists = () => Promise<Tracklist[] | null>;
 
 export type FetchTracklist = (id: string) => Promise<Tracklist | null>;
 
-export type FetchTracklistsByTrack = (id: string) => Promise<Tracklist[] | null>;
+export type FetchTracklistsByTrack = (
+  id: string,
+) => Promise<Tracklist[] | null>;

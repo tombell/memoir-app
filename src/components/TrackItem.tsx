@@ -20,9 +20,7 @@ export default (props: Props) => {
 
       <div class="track-item-details">
         <div class="track-item-name">
-          <a href={`/track/${track.id}`}>
-            {`${track.artist} - ${track.name}`}
-          </a>
+          <a href={`/track/${track.id}`}>{`${track.artist} - ${track.name}`}</a>
         </div>
 
         <div class="track-item-tags">

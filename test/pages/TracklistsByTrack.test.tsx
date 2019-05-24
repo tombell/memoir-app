@@ -7,9 +7,12 @@ import TracklistsByTrack from '../../src/pages/TracklistsByTrack';
 import { FetchTracklistsByTrack } from '../../src/services/memoir/types';
 
 test('renders empty tracklists by track component', async t => {
-  const fetchStub: FetchTracklistsByTrack = () => new Promise(resolve => resolve([]));
+  const fetchStub: FetchTracklistsByTrack = () =>
+    new Promise(resolve => resolve([]));
 
-  const ctx = render(<TracklistsByTrack id="1" fetchTracklistsByTrack={fetchStub} />);
+  const ctx = render(
+    <TracklistsByTrack id="1" fetchTracklistsByTrack={fetchStub} />,
+  );
 
   // TODO: implement proper tests
 

@@ -11,6 +11,7 @@ css:
 	@npx sass --watch src/styles/app.scss public/app.css
 
 lint:
+	@npx prettier --loglevel=warn --write src/**/*.{ts,tsx} test/**/*.{js,ts,tax}
 	@npx stylelint src/styles/**
 	@npx eslint --ext .js,.jsx,.ts,.tsx src test
 

@@ -1,6 +1,6 @@
 /* global MEMOIR_API_URL */
 
-import { Tracklist } from './types';
+import { Tracklist, Track } from './types';
 
 const URL = MEMOIR_API_URL;
 
@@ -32,8 +32,16 @@ export async function fetchTracklistsByTrack(id: string) {
   try {
     const url = `/tracks/${id}/tracklists`;
     const tracklists: Tracklist[] = await apiRequest(url);
-
     return tracklists;
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchMostPlayedTracks() {
+  try {
+    const tracks: Track[] = await apiRequest('/tracks/mostplayed');
+    return tracks;
   } catch {
     return null;
   }

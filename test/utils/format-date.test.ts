@@ -8,6 +8,7 @@ test('formats dates', async t => {
     '22/05/2019',
     'date with padded zeroes'
   );
+
   t.is(
     formatDate('2020-12-25T00:00:00Z'),
     '25/12/2020',

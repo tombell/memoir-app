@@ -14,7 +14,7 @@ test('renders tracklist page component', async t => {
         name: 'Testing',
         date: '2019-05-19T00:00:00Z',
         trackCount: 19,
-      }),
+      })
     );
 
   const ctx = render(<TracklistPage id="1" fetchTracklist={fetchStub} />);

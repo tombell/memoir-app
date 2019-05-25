@@ -11,7 +11,7 @@ test('renders empty tracklists by track page component', async t => {
     new Promise(resolve => resolve([]));
 
   const ctx = render(
-    <TracklistsByTrack id="1" fetchTracklistsByTrack={fetchStub} />,
+    <TracklistsByTrack id="1" fetchTracklistsByTrack={fetchStub} />
   );
 
   // TODO: implement proper tests

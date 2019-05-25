@@ -6,7 +6,7 @@ import TracklistsByTrack from '../../src/pages/TracklistsByTrack';
 
 import { FetchTracklistsByTrack } from '../../src/services/memoir/types';
 
-test('renders empty tracklists by track component', async t => {
+test('renders empty tracklists by track page component', async t => {
   const fetchStub: FetchTracklistsByTrack = () =>
     new Promise(resolve => resolve([]));
 

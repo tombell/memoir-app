@@ -6,7 +6,7 @@ import TracklistPage from '../../src/pages/Tracklist';
 
 import { FetchTracklist } from '../../src/services/memoir/types';
 
-test('renders tracklist component', async t => {
+test('renders tracklist page component', async t => {
   const fetchStub: FetchTracklist = id =>
     new Promise(resolve =>
       resolve({

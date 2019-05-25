@@ -6,7 +6,7 @@ import TracklistsPage from '../../src/pages/Tracklists';
 
 import { FetchTracklists } from '../../src/services/memoir/types';
 
-test('renders empty tracklists component', async t => {
+test('renders empty tracklists page component', async t => {
   const fetchStub: FetchTracklists = () => new Promise(resolve => resolve([]));
 
   const ctx = render(<TracklistsPage fetchTracklists={fetchStub} />);

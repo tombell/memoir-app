@@ -10,7 +10,7 @@ export default (props: { tracklist: Tracklist }) => {
   const { tracklist } = props;
 
   return (
-    <a class="tracklist-item-link" href={`/${tracklist.id}`}>
+    <a class="tracklist-item-link" href={`/tracklist/${tracklist.id}`}>
       <div class="tracklist-item">
         <div class="tracklist-item-date">
           <span>{formatDate(tracklist.date)}</span>

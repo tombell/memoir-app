@@ -14,6 +14,7 @@ import TracklistsByTrack from '../pages/TracklistsByTrack';
 import TracklistsPage from '../pages/Tracklists';
 
 import Header from './Header';
+import Redirect from './Redirect';
 
 interface Props {
   fetchTracklists: FetchTracklists;
@@ -35,8 +36,15 @@ export default (props: Props) => {
       <div class="page-column">
         <Header />
         <Router>
-          <TracklistsPage path="/" fetchTracklists={fetchTracklists} />
-          <TracklistPage path="/:id" fetchTracklist={fetchTracklist} />
+          <Redirect path="/" to="/tracklists/1" />
+          <TracklistsPage
+            path="/tracklists/:page"
+            fetchTracklists={fetchTracklists}
+          />
+          <TracklistPage
+            path="/tracklist/:id"
+            fetchTracklist={fetchTracklist}
+          />
           <TracklistsByTrack
             path="/track/:id"
             fetchTracklistsByTrack={fetchTracklistsByTrack}

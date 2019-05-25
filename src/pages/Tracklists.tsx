@@ -14,12 +14,13 @@ interface Props extends RoutableProps {
 interface State {
   isLoading: boolean;
   tracklists: Tracklist[] | null;
+  hasMore: boolean;
 }
 
 export default class TracklistsPage extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { isLoading: false, tracklists: null };
+    this.state = { isLoading: false, tracklists: null, hasMore: false };
   }
 
   async componentWillMount() {
@@ -27,9 +28,11 @@ export default class TracklistsPage extends Component<Props, State> {
 
     const { page, fetchTracklists } = this.props;
 
-    const tracklists = await fetchTracklists(page || 1);
+    const paged = await fetchTracklists(page || 1);
 
-    this.setState({ isLoading: false, tracklists });
+    if (paged) {
+      this.setState({ isLoading: false, ...paged });
+    }
   }
 
   renderTracklists() {
@@ -43,7 +46,7 @@ export default class TracklistsPage extends Component<Props, State> {
   }
 
   render() {
-    const { isLoading, tracklists } = this.state;
+    const { isLoading, tracklists, hasMore } = this.state;
 
     if (isLoading) {
       // TODO: add timeout to only show loading >2 seconds waiting.
@@ -63,6 +66,11 @@ export default class TracklistsPage extends Component<Props, State> {
       // TODO: no tracklists found.
     }
 
-    return <div>{this.renderTracklists()}</div>;
+    return (
+      <div>
+        {this.renderTracklists()}
+        {hasMore && <p>HAS MORE!</p>}
+      </div>
+    );
   }
 }

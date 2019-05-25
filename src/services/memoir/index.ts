@@ -1,6 +1,6 @@
 /* global MEMOIR_API_URL */
 
-import { Tracklist, Track } from './types';
+import { Tracklist, Track, PagedTracklists } from './types';
 
 const URL = MEMOIR_API_URL;
 
@@ -12,7 +12,8 @@ export async function apiRequest(endpoint: string) {
 
 export async function fetchTracklists(page: number = 1) {
   try {
-    const tracklists: Tracklist[] = await apiRequest(`/tracklists?page=${page}`);
+    const url = `/tracklists?page=${page}`;
+    const tracklists: PagedTracklists = await apiRequest(url);
     return tracklists;
   } catch {
     return null;

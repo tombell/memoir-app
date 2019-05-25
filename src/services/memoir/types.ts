@@ -15,12 +15,17 @@ export interface Tracklist {
   tracks?: Track[];
 }
 
-export type FetchTracklists = (page: number) => Promise<Tracklist[] | null>;
+export interface PagedTracklists {
+  tracklists: Tracklist[] | null;
+  hasMore: boolean;
+}
+
+export type FetchTracklists = (page: number) => Promise<PagedTracklists | null>;
 
 export type FetchTracklist = (id: string) => Promise<Tracklist | null>;
 
 export type FetchTracklistsByTrack = (
-  id: string,
+  id: string
 ) => Promise<Tracklist[] | null>;
 
 export type FetchMostPlayedTracks = () => Promise<Track[] | null>;

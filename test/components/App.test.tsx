@@ -11,18 +11,22 @@ import {
 
 import App from '../../src/components/App';
 
-const fetchMostPlayedTracksStub: FetchMostPlayedTracks = () => Promise.resolve([]);
+const fetchMostPlayedTracksStub: FetchMostPlayedTracks = () =>
+  Promise.resolve([]);
 
-const fetchTracklistsStub: FetchTracklists = () => Promise.resolve([]);
+const fetchTracklistsStub: FetchTracklists = () =>
+  Promise.resolve({ tracklists: [], hasMore: false });
 
-const fetchTracklistStub: FetchTracklist = (id: string) => Promise.resolve({
-  id,
-  name: 'Testing',
-  date: '2019-05-19T00:00:00Z',
-  trackCount: 14,
-});
+const fetchTracklistStub: FetchTracklist = (id: string) =>
+  Promise.resolve({
+    id,
+    name: 'Testing',
+    date: '2019-05-19T00:00:00Z',
+    trackCount: 14,
+  });
 
-const fetchTracklistsByTrackStub: FetchTracklistsByTrack = () => Promise.resolve([]);
+const fetchTracklistsByTrackStub: FetchTracklistsByTrack = () =>
+  Promise.resolve([]);
 
 test('renders app component', async t => {
   const props = {

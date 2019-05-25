@@ -57,10 +57,10 @@ export default class MostPlayedPage extends Component<Props, State> {
     }
 
     return (
-      <div class="most-played-tracks">
-        <h2 class="most-played-tracks-header">Top Ten Most Played Tracks</h2>
+      <div class="most-played">
+        <h2 class="most-played-header">Top Ten Most Played Tracks</h2>
 
-        <div class="most-played-tracks-list">
+        <div class="most-played-tracks">
           {MostPlayedPage.renderTracks(tracks)}
         </div>
       </div>

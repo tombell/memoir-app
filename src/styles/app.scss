@@ -2,11 +2,18 @@
 @import "typography";
 @import "global";
 @import "media-queries";
-@import "components/header";
+
+// Components
+
 @import "components/genre-list";
+@import "components/header";
 @import "components/loading-spinner";
 @import "components/not-found";
 @import "components/tag";
 @import "components/track-item";
 @import "components/tracklist-item";
+
+// Pages
+
+@import "pages/most-played";
 @import "pages/tracklist";

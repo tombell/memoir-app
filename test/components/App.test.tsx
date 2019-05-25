@@ -3,12 +3,15 @@ import { render } from 'preact-render-spy';
 import test from 'ava';
 
 import {
+  FetchMostPlayedTracks,
   FetchTracklists,
   FetchTracklist,
   FetchTracklistsByTrack,
 } from '../../src/services/memoir/types';
 
 import App from '../../src/components/App';
+
+const fetchMostPlayedTracksStub: FetchMostPlayedTracks = () => Promise.resolve([]);
 
 const fetchTracklistsStub: FetchTracklists = () => Promise.resolve([]);
 
@@ -23,6 +26,7 @@ const fetchTracklistsByTrackStub: FetchTracklistsByTrack = () => Promise.resolve
 
 test('renders app component', async t => {
   const props = {
+    fetchMostPlayedTracks: fetchMostPlayedTracksStub,
     fetchTracklist: fetchTracklistStub,
     fetchTracklists: fetchTracklistsStub,
     fetchTracklistsByTrack: fetchTracklistsByTrackStub,

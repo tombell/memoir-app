@@ -5,11 +5,13 @@ import {
   FetchTracklists,
   FetchTracklist,
   FetchTracklistsByTrack,
+  FetchMostPlayedTracks,
 } from '../services/memoir/types';
 
-import TracklistsPage from '../pages/Tracklists';
+import MostPlayedPage from '../pages/MostPlayed';
 import TracklistPage from '../pages/Tracklist';
 import TracklistsByTrack from '../pages/TracklistsByTrack';
+import TracklistsPage from '../pages/Tracklists';
 
 import Header from './Header';
 
@@ -17,10 +19,16 @@ interface Props {
   fetchTracklists: FetchTracklists;
   fetchTracklist: FetchTracklist;
   fetchTracklistsByTrack: FetchTracklistsByTrack;
+  fetchMostPlayedTracks: FetchMostPlayedTracks;
 }
 
 export default (props: Props) => {
-  const { fetchTracklist, fetchTracklists, fetchTracklistsByTrack } = props;
+  const {
+    fetchTracklist,
+    fetchTracklists,
+    fetchTracklistsByTrack,
+    fetchMostPlayedTracks,
+  } = props;
 
   return (
     <div class="page-container">
@@ -32,6 +40,10 @@ export default (props: Props) => {
           <TracklistsByTrack
             path="/track/:id"
             fetchTracklistsByTrack={fetchTracklistsByTrack}
+          />
+          <MostPlayedPage
+            path="/tracks/mostplayed"
+            fetchMostPlayedTracks={fetchMostPlayedTracks}
           />
         </Router>
       </div>

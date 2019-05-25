@@ -5,6 +5,6 @@ import test from 'ava';
 import Tag from '../../src/components/Tag';
 
 test('renders tag component', async t => {
-  const ctx = shallow(<Tag label="Test" />);
+  const ctx = shallow(<Tag text="Test" />);
   t.is(ctx.find('.tag-label').text(), 'Test', 'tag text is correct');
 });

@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-export default (props: { label: string | number }) => {
-  const { label } = props;
-  return <div class="tag-label">{label}</div>;
+export default (props: { text: string | number }) => {
+  const { text } = props;
+  return <div class="tag-label">{text}</div>;
 };

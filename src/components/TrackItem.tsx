@@ -24,8 +24,8 @@ export default (props: Props) => {
         </div>
 
         <div class="track-item-tags">
-          <Tag label={track.bpm.toFixed(2)} />
-          <Tag label={track.genre} />
+          <Tag text={track.bpm.toFixed(2)} />
+          <Tag text={track.genre} />
         </div>
       </div>
     </div>

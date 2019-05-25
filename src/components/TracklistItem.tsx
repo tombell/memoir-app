@@ -20,7 +20,7 @@ export default (props: { tracklist: Tracklist }) => {
           <h3 class="tracklist-item-name">{tracklist.name}</h3>
 
           <div class="tracklist-item-tracks">
-            <Tag label={`${tracklist.trackCount} Tracks`} />
+            <Tag text={`${tracklist.trackCount} Tracks`} />
           </div>
         </div>
       </div>

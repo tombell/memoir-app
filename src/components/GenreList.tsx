@@ -8,7 +8,7 @@ export default (props: { genres: string[] }) => {
   return (
     <div class="genre-list">
       {genres.sort().map(genre => (
-        <Tag label={genre} />
+        <Tag text={genre} />
       ))}
     </div>
   );

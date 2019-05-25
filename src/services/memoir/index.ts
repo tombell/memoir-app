@@ -10,9 +10,9 @@ export async function apiRequest(endpoint: string) {
   return resp.json();
 }
 
-export async function fetchTracklists() {
+export async function fetchTracklists(page: number = 1) {
   try {
-    const tracklists: Tracklist[] = await apiRequest('/tracklists');
+    const tracklists: Tracklist[] = await apiRequest(`/tracklists?page=${page}`);
     return tracklists;
   } catch {
     return null;

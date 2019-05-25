@@ -7,6 +7,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
+  page?: number;
   fetchTracklists: FetchTracklists;
 }
 
@@ -24,8 +25,9 @@ export default class TracklistsPage extends Component<Props, State> {
   async componentWillMount() {
     this.setState({ isLoading: true });
 
-    const { fetchTracklists } = this.props;
-    const tracklists = await fetchTracklists();
+    const { page, fetchTracklists } = this.props;
+
+    const tracklists = await fetchTracklists(page || 1);
 
     this.setState({ isLoading: false, tracklists });
   }

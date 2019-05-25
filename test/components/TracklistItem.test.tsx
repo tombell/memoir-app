@@ -30,7 +30,7 @@ test('renders tracklist item component', async t => {
   t.is(link.length, 1, 'has tracklist link');
   t.is(
     link.attr('href'),
-    '/4ee730f5-97a5-4d2a-b06e-32fcb518bbcb',
+    '/tracklist/4ee730f5-97a5-4d2a-b06e-32fcb518bbcb',
     'has tracklist link href attr',
   );
 });

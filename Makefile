@@ -11,14 +11,11 @@ css:
 	@npx sass --watch src/styles/app.scss public/app.css
 
 lint:
-	@npx prettier --loglevel=warn --write src/**/*.{ts,tsx} test/**/*.{js,ts,tsx}
+	@npx prettier --loglevel=warn --write src/**/*.{ts,tsx}
 	@npx stylelint src/styles/**
-	@npx eslint --ext .js,.jsx,.ts,.tsx src test
-
-test:
-	@npx ava
+	@npx eslint --ext .js,.jsx,.ts,.tsx src
 
 clean:
 	@rm -fr public/app.* .rpt2_cache
 
-.PHONY: all dev dist css lint test clean
+.PHONY: all dev dist css lint clean

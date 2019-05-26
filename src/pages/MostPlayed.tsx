@@ -3,7 +3,7 @@ import { RoutableProps } from 'preact-router';
 
 import { Track, FetchMostPlayedTracks } from '../services/memoir/types';
 
-import LoadingSpinner from '../components/LoadingSpinner';
+import Loading from '../components/Loading';
 import TrackItem from '../components/TrackItem';
 
 interface Props extends RoutableProps {
@@ -44,12 +44,7 @@ export default class MostPlayedPage extends Component<Props, State> {
     const { isLoading, tracks } = this.state;
 
     if (isLoading) {
-      return (
-        <div>
-          <LoadingSpinner />
-          <p>Loading...</p>
-        </div>
-      );
+      return <Loading />;
     }
 
     if (!tracks) {

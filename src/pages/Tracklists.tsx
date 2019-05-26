@@ -3,7 +3,7 @@ import { RoutableProps } from 'preact-router';
 
 import { Tracklist, FetchTracklists } from '../services/memoir/types';
 
-import LoadingSpinner from '../components/LoadingSpinner';
+import Loading from '../components/Loading';
 import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
@@ -60,12 +60,7 @@ export default class TracklistsPage extends Component<Props, State> {
     const { isLoading, tracklists } = this.state;
 
     if (isLoading) {
-      return (
-        <div class="loading">
-          <h2 class="loading-header">Loading...</h2>
-          <LoadingSpinner />
-        </div>
-      );
+      return <Loading />;
     }
 
     return <div>{TracklistsPage.renderTracklists(tracklists)}</div>;

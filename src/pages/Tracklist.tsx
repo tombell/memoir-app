@@ -4,7 +4,7 @@ import { RoutableProps } from 'preact-router';
 import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 
 import Genres from '../components/Genres';
-import LoadingSpinner from '../components/LoadingSpinner';
+import Loading from '../components/Loading';
 import NotFound from '../components/NotFound';
 import TrackItem from '../components/TrackItem';
 
@@ -57,12 +57,7 @@ export default class TracklistPage extends Component<Props, State> {
     const { isLoading, tracklist } = this.state;
 
     if (isLoading) {
-      return (
-        <div>
-          <LoadingSpinner />
-          <p>Loading...</p>
-        </div>
-      );
+      return <Loading />;
     }
 
     if (!tracklist) {

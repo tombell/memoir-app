@@ -14,63 +14,60 @@ interface Props extends RoutableProps {
 interface State {
   isLoading: boolean;
   tracklists: Tracklist[] | null;
-  hasMore: boolean;
 }
 
 export default class TracklistsPage extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { isLoading: false, tracklists: null, hasMore: false };
+    this.state = { isLoading: false, tracklists: null };
   }
 
   async componentWillMount() {
-    this.setState({ isLoading: true });
-
     const { page = 1, fetchTracklists } = this.props;
+
+    this.setState({ isLoading: true });
 
     const paged = await fetchTracklists(page);
 
+    this.setState({ isLoading: false });
+
     if (paged) {
-      this.setState({ isLoading: false, ...paged });
+      this.setState({ tracklists: paged.tracklists });
     }
   }
 
-  renderTracklists() {
-    const { tracklists } = this.state;
-
+  static renderTracklists(tracklists: Tracklist[] | null) {
     if (!tracklists) {
-      return null;
+      return (
+        <div class="loading-error">
+          <h2 class="loading-error-header">Unable to load tracklists</h2>
+        </div>
+      );
+    }
+
+    if (tracklists.length === 0) {
+      return (
+        <div class="no-results">
+          <h2 class="no-results-header">No trackslists</h2>
+        </div>
+      );
     }
 
     return tracklists.map(tracklist => <TracklistItem tracklist={tracklist} />);
   }
 
   render() {
-    const { isLoading, tracklists, hasMore } = this.state;
+    const { isLoading, tracklists } = this.state;
 
     if (isLoading) {
-      // TODO: add timeout to only show loading >2 seconds waiting.
       return (
-        <div>
+        <div class="loading">
+          <h2 class="loading-header">Loading...</h2>
           <LoadingSpinner />
-          <p>Loading...</p>
         </div>
       );
     }
 
-    if (!tracklists) {
-      // TODO: error getting tracklists.
-    }
-
-    if (tracklists && tracklists.length === 0) {
-      // TODO: no tracklists found.
-    }
-
-    return (
-      <div>
-        {this.renderTracklists()}
-        {hasMore && <p>TODO: pagination</p>}
-      </div>
-    );
+    return <div>{TracklistsPage.renderTracklists(tracklists)}</div>;
   }
 }

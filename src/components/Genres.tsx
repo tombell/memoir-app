@@ -6,7 +6,7 @@ export default (props: { genres: string[] }) => {
   const { genres } = props;
 
   return (
-    <div class="genre-list">
+    <div class="genres">
       {genres.sort().map(genre => (
         <Tag text={genre} />
       ))}

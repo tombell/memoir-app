@@ -3,7 +3,7 @@ import { RoutableProps } from 'preact-router';
 
 import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 
-import GenreList from '../components/GenreList';
+import Genres from '../components/Genres';
 import LoadingSpinner from '../components/LoadingSpinner';
 import NotFound from '../components/NotFound';
 import TrackItem from '../components/TrackItem';
@@ -40,7 +40,7 @@ export default class TracklistPage extends Component<Props, State> {
 
     const genres = [...new Set(tracks.map((track: Track) => track.genre))];
 
-    return <GenreList genres={genres} />;
+    return <Genres genres={genres} />;
   }
 
   static renderTracks(tracks?: Track[]) {

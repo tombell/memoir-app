@@ -2,11 +2,11 @@ import { h } from 'preact';
 import { render } from 'preact-render-spy';
 import test from 'ava';
 
-import GenreList from '../../src/components/GenreList';
+import Genres from '../../src/components/Genres';
 
-test('renders genre-list component', async t => {
+test('renders genres component', async t => {
   const genres = ['Tech House', 'House', 'Techno'];
-  const ctx = render(<GenreList genres={genres} />);
+  const ctx = render(<Genres genres={genres} />);
 
   const tags = ctx.find('.tag-label');
 

@@ -26,9 +26,9 @@ export default class TracklistsPage extends Component<Props, State> {
   async componentWillMount() {
     this.setState({ isLoading: true });
 
-    const { page, fetchTracklists } = this.props;
+    const { page = 1, fetchTracklists } = this.props;
 
-    const paged = await fetchTracklists(page || 1);
+    const paged = await fetchTracklists(page);
 
     if (paged) {
       this.setState({ isLoading: false, ...paged });
@@ -69,7 +69,7 @@ export default class TracklistsPage extends Component<Props, State> {
     return (
       <div>
         {this.renderTracklists()}
-        {hasMore && <p>HAS MORE!</p>}
+        {hasMore && <p>TODO: pagination</p>}
       </div>
     );
   }

@@ -10,7 +10,7 @@ import {
 
 import MostPlayedPage from '../pages/MostPlayed';
 import TracklistPage from '../pages/Tracklist';
-import TracklistsByTrack from '../pages/TracklistsByTrack';
+import TracklistsByTrackPage from '../pages/TracklistsByTrack';
 import TracklistsPage from '../pages/Tracklists';
 
 import Header from './Header';
@@ -45,8 +45,8 @@ export default (props: Props) => {
             path="/tracklist/:id"
             fetchTracklist={fetchTracklist}
           />
-          <TracklistsByTrack
-            path="/track/:id"
+          <TracklistsByTrackPage
+            path="/track/:id/:page?"
             fetchTracklistsByTrack={fetchTracklistsByTrack}
           />
           <MostPlayedPage

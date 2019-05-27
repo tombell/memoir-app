@@ -16,6 +16,7 @@ export interface Tracklist {
 }
 
 export interface PagedTracklists {
+  track?: Track;
   tracklists: Tracklist[] | null;
   hasMore: boolean;
 }
@@ -25,7 +26,8 @@ export type FetchTracklists = (page: number) => Promise<PagedTracklists | null>;
 export type FetchTracklist = (id: string) => Promise<Tracklist | null>;
 
 export type FetchTracklistsByTrack = (
-  id: string
-) => Promise<Tracklist[] | null>;
+  id: string,
+  page: number
+) => Promise<PagedTracklists | null>;
 
 export type FetchMostPlayedTracks = () => Promise<Track[] | null>;

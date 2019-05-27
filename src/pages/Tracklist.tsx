@@ -5,7 +5,6 @@ import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 
 import Genres from '../components/Genres';
 import Loading from '../components/Loading';
-import NotFound from '../components/NotFound';
 import TrackItem from '../components/TrackItem';
 
 interface Props extends RoutableProps {
@@ -19,16 +18,34 @@ interface State {
 }
 
 export default class TracklistPage extends Component<Props, State> {
+  private loadingTimer: NodeJS.Timeout | undefined;
+
   constructor(props: Props) {
     super(props);
     this.state = { isLoading: false, tracklist: null };
   }
 
-  async componentWillMount() {
-    this.setState({ isLoading: true });
+  componentWillMount() {
+    this.fetchTrack();
+  }
 
+  showLoadingIndicator = () => {
+    this.loadingTimer = setTimeout(
+      () => this.setState({ isLoading: true }),
+      1000
+    );
+  };
+
+  async fetchTrack() {
     const { id, fetchTracklist } = this.props;
+
+    this.showLoadingIndicator();
+
     const tracklist = await fetchTracklist(id!);
+
+    if (this.loadingTimer) {
+      clearTimeout(this.loadingTimer);
+    }
 
     this.setState({ isLoading: false, tracklist });
   }
@@ -48,6 +65,10 @@ export default class TracklistPage extends Component<Props, State> {
       return null;
     }
 
+    if (tracks.length === 0) {
+      // TODO: no tracks in tracklist
+    }
+
     return tracks.map((track, i) => (
       <TrackItem trackNumber={i + 1} track={track} />
     ));
@@ -61,9 +82,7 @@ export default class TracklistPage extends Component<Props, State> {
     }
 
     if (!tracklist) {
-      return (
-        <NotFound text="The tracklist you're looking for cannot be found" />
-      );
+      return null;
     }
 
     return (

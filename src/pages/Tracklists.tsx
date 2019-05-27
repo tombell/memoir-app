@@ -4,46 +4,71 @@ import { RoutableProps } from 'preact-router';
 import { Tracklist, FetchTracklists } from '../services/memoir/types';
 
 import Loading from '../components/Loading';
+import Pagination from '../components/Pagination';
 import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
-  page?: number;
+  page?: string;
   fetchTracklists: FetchTracklists;
 }
 
 interface State {
   isLoading: boolean;
   tracklists: Tracklist[] | null;
+  hasMore: boolean;
 }
 
 export default class TracklistsPage extends Component<Props, State> {
+  private loadingTimer: NodeJS.Timeout | undefined;
+
   constructor(props: Props) {
     super(props);
-    this.state = { isLoading: false, tracklists: null };
+    this.state = { isLoading: false, tracklists: null, hasMore: false };
   }
 
-  async componentWillMount() {
-    const { page = 1, fetchTracklists } = this.props;
+  componentWillMount() {
+    this.fetchTracklists();
+  }
 
-    this.setState({ isLoading: true });
+  componentWillReceiveProps(nextProps: Props) {
+    this.props = nextProps;
+    this.setState({ hasMore: false });
+    this.fetchTracklists();
+  }
 
-    const paged = await fetchTracklists(page);
+  showLoadingIndicator = () => {
+    this.loadingTimer = setTimeout(
+      () => this.setState({ isLoading: true }),
+      1000
+    );
+  };
+
+  fetchTracklists = async () => {
+    const { page = '1', fetchTracklists } = this.props;
+
+    this.showLoadingIndicator();
+
+    const paged = await fetchTracklists(parseInt(page, 10));
+
+    if (this.loadingTimer) {
+      clearTimeout(this.loadingTimer);
+    }
 
     this.setState({ isLoading: false });
 
     if (paged) {
-      this.setState({ tracklists: paged.tracklists });
+      this.setState({ ...paged });
     }
-  }
+  };
 
-  static renderTracklists(tracklists: Tracklist[] | null) {
+  renderTracklists() {
+    const { tracklists } = this.state;
+
     if (!tracklists) {
-      return (
-        <div class="loading-error">
-          <h2 class="loading-error-header">Unable to load tracklists</h2>
-        </div>
-      );
+      return null;
     }
+
+    // TODO: handle error state
 
     if (tracklists.length === 0) {
       return (
@@ -53,16 +78,32 @@ export default class TracklistsPage extends Component<Props, State> {
       );
     }
 
-    return tracklists.map(tracklist => <TracklistItem tracklist={tracklist} />);
+    return (
+      <div>
+        {tracklists.map(tracklist => (
+          <TracklistItem tracklist={tracklist} />
+        ))}
+        {this.renderPagination()}
+      </div>
+    );
+  }
+
+  renderPagination() {
+    const { page = '1', path } = this.props;
+    const { hasMore } = this.state;
+
+    return (
+      <Pagination path={path!} page={parseInt(page, 10)} hasMore={hasMore} />
+    );
   }
 
   render() {
-    const { isLoading, tracklists } = this.state;
+    const { isLoading } = this.state;
 
     if (isLoading) {
       return <Loading />;
     }
 
-    return <div>{TracklistsPage.renderTracklists(tracklists)}</div>;
+    return this.renderTracklists();
   }
 }

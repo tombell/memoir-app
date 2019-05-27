@@ -1,0 +1,12 @@
+.pagination {
+  align-items: center;
+  display: flex;
+  margin: 50px 0;
+  font-weight: bold;
+
+  .pagination-link {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+}

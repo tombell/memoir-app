@@ -2,9 +2,11 @@ import { h } from 'preact';
 
 import Tag from './Tag';
 
-export default (props: { genres: string[] }) => {
-  const { genres } = props;
+interface Props {
+  genres: string[];
+}
 
+export default ({ genres }: Props) => {
   return (
     <div class="genres">
       {genres.sort().map(genre => (

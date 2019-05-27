@@ -13,6 +13,7 @@ import TracklistPage from '../pages/Tracklist';
 import TracklistsByTrackPage from '../pages/TracklistsByTrack';
 import TracklistsPage from '../pages/Tracklists';
 
+import Footer from './Footer';
 import Header from './Header';
 import Redirect from './Redirect';
 
@@ -34,26 +35,32 @@ export default (props: Props) => {
   return (
     <div class="page-container">
       <div class="page-column">
-        <Header />
-        <Router>
-          <Redirect path="/" to="/tracklists/1" />
-          <TracklistsPage
-            path="/tracklists/:page"
-            fetchTracklists={fetchTracklists}
-          />
-          <TracklistPage
-            path="/tracklist/:id"
-            fetchTracklist={fetchTracklist}
-          />
-          <TracklistsByTrackPage
-            path="/track/:id/:page?"
-            fetchTracklistsByTrack={fetchTracklistsByTrack}
-          />
-          <MostPlayedPage
-            path="/tracks/mostplayed"
-            fetchMostPlayedTracks={fetchMostPlayedTracks}
-          />
-        </Router>
+        <div class="page-main">
+          <Header />
+          <Router>
+            <Redirect path="/" to="/tracklists/1" />
+            <TracklistsPage
+              path="/tracklists/:page"
+              fetchTracklists={fetchTracklists}
+            />
+            <TracklistPage
+              path="/tracklist/:id"
+              fetchTracklist={fetchTracklist}
+            />
+            <TracklistsByTrackPage
+              path="/track/:id/:page?"
+              fetchTracklistsByTrack={fetchTracklistsByTrack}
+            />
+            <MostPlayedPage
+              path="/tracks/mostplayed"
+              fetchMostPlayedTracks={fetchMostPlayedTracks}
+            />
+          </Router>
+        </div>
+
+        <div class="page-footer">
+          <Footer />
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,24 @@
+.footer {
+  display: flex;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 50px 0;
+
+  .footer-left {
+    flex: 1;
+
+    .footer-link {
+      margin: 0 12px 0 0;
+    }
+  }
+
+  .footer-right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+
+    .footer-link {
+      margin: 0 0 0 12px;
+    }
+  }
+}

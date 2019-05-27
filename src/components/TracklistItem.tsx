@@ -6,9 +6,11 @@ import formatDate from '../utils/format-date';
 
 import Tag from './Tag';
 
-export default (props: { tracklist: Tracklist }) => {
-  const { tracklist } = props;
+interface Props {
+  tracklist: Tracklist;
+}
 
+export default ({ tracklist }: Props) => {
   return (
     <a class="tracklist-item-link" href={`/tracklist/${tracklist.id}`}>
       <div class="tracklist-item">

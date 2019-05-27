@@ -9,9 +9,7 @@ interface Props {
   track: Track;
 }
 
-export default (props: Props) => {
-  const { trackNumber, track } = props;
-
+export default ({ trackNumber, track }: Props) => {
   return (
     <div class="track-item">
       <div class="track-item-number">

@@ -28,16 +28,7 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
   }
 
   async componentWillMount() {
-    this.setState({ isLoading: true });
-
-    const { id, page, fetchTracklistsByTrack } = this.props;
-    const paged = await fetchTracklistsByTrack(id!, parseInt(page || '1', 10));
-
-    this.setState({ isLoading: false });
-
-    if (paged) {
-      this.setState({ tracklists: paged.tracklists, hasMore: paged.hasMore });
-    }
+    this.fetchTracklists();
   }
 
   componentWillReceiveProps(nextProps: Props) {

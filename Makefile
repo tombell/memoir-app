@@ -10,12 +10,18 @@ dist:
 css:
 	@npx sass --watch src/styles/app.scss public/app.css
 
-lint:
+lint: lint-prettier lint-stylelint lint-eslint
+
+lint-prettier:
 	@npx prettier --loglevel=warn --write src/**/*.{ts,tsx}
+
+lint-stylelint:
 	@npx stylelint src/styles/**
+
+lint-eslint:
 	@npx eslint --ext .js,.jsx,.ts,.tsx src
 
 clean:
 	@rm -fr public/app.* .rpt2_cache
 
-.PHONY: all dev dist css lint clean
+.PHONY: all dev dist css lint lint-prettier lint-stylelint lint-eslint clean

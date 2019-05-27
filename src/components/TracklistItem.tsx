@@ -22,7 +22,7 @@ export default ({ tracklist }: Props) => {
           <h3 class="tracklist-item-name">{tracklist.name}</h3>
 
           <div class="tracklist-item-tracks">
-            <Tag text={`${tracklist.trackCount} Tracks`} />
+            <Tag text={`${tracklist.trackCount} Tracks`} color="green" />
           </div>
         </div>
       </div>

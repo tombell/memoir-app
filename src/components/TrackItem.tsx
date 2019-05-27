@@ -22,8 +22,9 @@ export default ({ trackNumber, track }: Props) => {
         </div>
 
         <div class="track-item-tags">
-          <Tag text={track.bpm.toFixed(2)} />
-          <Tag text={track.genre} />
+          <Tag text={track.bpm.toFixed(2)} color="purple" />
+          <Tag text={track.key} color="lilac" />
+          <Tag text={track.genre} color="blue" />
         </div>
       </div>
     </div>

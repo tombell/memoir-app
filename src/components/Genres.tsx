@@ -10,7 +10,7 @@ export default ({ genres }: Props) => {
   return (
     <div class="genres">
       {genres.sort().map(genre => (
-        <Tag text={genre} />
+        <Tag text={genre} color="blue" />
       ))}
     </div>
   );

@@ -4,6 +4,7 @@ export default () => {
   return (
     <footer class="footer">
       <div class="footer-left">
+        <a class="footer-link" href="/tracklists/1">Tracklists</a>
         <a class="footer-link" href="/tracks/mostplayed">Most Played Tracks</a>
         <a class="footer-link" href="/about">About</a>
       </div>

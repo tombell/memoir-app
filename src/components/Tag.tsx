@@ -6,5 +6,5 @@ interface Props {
 }
 
 export default ({ text, color }: Props) => (
-  <div class={`tag-label ${color ? color : ''}`}>{text}</div>
+  <div class={`tag-label ${color || ''}`}>{text}</div>
 );

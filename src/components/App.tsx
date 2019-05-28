@@ -8,6 +8,7 @@ import {
   FetchMostPlayedTracks,
 } from '../services/memoir/types';
 
+import AboutPage from '../pages/About';
 import MostPlayedPage from '../pages/MostPlayed';
 import TracklistPage from '../pages/Tracklist';
 import TracklistsByTrackPage from '../pages/TracklistsByTrack';
@@ -55,6 +56,7 @@ export default (props: Props) => {
               path="/tracks/mostplayed"
               fetchMostPlayedTracks={fetchMostPlayedTracks}
             />
+            <AboutPage path="/about" />
           </Router>
         </div>
 

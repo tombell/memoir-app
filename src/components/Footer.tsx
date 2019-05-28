@@ -27,7 +27,7 @@ export default () => {
         <a class="footer-link" href="https://twitter.com/iamdjriff">
           Twitter
         </a>
-        <a class="footer-link" href="https://instagram.com/iamdjriff">
+        <a class="footer-link" href="https://instagram.com/iamdjriff_">
           Instagram
         </a>
       </div>

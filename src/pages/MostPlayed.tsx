@@ -3,6 +3,7 @@ import { RoutableProps } from 'preact-router';
 
 import { Track, FetchMostPlayedTracks } from '../services/memoir/types';
 
+import Footer from '../components/Footer';
 import Loading from '../components/Loading';
 import TrackItem from '../components/TrackItem';
 
@@ -58,6 +59,8 @@ export default class MostPlayedPage extends Component<Props, State> {
         <div class="most-played-tracks">
           {MostPlayedPage.renderTracks(tracks)}
         </div>
+
+        <Footer />
       </div>
     );
   }

@@ -3,6 +3,7 @@ import { RoutableProps } from 'preact-router';
 
 import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
 
+import Footer from '../components/Footer';
 import Genres from '../components/Genres';
 import Loading from '../components/Loading';
 import TrackItem from '../components/TrackItem';
@@ -91,6 +92,8 @@ export default class TracklistPage extends Component<Props, State> {
         <div class="tracklist-tracks">
           {TracklistPage.renderTracks(tracklist.tracks)}
         </div>
+
+        <Footer />
       </div>
     );
   }

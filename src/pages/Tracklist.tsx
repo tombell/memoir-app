@@ -65,10 +65,6 @@ export default class TracklistPage extends Component<Props, State> {
       return null;
     }
 
-    if (tracks.length === 0) {
-      // TODO: no tracks in tracklist
-    }
-
     return tracks.map((track, i) => (
       <TrackItem trackNumber={i + 1} track={track} />
     ));

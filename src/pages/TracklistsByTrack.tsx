@@ -68,8 +68,6 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
       return null;
     }
 
-    // TODO: handle error state
-
     if (tracklists.length === 0) {
       return (
         <div class="no-results">

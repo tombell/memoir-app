@@ -88,7 +88,7 @@ export default class TracklistsPage extends Component<Props, State> {
     }
 
     return (
-      <div>
+      <div class="tracklists">
         {tracklists.map(tracklist => (
           <TracklistItem tracklist={tracklist} />
         ))}

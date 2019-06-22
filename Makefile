@@ -25,6 +25,6 @@ clean:
 	@rm -fr public/app.* .rpt2_cache
 
 archive:
-	@tar zcvf /tmp/memoir-app.tar.gz public
+	@tar zcvf /tmp/memoir-app.tar.gz public Caddyfile
 
 .PHONY: all dev dist css lint lint-prettier lint-stylelint lint-eslint clean archive

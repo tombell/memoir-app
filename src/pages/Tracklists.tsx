@@ -15,6 +15,7 @@ interface Props extends RoutableProps {
 
 interface State {
   isLoading: boolean;
+  showPagination: boolean;
   tracklists: Tracklist[] | null;
   hasMore: boolean;
 }
@@ -24,7 +25,12 @@ export default class TracklistsPage extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { isLoading: false, tracklists: null, hasMore: false };
+    this.state = {
+      isLoading: false,
+      showPagination: false,
+      tracklists: null,
+      hasMore: false,
+    };
   }
 
   componentWillMount() {
@@ -33,6 +39,7 @@ export default class TracklistsPage extends Component<Props, State> {
 
   componentWillReceiveProps(nextProps: Props) {
     this.props = nextProps;
+    this.setState({ showPagination: false });
     this.fetchTracklists();
   }
 
@@ -57,12 +64,16 @@ export default class TracklistsPage extends Component<Props, State> {
     this.setState({ isLoading: false });
 
     if (paged) {
-      this.setState({ tracklists: paged.tracklists, hasMore: paged.hasMore });
+      this.setState({
+        showPagination: true,
+        tracklists: paged.tracklists,
+        hasMore: paged.hasMore,
+      });
     }
   };
 
   renderTracklists() {
-    const { tracklists } = this.state;
+    const { showPagination, tracklists } = this.state;
 
     if (!tracklists) {
       return null;
@@ -81,7 +92,7 @@ export default class TracklistsPage extends Component<Props, State> {
         {tracklists.map(tracklist => (
           <TracklistItem tracklist={tracklist} />
         ))}
-        {this.renderPagination()}
+        {showPagination && this.renderPagination()}
         <Footer />
       </div>
     );

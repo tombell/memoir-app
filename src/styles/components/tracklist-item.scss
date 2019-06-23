@@ -1,29 +1,15 @@
 .tracklist-item {
   align-items: center;
-  display: flex;
   flex-wrap: wrap;
   margin: 0 0 12px 0;
 
   @include phone {
-    margin: 0 0 20px 0;
-  }
-
-  .tracklist-item-date {
-    flex: 2;
-    font-size: 10px;
-    font-weight: bold;
-    color: $grey;
-
-    @include phone {
-      display: flex;
-      justify-content: center;
-    }
+    margin: 0 0 20px 10px;
   }
 
   .tracklist-item-details {
     align-items: center;
     display: flex;
-    flex: 8;
     flex-wrap: wrap;
 
     .tracklist-item-name {
@@ -35,8 +21,8 @@
       }
     }
 
-    .tracklist-item-tracks {
-      flex: 1;
+    .tracklist-item-tags {
+      flex: 2;
       display: flex;
       justify-content: flex-end;
 

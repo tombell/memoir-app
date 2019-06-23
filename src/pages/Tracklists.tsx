@@ -40,6 +40,7 @@ export default class TracklistsPage extends Component<Props, State> {
     const { page } = this.props;
 
     if (page !== prev.page) {
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ page: prev.page });
       this.fetchTracklists();
     }

@@ -5,7 +5,6 @@ import { Tracklist, FetchTracklistsByTrack } from '../services/memoir/types';
 
 import Footer from '../components/Footer';
 import Loading from '../components/Loading';
-import Pagination from '../components/Pagination';
 import TracklistItem from '../components/TracklistItem';
 
 interface Props extends RoutableProps {
@@ -17,7 +16,6 @@ interface Props extends RoutableProps {
 interface State {
   isLoading: boolean;
   tracklists: Tracklist[] | null;
-  hasMore: boolean;
 }
 
 export default class TracklistsByTrackPage extends Component<Props, State> {
@@ -25,15 +23,10 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { isLoading: false, tracklists: null, hasMore: false };
+    this.state = { isLoading: false, tracklists: null };
   }
 
   async componentWillMount() {
-    this.fetchTracklists();
-  }
-
-  componentWillReceiveProps(nextProps: Props) {
-    this.props = nextProps;
     this.fetchTracklists();
   }
 
@@ -58,7 +51,7 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
     this.setState({ isLoading: false });
 
     if (paged) {
-      this.setState({ tracklists: paged.tracklists, hasMore: paged.hasMore });
+      this.setState({ tracklists: paged.tracklists });
     }
   };
 
@@ -82,22 +75,8 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
         {tracklists.map(tracklist => (
           <TracklistItem tracklist={tracklist} />
         ))}
-        {this.renderPagination()}
         <Footer />
       </div>
-    );
-  }
-
-  renderPagination() {
-    const { page, path } = this.props;
-    const { hasMore } = this.state;
-
-    return (
-      <Pagination
-        path={path!}
-        page={parseInt(page || '1', 10)}
-        hasMore={hasMore}
-      />
     );
   }
 

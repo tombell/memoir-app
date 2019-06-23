@@ -14,6 +14,7 @@ interface Props extends RoutableProps {
 }
 
 interface State {
+  page?: string;
   isLoading: boolean;
   tracklists: Tracklist[] | null;
   hasMore: boolean;
@@ -35,9 +36,13 @@ export default class TracklistsPage extends Component<Props, State> {
     this.fetchTracklists();
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    this.props = nextProps;
-    this.fetchTracklists();
+  componentDidUpdate(prev: Props) {
+    const { page } = this.props;
+
+    if (page !== prev.page) {
+      this.setState({ page: prev.page });
+      this.fetchTracklists();
+    }
   }
 
   showLoadingIndicator = () => {
@@ -58,7 +63,7 @@ export default class TracklistsPage extends Component<Props, State> {
       clearTimeout(this.loadingTimer);
     }
 
-    this.setState({ isLoading: false });
+    this.setState({ page, isLoading: false });
 
     if (paged) {
       this.setState({
@@ -95,8 +100,8 @@ export default class TracklistsPage extends Component<Props, State> {
   }
 
   renderPagination() {
-    const { page, path } = this.props;
-    const { hasMore } = this.state;
+    const { path } = this.props;
+    const { page, hasMore } = this.state;
 
     return (
       <Pagination

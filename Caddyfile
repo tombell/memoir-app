@@ -1,5 +1,6 @@
 tracklists.iamdjriff.co.uk {
   root /app/memoir-app
+  gzip
   rewrite {
     to {path} {path}/ /
   }

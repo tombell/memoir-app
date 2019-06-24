@@ -67,26 +67,18 @@ export default class TracklistsPage extends Component<Props, State> {
     this.setState({ page, isLoading: false });
 
     if (paged) {
-      this.setState({
-        tracklists: paged.tracklists,
-        hasMore: paged.hasMore,
-      });
+      const { tracklists, hasMore } = paged;
+
+      this.setState({ tracklists, hasMore });
     }
   };
 
   renderTracklists() {
-    const { tracklists } = this.state;
+    const { path } = this.props;
+    const { page, tracklists, hasMore } = this.state;
 
-    if (!tracklists) {
+    if (!tracklists || tracklists.length === 0) {
       return null;
-    }
-
-    if (tracklists.length === 0) {
-      return (
-        <div class="no-results">
-          <h2 class="no-results-header">No trackslists</h2>
-        </div>
-      );
     }
 
     return (
@@ -94,22 +86,13 @@ export default class TracklistsPage extends Component<Props, State> {
         {tracklists.map(tracklist => (
           <TracklistItem tracklist={tracklist} />
         ))}
-        {this.renderPagination()}
+        <Pagination
+          path={path!}
+          page={parseInt(page || '1', 10)}
+          hasMore={hasMore}
+        />
         <Footer />
       </div>
-    );
-  }
-
-  renderPagination() {
-    const { path } = this.props;
-    const { page, hasMore } = this.state;
-
-    return (
-      <Pagination
-        path={path!}
-        page={parseInt(page || '1', 10)}
-        hasMore={hasMore}
-      />
     );
   }
 

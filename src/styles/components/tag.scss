@@ -8,9 +8,28 @@
   background: $secondary-color;
   border-radius: 3px;
 
-  &.purple { background: $purple; }
-  &.lilac { background: $lilac; }
-  &.blue { background: $blue; }
-  &.green { background: $green; }
-  &.light-blue { background: $light-blue; }
+  &.purple {
+    color: darken($purple, 80%);
+    background: $purple;
+  }
+
+  &.lilac {
+    color: darken($lilac, 80%);
+    background: $lilac;
+  }
+
+  &.blue {
+    color: darken($blue, 80%);
+    background: $blue;
+  }
+
+  &.green {
+    color: darken($green, 80%);
+    background: $green;
+  }
+
+  &.light-blue {
+    color: darken($light-blue, 80%);
+    background: $light-blue;
+  }
 }

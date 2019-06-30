@@ -25,11 +25,7 @@ export default class TracklistsPage extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = {
-      isLoading: false,
-      tracklists: null,
-      hasMore: false,
-    };
+    this.state = { isLoading: false, tracklists: null, hasMore: false };
   }
 
   componentWillMount() {

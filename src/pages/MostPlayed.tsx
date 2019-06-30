@@ -31,16 +31,6 @@ export default class MostPlayedPage extends Component<Props, State> {
     this.setState({ isLoading: false, tracks });
   }
 
-  static renderTracks(tracks?: Track[]) {
-    if (!tracks) {
-      return null;
-    }
-
-    return tracks.map((track, i) => (
-      <TrackItem trackNumber={i + 1} track={track} />
-    ));
-  }
-
   render() {
     const { isLoading, tracks } = this.state;
 
@@ -57,7 +47,9 @@ export default class MostPlayedPage extends Component<Props, State> {
         <h2 class="most-played-header">Top Ten Most Played Tracks</h2>
 
         <div class="most-played-tracks">
-          {MostPlayedPage.renderTracks(tracks)}
+          {tracks.map((track, i) => (
+            <TrackItem trackNumber={i + 1} track={track} />
+          ))}
         </div>
 
         <Footer />

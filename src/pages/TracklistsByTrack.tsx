@@ -58,16 +58,8 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
   renderTracklists() {
     const { tracklists } = this.state;
 
-    if (!tracklists) {
+    if (!tracklists || tracklists.length === 0) {
       return null;
-    }
-
-    if (tracklists.length === 0) {
-      return (
-        <div class="no-results">
-          <h2 class="no-results-header">No trackslists</h2>
-        </div>
-      );
     }
 
     return (

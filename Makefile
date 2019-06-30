@@ -22,7 +22,7 @@ lint-eslint:
 	@npx eslint --ext .js,.jsx,.ts,.tsx src
 
 clean:
-	@rm -fr public/app.* .rpt2_cache
+	@rm -fr public/app.* .rpt2_cache /tmp/memoir-app.tar.gz
 
 archive: dist
 	@tar zcvf /tmp/memoir-app.tar.gz public Caddyfile

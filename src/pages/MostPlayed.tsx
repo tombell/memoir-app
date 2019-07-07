@@ -17,19 +17,35 @@ interface State {
 }
 
 export default class MostPlayedPage extends Component<Props, State> {
+  private loadingTimer: NodeJS.Timeout | undefined;
+
   constructor(props: Props) {
     super(props);
     this.state = { isLoading: false, tracks: null };
   }
 
   async componentWillMount() {
+    const { fetchMostPlayedTracks } = this.props;
+
     this.setState({ isLoading: true });
 
-    const { fetchMostPlayedTracks } = this.props;
+    this.showLoadingIndicator();
+
     const tracks = await fetchMostPlayedTracks();
+
+    if (this.loadingTimer) {
+      clearTimeout(this.loadingTimer);
+    }
 
     this.setState({ isLoading: false, tracks });
   }
+
+  showLoadingIndicator = () => {
+    this.loadingTimer = setTimeout(
+      () => this.setState({ isLoading: true }),
+      1000
+    );
+  };
 
   render() {
     const { isLoading, tracks } = this.state;

@@ -10,6 +10,7 @@ import {
 
 import AboutPage from '../pages/About';
 import MostPlayedPage from '../pages/MostPlayed';
+import NotFoundPage from '../pages/NotFound';
 import TracklistPage from '../pages/Tracklist';
 import TracklistsByTrackPage from '../pages/TracklistsByTrack';
 import TracklistsPage from '../pages/Tracklists';
@@ -55,6 +56,7 @@ export default (props: Props) => {
             fetchMostPlayedTracks={fetchMostPlayedTracks}
           />
           <AboutPage path="/about" />
+          <NotFoundPage default />
         </Router>
       </div>
     </div>

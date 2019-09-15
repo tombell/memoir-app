@@ -6,28 +6,28 @@
     "@typescript-eslint/parser": "^1.13.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-typescript": "^4.0.1",
-    "eslint-config-prettier": "^6.2.0",
+    "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "prettier": "^1.18.2",
-    "rollup": "^1.20.3",
+    "rollup": "^1.21.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-serve": "^1.0.1",
-    "rollup-plugin-terser": "^5.1.1",
-    "rollup-plugin-typescript2": "^0.24.0",
-    "sass": "^1.22.10",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.24.2",
+    "sass": "^1.22.12",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-config-standard-scss": "^1.1.0",
     "stylelint-order": "^3.1.0",
-    "stylelint-scss": "^3.10.0",
-    "typescript": "^3.6.2"
+    "stylelint-scss": "^3.10.1",
+    "typescript": "^3.6.3"
   },
   "dependencies": {
-    "preact": "^10.0.0-rc.1",
+    "preact": "^10.0.0-rc.3",
     "preact-router": "^3.0.1"
   }
 }

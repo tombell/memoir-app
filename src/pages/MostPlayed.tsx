@@ -24,7 +24,7 @@ export default class MostPlayedPage extends Component<Props, State> {
     this.state = { isLoading: false, tracks: null };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const { fetchMostPlayedTracks } = this.props;
 
     this.setState({ isLoading: true });

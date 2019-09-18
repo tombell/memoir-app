@@ -6,7 +6,7 @@ interface Props extends RoutableProps {
 }
 
 export default class Redirect extends Component<Props> {
-  componentWillMount() {
+  componentDidMount() {
     const { to } = this.props;
     route(to, true);
   }

@@ -26,7 +26,7 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
     this.state = { isLoading: false, tracklists: null };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     this.fetchTracklists();
   }
 

@@ -7,6 +7,7 @@ module.exports = {
     react: { pragma: 'h' },
   },
   rules: {
-    'react/no-unknown-property': ['error', { ignore: 'class' }],
+    'react/jsx-props-no-spreading': ['error', { exceptions: ['App'] }],
+    'react/no-unknown-property': ['error', { ignore: ['class'] }],
   },
 };

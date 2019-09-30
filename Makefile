@@ -1,3 +1,4 @@
+ARCHIVE_PATH=/tmp/memoir-app.tar.gz
 all: dev
 
 dev:
@@ -10,10 +11,7 @@ dist:
 css:
 	@npx sass --watch src/styles/app.scss public/app.css
 
-lint: lint-prettier lint-stylelint lint-eslint
-
-lint-prettier:
-	@npx prettier --loglevel=warn --write src/**/*.{ts,tsx}
+lint: lint-stylelint lint-eslint
 
 lint-stylelint:
 	@npx stylelint src/styles/**
@@ -22,17 +20,16 @@ lint-eslint:
 	@npx eslint --ext .js,.jsx,.ts,.tsx src
 
 clean:
-	@rm -fr public/app.* .rpt2_cache /tmp/memoir-app.tar.gz
+	@rm -fr public/app.* .rpt2_cache $(ARCHIVE_PATH)
 
 archive: dist
-	@tar zcvf /tmp/memoir-app.tar.gz public Caddyfile
+	@tar zcvf $(ARCHIVE_PATH) public Caddyfile
 
 .PHONY: all            \
         dev            \
         dist           \
         css            \
         lint           \
-        lint-prettier  \
         lint-stylelint \
         lint-eslint    \
         clean          \

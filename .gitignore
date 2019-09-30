@@ -60,9 +60,6 @@ typings/
 # next.js build output
 .next
 
-# rollup-plugin-typescript2 cache directory
-.rpt2_cache
-
 # built assets in the public directory
 app.css
 app.css.map

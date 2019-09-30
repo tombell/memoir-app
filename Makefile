@@ -1,4 +1,5 @@
 ARCHIVE_PATH=/tmp/memoir-app.tar.gz
+
 all: dev
 
 dev:
@@ -17,10 +18,10 @@ lint-stylelint:
 	@npx stylelint src/styles/**
 
 lint-eslint:
-	@npx eslint --ext .js,.jsx,.ts,.tsx src
+	@npx eslint --ext .ts,.tsx src
 
 clean:
-	@rm -fr public/app.* .rpt2_cache $(ARCHIVE_PATH)
+	@rm -fr public/app.* $(ARCHIVE_PATH)
 
 archive: dist
 	@tar zcvf $(ARCHIVE_PATH) public Caddyfile

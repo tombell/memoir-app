@@ -5,20 +5,16 @@ all: dev
 dev:
 	@BUILD=development npx rollup -c -w
 
-dist:
+prod:
 	@npx sass -s compressed src/styles/app.scss public/app.css
 	@BUILD=production npx rollup -c
 
-css:
+styles:
 	@npx sass --watch src/styles/app.scss public/app.css
 
-lint: lint-stylelint lint-eslint
-
-lint-stylelint:
-	@npx stylelint src/styles/**
-
-lint-eslint:
+lint:
 	@npx eslint --ext .ts,.tsx src
+	@npx stylelint src/styles/**
 
 clean:
 	@rm -fr public/app.* $(ARCHIVE_PATH)
@@ -28,10 +24,8 @@ archive: dist
 
 .PHONY: all            \
         dev            \
-        dist           \
-        css            \
+        prod           \
+        styles         \
         lint           \
-        lint-stylelint \
-        lint-eslint    \
         clean          \
         archive        \

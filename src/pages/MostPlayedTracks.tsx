@@ -16,7 +16,7 @@ interface State {
   tracks: Track[] | null;
 }
 
-export default class MostPlayedPage extends Component<Props, State> {
+export default class MostPlayedTracksPage extends Component<Props, State> {
   private loadingTimer: NodeJS.Timeout | undefined;
 
   constructor(props: Props) {

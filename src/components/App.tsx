@@ -9,7 +9,7 @@ import {
 } from '../services/memoir/types';
 
 import AboutPage from '../pages/About';
-import MostPlayedPage from '../pages/MostPlayed';
+import MostPlayedTracksPage from '../pages/MostPlayedTracks';
 import NotFoundPage from '../pages/NotFound';
 import TracklistPage from '../pages/Tracklist';
 import TracklistsByTrackPage from '../pages/TracklistsByTrack';
@@ -51,7 +51,7 @@ export default (props: Props) => {
             path="/track/:id/:page?"
             fetchTracklistsByTrack={fetchTracklistsByTrack}
           />
-          <MostPlayedPage
+          <MostPlayedTracksPage
             path="/tracks/mostplayed"
             fetchMostPlayedTracks={fetchMostPlayedTracks}
           />

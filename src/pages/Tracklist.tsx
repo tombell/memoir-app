@@ -23,11 +23,12 @@ export default class TracklistPage extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
+
     this.state = { isLoading: false, tracklist: null };
   }
 
   componentDidMount() {
-    this.fetchTrack();
+    this.fetchTracklist();
   }
 
   showLoadingIndicator = () => {
@@ -37,19 +38,24 @@ export default class TracklistPage extends Component<Props, State> {
     );
   };
 
-  async fetchTrack() {
-    const { id, fetchTracklist } = this.props;
-
-    this.showLoadingIndicator();
-
-    const tracklist = await fetchTracklist(id!);
-
+  hideLoadingIndicator = () => {
     if (this.loadingTimer) {
       clearTimeout(this.loadingTimer);
     }
 
-    this.setState({ isLoading: false, tracklist });
-  }
+    this.setState({ isLoading: false });
+  };
+
+  async fetchTracklist() {
+    this.showLoadingIndicator();
+
+    const { id, fetchTracklist } = this.props;
+    const tracklist = await fetchTracklist(id!);
+
+    this.hideLoadingIndicator();
+
+    this.setState({ tracklist });
+  };
 
   static renderGenreTags(tracks?: Track[]) {
     if (!tracks) {
@@ -88,11 +94,9 @@ export default class TracklistPage extends Component<Props, State> {
         <div class="tracklist-genres">
           {TracklistPage.renderGenreTags(tracklist.tracks)}
         </div>
-
         <div class="tracklist-tracks">
           {TracklistPage.renderTracks(tracklist.tracks)}
         </div>
-
         <Footer />
       </div>
     );

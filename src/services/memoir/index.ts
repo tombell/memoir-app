@@ -31,7 +31,7 @@ export async function fetchTracklist(id: string) {
 
 export async function fetchTracklistsByTrack(id: string, page: number = 1) {
   try {
-    const url = `/tracks/${id}/tracklists?page${page}`;
+    const url = `/tracks/${id}/tracklists?page=${page}`;
     const tracklists: PagedTracklists = await apiRequest(url);
     return tracklists;
   } catch {

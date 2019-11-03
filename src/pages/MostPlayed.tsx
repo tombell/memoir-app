@@ -47,27 +47,29 @@ export default class MostPlayedPage extends Component<Props, State> {
     );
   };
 
-  render() {
-    const { isLoading, tracks } = this.state;
-
-    if (isLoading) {
-      return <Loading />;
-    }
+  renderTracks() {
+    const { tracks } = this.state;
 
     if (!tracks) {
       return null;
     }
 
+    return tracks.map((track, i) => (
+      <TrackItem trackNumber={i + 1} track={track} />
+    ));
+  }
+
+  render() {
+    const { isLoading } = this.state;
+
+    if (isLoading) {
+      return <Loading />;
+    }
+
     return (
       <div class="most-played">
-        <h2 class="most-played-header">Top Ten Most Played Tracks</h2>
-
-        <div class="most-played-tracks">
-          {tracks.map((track, i) => (
-            <TrackItem trackNumber={i + 1} track={track} />
-          ))}
-        </div>
-
+        <h2 class="most-played-header">Top Ten Played Tracks</h2>
+        <div>{this.renderTracks()}</div>
         <Footer />
       </div>
     );

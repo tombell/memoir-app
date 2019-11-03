@@ -51,22 +51,6 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
     this.fetchTracklists();
   }
 
-  fetchTracklists = async () => {
-    this.showLoadingIndicator();
-
-    const { id, page, fetchTracklistsByTrack } = this.props;
-    const paged = await fetchTracklistsByTrack(id!, parseInt(page || '1', 10));
-
-    this.hideLoadingIndicator();
-    this.setState({ page });
-
-    if (paged) {
-      const { tracklists, hasMore } = paged;
-
-      this.setState({ tracklists, hasMore });
-    }
-  };
-
   showLoadingIndicator = () => {
     this.loadingTimer = setTimeout(
       () => this.setState({ isLoading: true }),
@@ -82,6 +66,21 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
     this.setState({ isLoading: false });
   };
 
+  async fetchTracklists() {
+    this.showLoadingIndicator();
+
+    const { id, page, fetchTracklistsByTrack } = this.props;
+    const paged = await fetchTracklistsByTrack(id!, parseInt(page || '1', 10));
+
+    this.hideLoadingIndicator();
+    this.setState({ page });
+
+    if (paged) {
+      const { tracklists, hasMore } = paged;
+
+      this.setState({ tracklists, hasMore });
+    }
+  }
 
   renderTracklists() {
     const { tracklists } = this.state;

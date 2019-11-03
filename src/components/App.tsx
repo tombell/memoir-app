@@ -34,8 +34,8 @@ export default (props: Props) => {
   } = props;
 
   return (
-    <div class="page-container">
-      <div class="page-column">
+    <div class="page">
+      <div class="page__column">
         <Header />
         <Router>
           <Redirect path="/" to="/tracklists/1" />

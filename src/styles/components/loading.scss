@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
 
-  .loading-spinner {
+  &__spinner {
     width: 36px;
     height: 36px;
     padding: 0;
@@ -14,7 +14,7 @@
     animation: spin 1s linear infinite;
   }
 
-  .loading-header {
+  &__header {
     margin: 0 0 0 12px;
   }
 }

@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 const AboutPage: FunctionalComponent = () => {
   return (
     <div class="about">
-      <h2 class="about-header">About Memoir</h2>
+      <h2 class="about__header">About Memoir</h2>
       <p>
         Memoir was built to be a project to experiment with a Go API and Preact
         front-end.

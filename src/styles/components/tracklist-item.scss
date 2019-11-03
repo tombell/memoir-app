@@ -7,30 +7,30 @@
     margin: 0 0 20px 10px;
   }
 
-  .tracklist-item-details {
+  &__details {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+  }
 
-    .tracklist-item-name {
-      flex: 5;
-      margin: 0 0 5px 0;
+  &__name {
+    flex: 5;
+    margin: 0 0 5px 0;
 
-      @include phone {
-        flex-basis: 100%;
-      }
+    @include phone {
+      flex-basis: 100%;
     }
+  }
 
-    .tracklist-item-tags {
-      flex: 2;
-      display: flex;
-      justify-content: flex-end;
+  &__tags {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
 
-      @include phone {
-        flex-basis: 100%;
-        justify-content: flex-start;
-        margin: 5px 0 0 0;
-      }
+    @include phone {
+      flex-basis: 100%;
+      justify-content: flex-start;
+      margin: 5px 0 0 0;
     }
   }
 }

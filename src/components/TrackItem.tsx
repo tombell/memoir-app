@@ -12,16 +12,16 @@ interface Props {
 export default ({ trackNumber, track }: Props) => {
   return (
     <div class="track-item">
-      <div class="track-item-number">
+      <div class="track-item__number">
         <span>{`#${trackNumber}`}</span>
       </div>
 
-      <div class="track-item-details">
-        <div class="track-item-name">
+      <div class="track-item__details">
+        <div class="track-item__name">
           <a href={`/track/${track.id}`}>{`${track.artist} - ${track.name}`}</a>
         </div>
 
-        <div class="track-item-tags">
+        <div class="track-item__tags">
           <Tag text={track.bpm.toFixed(2)} color="purple" />
           <Tag text={track.key} color="lilac" />
           <Tag text={track.genre} color="blue" />

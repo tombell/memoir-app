@@ -20,11 +20,11 @@ export default ({ path, id, page, hasMore }: Props) => {
 
   return (
     <div class="pagination">
-      <div class="pagination-link">
+      <div class="pagination__link">
         {!isFirstPage && <a href={prevUrl}>← Newer</a>}
       </div>
 
-      <div class="pagination-link">
+      <div class="pagination__link">
         {hasMore && <a href={nextUrl}>Older →</a>}
       </div>
     </div>

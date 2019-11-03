@@ -90,11 +90,11 @@ export default class TracklistPage extends Component<Props, State> {
 
     return (
       <div class="tracklist">
-        <h2 class="tracklist-header">{tracklist.name}</h2>
-        <div class="tracklist-genres">
+        <h2 class="tracklist__header">{tracklist.name}</h2>
+        <div class="tracklist__genres">
           {TracklistPage.renderGenreTags(tracklist.tracks)}
         </div>
-        <div class="tracklist-tracks">
+        <div class="tracklist__tracks">
           {TracklistPage.renderTracks(tracklist.tracks)}
         </div>
         <Footer />

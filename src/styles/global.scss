@@ -13,13 +13,13 @@ a {
   }
 }
 
-.page-container {
+.page {
   align-items: center;
   display: flex;
   justify-content: center;
-}
 
-.page-column {
-  flex: 1;
-  max-width: 640px;
+  &__column {
+    flex: 1;
+    max-width: 640px;
+  }
 }

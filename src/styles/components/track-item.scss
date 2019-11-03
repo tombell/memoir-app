@@ -3,7 +3,7 @@
   display: flex;
   margin: 0 0 20px 0;
 
-  .track-item-number {
+  &__number {
     flex: 1;
     display: flex;
     padding: 0 8px 0 0;
@@ -13,20 +13,20 @@
     justify-content: flex-end;
   }
 
-  .track-item-details {
+  &__details {
     align-items: center;
     display: flex;
     flex: 12;
     flex-wrap: wrap;
+  }
 
-    .track-item-name {
-      flex-basis: 100%;
-      margin: 0 0 5px 0;
-      font-weight: bold;
-    }
+  &__name {
+    flex-basis: 100%;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+  }
 
-    .track-item-tags {
-      flex-basis: 100%;
-    }
+  &__tags {
+    flex-basis: 100%;
   }
 }

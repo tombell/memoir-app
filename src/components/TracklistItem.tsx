@@ -12,12 +12,12 @@ interface Props {
 
 export default ({ tracklist }: Props) => {
   return (
-    <a class="tracklist-item-link" href={`/tracklist/${tracklist.id}`}>
+    <a href={`/tracklist/${tracklist.id}`}>
       <div class="tracklist-item">
-        <div class="tracklist-item-details">
-          <h3 class="tracklist-item-name">{tracklist.name}</h3>
+        <div class="tracklist-item__details">
+          <h3 class="tracklist-item__name">{tracklist.name}</h3>
 
-          <div class="tracklist-item-tags">
+          <div class="tracklist-item__tags">
             <Tag text={`${tracklist.trackCount} Tracks`} color="green" />
             <Tag text={formatDate(tracklist.date)} color="light-blue" />
           </div>

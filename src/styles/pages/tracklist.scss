@@ -1,9 +1,9 @@
 .tracklist {
-  .tracklist-header {
+  &__header {
     text-align: center;
   }
 
-  .tracklist-genres {
+  &__genres {
     display: flex;
     justify-content: center;
     margin: 0 0 30px 0;

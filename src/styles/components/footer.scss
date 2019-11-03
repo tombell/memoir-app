@@ -4,21 +4,21 @@
   font-size: 12px;
   font-weight: bold;
 
-  .footer-left {
+  &__left {
     flex: 1;
-
-    .footer-link {
-      margin: 0 12px 0 0;
-    }
   }
 
-  .footer-right {
+  &__left .footer__link {
+    margin: 0 12px 0 0;
+  }
+
+  &__right {
     display: flex;
     flex: 1;
     justify-content: flex-end;
+  }
 
-    .footer-link {
-      margin: 0 0 0 12px;
-    }
+  &__right .footer__link {
+    margin: 0 0 0 12px;
   }
 }

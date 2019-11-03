@@ -21,11 +21,16 @@ interface State {
 }
 
 export default class TracklistsPage extends Component<Props, State> {
-  private loadingTimer: NodeJS.Timeout | undefined;
+  private loadingTimer?: NodeJS.Timeout;
 
   constructor(props: Props) {
     super(props);
-    this.state = { isLoading: false, tracklists: null, hasMore: false };
+
+    this.state = {
+      isLoading: false,
+      tracklists: null,
+      hasMore: false,
+    };
   }
 
   componentDidMount() {
@@ -36,31 +41,23 @@ export default class TracklistsPage extends Component<Props, State> {
     const { page } = this.props;
 
     if (page !== prev.page) {
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ page: prev.page });
-      this.fetchTracklists();
+      this.onUpdatePage(prev.page);
     }
   }
 
-  showLoadingIndicator = () => {
-    this.loadingTimer = setTimeout(
-      () => this.setState({ isLoading: true }),
-      1000
-    );
-  };
+  onUpdatePage(page?: string) {
+    this.setState({ page });
+    this.fetchTracklists();
+  }
 
   fetchTracklists = async () => {
-    const { page, fetchTracklists } = this.props;
-
     this.showLoadingIndicator();
 
+    const { page, fetchTracklists } = this.props;
     const paged = await fetchTracklists(parseInt(page || '1', 10));
 
-    if (this.loadingTimer) {
-      clearTimeout(this.loadingTimer);
-    }
-
-    this.setState({ page, isLoading: false });
+    this.hideLoadingIndicator();
+    this.setState({ page });
 
     if (paged) {
       const { tracklists, hasMore } = paged;
@@ -69,19 +66,42 @@ export default class TracklistsPage extends Component<Props, State> {
     }
   };
 
-  renderTracklists() {
-    const { path } = this.props;
-    const { page, tracklists, hasMore } = this.state;
+  showLoadingIndicator = () => {
+    this.loadingTimer = setTimeout(
+      () => this.setState({ isLoading: true }),
+      1000
+    );
+  };
 
-    if (!tracklists || tracklists.length === 0) {
+  hideLoadingIndicator = () => {
+    if (this.loadingTimer) {
+      clearTimeout(this.loadingTimer);
+    }
+
+    this.setState({ isLoading: false });
+  };
+
+  renderTracklists() {
+    const { tracklists } = this.state;
+
+    if (!tracklists) {
       return null;
+    }
+
+    return tracklists.map(tracklist => <TracklistItem tracklist={tracklist} />);
+  }
+
+  render() {
+    const { path } = this.props;
+    const { page, isLoading, hasMore } = this.state;
+
+    if (isLoading) {
+      return <Loading />;
     }
 
     return (
       <div class="tracklists">
-        {tracklists.map(tracklist => (
-          <TracklistItem tracklist={tracklist} />
-        ))}
+        {this.renderTracklists()}
         <Pagination
           path={path!}
           page={parseInt(page || '1', 10)}
@@ -90,15 +110,5 @@ export default class TracklistsPage extends Component<Props, State> {
         <Footer />
       </div>
     );
-  }
-
-  render() {
-    const { isLoading } = this.state;
-
-    if (isLoading) {
-      return <Loading />;
-    }
-
-    return this.renderTracklists();
   }
 }

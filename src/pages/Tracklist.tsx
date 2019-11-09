@@ -55,7 +55,7 @@ export default class TracklistPage extends Component<Props, State> {
     this.hideLoadingIndicator();
 
     this.setState({ tracklist });
-  };
+  }
 
   static renderGenreTags(tracks?: Track[]) {
     if (!tracks) {

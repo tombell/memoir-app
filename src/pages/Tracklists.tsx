@@ -79,7 +79,7 @@ export default class TracklistsPage extends Component<Props, State> {
 
       this.setState({ tracklists, hasMore });
     }
-  };
+  }
 
   renderTracklists() {
     const { tracklists } = this.state;

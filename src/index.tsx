@@ -5,6 +5,7 @@ import {
   fetchTracklist,
   fetchTracklists,
   fetchTracklistsByTrack,
+  searchTracks,
 } from './services/memoir';
 
 import App from './components/App';
@@ -14,6 +15,7 @@ const props = {
   fetchTracklist,
   fetchTracklists,
   fetchTracklistsByTrack,
+  searchTracks,
 };
 
 render(<App {...props} />, document.getElementById('root')!);

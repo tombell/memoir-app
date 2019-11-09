@@ -6,6 +6,7 @@ import {
   FetchTracklist,
   FetchTracklistsByTrack,
   FetchMostPlayedTracks,
+  SearchTracks,
 } from '../services/memoir/types';
 
 import AboutPage from '../pages/About';
@@ -23,6 +24,7 @@ interface Props {
   fetchTracklist: FetchTracklist;
   fetchTracklistsByTrack: FetchTracklistsByTrack;
   fetchMostPlayedTracks: FetchMostPlayedTracks;
+  searchTracks: SearchTracks;
 }
 
 export default (props: Props) => {
@@ -31,6 +33,7 @@ export default (props: Props) => {
     fetchTracklists,
     fetchTracklistsByTrack,
     fetchMostPlayedTracks,
+    searchTracks,
   } = props;
 
   return (

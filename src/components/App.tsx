@@ -18,6 +18,7 @@ import TracklistsPage from '../pages/Tracklists';
 
 import Header from './Header';
 import Redirect from './Redirect';
+import Search from './Search';
 
 interface Props {
   fetchTracklists: FetchTracklists;
@@ -40,6 +41,7 @@ export default (props: Props) => {
     <div class="page">
       <div class="page__column">
         <Header />
+        <Search searchTracks={searchTracks} />
         <Router>
           <Redirect path="/" to="/tracklists/1" />
           <TracklistsPage

@@ -68,7 +68,37 @@ export default class Search extends Component<Props, State> {
   render() {
     return (
       <div class="search">
-        <input class="search__input" onInput={this.onInput} />
+        <div class="search__box">
+          <input
+            class="search__input"
+            placeholder="Search tracks..."
+            onInput={this.onInput}
+          />
+        </div>
+
+        {this.renderSearchResults()}
+      </div>
+    );
+  }
+
+  renderSearchResults() {
+    const { tracks } = this.state;
+
+    if (!tracks) {
+      return null;
+    }
+
+    return (
+      <div class="search__results">
+        <ul class="search__results-list">
+          {tracks.map(track => (
+            <li class="search__results-item">
+              <a href={`/track/${track.id}`}>
+                {track.artist} - {track.name}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

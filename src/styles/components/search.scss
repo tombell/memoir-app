@@ -17,10 +17,9 @@
     background: $background-color;
     position: absolute;
     border: 1px solid $primary-color;
-    font-size: 12px;
     z-index: 2;
     width: 640px;
-    box-shadow: 0 5px 15px rgba(100, 100, 100, 0.3);
+    box-shadow: 0 5px 15px rgba(10, 10, 10, 0.3);
   }
 
   &__results-list {
@@ -30,8 +29,9 @@
   }
 
   &__results-item {
-    margin: 5px 8px;
+    margin: 10px 8px;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

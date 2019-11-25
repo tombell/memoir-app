@@ -39,7 +39,11 @@ export default class TracklistsByTrackPage extends Component<Props, State> {
   }
 
   componentDidUpdate(prev: Props) {
-    const { page } = this.props;
+    const { id, page } = this.props;
+
+    if (id !== prev.id) {
+      this.fetchTracklists();
+    }
 
     if (page !== prev.page) {
       this.onUpdatePage(prev.page);

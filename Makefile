@@ -19,7 +19,7 @@ lint:
 clean:
 	@rm -fr public/app.* $(ARCHIVE_PATH)
 
-archive: dist
+archive: prod
 	@tar zcvf $(ARCHIVE_PATH) public Caddyfile
 
 .PHONY: all            \

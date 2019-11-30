@@ -1,6 +1,6 @@
 /* global MEMOIR_API_URL */
 
-import { Tracklist, Track, PagedTracklists } from './types';
+import { Track, Tracklist, PagedTracks, PagedTracklists } from './types';
 
 const URL = MEMOIR_API_URL;
 
@@ -42,6 +42,16 @@ export async function fetchTracklistsByTrack(id: string, page: number = 1) {
 export async function fetchMostPlayedTracks() {
   try {
     const tracks: Track[] = await apiRequest('/tracks/mostplayed');
+    return tracks;
+  } catch {
+    return null;
+  }
+}
+
+export async function searchTracks(query: string) {
+  try {
+    const url = `/tracks/search?q=${query}`;
+    const tracks: PagedTracks = await apiRequest(url);
     return tracks;
   } catch {
     return null;

@@ -70,7 +70,12 @@ export default class Search extends Component<Props, State> {
     return (
       <li class="search__results-item">
         <a href={`/track/${track.id}`} onClick={this.hideResults}>
-          {`${track.artist} - ${track.name}`}
+          <span
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: `${track.artist_highlighted} - ${track.name_highlighted}`,
+            }}
+          />
         </a>
       </li>
     );

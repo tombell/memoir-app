@@ -5,6 +5,8 @@ export interface Track {
   genre: string;
   bpm: number;
   key: string;
+  artist_highlighted: string;
+  name_highlighted: string;
 }
 
 export interface Tracklist {

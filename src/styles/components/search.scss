@@ -33,5 +33,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    b {
+      font-style: italic;
+      font-weight: 400;
+      color: $lilac;
+    }
   }
 }

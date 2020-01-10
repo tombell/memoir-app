@@ -19,7 +19,7 @@
     "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-terser": "^5.1.3",
     "rollup-plugin-typescript2": "^0.25.3",
-    "sass": "^1.24.3",
+    "sass": "^1.24.4",
     "stylelint": "^12.0.1",
     "stylelint-config-recommended-scss": "^4.1.0",
     "stylelint-order": "^4.0.0",

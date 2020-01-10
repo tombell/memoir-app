@@ -7,9 +7,11 @@
   }
 
   &__input {
+    -webkit-appearance: none;
     width: 25em;
-    padding: 0.3em;
+    padding: 0.5em;
     background: $grey;
+    border: 0;
     outline: 0;
   }
 

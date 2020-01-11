@@ -13,6 +13,7 @@ export interface Tracklist {
   id: string;
   name: string;
   date: string;
+  url: string;
   trackCount: number;
   tracks?: Track[];
 }

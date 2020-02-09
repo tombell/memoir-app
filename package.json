@@ -5,7 +5,7 @@
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-config-airbnb-typescript": "^7.0.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -20,14 +20,14 @@
     "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "sass": "^1.25.0",
-    "stylelint": "^13.0.0",
+    "stylelint": "^13.1.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.14.2",
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "preact": "^10.3.0",
+    "preact": "^10.3.1",
     "preact-router": "^3.2.1"
   }
 }

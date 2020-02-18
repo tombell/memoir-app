@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { h, Component, createRef } from 'preact';
 
 import { Track, SearchTracks } from '../services/memoir/types';
 
@@ -12,6 +12,8 @@ interface State {
 }
 
 export default class Search extends Component<Props, State> {
+  private ref = createRef();
+
   constructor(props: Props) {
     super(props);
 
@@ -20,6 +22,18 @@ export default class Search extends Component<Props, State> {
       tracks: null,
     };
   }
+
+  onBodyClick = (event: MouseEvent) => {
+    if (!this.ref.current) {
+      return;
+    }
+
+    if (this.ref.current.contains(event.target)) {
+      return;
+    }
+
+    this.hideResults();
+  };
 
   onSearchInput = (event: any) => {
     const { value } = event.target;
@@ -32,12 +46,22 @@ export default class Search extends Component<Props, State> {
   };
 
   showResults = () => {
+    this.registerBodyClick();
     this.setState({ showResults: true });
   };
 
   hideResults = () => {
+    this.unregisterBodyClick();
     this.setState({ showResults: false });
   };
+
+  registerBodyClick() {
+    document.addEventListener('click', this.onBodyClick);
+  }
+
+  unregisterBodyClick() {
+    document.removeEventListener('click', this.onBodyClick);
+  }
 
   async searchTracks(query: string) {
     const { searchTracks } = this.props;
@@ -83,7 +107,7 @@ export default class Search extends Component<Props, State> {
 
   render() {
     return (
-      <div class="search">
+      <div class="search" ref={this.ref}>
         <div class="search__box">
           <input
             class="search__input"

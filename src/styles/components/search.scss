@@ -1,3 +1,5 @@
+$search-background-color: darken($background-color, 5%);
+
 .search {
   margin-bottom: 2em;
 
@@ -9,9 +11,11 @@
   &__input {
     -webkit-appearance: none;
     width: 25em;
-    padding: 0.5em;
-    background: $grey;
+    padding: 15px;
+    color: $primary-color;
+    background: $search-background-color;
     border: 0;
+    border-radius: 3px;
     outline: 0;
   }
 
@@ -19,8 +23,8 @@
     position: absolute;
     z-index: 2;
     width: 640px;
-    background: $background-color;
-    border: 1px solid $primary-color;
+    padding: 10px;
+    background: $search-background-color;
     box-shadow: 0 5px 15px rgba(10, 10, 10, 0.3);
   }
 

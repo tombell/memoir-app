@@ -1,25 +1,25 @@
-@import "reset";
-@import "variables";
-@import "typography";
-@import "global";
-@import "media-queries";
+@import 'reset';
+@import 'variables';
+@import 'typography';
+@import 'global';
+@import 'media-queries';
 
 // Components
 
-@import "components/footer";
-@import "components/genres";
-@import "components/header";
-@import "components/loading";
-@import "components/pagination";
-@import "components/search";
-@import "components/tag";
-@import "components/track-item";
-@import "components/tracklist-item";
+@import 'components/footer';
+@import 'components/genres';
+@import 'components/header';
+@import 'components/loading';
+@import 'components/pagination';
+@import 'components/search';
+@import 'components/tag';
+@import 'components/track-item';
+@import 'components/tracklist-item';
 
 // Pages
 
-@import "pages/about";
-@import "pages/most-played";
-@import "pages/not-found";
-@import "pages/tracklist";
-@import "pages/tracklists";
+@import 'pages/about';
+@import 'pages/most-played';
+@import 'pages/not-found';
+@import 'pages/tracklist';
+@import 'pages/tracklists';

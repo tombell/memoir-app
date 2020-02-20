@@ -8,9 +8,19 @@
   background: $secondary-color;
   border-radius: 3px;
 
-  &--purple { background: $purple; }
-  &--lilac { background: $lilac; }
-  &--blue { background: $blue; }
-  &--green { background: $green; }
-  &--light-blue { background: $light-blue; }
+  &--purple {
+    background: $purple;
+  }
+  &--lilac {
+    background: $lilac;
+  }
+  &--blue {
+    background: $blue;
+  }
+  &--green {
+    background: $green;
+  }
+  &--light-blue {
+    background: $light-blue;
+  }
 }

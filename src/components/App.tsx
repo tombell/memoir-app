@@ -38,8 +38,8 @@ export default (props: Props) => {
   } = props;
 
   return (
-    <div class="page">
-      <div class="page__column">
+    <div class="app">
+      <div class="app__column">
         <Header />
         <Search searchTracks={searchTracks} />
         <Router>

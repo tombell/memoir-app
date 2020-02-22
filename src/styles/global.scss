@@ -12,14 +12,3 @@ a {
     color: $secondary-color;
   }
 }
-
-.app {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-
-  &__column {
-    flex: 1;
-    max-width: 640px;
-  }
-}

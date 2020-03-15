@@ -92,7 +92,7 @@ export default class TracklistPage extends Component<Props, State> {
       <div class="tracklist">
         <h2 class="tracklist__header">{tracklist.name}</h2>
         <div class="tracklist__link">
-          <a href={tracklist.url}>Listen on Mixcloud</a>
+          <a href={tracklist.url}>Listen on Mixcloud &rarr;</a>
         </div>
         <div class="tracklist__genres">
           {TracklistPage.renderGenreTags(tracklist.tracks)}

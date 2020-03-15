@@ -16,6 +16,7 @@
   &__name {
     flex: 5;
     margin: 0 0 5px 0;
+    font-weight: bold;
 
     @include phone {
       flex-basis: 100%;

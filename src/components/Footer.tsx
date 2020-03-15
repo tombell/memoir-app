@@ -18,9 +18,6 @@ export default () => {
         <a class="footer__link" href="https://mixcloud.com/iamdjriff">
           Mixcloud
         </a>
-        <a class="footer__link" href="https://twitter.com/iamdjriff">
-          Twitter
-        </a>
       </div>
     </footer>
   );

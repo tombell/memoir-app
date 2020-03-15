@@ -10,7 +10,7 @@ prod:
 	@BUILD=production npx rollup -c
 
 styles:
-	@npx sass --watch src/styles/app.scss public/app.css
+	@npx sass --watch src/styles/styles.scss public/styles.css
 
 lint:
 	@npx eslint --ext .ts,.tsx src

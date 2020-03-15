@@ -26,6 +26,7 @@ $search-background-color: darken($background-color, 5%);
     padding: 10px;
     background: $search-background-color;
     box-shadow: 0 5px 15px rgba(10, 10, 10, 0.3);
+    box-sizing: border-box;
   }
 
   &__results-list {

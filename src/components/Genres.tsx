@@ -9,7 +9,7 @@ interface Props {
 export default ({ genres }: Props) => {
   return (
     <div class="genres">
-      {genres.sort().map(genre => (
+      {genres.sort().map((genre) => (
         <Tag text={genre} color="blue" />
       ))}
     </div>

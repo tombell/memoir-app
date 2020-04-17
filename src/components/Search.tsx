@@ -84,7 +84,7 @@ export default class Search extends Component<Props, State> {
     return (
       <div class="search__results">
         <ul class="search__results-list">
-          {tracks.map(t => this.renderSearchResult(t))}
+          {tracks.map((t) => this.renderSearchResult(t))}
         </ul>
       </div>
     );

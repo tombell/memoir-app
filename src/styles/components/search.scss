@@ -1,7 +1,5 @@
-$search-background-color: darken($background-color, 5%);
-
 .search {
-  margin-bottom: 2em;
+  margin-bottom: 1rem;
 
   &__box {
     display: flex;
@@ -9,24 +7,32 @@ $search-background-color: darken($background-color, 5%);
   }
 
   &__input {
-    -webkit-appearance: none;
-    width: 25em;
-    padding: 15px;
+    width: 90vw;
+    box-sizing: border-box;
+    padding: 1rem;
     color: $primary-color;
     background: $search-background-color;
     border: 0;
-    border-radius: 3px;
+    border-radius: 0.1875rem;
     outline: 0;
+
+    @include desktop {
+      width: 25rem;
+    }
   }
 
   &__results {
     position: absolute;
     z-index: 2;
-    width: 800px;
+    width: 100vw;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0.625rem;
     background: $search-background-color;
-    box-shadow: 0 5px 15px rgba(10, 10, 10, 0.3);
+    box-shadow: 0 0.3125rem 0.9375rem rgba(10, 10, 10, 0.3);
+
+    @include desktop {
+      width: 50rem;
+    }
   }
 
   &__results-list {
@@ -36,10 +42,13 @@ $search-background-color: darken($background-color, 5%);
   }
 
   &__results-item {
-    margin: 10px 8px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    margin: 0.625rem 0.5rem;
+
+    @include desktop {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     b {
       font-style: italic;

@@ -11,12 +11,12 @@ export default () => {
           Most Played Tracks
         </a>
         <a class="footer__link" href="/about">
-          About
+          About Memoir
         </a>
       </div>
       <div class="footer__right">
         <a class="footer__link" href="https://mixcloud.com/iamdjriff">
-          Mixcloud
+          IAMDJRIFF on Mixcloud
         </a>
       </div>
     </footer>

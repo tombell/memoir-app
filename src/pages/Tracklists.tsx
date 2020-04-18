@@ -69,7 +69,7 @@ export default class TracklistsPage extends Component<Props, State> {
     this.showLoadingIndicator();
 
     const { page, fetchTracklists } = this.props;
-    const paged = await fetchTracklists(parseInt(page || '1', 10));
+    const paged = await fetchTracklists(parseInt(page!, 10));
 
     this.hideLoadingIndicator();
     this.setState({ page });
@@ -104,11 +104,7 @@ export default class TracklistsPage extends Component<Props, State> {
     return (
       <div class="tracklists">
         {this.renderTracklists()}
-        <Pagination
-          path={path!}
-          page={parseInt(page || '1', 10)}
-          hasMore={hasMore}
-        />
+        <Pagination path={path!} page={parseInt(page!, 10)} hasMore={hasMore} />
         <Footer />
       </div>
     );

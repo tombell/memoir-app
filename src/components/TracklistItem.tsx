@@ -18,7 +18,7 @@ export default ({ tracklist }: Props) => {
           <h3 class="tracklist-item__name">{tracklist.name}</h3>
 
           <div class="tracklist-item__tags">
-            <Tag text={`${tracklist.trackCount} Tracks`} color="green" />
+            <Tag text={`${tracklist.trackCount} Tracks`} color="lilac" />
             <Tag text={formatDate(tracklist.date)} color="light-blue" />
           </div>
         </div>

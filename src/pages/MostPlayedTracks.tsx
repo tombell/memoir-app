@@ -54,9 +54,7 @@ export default class MostPlayedTracksPage extends Component<Props, State> {
       return null;
     }
 
-    return tracks.map((track, i) => (
-      <TrackItem trackNumber={i + 1} track={track} />
-    ));
+    return tracks.map((track) => <TrackItem track={track} />);
   }
 
   render() {
@@ -68,7 +66,7 @@ export default class MostPlayedTracksPage extends Component<Props, State> {
 
     return (
       <div class="most-played">
-        <h2 class="most-played__header">Top Ten Played Tracks</h2>
+        <h2 class="most-played__header">Most Played Tracks</h2>
         <div>{this.renderTracks()}</div>
         <Footer />
       </div>

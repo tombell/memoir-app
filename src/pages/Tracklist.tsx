@@ -72,9 +72,7 @@ export default class TracklistPage extends Component<Props, State> {
       return null;
     }
 
-    return tracks.map((track, i) => (
-      <TrackItem trackNumber={i + 1} track={track} />
-    ));
+    return tracks.map((track) => <TrackItem track={track} />);
   }
 
   render() {
@@ -94,9 +92,7 @@ export default class TracklistPage extends Component<Props, State> {
         <div class="tracklist__link">
           <a href={tracklist.url}>Listen on Mixcloud &rarr;</a>
         </div>
-        <div class="tracklist__genres">
-          {TracklistPage.renderGenreTags(tracklist.tracks)}
-        </div>
+        {TracklistPage.renderGenreTags(tracklist.tracks)}
         <div class="tracklist__tracks">
           {TracklistPage.renderTracks(tracklist.tracks)}
         </div>

@@ -1,24 +1,30 @@
 .footer {
   display: flex;
-  margin: 80px 0 50px 0;
-  font-size: 12px;
+  margin: 1rem;
+  font-size: 0.75rem;
   font-weight: bold;
+
+  @include desktop {
+    margin: 5rem 0 3.125rem 0;
+  }
 
   &__left {
     flex: 1;
   }
 
   &__left .footer__link {
-    margin: 0 12px 0 0;
+    display: block;
+    margin-bottom: 0.5rem;
+
+    @include desktop {
+      display: inline;
+      margin-right: 1rem;
+    }
   }
 
   &__right {
     display: flex;
     flex: 1;
     justify-content: flex-end;
-  }
-
-  &__right .footer__link {
-    margin: 0 0 0 12px;
   }
 }

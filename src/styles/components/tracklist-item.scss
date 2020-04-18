@@ -1,41 +1,43 @@
 .tracklist-item {
   align-items: center;
   flex-wrap: wrap;
-  margin: 0 0 12px 0;
+  margin: 0 0.5rem 1rem 0.5rem;
 
-  @include phone {
-    margin: 0 0 20px 10px;
+  @include desktop {
+    margin: 0 0 0.625rem 0;
   }
 
   &__details {
-    align-items: center;
     display: flex;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include desktop {
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
   &__name {
-    flex: 5;
-    margin: 0 0 5px 0;
+    margin: 0 0 0.5rem 0;
     font-weight: bold;
 
-    @include phone {
-      flex-basis: 100%;
+    @include desktop {
+      flex: 5;
     }
   }
 
   &__tags {
-    flex: 2;
     display: flex;
     justify-content: flex-end;
 
-    .tag:last-of-type {
-      margin-right: 0;
+    @include desktop {
+      flex: 2;
     }
 
-    @include phone {
-      flex-basis: 100%;
-      justify-content: flex-start;
-      margin: 5px 0 0 0;
+    .tag:last-of-type {
+      margin-right: 0;
     }
   }
 }

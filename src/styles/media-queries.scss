@@ -1,5 +1,11 @@
 @mixin phone {
-  @media only screen and (max-device-width: 812px) {
+  @media (max-device-width: 812px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 800px) {
     @content;
   }
 }

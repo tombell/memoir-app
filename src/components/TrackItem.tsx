@@ -5,7 +5,6 @@ import { Track } from '../services/memoir/types';
 import Tag from './Tag';
 
 interface Props {
-  trackNumber: number;
   track: Track;
 }
 

@@ -104,11 +104,7 @@ export default class TracklistsPage extends Component<Props, State> {
     return (
       <div class="tracklists">
         {this.renderTracklists()}
-        <Pagination
-          path={path!}
-          page={parseInt(page!, 10)}
-          hasMore={hasMore}
-        />
+        <Pagination path={path!} page={parseInt(page!, 10)} hasMore={hasMore} />
         <Footer />
       </div>
     );

@@ -1,5 +1,16 @@
 .about {
   &__header {
+    margin-bottom: 1rem;
+    font-weight: bold;
     text-align: center;
+  }
+
+  &__text {
+    margin: 0 1rem 1rem;
+    line-height: 1.2;
+
+    &:last-of-type {
+      margin-bottom: 2rem;
+    }
   }
 }

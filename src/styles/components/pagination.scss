@@ -1,8 +1,12 @@
 .pagination {
   align-items: center;
   display: flex;
-  margin: 50px 0;
+  margin: 2rem 0;
   font-weight: bold;
+
+  @include desktop {
+    margin: 3.125rem 0;
+  }
 
   &__link {
     display: flex;

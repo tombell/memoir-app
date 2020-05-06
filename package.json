@@ -15,6 +15,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
     "minimist": ">=1.2.2",
     "prettier": "^2.0.5",
     "rollup": "^2.7.6",
@@ -31,5 +33,13 @@
   "dependencies": {
     "preact": "^10.4.1",
     "preact-router": "^3.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --write"
   }
 }

@@ -5,7 +5,6 @@ import { Track, Tracklist, PagedTracks, PagedTracklists } from './types';
 const URL = MEMOIR_API_URL;
 
 export async function apiRequest(endpoint: string) {
-  // TODO: add handling of 404 and 500
   const resp = await fetch(`${URL}${endpoint}`);
   return resp.json();
 }

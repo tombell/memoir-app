@@ -1,7 +1,6 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
-import AboutPage from 'pages/About';
 import MostPlayedTracksPage from 'pages/MostPlayedTracks';
 import NotFoundPage from 'pages/NotFound';
 import TracklistPage from 'pages/Tracklist';
@@ -23,7 +22,6 @@ export default () => (
         <TracklistPage path="/tracklist/:id" />
         <TracklistsByTrackPage path="/track/:id/:page?" />
         <MostPlayedTracksPage path="/tracks/mostplayed" />
-        <AboutPage path="/about" />
         <NotFoundPage default />
       </Router>
     </div>

@@ -1,17 +1,14 @@
-import { Component } from 'preact';
+import { useEffect } from 'preact/hooks';
 import { RoutableProps, route } from 'preact-router';
 
 interface Props extends RoutableProps {
   to: string;
 }
 
-export default class Redirect extends Component<Props> {
-  componentDidMount() {
-    const { to } = this.props;
+export default ({ to }: Props) => {
+  useEffect(() => {
     route(to, true);
-  }
+  });
 
-  render() {
-    return null;
-  }
-}
+  return null;
+};

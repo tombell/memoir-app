@@ -1,7 +1,6 @@
 import { h, Component, createRef } from 'preact';
 
-import { searchTracks } from 'services/memoir';
-import { Track } from 'services/memoir/types';
+import { searchTracks, Track } from 'services/memoir';
 
 interface Props {}
 

@@ -1,7 +1,6 @@
 import { h, Component } from 'preact';
 
-import { fetchMostPlayedTracks } from 'services/memoir';
-import { Track } from 'services/memoir/types';
+import { fetchMostPlayedTracks, Track } from 'services/memoir';
 
 import Footer from 'components/Footer';
 import Loading from 'components/Loading';

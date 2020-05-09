@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { Tracklist } from 'services/memoir/types';
+import { Tracklist } from 'services/memoir';
 
 import formatDate from 'utils/format-date';
 

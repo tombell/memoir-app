@@ -1,8 +1,7 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { fetchTracklist } from 'services/memoir';
-import { Tracklist, Track } from 'services/memoir/types';
+import { fetchTracklist, Tracklist, Track } from 'services/memoir';
 
 import Footer from 'components/Footer';
 import Genres from 'components/Genres';

@@ -1,14 +1,37 @@
-import {
-  Track,
-  Tracklist,
-  PagedTracks,
-  PagedTracklists,
-} from 'services/memoir/types';
+export interface Track {
+  id: string;
+  artist: string;
+  name: string;
+  genre: string;
+  bpm: number;
+  key: string;
+  artist_highlighted: string;
+  name_highlighted: string;
+}
 
-const URL = MEMOIR_API_URL;
+export interface Tracklist {
+  id: string;
+  name: string;
+  date: string;
+  artwork: string;
+  url: string;
+  trackCount: number;
+  tracks?: Track[];
+}
+
+export interface PagedTracks {
+  tracks: Track[] | null;
+  hasMore: boolean;
+}
+
+export interface PagedTracklists {
+  track?: Track;
+  tracklists: Tracklist[] | null;
+  hasMore: boolean;
+}
 
 export async function apiRequest(endpoint: string) {
-  const resp = await fetch(`${URL}${endpoint}`);
+  const resp = await fetch(`${MEMOIR_API_URL}${endpoint}`);
   return resp.json();
 }
 

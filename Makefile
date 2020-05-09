@@ -12,8 +12,12 @@ prod:
 styles:
 	@npx sass --watch src/styles/styles.scss public/styles.css
 
-lint:
+lint: lint-stylesheets lint-typescript
+
+lint-typescript:
 	@npx eslint --ext .ts,.tsx src
+
+lint-stylesheets:
 	@npx stylelint src/styles/**
 
 clean:
@@ -22,10 +26,12 @@ clean:
 archive: prod
 	@tar zcvf $(ARCHIVE_PATH) public Caddyfile
 
-.PHONY: all            \
-        dev            \
-        prod           \
-        styles         \
-        lint           \
-        clean          \
-        archive        \
+.PHONY: all              \
+        dev              \
+        prod             \
+        styles           \
+        lint             \
+        lint-typescript  \
+        lint-stylesheets \
+        clean            \
+        archive          \

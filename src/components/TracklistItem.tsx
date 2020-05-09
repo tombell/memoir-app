@@ -1,10 +1,10 @@
 import { h } from 'preact';
 
-import { Tracklist } from '../services/memoir/types';
+import { Tracklist } from 'services/memoir/types';
 
-import formatDate from '../utils/format-date';
+import formatDate from 'utils/format-date';
 
-import Tag from './Tag';
+import Tag from 'components/Tag';
 
 interface Props {
   tracklist: Tracklist;

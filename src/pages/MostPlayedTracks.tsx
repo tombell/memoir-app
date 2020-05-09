@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Track, FetchMostPlayedTracks } from '../services/memoir/types';
+import { Track, FetchMostPlayedTracks } from 'services/memoir/types';
 
-import Footer from '../components/Footer';
-import Loading from '../components/Loading';
-import TrackItem from '../components/TrackItem';
+import Footer from 'components/Footer';
+import Loading from 'components/Loading';
+import TrackItem from 'components/TrackItem';
 
 interface Props extends RoutableProps {
   fetchMostPlayedTracks: FetchMostPlayedTracks;

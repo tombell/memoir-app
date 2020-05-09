@@ -7,18 +7,18 @@ import {
   FetchTracklistsByTrack,
   FetchMostPlayedTracks,
   SearchTracks,
-} from '../services/memoir/types';
+} from 'services/memoir/types';
 
-import AboutPage from '../pages/About';
-import MostPlayedTracksPage from '../pages/MostPlayedTracks';
-import NotFoundPage from '../pages/NotFound';
-import TracklistPage from '../pages/Tracklist';
-import TracklistsByTrackPage from '../pages/TracklistsByTrack';
-import TracklistsPage from '../pages/Tracklists';
+import AboutPage from 'pages/About';
+import MostPlayedTracksPage from 'pages/MostPlayedTracks';
+import NotFoundPage from 'pages/NotFound';
+import TracklistPage from 'pages/Tracklist';
+import TracklistsByTrackPage from 'pages/TracklistsByTrack';
+import TracklistsPage from 'pages/Tracklists';
 
-import Header from './Header';
-import Redirect from './Redirect';
-import Search from './Search';
+import Header from 'components/Header';
+import Redirect from 'components/Redirect';
+import Search from 'components/Search';
 
 interface Props {
   fetchTracklists: FetchTracklists;

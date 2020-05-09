@@ -1,6 +1,6 @@
 import { h, FunctionalComponent } from 'preact';
 
-import Footer from '../components/Footer';
+import Footer from 'components/Footer';
 
 const AboutPage: FunctionalComponent = () => {
   return (

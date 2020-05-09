@@ -6,9 +6,9 @@ import {
   fetchTracklists,
   fetchTracklistsByTrack,
   searchTracks,
-} from './services/memoir';
+} from 'services/memoir';
 
-import App from './components/App';
+import App from 'components/App';
 
 const props = {
   fetchMostPlayedTracks,

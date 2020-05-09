@@ -1,6 +1,9 @@
-/* global MEMOIR_API_URL */
-
-import { Track, Tracklist, PagedTracks, PagedTracklists } from './types';
+import {
+  Track,
+  Tracklist,
+  PagedTracks,
+  PagedTracklists,
+} from 'services/memoir/types';
 
 const URL = MEMOIR_API_URL;
 

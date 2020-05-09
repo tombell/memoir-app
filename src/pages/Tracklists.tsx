@@ -1,12 +1,12 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist, FetchTracklists } from '../services/memoir/types';
+import { Tracklist, FetchTracklists } from 'services/memoir/types';
 
-import Footer from '../components/Footer';
-import Loading from '../components/Loading';
-import Pagination from '../components/Pagination';
-import TracklistItem from '../components/TracklistItem';
+import Footer from 'components/Footer';
+import Loading from 'components/Loading';
+import Pagination from 'components/Pagination';
+import TracklistItem from 'components/TracklistItem';
 
 interface Props extends RoutableProps {
   page?: string;

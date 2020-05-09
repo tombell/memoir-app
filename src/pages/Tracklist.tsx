@@ -1,12 +1,12 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist, Track, FetchTracklist } from '../services/memoir/types';
+import { Tracklist, Track, FetchTracklist } from 'services/memoir/types';
 
-import Footer from '../components/Footer';
-import Genres from '../components/Genres';
-import Loading from '../components/Loading';
-import TrackItem from '../components/TrackItem';
+import Footer from 'components/Footer';
+import Genres from 'components/Genres';
+import Loading from 'components/Loading';
+import TrackItem from 'components/TrackItem';
 
 interface Props extends RoutableProps {
   id?: string;

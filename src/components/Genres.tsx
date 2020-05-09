@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import Tag from './Tag';
+import Tag from 'components/Tag';
 
 interface Props {
   genres: string[];

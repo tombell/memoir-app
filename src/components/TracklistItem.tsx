@@ -19,7 +19,7 @@ export default ({ tracklist }: Props) => {
             <img
               class="tracklist-item__artwork"
               alt={`${tracklist.name} Artwork`}
-              src={`${MEMOIR_CDN}/${tracklist.artwork}`}
+              src={`${MEMOIR_CDN_URL}/${tracklist.artwork}`}
             />
           </div>
 

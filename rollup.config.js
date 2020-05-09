@@ -8,9 +8,8 @@ import { terser } from 'rollup-plugin-terser';
 const production = process.env.BUILD === 'production';
 
 const config = {
-  'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development'),
   'MEMOIR_API_URL': JSON.stringify(production ? 'https://api.iamdjriff.co.uk' : 'http://localhost:8080'),
-  'MEMOIR_CDN': JSON.stringify('https://d2a0hkcquufay7.cloudfront.net'),
+  'MEMOIR_CDN_URL': JSON.stringify('https://d2a0hkcquufay7.cloudfront.net'),
 };
 
 export default {
@@ -21,9 +20,6 @@ export default {
     sourcemap: true,
   },
   treeshake: true,
-  watch: {
-    clearScreen: false,
-  },
   plugins: [
     commonjs(),
     resolve(),

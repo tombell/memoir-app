@@ -1,7 +1,8 @@
 import { h, Component } from 'preact';
 import { RoutableProps } from 'preact-router';
 
-import { Tracklist, Track, FetchTracklist } from 'services/memoir/types';
+import { fetchTracklist } from 'services/memoir';
+import { Tracklist, Track } from 'services/memoir/types';
 
 import Footer from 'components/Footer';
 import Genres from 'components/Genres';
@@ -10,7 +11,6 @@ import TrackItem from 'components/TrackItem';
 
 interface Props extends RoutableProps {
   id?: string;
-  fetchTracklist: FetchTracklist;
 }
 
 interface State {
@@ -49,7 +49,7 @@ export default class TracklistPage extends Component<Props, State> {
   async fetchTracklist() {
     this.showLoadingIndicator();
 
-    const { id, fetchTracklist } = this.props;
+    const { id } = this.props;
     const tracklist = await fetchTracklist(id!);
 
     this.hideLoadingIndicator();

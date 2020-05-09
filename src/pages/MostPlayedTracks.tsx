@@ -1,15 +1,13 @@
 import { h, Component } from 'preact';
-import { RoutableProps } from 'preact-router';
 
-import { Track, FetchMostPlayedTracks } from 'services/memoir/types';
+import { fetchMostPlayedTracks } from 'services/memoir';
+import { Track } from 'services/memoir/types';
 
 import Footer from 'components/Footer';
 import Loading from 'components/Loading';
 import TrackItem from 'components/TrackItem';
 
-interface Props extends RoutableProps {
-  fetchMostPlayedTracks: FetchMostPlayedTracks;
-}
+interface Props {}
 
 interface State {
   isLoading: boolean;
@@ -21,12 +19,14 @@ export default class MostPlayedTracksPage extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { isLoading: false, tracks: null };
+
+    this.state = {
+      isLoading: false,
+      tracks: null,
+    };
   }
 
   async componentDidMount() {
-    const { fetchMostPlayedTracks } = this.props;
-
     this.setState({ isLoading: true });
 
     this.showLoadingIndicator();

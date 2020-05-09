@@ -1,10 +1,9 @@
 import { h, Component, createRef } from 'preact';
 
-import { Track, SearchTracks } from 'services/memoir/types';
+import { searchTracks } from 'services/memoir';
+import { Track } from 'services/memoir/types';
 
-interface Props {
-  searchTracks: SearchTracks;
-}
+interface Props {}
 
 interface State {
   showResults: boolean;
@@ -64,7 +63,6 @@ export default class Search extends Component<Props, State> {
   }
 
   async searchTracks(query: string) {
-    const { searchTracks } = this.props;
     const paged = await searchTracks(query);
 
     if (paged) {

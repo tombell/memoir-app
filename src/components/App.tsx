@@ -21,19 +21,19 @@ import Redirect from 'components/Redirect';
 import Search from 'components/Search';
 
 interface Props {
-  fetchTracklists: FetchTracklists;
-  fetchTracklist: FetchTracklist;
-  fetchTracklistsByTrack: FetchTracklistsByTrack;
   fetchMostPlayedTracks: FetchMostPlayedTracks;
+  fetchTracklist: FetchTracklist;
+  fetchTracklists: FetchTracklists;
+  fetchTracklistsByTrack: FetchTracklistsByTrack;
   searchTracks: SearchTracks;
 }
 
 export default (props: Props) => {
   const {
+    fetchMostPlayedTracks,
     fetchTracklist,
     fetchTracklists,
     fetchTracklistsByTrack,
-    fetchMostPlayedTracks,
     searchTracks,
   } = props;
 

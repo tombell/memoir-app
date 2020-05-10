@@ -11,7 +11,7 @@ const MostPlayedTracks: FunctionalComponent = () => {
   const [loading, setLoading] = useState(false);
   const [tracks, setTracks] = useState<Track[] | null>(null);
 
-  let timer: NodeJS.Timeout | undefined;
+  let timer: NodeJS.Timeout;
 
   useEffect(() => {
     const fn = async () => {

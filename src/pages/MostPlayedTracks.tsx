@@ -1,4 +1,7 @@
-import { h, Component } from 'preact';
+import { h, FunctionalComponent } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
+
+import { useDocumentTitle } from 'hooks';
 
 import { fetchMostPlayedTracks, Track } from 'services/memoir';
 
@@ -6,69 +9,34 @@ import Footer from 'components/Footer';
 import Loading from 'components/Loading';
 import TrackItem from 'components/TrackItem';
 
-interface Props {}
+const MostPlayedTracks: FunctionalComponent = () => {
+  const [loading, setLoading] = useState(false);
+  const [tracks, setTracks] = useState<Track[] | null>(null);
 
-interface State {
-  isLoading: boolean;
-  tracks: Track[] | null;
-}
+  let timer: NodeJS.Timeout | undefined;
 
-export default class MostPlayedTracksPage extends Component<Props, State> {
-  private loadingTimer: NodeJS.Timeout | undefined;
+  useDocumentTitle('Most Played Tracks — IAMDJRIFF Tracklists');
 
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      isLoading: false,
-      tracks: null,
+  useEffect(() => {
+    const fn = async () => {
+      timer = setTimeout(() => setLoading(true), 1000);
+      const resp = await fetchMostPlayedTracks();
+      setLoading(false);
+      clearTimeout(timer);
+      setTracks(resp);
     };
-  }
 
-  async componentDidMount() {
-    this.setState({ isLoading: true });
+    fn();
+  }, []);
 
-    this.showLoadingIndicator();
+  return (
+    <div class="most-played">
+      <h2 class="most-played__header">Most Played Tracks</h2>
+      {loading && <Loading />}
+      {tracks && tracks.map((track) => <TrackItem track={track} />)}
+      <Footer />
+    </div>
+  );
+};
 
-    const tracks = await fetchMostPlayedTracks();
-
-    if (this.loadingTimer) {
-      clearTimeout(this.loadingTimer);
-    }
-
-    this.setState({ isLoading: false, tracks });
-  }
-
-  showLoadingIndicator = () => {
-    this.loadingTimer = setTimeout(
-      () => this.setState({ isLoading: true }),
-      1000
-    );
-  };
-
-  renderTracks() {
-    const { tracks } = this.state;
-
-    if (!tracks) {
-      return null;
-    }
-
-    return tracks.map((track) => <TrackItem track={track} />);
-  }
-
-  render() {
-    const { isLoading } = this.state;
-
-    if (isLoading) {
-      return <Loading />;
-    }
-
-    return (
-      <div class="most-played">
-        <h2 class="most-played__header">Most Played Tracks</h2>
-        <div>{this.renderTracks()}</div>
-        <Footer />
-      </div>
-    );
-  }
-}
+export default MostPlayedTracks;

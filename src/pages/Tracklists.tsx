@@ -1,4 +1,5 @@
-import { h, Component } from 'preact';
+import { h } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
 import { RoutableProps } from 'preact-router';
 
 import { fetchTracklists, Tracklist } from 'services/memoir';
@@ -12,100 +13,36 @@ interface Props extends RoutableProps {
   page?: string;
 }
 
-interface State {
-  page?: string;
-  isLoading: boolean;
-  tracklists: Tracklist[] | null;
-  hasMore: boolean;
-}
+export default ({ page, path }: Props) => {
+  const [loading, setLoading] = useState(false);
+  const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
+  const [hasMore, setHasMore] = useState(false);
 
-export default class TracklistsPage extends Component<Props, State> {
-  private loadingTimer?: NodeJS.Timeout;
+  let timer: NodeJS.Timeout | undefined;
 
-  constructor(props: Props) {
-    super(props);
+  useEffect(() => {
+    const fn = async () => {
+      timer = setTimeout(() => setLoading(true), 1000);
+      const resp = await fetchTracklists(parseInt(page!, 10));
+      setLoading(false);
+      clearTimeout(timer);
 
-    this.state = {
-      isLoading: false,
-      tracklists: null,
-      hasMore: false,
+      if (resp) {
+        setTracklists(resp.tracklists);
+        setHasMore(resp.hasMore);
+      }
     };
-  }
 
-  componentDidMount() {
-    this.fetchTracklists();
-  }
+    fn();
+  }, [page]);
 
-  componentDidUpdate(prev: Props) {
-    const { page } = this.props;
-
-    if (page !== prev.page) {
-      this.onUpdatePage(prev.page);
-    }
-  }
-
-  onUpdatePage(page?: string) {
-    this.setState({ page });
-    this.fetchTracklists();
-  }
-
-  showLoadingIndicator = () => {
-    this.loadingTimer = setTimeout(
-      () => this.setState({ isLoading: true }),
-      1000
-    );
-  };
-
-  hideLoadingIndicator = () => {
-    if (this.loadingTimer) {
-      clearTimeout(this.loadingTimer);
-    }
-
-    this.setState({ isLoading: false });
-  };
-
-  async fetchTracklists() {
-    this.showLoadingIndicator();
-
-    const { page } = this.props;
-    const paged = await fetchTracklists(parseInt(page!, 10));
-
-    this.hideLoadingIndicator();
-    this.setState({ page });
-
-    if (paged) {
-      const { tracklists, hasMore } = paged;
-
-      this.setState({ tracklists, hasMore });
-    }
-  }
-
-  renderTracklists() {
-    const { tracklists } = this.state;
-
-    if (!tracklists) {
-      return null;
-    }
-
-    return tracklists.map((tracklist) => (
-      <TracklistItem tracklist={tracklist} />
-    ));
-  }
-
-  render() {
-    const { path } = this.props;
-    const { page, isLoading, hasMore } = this.state;
-
-    if (isLoading) {
-      return <Loading />;
-    }
-
-    return (
-      <div class="tracklists">
-        {this.renderTracklists()}
-        <Pagination path={path!} page={parseInt(page!, 10)} hasMore={hasMore} />
-        <Footer />
-      </div>
-    );
-  }
-}
+  return (
+    <div class="tracklists">
+      {loading && <Loading />}
+      {tracklists &&
+        tracklists.map((tracklist) => <TracklistItem tracklist={tracklist} />)}
+      <Pagination path={path!} page={parseInt(page!, 10)} hasMore={hasMore} />
+      <Footer />
+    </div>
+  );
+};

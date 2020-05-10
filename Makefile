@@ -21,7 +21,7 @@ lint-stylesheets:
 	@npx stylelint src/styles/**
 
 clean:
-	@rm -fr public/app.* $(ARCHIVE_PATH)
+	@rm -fr public/*.js public/*.map $(ARCHIVE_PATH)
 
 archive: prod
 	@tar zcvf $(ARCHIVE_PATH) public Caddyfile

@@ -1,4 +1,5 @@
-import { h, Component } from 'preact';
+import { h, Fragment } from 'preact';
+import { useEffect, useState } from 'preact/hooks';
 import { RoutableProps } from 'preact-router';
 
 import { fetchTracklist, Tracklist, Track } from 'services/memoir';
@@ -12,91 +13,58 @@ interface Props extends RoutableProps {
   id?: string;
 }
 
-interface State {
-  isLoading: boolean;
-  tracklist: Tracklist | null;
-}
+export default ({ id }: Props) => {
+  const [loading, setLoading] = useState(false);
+  const [tracklist, setTracklist] = useState<Tracklist | null>(null);
 
-export default class TracklistPage extends Component<Props, State> {
-  private loadingTimer: NodeJS.Timeout | undefined;
+  let timer: NodeJS.Timeout;
 
-  constructor(props: Props) {
-    super(props);
+  useEffect(() => {
+    const fn = async () => {
+      timer = setTimeout(() => setLoading(true), 1000);
+      const resp = await fetchTracklist(id!);
+      setLoading(false);
+      clearTimeout(timer);
+      setTracklist(resp);
+    };
 
-    this.state = { isLoading: false, tracklist: null };
+    fn();
+  }, []);
+
+  if (!tracklist) {
+    return null;
   }
 
-  componentDidMount() {
-    this.fetchTracklist();
-  }
-
-  showLoadingIndicator = () => {
-    this.loadingTimer = setTimeout(
-      () => this.setState({ isLoading: true }),
-      1000
-    );
-  };
-
-  hideLoadingIndicator = () => {
-    if (this.loadingTimer) {
-      clearTimeout(this.loadingTimer);
-    }
-
-    this.setState({ isLoading: false });
-  };
-
-  async fetchTracklist() {
-    this.showLoadingIndicator();
-
-    const { id } = this.props;
-    const tracklist = await fetchTracklist(id!);
-
-    this.hideLoadingIndicator();
-
-    this.setState({ tracklist });
-  }
-
-  static renderGenreTags(tracks?: Track[]) {
-    if (!tracks) {
-      return null;
-    }
-
-    const genres = [...new Set(tracks.map((track: Track) => track.genre))];
-
-    return <Genres genres={genres} />;
-  }
-
-  static renderTracks(tracks?: Track[]) {
-    if (!tracks) {
-      return null;
-    }
-
-    return tracks.map((track) => <TrackItem track={track} />);
-  }
-
-  render() {
-    const { isLoading, tracklist } = this.state;
-
-    if (isLoading) {
-      return <Loading />;
-    }
-
-    if (!tracklist) {
-      return null;
-    }
-
-    return (
-      <div class="tracklist">
-        <h2 class="tracklist__header">{tracklist.name}</h2>
-        <div class="tracklist__link">
-          <a href={tracklist.url}>Listen on Mixcloud &rarr;</a>
-        </div>
-        {TracklistPage.renderGenreTags(tracklist.tracks)}
-        <div class="tracklist__tracks">
-          {TracklistPage.renderTracks(tracklist.tracks)}
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-}
+  return (
+    <div class="tracklist">
+      {loading && <Loading />}
+      {tracklist && (
+        <Fragment>
+          <h2 class="tracklist__header">{tracklist.name}</h2>
+          <div class="tracklist__link">
+            <a href={tracklist.url}>Listen on Mixcloud &rarr;</a>
+          </div>
+          {tracklist.tracks && (
+            <Fragment>
+              <div class="tracklist__genres">
+                <Genres
+                  genres={[
+                    ...new Set(
+                      tracklist.tracks.map((track: Track) => track.genre)
+                    ),
+                  ]}
+                />
+              </div>
+              <div class="tracklist__tracks">
+                {tracklist.tracks.map((track) => (
+                  <TrackItem track={track} />
+                ))}
+              </div>
+            </Fragment>
+          )}
+        </Fragment>
+      )}
+      <Footer />
+    </div>
+  );
+};

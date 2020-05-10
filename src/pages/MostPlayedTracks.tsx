@@ -1,8 +1,6 @@
 import { h, FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
-import { useDocumentTitle } from 'hooks';
-
 import { fetchMostPlayedTracks, Track } from 'services/memoir';
 
 import Footer from 'components/Footer';
@@ -14,8 +12,6 @@ const MostPlayedTracks: FunctionalComponent = () => {
   const [tracks, setTracks] = useState<Track[] | null>(null);
 
   let timer: NodeJS.Timeout | undefined;
-
-  useDocumentTitle('Most Played Tracks — IAMDJRIFF Tracklists');
 
   useEffect(() => {
     const fn = async () => {

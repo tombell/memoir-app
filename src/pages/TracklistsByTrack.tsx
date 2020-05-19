@@ -24,7 +24,7 @@ export default ({ id, page, path }: Props) => {
   useEffect(() => {
     const fn = async () => {
       timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await fetchTracklistsByTrack(id!, parseInt(page!, 10));
+      const resp = await fetchTracklistsByTrack(id!, parseInt(page || '1', 10));
       setLoading(false);
       clearTimeout(timer);
 

@@ -1,6 +1,6 @@
 import { h, Component, createRef } from 'preact';
 
-import { searchTracks, Track } from 'services/memoir';
+import API, { Track } from 'memoir-api';
 
 interface Props {}
 
@@ -12,8 +12,12 @@ interface State {
 export default class Search extends Component<Props, State> {
   private ref = createRef();
 
+  private api: API;
+
   constructor(props: Props) {
     super(props);
+
+    this.api = new API(MEMOIR_API_URL);
 
     this.state = {
       showResults: false,
@@ -62,7 +66,7 @@ export default class Search extends Component<Props, State> {
   }
 
   async searchTracks(query: string) {
-    const paged = await searchTracks(query);
+    const paged = await this.api.searchTracks(query);
 
     if (paged) {
       const { tracks } = paged;

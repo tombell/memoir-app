@@ -1,7 +1,7 @@
 import { h, FunctionalComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
-import { fetchMostPlayedTracks, Track } from 'services/memoir';
+import API, { Track } from 'memoir-api';
 
 import Footer from 'components/Footer';
 import Loading from 'components/Loading';
@@ -11,12 +11,14 @@ const MostPlayedTracks: FunctionalComponent = () => {
   const [loading, setLoading] = useState(false);
   const [tracks, setTracks] = useState<Track[] | null>(null);
 
+  const api = new API(MEMOIR_API_URL);
+
   let timer: NodeJS.Timeout;
 
   useEffect(() => {
     const fn = async () => {
       timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await fetchMostPlayedTracks();
+      const resp = await api.fetchMostPlayedTracks();
       setLoading(false);
       clearTimeout(timer);
       setTracks(resp);

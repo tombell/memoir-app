@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { Tracklist } from 'services/memoir';
+import { Tracklist } from 'memoir-api';
 
 import formatDate from 'utils/format-date';
 
@@ -27,7 +27,7 @@ export default ({ tracklist }: Props) => {
             <h3 class="tracklist-item__name">{tracklist.name}</h3>
 
             <div class="tracklist-item__tags">
-              <Tag text={`${tracklist.trackCount} Tracks`} color="lilac" />
+              <Tag text={`${tracklist.track_count} Tracks`} color="lilac" />
               <Tag text={formatDate(tracklist.date)} color="light-blue" />
             </div>
           </div>

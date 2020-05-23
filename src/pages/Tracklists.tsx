@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { RoutableProps } from 'preact-router';
 
-import { fetchTracklists, Tracklist } from 'services/memoir';
+import API, { Tracklist } from 'memoir-api';
 
 import Footer from 'components/Footer';
 import Loading from 'components/Loading';
@@ -18,12 +18,14 @@ export default ({ page, path }: Props) => {
   const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
   const [hasMore, setHasMore] = useState(false);
 
+  const api = new API(MEMOIR_API_URL);
+
   let timer: NodeJS.Timeout;
 
   useEffect(() => {
     const fn = async () => {
       timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await fetchTracklists(parseInt(page!, 10));
+      const resp = await api.fetchTracklists(parseInt(page!, 10));
       setLoading(false);
       clearTimeout(timer);
 

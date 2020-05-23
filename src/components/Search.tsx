@@ -98,7 +98,7 @@ export default class Search extends Component<Props, State> {
           <span
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: `${track.artist_highlighted} - ${track.name_highlighted}`,
+              __html: `${track.artistHighlighted} - ${track.nameHighlighted}`,
             }}
           />
         </a>

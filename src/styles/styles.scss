@@ -6,7 +6,11 @@
 // Components
 
 @import 'components/app';
+@import 'components/artwork-uploader';
+@import 'components/file-picker';
 @import 'components/footer';
+@import 'components/form/input';
+@import 'components/form/submit';
 @import 'components/genres';
 @import 'components/header';
 @import 'components/loading';
@@ -15,9 +19,12 @@
 @import 'components/tag';
 @import 'components/track-item';
 @import 'components/tracklist-item';
+@import 'components/tracklist-picker';
 
 // Pages
 
+@import 'pages/add-tracklist';
+@import 'pages/edit-tracklist';
 @import 'pages/most-played';
 @import 'pages/not-found';
 @import 'pages/tracklist';

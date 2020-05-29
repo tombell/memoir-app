@@ -10,16 +10,27 @@ interface Props {
   tracklist: Tracklist;
 }
 
+const linearGradient =
+  'linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%,rgba(0, 0, 0, 0.6) 100%)';
+
 export default ({ tracklist }: Props) => {
+  const backgroundImage = `${MEMOIR_CDN_URL}/${tracklist.artwork}`;
+
+  const background = {
+    backgroundImage: `${linearGradient}, url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  };
+
   return (
     <a href={`/tracklist/${tracklist.id}`}>
-      <div class="tracklist-item">
+      <div class="tracklist-item" style={background}>
         <div class="tracklist-item__details">
           <div class="tracklist-item__image">
             <img
               class="tracklist-item__artwork"
               alt={`${tracklist.name} Artwork`}
-              src={`${MEMOIR_CDN_URL}/${tracklist.artwork}`}
+              src={backgroundImage}
             />
           </div>
 

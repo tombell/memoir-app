@@ -8,6 +8,8 @@ import { terser } from 'rollup-plugin-terser';
 const production = process.env.BUILD === 'production';
 
 const config = {
+  'MEMOIR_ADMIN_ENABLED': JSON.stringify(!production),
+  'MEMOIR_API_KEY': JSON.stringify(production ? '' : process.env.MEMOIR_API_KEY),
   'MEMOIR_API_URL': JSON.stringify(production ? 'https://api.iamdjriff.co.uk' : 'http://localhost:8080'),
   'MEMOIR_CDN_URL': JSON.stringify('https://d2a0hkcquufay7.cloudfront.net'),
 };

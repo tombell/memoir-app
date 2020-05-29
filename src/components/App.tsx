@@ -1,6 +1,8 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
+import AddTracklistPage from 'pages/AddTracklist';
+import EditTracklistPage from 'pages/EditTracklist';
 import MostPlayedTracksPage from 'pages/MostPlayedTracks';
 import NotFoundPage from 'pages/NotFound';
 import TracklistPage from 'pages/Tracklist';
@@ -19,6 +21,10 @@ export default () => (
       <Router>
         <Redirect path="/" to="/tracklists/1" />
         <TracklistsPage path="/tracklists/:page" />
+        {MEMOIR_ADMIN_ENABLED && [
+          <AddTracklistPage path="/tracklists/add" />,
+          <EditTracklistPage path="/tracklists/edit/:id" />,
+        ]}
         <TracklistPage path="/tracklist/:id" />
         <TracklistsByTrackPage path="/track/:id/:page?" />
         <MostPlayedTracksPage path="/tracks/mostplayed" />

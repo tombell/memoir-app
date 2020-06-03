@@ -1,6 +1,6 @@
-import { h, FunctionalComponent } from 'preact';
+import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
-import { route } from 'preact-router';
+import { route, RoutableProps } from 'preact-router';
 
 import API, { NewTracklist } from 'memoir-api';
 
@@ -9,7 +9,11 @@ import TracklistPicker from 'components/TracklistPicker';
 import Input from 'components/form/Input';
 import Submit from 'components/form/Submit';
 
-const AddTracklist: FunctionalComponent = () => {
+interface Props extends RoutableProps {
+  api: API;
+}
+
+export default ({ api }: Props) => {
   const [tracklist, setTracklist] = useState<NewTracklist>({
     name: '',
     date: '',
@@ -17,8 +21,6 @@ const AddTracklist: FunctionalComponent = () => {
     artwork: '',
     tracks: [],
   });
-
-  const api = new API(MEMOIR_API_URL, MEMOIR_API_KEY);
 
   const handleNameInput = useCallback(
     (e: Event) => {
@@ -89,5 +91,3 @@ const AddTracklist: FunctionalComponent = () => {
     </div>
   );
 };
-
-export default AddTracklist;

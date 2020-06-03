@@ -11,14 +11,13 @@ import TracklistItem from 'components/TracklistItem';
 
 interface Props extends RoutableProps {
   page?: string;
+  api: API;
 }
 
-export default ({ page, path }: Props) => {
+export default ({ path, page, api }: Props) => {
   const [loading, setLoading] = useState(false);
   const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
   const [hasMore, setHasMore] = useState(false);
-
-  const api = new API(MEMOIR_API_URL);
 
   let timer: NodeJS.Timeout;
 

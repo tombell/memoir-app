@@ -1,4 +1,5 @@
-import { h, FunctionalComponent } from 'preact';
+import { h } from 'preact';
+import { RoutableProps } from 'preact-router';
 import { useEffect, useState } from 'preact/hooks';
 
 import API, { Track } from 'memoir-api';
@@ -7,11 +8,13 @@ import Footer from 'components/Footer';
 import Loading from 'components/Loading';
 import TrackItem from 'components/TrackItem';
 
-const MostPlayedTracks: FunctionalComponent = () => {
+interface Props extends RoutableProps {
+  api: API;
+}
+
+export default ({ api }: Props) => {
   const [loading, setLoading] = useState(false);
   const [tracks, setTracks] = useState<Track[] | null>(null);
-
-  const api = new API(MEMOIR_API_URL);
 
   let timer: NodeJS.Timeout;
 
@@ -36,5 +39,3 @@ const MostPlayedTracks: FunctionalComponent = () => {
     </div>
   );
 };
-
-export default MostPlayedTracks;

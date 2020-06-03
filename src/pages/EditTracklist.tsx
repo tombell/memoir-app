@@ -10,12 +10,11 @@ import TrackItem from 'components/TrackItem';
 
 interface Props extends RoutableProps {
   id?: string;
+  api: API;
 }
 
-export default ({ id }: Props) => {
+export default ({ id, api }: Props) => {
   const [tracklist, setTracklist] = useState<Tracklist | null>(null);
-
-  const api = new API(MEMOIR_API_URL, MEMOIR_API_KEY);
 
   useEffect(() => {
     const fn = async () => {

@@ -46,7 +46,7 @@
     "lint": "npm-run-all lint:styles lint:scripts",
     "lint:styles": "stylelint src/styles/**",
     "lint:scripts": "eslint --ext .ts,.tsx src",
-    "archive": "tar zcvf /tmp/memoir-app.tar.gz public Caddyfile"
+    "archive": "npm run build && tar zcvf /tmp/memoir-app.tar.gz public Caddyfile"
   },
   "husky": {
     "hooks": {

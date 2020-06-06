@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { RoutableProps } from 'preact-router';
+import { route, RoutableProps } from 'preact-router';
 
 import API, { Tracklist } from 'memoir-api';
 
@@ -23,6 +23,13 @@ export default ({ path, page, api }: Props) => {
 
   useEffect(() => {
     const fn = async () => {
+      const pageNum = parseInt(page!, 10);
+
+      if (isNaN(pageNum)) {
+        route('/404', true);
+        return;
+      }
+
       timer = setTimeout(() => setLoading(true), 1000);
       const resp = await api.fetchTracklists(parseInt(page!, 10));
       setLoading(false);

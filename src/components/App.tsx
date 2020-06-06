@@ -33,7 +33,7 @@ export default () => {
           <TracklistPage path="/tracklist/:id" api={api} />
           <TracklistsByTrackPage path="/track/:id/:page?" api={api} />
           <MostPlayedTracksPage path="/tracks/mostplayed" api={api} />
-          <NotFoundPage default />
+          <NotFoundPage path="/404" default />
         </Router>
       </div>
     </div>

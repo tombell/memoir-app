@@ -25,6 +25,7 @@ export default ({ path, page, api }: Props) => {
     const fn = async () => {
       const pageNum = parseInt(page!, 10);
 
+      // eslint-disable-next-line no-restricted-globals
       if (isNaN(pageNum)) {
         route('/404', true);
         return;

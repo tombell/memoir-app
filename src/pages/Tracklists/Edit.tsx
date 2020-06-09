@@ -6,6 +6,8 @@ import API, { Tracklist } from 'memoir-api';
 
 import Input from 'components/form/Input';
 import Submit from 'components/form/Submit';
+
+import Subheader from 'components/Subheader';
 import TrackItem from 'components/TrackItem';
 
 interface Props extends RoutableProps {
@@ -58,7 +60,7 @@ export default ({ id, api }: Props) => {
 
   return (
     <div class="edit-tracklist">
-      <h1 class="edit-tracklist__header">Edit Tracklist</h1>
+      <Subheader text="Edit Tracklist" />
 
       {tracklist && (
         <div>

@@ -4,10 +4,12 @@ import { route, RoutableProps } from 'preact-router';
 
 import API, { NewTracklist } from 'memoir-api';
 
-import ArtworkUploader from 'components/ArtworkUploader';
-import TracklistPicker from 'components/TracklistPicker';
 import Input from 'components/form/Input';
 import Submit from 'components/form/Submit';
+
+import ArtworkUploader from 'components/ArtworkUploader';
+import Subheader from 'components/Subheader';
+import TracklistPicker from 'components/TracklistPicker';
 
 interface Props extends RoutableProps {
   api: API;
@@ -71,7 +73,7 @@ export default ({ api }: Props) => {
 
   return (
     <div class="add-tracklist">
-      <h1 class="add-tracklist__header">Add Tracklist</h1>
+      <Subheader text="Add Tracklist" />
 
       <Input name="name" text="Name" type="text" onInput={handleNameInput} />
       <Input name="date" text="Date" type="date" onInput={handleDateInput} />

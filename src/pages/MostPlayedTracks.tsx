@@ -6,6 +6,7 @@ import API, { Track } from 'memoir-api';
 
 import Footer from 'components/Footer';
 import Loading from 'components/Loading';
+import Subheader from 'components/Subheader';
 import TrackItem from 'components/TrackItem';
 
 interface Props extends RoutableProps {
@@ -32,7 +33,7 @@ export default ({ api }: Props) => {
 
   return (
     <div class="most-played">
-      <h2 class="most-played__header">Most Played Tracks</h2>
+      <Subheader text="Most Played Tracks" />
       {loading && <Loading />}
       {tracks && tracks.map((track) => <TrackItem track={track} />)}
       <Footer />

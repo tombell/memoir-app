@@ -7,6 +7,7 @@ import API, { Track, Tracklist } from 'memoir-api';
 import Footer from 'components/Footer';
 import Genres from 'components/Genres';
 import Loading from 'components/Loading';
+import Subheader from 'components/Subheader';
 import TrackItem from 'components/TrackItem';
 
 interface Props extends RoutableProps {
@@ -41,10 +42,12 @@ export default ({ id, api }: Props) => {
       {loading && <Loading />}
       {tracklist && (
         <Fragment>
-          <h2 class="tracklist__header">{tracklist.name}</h2>
+          <Subheader text={tracklist.name} />
+
           <div class="tracklist__link">
             <a href={tracklist.url}>Listen on Mixcloud &rarr;</a>
           </div>
+
           {tracklist.tracks && (
             <Fragment>
               <div class="tracklist__genres">
@@ -56,6 +59,7 @@ export default ({ id, api }: Props) => {
                   ]}
                 />
               </div>
+
               <div class="tracklist__tracks">
                 {tracklist.tracks.map((track) => (
                   <TrackItem track={track} />

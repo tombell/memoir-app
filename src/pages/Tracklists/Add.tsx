@@ -65,7 +65,7 @@ export default ({ api }: Props) => {
     const resp = await api.postTracklist(tracklist);
 
     if (resp) {
-      route(`/tracklists/edit/${resp.id}`, true);
+      route(`/tracklists/edit/${resp.id}`);
     }
   }, [tracklist]);
 

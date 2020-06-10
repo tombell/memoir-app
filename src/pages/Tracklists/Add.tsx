@@ -81,7 +81,7 @@ export default ({ api }: Props) => {
 
       <div class="add-tracklist__section">
         <h2 class="add-tracklist__subheader">Artwork</h2>
-        <ArtworkUploader onUpload={handleUpload} />
+        <ArtworkUploader api={api} onUpload={handleUpload} />
       </div>
 
       <div class="add-tracklist__section">

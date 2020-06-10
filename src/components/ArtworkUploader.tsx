@@ -6,13 +6,12 @@ import API from 'memoir-api';
 import FilePicker from 'components/FilePicker';
 
 interface Props {
+  api: API;
   onUpload: (artwork: string) => void;
 }
 
-export default ({ onUpload }: Props) => {
+export default ({ api, onUpload }: Props) => {
   const [artwork, setArtwork] = useState<string | null>(null);
-
-  const api = new API(MEMOIR_API_URL, MEMOIR_API_KEY);
 
   const handleSelect = useCallback(async (file: File) => {
     const upload = await api.uploadArtwork(file);

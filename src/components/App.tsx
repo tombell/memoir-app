@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
-import API from 'memoir-api';
+import API from 'services/memoir';
 
 import TracklistsIndex from 'pages/Tracklists/Index';
 import TracklistsShow from 'pages/Tracklists/Show';

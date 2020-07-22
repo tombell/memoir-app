@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { useCallback, useEffect, useState } from 'preact/hooks';
 import { RoutableProps } from 'preact-router';
 
-import API, { Tracklist } from 'memoir-api';
+import API, { Tracklist } from 'services/memoir';
 
 import Input from 'components/form/Input';
 import Submit from 'components/form/Submit';

@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { useCallback, useState } from 'preact/hooks';
 
-import API from 'memoir-api';
+import API from 'services/memoir';
 
 import FilePicker from 'components/FilePicker';
 

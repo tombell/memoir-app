@@ -1,6 +1,6 @@
 import { h, Component, createRef } from 'preact';
 
-import API, { Track } from 'memoir-api';
+import API, { Track } from 'services/memoir';
 
 interface Props {}
 

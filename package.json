@@ -32,7 +32,6 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "memoir-api": "^0.0.5",
     "preact": "^10.4.6",
     "preact-router": "^3.2.1"
   },

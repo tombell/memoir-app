@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import { Track } from 'memoir-api';
+import { Track } from 'services/memoir';
 
 import Tag from './Tag';
 

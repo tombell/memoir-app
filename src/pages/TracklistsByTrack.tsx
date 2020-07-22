@@ -2,12 +2,11 @@ import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { RoutableProps } from 'preact-router';
 
-import API, { Tracklist } from 'memoir-api';
+import API, { Tracklist } from 'services/memoir';
 
 import Footer from 'components/Footer';
 import Loading from 'components/Loading';
 import Pagination from 'components/Pagination';
-// import Subheader from 'components/Subheader';
 import TracklistItem from 'components/TracklistItem';
 
 interface Props extends RoutableProps {

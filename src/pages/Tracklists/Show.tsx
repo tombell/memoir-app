@@ -2,7 +2,7 @@ import { h, Fragment } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { RoutableProps } from 'preact-router';
 
-import API, { Track, Tracklist } from 'memoir-api';
+import API, { Track, Tracklist } from 'services/memoir';
 
 import Footer from 'components/Footer';
 import Genres from 'components/Genres';

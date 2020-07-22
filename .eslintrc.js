@@ -15,5 +15,7 @@ module.exports = {
   rules: {
     'react/jsx-props-no-spreading': ['error', { exceptions: ['App'] }],
     'react/no-unknown-property': ['error', { ignore: ['class'] }],
+    'react/prop-types': 'off',
+    'react/require-default-props': 'off',
   },
 };

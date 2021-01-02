@@ -34,23 +34,21 @@ export default ({ onSelect }: Props) => {
 
       {tracks && (
         <ol class="tracklist-picker__tracks">
-          {tracks.map((track) => {
-            return (
-              <li class="tracklist-picker__track">
-                <p>
-                  {track[1]}
-                  {' - '}
-                  {track[0]}
-                </p>
+          {tracks.map((track) => (
+            <li class="tracklist-picker__track">
+              <p>
+                {track[1]}
+                {' - '}
+                {track[0]}
+              </p>
 
-                <div class="tracklist-picker__tags">
-                  <Tag text={track[2]} color="purple" />
-                  <Tag text={track[3]} color="lilac" />
-                  <Tag text={track[4]} color="blue" />
-                </div>
-              </li>
-            );
-          })}
+              <div class="tracklist-picker__tags">
+                <Tag text={track[2]} color="purple" />
+                <Tag text={track[3]} color="lilac" />
+                <Tag text={track[4]} color="blue" />
+              </div>
+            </li>
+          ))}
         </ol>
       )}
     </div>

@@ -2,10 +2,6 @@
   "name": "memoir-app",
   "private": true,
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.1",
-    "@rollup/plugin-replace": "^2.3.4",
-    "@rollup/pluginutils": "^4.1.0",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "chokidar": "^3.5.1",
@@ -20,15 +16,8 @@
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "lodash.debounce": "^4.0.8",
-    "minimist": ">=1.2.2",
     "node-sass": "^5.0.0",
-    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
-    "rollup": "^2.35.1",
-    "rollup-plugin-serve": "^1.1.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.29.0",
-    "sass": "^1.32.0",
     "stylelint": "^13.8.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-order": "^4.1.0",
@@ -40,16 +29,11 @@
     "preact-router": "^3.2.1"
   },
   "scripts": {
-    "start": "npm-run-all --parallel watch:styles watch:scripts",
-    "watch:styles": "sass --watch src/styles/styles.scss public/styles.css",
-    "watch:scripts": "rollup -c -w",
-    "build": "npm-run-all build:styles build:scripts",
-    "build:styles": "sass -s compressed src/styles/styles.scss public/styles.css",
-    "build:scripts": "BUILD=production rollup -c",
-    "lint": "npm-run-all lint:styles lint:scripts",
+    "start": "./esbuild --dev",
+    "build": "./esbuild --prod",
+    "lint": "npm run lint:styles && npm run lint:scripts",
     "lint:styles": "stylelint src/styles/**",
-    "lint:scripts": "eslint --ext .ts,.tsx src",
-    "archive": "npm run build && tar zcvf /tmp/memoir-app.tar.gz public Caddyfile"
+    "lint:scripts": "eslint --ext .ts,.tsx src"
   },
   "husky": {
     "hooks": {

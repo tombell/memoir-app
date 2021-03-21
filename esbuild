@@ -68,6 +68,7 @@ const build = (dev) => {
     outfile: "public/app.js",
     minify: !dev,
     bundle: true,
+    watch: dev,
     define: {
       MEMOIR_ADMIN_ENABLED: JSON.stringify(dev),
       MEMOIR_API_KEY: JSON.stringify(dev ? process.env.MEMOIR_API_KEY : ""),

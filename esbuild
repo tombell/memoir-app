@@ -1,0 +1,94 @@
+#!/usr/bin/env node
+
+const http = require("http");
+
+const chokidar = require("chokidar");
+const debounce = require("lodash.debounce");
+const esbuild = require("esbuild");
+const sass = require("node-sass");
+
+const serve = async (servedir, listen) => {
+  const { host, port } = await esbuild.serve({ servedir }, {});
+
+  const proxy = http.createServer((req, res) => {
+    const forwardRequest = (path) => {
+      const options = {
+        hostname: host,
+        port,
+        path,
+        method: req.method,
+        headers: req.headers,
+      };
+
+      const proxyReq = http.request(options, (proxyRes) => {
+        if (proxyRes.statusCode === 404) {
+          return forwardRequest("/");
+        }
+
+        res.writeHead(proxyRes.statusCode, proxyRes.headers);
+        proxyRes.pipe(res, { end: true });
+      });
+
+      req.pipe(proxyReq, { end: true });
+    };
+
+    forwardRequest(req.url);
+  });
+
+  proxy.listen(listen);
+};
+
+const build = (dev) => {
+  if (dev) {
+    chokidar.watch("src/styles/**/*.scss").on(
+      "change",
+      debounce(() => {
+        sass.render(
+          {
+            file: "./src/styles/styles.scss",
+            outFile: "./public/styles.css",
+            outputStyle: dev ? "expanded" : "compressed",
+          },
+          (err, result) => {
+            // TODO: decide what to output
+            // console.log(err, result);
+          }
+        );
+      }, 250)
+    );
+  }
+
+  esbuild.build({
+    entryPoints: ["src/index.tsx"],
+    outfile: "public/app.js",
+    minify: !dev,
+    bundle: true,
+    define: {
+      MEMOIR_ADMIN_ENABLED: JSON.stringify(dev),
+      MEMOIR_API_KEY: JSON.stringify(dev ? process.env.MEMOIR_API_KEY : ""),
+      MEMOIR_API_URL: JSON.stringify(
+        dev ? "http://localhost:8080" : "https://api.iamdjriff.co.uk"
+      ),
+      MEMOIR_CDN_URL: JSON.stringify("https://d2a0hkcquufay7.cloudfront.net"),
+    },
+  });
+};
+
+const args = {
+  "--prod": { dev: false },
+  "--dev": { dev: true, port: 10001, servedir: "public" },
+};
+
+const config = args[process.argv[2]];
+
+if (!config) {
+  console.error("usage: esbuild [--prod|--dev]");
+  process.exit(1);
+}
+
+build(config.dev);
+
+if (config.dev) {
+  serve(config.servedir, config.port);
+  console.error(`listening on http://localhost:${config.port}`);
+}

@@ -88,7 +88,7 @@ const args = {
 const config = args[process.argv[2]];
 
 if (!config) {
-  console.error("usage: esbuild [--prod|--dev]");
+  console.error("usage: ./esbuild [--prod|--dev]");
   process.exit(1);
 }
 

@@ -1,5 +1,5 @@
-import { h } from 'preact';
-import { useCallback, useState } from 'preact/hooks';
+import { h } from "preact";
+import { useCallback, useState } from "preact/hooks";
 
 interface Props {
   name: string;

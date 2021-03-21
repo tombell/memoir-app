@@ -1,25 +1,25 @@
-import { h } from 'preact';
+import { h } from "preact";
 
-import { Tracklist } from 'services/memoir';
+import { Tracklist } from "services/memoir";
 
-import formatDate from 'utils/format-date';
+import formatDate from "utils/format-date";
 
-import Tag from 'components/Tag';
+import Tag from "components/Tag";
 
 interface Props {
   tracklist: Tracklist;
 }
 
 const linearGradient =
-  'linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%,rgba(0, 0, 0, 0.6) 100%)';
+  "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%,rgba(0, 0, 0, 0.6) 100%)";
 
 export default ({ tracklist }: Props) => {
   const backgroundImage = `${MEMOIR_CDN_URL}/${tracklist.artwork}`;
 
   const background = {
     backgroundImage: `${linearGradient}, url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
   };
 
   return (

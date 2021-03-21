@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h } from "preact";
 
 interface Props {
   path: string;
@@ -14,8 +14,8 @@ export default ({ path, id, page, hasMore }: Props) => {
   let nextUrl = path.replace(/:page\??/, `${page + 1}`);
 
   if (id) {
-    prevUrl = prevUrl.replace(':id', id);
-    nextUrl = nextUrl.replace(':id', id);
+    prevUrl = prevUrl.replace(":id", id);
+    nextUrl = nextUrl.replace(":id", id);
   }
 
   return (

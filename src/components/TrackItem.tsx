@@ -1,8 +1,8 @@
-import { h } from 'preact';
+import { h } from "preact";
 
-import { Track } from 'services/memoir';
+import { Track } from "services/memoir";
 
-import Tag from './Tag';
+import Tag from "./Tag";
 
 interface Props {
   track: Track;

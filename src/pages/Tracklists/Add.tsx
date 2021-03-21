@@ -1,15 +1,15 @@
-import { h } from 'preact';
-import { useCallback, useState } from 'preact/hooks';
-import { route, RoutableProps } from 'preact-router';
+import { h } from "preact";
+import { useCallback, useState } from "preact/hooks";
+import { route, RoutableProps } from "preact-router";
 
-import API, { NewTracklist } from 'services/memoir';
+import API, { NewTracklist } from "services/memoir";
 
-import Input from 'components/form/Input';
-import Submit from 'components/form/Submit';
+import Input from "components/form/Input";
+import Submit from "components/form/Submit";
 
-import ArtworkUploader from 'components/ArtworkUploader';
-import Subheader from 'components/Subheader';
-import TracklistPicker from 'components/TracklistPicker';
+import ArtworkUploader from "components/ArtworkUploader";
+import Subheader from "components/Subheader";
+import TracklistPicker from "components/TracklistPicker";
 
 interface Props extends RoutableProps {
   api: API;
@@ -17,10 +17,10 @@ interface Props extends RoutableProps {
 
 export default ({ api }: Props) => {
   const [tracklist, setTracklist] = useState<NewTracklist>({
-    name: '',
-    date: '',
-    url: '',
-    artwork: '',
+    name: "",
+    date: "",
+    url: "",
+    artwork: "",
     tracks: [],
   });
 

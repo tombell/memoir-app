@@ -1,6 +1,6 @@
-import { h, Component, createRef } from 'preact';
+import { h, Component, createRef } from "preact";
 
-import API, { Track } from 'services/memoir';
+import API, { Track } from "services/memoir";
 
 interface Props {}
 
@@ -58,11 +58,11 @@ export default class Search extends Component<Props, State> {
   };
 
   registerBodyClick() {
-    document.addEventListener('click', this.onBodyClick);
+    document.addEventListener("click", this.onBodyClick);
   }
 
   unregisterBodyClick() {
-    document.removeEventListener('click', this.onBodyClick);
+    document.removeEventListener("click", this.onBodyClick);
   }
 
   async searchTracks(query: string) {

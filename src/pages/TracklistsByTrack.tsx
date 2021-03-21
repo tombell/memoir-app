@@ -1,13 +1,13 @@
-import { h } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
-import { RoutableProps } from 'preact-router';
+import { h } from "preact";
+import { useEffect, useState } from "preact/hooks";
+import { RoutableProps } from "preact-router";
 
-import API, { Tracklist } from 'services/memoir';
+import API, { Tracklist } from "services/memoir";
 
-import Footer from 'components/Footer';
-import Loading from 'components/Loading';
-import Pagination from 'components/Pagination';
-import TracklistItem from 'components/TracklistItem';
+import Footer from "components/Footer";
+import Loading from "components/Loading";
+import Pagination from "components/Pagination";
+import TracklistItem from "components/TracklistItem";
 
 interface Props extends RoutableProps {
   id?: string;
@@ -27,7 +27,7 @@ export default ({ path, id, page, api }: Props) => {
       timer = setTimeout(() => setLoading(true), 1000);
       const resp = await api.fetchTracklistsByTrack(
         id!,
-        parseInt(page || '1', 10)
+        parseInt(page || "1", 10)
       );
       setLoading(false);
       clearTimeout(timer);
@@ -49,7 +49,7 @@ export default ({ path, id, page, api }: Props) => {
       <Pagination
         path={path!}
         id={id}
-        page={parseInt(page || '1', 10)}
+        page={parseInt(page || "1", 10)}
         hasMore={hasMore}
       />
       <Footer />

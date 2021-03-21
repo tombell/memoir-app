@@ -1,5 +1,5 @@
-import { h } from 'preact';
-import { useCallback, useRef } from 'preact/hooks';
+import { h } from "preact";
+import { useCallback, useRef } from "preact/hooks";
 
 interface Props {
   accept: string;

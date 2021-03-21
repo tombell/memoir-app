@@ -1,14 +1,14 @@
-import { h, Fragment } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
-import { RoutableProps } from 'preact-router';
+import { h, Fragment } from "preact";
+import { useEffect, useState } from "preact/hooks";
+import { RoutableProps } from "preact-router";
 
-import API, { Track, Tracklist } from 'services/memoir';
+import API, { Track, Tracklist } from "services/memoir";
 
-import Footer from 'components/Footer';
-import Genres from 'components/Genres';
-import Loading from 'components/Loading';
-import Subheader from 'components/Subheader';
-import TrackItem from 'components/TrackItem';
+import Footer from "components/Footer";
+import Genres from "components/Genres";
+import Loading from "components/Loading";
+import Subheader from "components/Subheader";
+import TrackItem from "components/TrackItem";
 
 interface Props extends RoutableProps {
   id?: string;

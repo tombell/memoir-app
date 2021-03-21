@@ -1,21 +1,21 @@
-import { h } from 'preact';
-import { Router } from 'preact-router';
+import { h } from "preact";
+import { Router } from "preact-router";
 
-import API from 'services/memoir';
+import API from "services/memoir";
 
-import TracklistsIndex from 'pages/Tracklists/Index';
-import TracklistsShow from 'pages/Tracklists/Show';
-import TracklistsAdd from 'pages/Tracklists/Add';
-import TracklistsEdit from 'pages/Tracklists/Edit';
+import TracklistsIndex from "pages/Tracklists/Index";
+import TracklistsShow from "pages/Tracklists/Show";
+import TracklistsAdd from "pages/Tracklists/Add";
+import TracklistsEdit from "pages/Tracklists/Edit";
 
-import MostPlayedTracksPage from 'pages/MostPlayedTracks';
-import TracklistsByTrackPage from 'pages/TracklistsByTrack';
+import MostPlayedTracksPage from "pages/MostPlayedTracks";
+import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
-import NotFoundPage from 'pages/NotFound';
+import NotFoundPage from "pages/NotFound";
 
-import Header from 'components/Header';
-import Redirect from 'components/Redirect';
-import Search from 'components/Search';
+import Header from "components/Header";
+import Redirect from "components/Redirect";
+import Search from "components/Search";
 
 export default () => {
   const api = new API(MEMOIR_API_URL, MEMOIR_API_KEY);

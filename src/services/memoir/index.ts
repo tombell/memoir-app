@@ -5,7 +5,7 @@ import {
   PagedTracklists,
   Track,
   Tracklist,
-} from './types';
+} from "./types";
 
 export {
   Artwork,
@@ -26,11 +26,11 @@ export default class API {
     this.apiKey = apiKey;
   }
 
-  async request(endpoint: string, method = 'GET', body?: FormData | string) {
+  async request(endpoint: string, method = "GET", body?: FormData | string) {
     const headers: any = {};
 
     if (this.apiKey) {
-      headers['API-Write-Key'] = this.apiKey;
+      headers["API-Write-Key"] = this.apiKey;
     }
 
     const resp = await fetch(`${this.url}${endpoint}`, {
@@ -72,7 +72,7 @@ export default class API {
   async postTracklist(tracklist: NewTracklist): Promise<Tracklist | null> {
     try {
       const data = JSON.stringify(tracklist);
-      return await this.request('/tracklists', 'POST', data);
+      return await this.request("/tracklists", "POST", data);
     } catch {
       return null;
     }
@@ -80,7 +80,7 @@ export default class API {
 
   async fetchMostPlayedTracks(): Promise<Track[] | null> {
     try {
-      return await this.request('/tracks/mostplayed');
+      return await this.request("/tracks/mostplayed");
     } catch {
       return null;
     }
@@ -101,7 +101,7 @@ export default class API {
     try {
       const { name, date, url } = tracklist;
       const data = JSON.stringify({ name, date, url });
-      return await this.request(`/tracklists/${id}`, 'PATCH', data);
+      return await this.request(`/tracklists/${id}`, "PATCH", data);
     } catch {
       return null;
     }
@@ -110,8 +110,8 @@ export default class API {
   async uploadArtwork(file: File): Promise<Artwork | null> {
     try {
       const data = new FormData();
-      data.append('artwork', file);
-      return await this.request('/uploads/artwork', 'POST', data);
+      data.append("artwork", file);
+      return await this.request("/uploads/artwork", "POST", data);
     } catch {
       return null;
     }

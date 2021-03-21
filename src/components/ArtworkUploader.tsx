@@ -1,9 +1,9 @@
-import { h } from 'preact';
-import { useCallback, useState } from 'preact/hooks';
+import { h } from "preact";
+import { useCallback, useState } from "preact/hooks";
 
-import API from 'services/memoir';
+import API from "services/memoir";
 
-import FilePicker from 'components/FilePicker';
+import FilePicker from "components/FilePicker";
 
 interface Props {
   api: API;

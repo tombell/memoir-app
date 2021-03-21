@@ -1,10 +1,10 @@
-import { h } from 'preact';
-import { useCallback, useState } from 'preact/hooks';
+import { h } from "preact";
+import { useCallback, useState } from "preact/hooks";
 
-import tracklistParser from 'utils/tracklist-parser';
+import tracklistParser from "utils/tracklist-parser";
 
-import FilePicker from 'components/FilePicker';
-import Tag from 'components/Tag';
+import FilePicker from "components/FilePicker";
+import Tag from "components/Tag";
 
 interface Props {
   onSelect: (tracks: string[][]) => void;
@@ -38,7 +38,7 @@ export default ({ onSelect }: Props) => {
             <li class="tracklist-picker__track">
               <p>
                 {track[1]}
-                {' - '}
+                {" - "}
                 {track[0]}
               </p>
 

@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h } from "preact";
 
 interface Props {
   text: string | number;
@@ -6,6 +6,6 @@ interface Props {
 }
 
 export default ({ text, color }: Props) => {
-  const klass = color ? `tag--${color}` : '';
+  const klass = color ? `tag--${color}` : "";
   return <div class={`tag ${klass}`}>{text}</div>;
 };

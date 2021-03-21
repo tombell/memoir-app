@@ -1,13 +1,13 @@
-import { h } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
-import { route, RoutableProps } from 'preact-router';
+import { h } from "preact";
+import { useEffect, useState } from "preact/hooks";
+import { route, RoutableProps } from "preact-router";
 
-import API, { Tracklist } from 'services/memoir';
+import API, { Tracklist } from "services/memoir";
 
-import Footer from 'components/Footer';
-import Loading from 'components/Loading';
-import Pagination from 'components/Pagination';
-import TracklistItem from 'components/TracklistItem';
+import Footer from "components/Footer";
+import Loading from "components/Loading";
+import Pagination from "components/Pagination";
+import TracklistItem from "components/TracklistItem";
 
 interface Props extends RoutableProps {
   page?: string;
@@ -27,7 +27,7 @@ export default ({ path, page, api }: Props) => {
 
       // eslint-disable-next-line no-restricted-globals
       if (isNaN(pageNum)) {
-        route('/404', true);
+        route("/404", true);
         return;
       }
 

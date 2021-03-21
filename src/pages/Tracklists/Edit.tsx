@@ -1,14 +1,14 @@
-import { h } from 'preact';
-import { useCallback, useEffect, useState } from 'preact/hooks';
-import { RoutableProps } from 'preact-router';
+import { h } from "preact";
+import { useCallback, useEffect, useState } from "preact/hooks";
+import { RoutableProps } from "preact-router";
 
-import API, { Tracklist } from 'services/memoir';
+import API, { Tracklist } from "services/memoir";
 
-import Input from 'components/form/Input';
-import Submit from 'components/form/Submit';
+import Input from "components/form/Input";
+import Submit from "components/form/Submit";
 
-import Subheader from 'components/Subheader';
-import TrackItem from 'components/TrackItem';
+import Subheader from "components/Subheader";
+import TrackItem from "components/TrackItem";
 
 interface Props extends RoutableProps {
   id?: string;

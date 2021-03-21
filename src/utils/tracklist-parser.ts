@@ -1,10 +1,10 @@
 export default (text: string) => {
   const tracks: string[][] = [];
 
-  text.split('\n').forEach((line) => {
-    const parts = line.split('\t');
+  text.split("\n").forEach((line) => {
+    const parts = line.split("\t");
 
-    if (parts[0] === '#' || parts.length <= 1) {
+    if (parts[0] === "#" || parts.length <= 1) {
       return;
     }
 

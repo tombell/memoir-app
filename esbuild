@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const fs = require("fs");
 const http = require("http");
 
 const chokidar = require("chokidar");
@@ -39,23 +40,27 @@ const serve = async (servedir, listen) => {
 };
 
 const build = (dev) => {
-  if (dev) {
-    chokidar.watch("src/styles/**/*.scss").on(
-      "change",
-      debounce(() => {
-        sass.render(
-          {
-            file: "./src/styles/styles.scss",
-            outFile: "./public/styles.css",
-            outputStyle: dev ? "expanded" : "compressed",
-          },
-          (err, result) => {
-            // TODO: decide what to output
-            // console.log(err, result);
-          }
-        );
-      }, 250)
+  const buildCSS = () => {
+    sass.render(
+      {
+        file: "./src/styles/styles.scss",
+      },
+      (err, result) => {
+        if (err) {
+          return console.error(`error building scss: ${err}`);
+        }
+
+        fs.writeFileSync("./public/styles.css", result.css);
+      }
     );
+  };
+
+  buildCSS();
+
+  if (dev) {
+    chokidar
+      .watch("src/styles/**/*.scss")
+      .on("change", debounce(buildCSS, 250));
   }
 
   esbuild.build({

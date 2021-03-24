@@ -29,11 +29,9 @@
     "preact-router": "^3.2.1"
   },
   "scripts": {
-    "start": "./esbuild --dev",
-    "build": "./esbuild --prod",
-    "lint": "npm run lint:styles && npm run lint:scripts",
-    "lint:styles": "stylelint src/styles/**",
-    "lint:scripts": "eslint src/**/*.{ts,tsx}"
+    "start": "tsc --noEmit && ./esbuild",
+    "build": "tsc --noEmit && ./esbuild --prod",
+    "lint": "stylelint src/styles/** && eslint src"
   },
   "husky": {
     "hooks": {

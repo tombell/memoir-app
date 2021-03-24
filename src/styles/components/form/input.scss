@@ -8,9 +8,9 @@
   }
 
   &__input {
+    box-sizing: border-box;
     display: block;
     width: 100%;
-    box-sizing: border-box;
     padding: 1rem;
     font-size: 1rem;
     color: $primary-color;

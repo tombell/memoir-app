@@ -8,6 +8,61 @@ const debounce = require("lodash.debounce");
 const esbuild = require("esbuild");
 const sass = require("node-sass");
 
+const buildCSS = ({ src, dest, dev }) => {
+  const compile = () => {
+    sass.render(
+      {
+        file: src,
+        outputStyle: dev ? "expanded" : "compressed",
+      },
+      (err, result) => {
+        if (err) {
+          console.error(`build scss errored: ${err}`);
+          console.dir(err);
+          return;
+        }
+
+        fs.writeFileSync(dest, result.css);
+        console.error("build scss successful");
+      }
+    );
+  };
+
+  compile();
+
+  if (dev) {
+    chokidar
+      .watch("src/styles/**/*.scss")
+      .on("change", debounce(compile, 250));
+  }
+};
+
+const buildJS = ({ src, dest, dev }) => {
+  try {
+    esbuild.build({
+      entryPoints: [src],
+      outfile: dest,
+      bundle: true,
+      minify: !dev,
+      watch: {
+        onRebuild(err, result) {
+          err
+            ? console.error(`build js errored: ${err}`)
+            : console.error("build js successful");
+        },
+      },
+      define: {
+        MEMOIR_ADMIN_ENABLED: `"${dev}"`,
+        MEMOIR_API_KEY: dev ? `${process.env.MEMOIR_API_KEY}` : '""',
+        MEMOIR_API_URL: dev
+          ? '"http://localhost:8080"'
+          : '"https://api.iamdjriff.co.uk"',
+        MEMOIR_CDN_URL: '"https://d2a0hkcquufay7.cloudfront.net"',
+      },
+    });
+  } catch {}
+};
+
 const serve = async (servedir, listen) => {
   const { host, port } = await esbuild.serve({ servedir }, {});
 
@@ -39,62 +94,21 @@ const serve = async (servedir, listen) => {
   proxy.listen(listen);
 };
 
-const build = (dev) => {
-  const buildCSS = () => {
-    sass.render(
-      {
-        file: "./src/styles/styles.scss",
-      },
-      (err, result) => {
-        if (err) {
-          return console.error(`error building scss: ${err}`);
-        }
+const dev = process.argv[2] !== "--prod";
 
-        fs.writeFileSync("./public/styles.css", result.css);
-      }
-    );
-  };
+buildCSS({
+  src: "src/styles/styles.scss",
+  dest: "public/styles.css",
+  dev,
+});
 
-  buildCSS();
+buildJS({
+  src: "src/index.tsx",
+  dest: "public/app.js",
+  dev,
+});
 
-  if (dev) {
-    chokidar
-      .watch("src/styles/**/*.scss")
-      .on("change", debounce(buildCSS, 250));
-  }
-
-  esbuild.build({
-    entryPoints: ["src/index.tsx"],
-    outfile: "public/app.js",
-    minify: !dev,
-    bundle: true,
-    watch: dev,
-    define: {
-      MEMOIR_ADMIN_ENABLED: JSON.stringify(dev),
-      MEMOIR_API_KEY: JSON.stringify(dev ? process.env.MEMOIR_API_KEY : ""),
-      MEMOIR_API_URL: JSON.stringify(
-        dev ? "http://localhost:8080" : "https://api.iamdjriff.co.uk"
-      ),
-      MEMOIR_CDN_URL: JSON.stringify("https://d2a0hkcquufay7.cloudfront.net"),
-    },
-  });
-};
-
-const args = {
-  "--prod": { dev: false },
-  "--dev": { dev: true, port: 10001, servedir: "public" },
-};
-
-const config = args[process.argv[2]];
-
-if (!config) {
-  console.error("usage: ./esbuild [--prod|--dev]");
-  process.exit(1);
-}
-
-build(config.dev);
-
-if (config.dev) {
-  serve(config.servedir, config.port);
-  console.error(`listening on http://localhost:${config.port}`);
+if (dev) {
+  serve("public", 10001);
+  console.error("listening on http://localhost:10001");
 }

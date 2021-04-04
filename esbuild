@@ -44,7 +44,7 @@ const buildJS = ({ src, dest, dev }) => {
       outfile: dest,
       bundle: true,
       minify: !dev,
-      watch: {
+      watch: dev && {
         onRebuild(err, result) {
           err
             ? console.error(`build js errored: ${err}`)

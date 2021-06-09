@@ -5,26 +5,26 @@
 
 // Components
 
-@import 'components/app';
-@import 'components/artwork-uploader';
-@import 'components/file-picker';
-@import 'components/footer';
-@import 'components/form/input';
-@import 'components/form/submit';
-@import 'components/genres';
-@import 'components/header';
-@import 'components/loading';
-@import 'components/pagination';
-@import 'components/search';
-@import 'components/subheader';
-@import 'components/tag';
-@import 'components/track-item';
-@import 'components/tracklist-item';
-@import 'components/tracklist-picker';
+@import '../components/App';
+@import '../components/ArtworkUploader';
+@import '../components/FilePicker';
+@import '../components/Footer';
+@import '../components/form/Input';
+@import '../components/form/Submit';
+@import '../components/Genres';
+@import '../components/Header';
+@import '../components/Loading';
+@import '../components/Pagination';
+@import '../components/Search';
+@import '../components/Subheader';
+@import '../components/Tag';
+@import '../components/TrackItem';
+@import '../components/TracklistItem';
+@import '../components/TracklistPicker';
 
 // Pages
 
-@import 'pages/tracklists/add';
-@import 'pages/tracklists/edit';
-@import 'pages/tracklists/index';
-@import 'pages/tracklists/show';
+@import '../pages/tracklists/Add';
+@import '../pages/tracklists/Edit';
+@import '../pages/tracklists/Index';
+@import '../pages/tracklists/Show';

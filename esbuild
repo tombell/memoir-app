@@ -6,7 +6,7 @@ const http = require("http");
 const chokidar = require("chokidar");
 const debounce = require("lodash.debounce");
 const esbuild = require("esbuild");
-const sass = require("node-sass");
+const sass = require("sass");
 
 const buildCSS = ({ src, dest, dev }) => {
   const compile = () => {

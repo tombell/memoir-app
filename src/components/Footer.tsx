@@ -3,6 +3,8 @@ import { css } from "g-style";
 
 import Breakpoints from "components/atoms/Breakpoints";
 
+import Link from "components/Link";
+
 const className = css({
   display: "flex",
   margin: "3rem 1rem 1rem",
@@ -35,17 +37,17 @@ const linkClassName = css({
 export default () => (
   <footer class={className}>
     <div class={leftClassName}>
-      <a class={linkClassName} href="/tracklists/1">
+      <Link className={linkClassName} href="/tracklists/1">
         Tracklists
-      </a>
-      <a class={linkClassName} href="/tracks/mostplayed">
+      </Link>
+      <Link className={linkClassName} href="/tracks/mostplayed">
         Most Played Tracks
-      </a>
+      </Link>
     </div>
     <div class={rightClassName}>
-      <a class={linkClassName} href="https://mixcloud.com/iamdjriff">
+      <Link className={linkClassName} href="https://mixcloud.com/iamdjriff">
         IAMDJRIFF on Mixcloud
-      </a>
+      </Link>
     </div>
   </footer>
 );

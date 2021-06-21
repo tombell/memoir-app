@@ -7,6 +7,7 @@ import API, { Track, Tracklist } from "services/memoir";
 
 import Footer from "components/Footer";
 import Genres from "components/Genres";
+import Link from "components/Link";
 import Loading from "components/Loading";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";
@@ -53,7 +54,7 @@ export default ({ id, api }: Props) => {
           <Subheader text={tracklist.name} />
 
           <div class={linkClassName}>
-            <a href={tracklist.url}>Listen on Mixcloud &rarr;</a>
+            <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>
           </div>
 
           {tracklist.tracks && (

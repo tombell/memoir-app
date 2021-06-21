@@ -3,6 +3,8 @@ import { css } from "g-style";
 
 import Breakpoints from "components/atoms/Breakpoints";
 
+import Link from "components/Link";
+
 const className = css({
   display: "flex",
   alignItems: "center",
@@ -40,11 +42,11 @@ export default ({ path, id, page, hasMore }: Props) => {
   return (
     <div class={className}>
       <div class={linkClassName}>
-        {!isFirstPage && <a href={prevUrl}>← Newer</a>}
+        {!isFirstPage && <Link href={prevUrl}>← Newer</Link>}
       </div>
 
       <div class={linkClassName}>
-        {hasMore && <a href={nextUrl}>Older →</a>}
+        {hasMore && <Link href={nextUrl}>Older →</Link>}
       </div>
     </div>
   );

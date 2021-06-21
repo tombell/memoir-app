@@ -6,6 +6,7 @@ import { Tracklist } from "services/memoir";
 
 import Breakpoints from "components/atoms/Breakpoints";
 
+import Link from "components/Link";
 import Tag from "components/Tag";
 
 const className = css({
@@ -57,7 +58,7 @@ export default ({ tracklist }: Props) => {
   };
 
   return (
-    <a href={`/tracklist/${tracklist.id}`}>
+    <Link href={`/tracklist/${tracklist.id}`}>
       <div class={className} style={background}>
         <div class={detailsClassName}>
           <div class={imgClassName}>
@@ -81,6 +82,6 @@ export default ({ tracklist }: Props) => {
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };

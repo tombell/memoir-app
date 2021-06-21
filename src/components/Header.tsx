@@ -3,6 +3,8 @@ import { css } from "g-style";
 
 import Breakpoints from "components/atoms/Breakpoints";
 
+import Link from "components/Link";
+
 const className = css({
   width: 60,
   margin: "1rem auto",
@@ -23,8 +25,8 @@ const logoClassName = css({
 
 export default () => (
   <header class={className}>
-    <a href="/tracklists/1">
+    <Link href="/tracklists/1">
       <img class={logoClassName} src="/images/logo.svg" alt="Memoir" />
-    </a>
+    </Link>
   </header>
 );

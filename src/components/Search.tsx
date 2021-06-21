@@ -6,6 +6,8 @@ import API, { Track } from "services/memoir";
 import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
 
+import Link from "components/Link";
+
 const className = css({
   marginBottom: "1rem",
 });
@@ -156,14 +158,14 @@ export default class Search extends Component<Props, State> {
   renderSearchResult(track: Track) {
     return (
       <li class={resultsItemClassName}>
-        <a href={`/track/${track.id}`} onClick={this.hideResults}>
+        <Link href={`/track/${track.id}`} onClick={this.hideResults}>
           <span
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `${track.artistHighlighted} - ${track.nameHighlighted}`,
             }}
           />
-        </a>
+        </Link>
       </li>
     );
   }

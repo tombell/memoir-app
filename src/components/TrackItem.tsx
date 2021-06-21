@@ -5,6 +5,7 @@ import { Track } from "services/memoir";
 
 import Breakpoints from "components/atoms/Breakpoints";
 
+import Link from "components/Link";
 import Tag from "components/Tag";
 
 const className = css({
@@ -29,7 +30,9 @@ interface Props {
 export default ({ track }: Props) => (
   <div class={className}>
     <div class={nameClassName}>
-      <a href={`/track/${track.id}`}>{`${track.artist} - ${track.name}`}</a>
+      <Link href={`/track/${track.id}`}>
+        {`${track.artist} - ${track.name}`}
+      </Link>
     </div>
 
     <div>

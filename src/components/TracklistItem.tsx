@@ -1,10 +1,44 @@
 import { h } from "preact";
-
-import { Tracklist } from "services/memoir";
+import { css } from "g-style";
 
 import formatDate from "services/datetime";
+import { Tracklist } from "services/memoir";
+
+import Breakpoints from "components/atoms/Breakpoints";
 
 import Tag from "components/Tag";
+
+const className = css({
+  flexWrap: "wrap",
+  alignItems: "center",
+  padding: "0.5rem",
+  margin: "0 0.5rem 1rem 0.5rem",
+  borderRadius: "0.1875rem",
+  [Breakpoints.Desktop]: {
+    margin: "0 0 0.625rem 0",
+  },
+});
+
+const detailsClassName = css({
+  display: "flex",
+  alignItems: "center",
+});
+
+const imgClassName = css({
+  marginRight: "0.75rem",
+  /* border: 0.0625rem solid darken($grey, 35%); */
+});
+
+const artClassName = css({
+  width: "5rem",
+  height: "5rem",
+});
+
+const nameClassName = css({
+  margin: "0 0 0.5rem 0",
+  fontWeight: "bold",
+  lineHeight: 1.3,
+});
 
 interface Props {
   tracklist: Tracklist;
@@ -24,22 +58,25 @@ export default ({ tracklist }: Props) => {
 
   return (
     <a href={`/tracklist/${tracklist.id}`}>
-      <div class="tracklist-item" style={background}>
-        <div class="tracklist-item__details">
-          <div class="tracklist-item__image">
+      <div class={className} style={background}>
+        <div class={detailsClassName}>
+          <div class={imgClassName}>
             <img
-              class="tracklist-item__artwork"
+              class={artClassName}
               alt={`${tracklist.name} Artwork`}
               src={backgroundImage}
             />
           </div>
 
-          <div class="tracklist-item__meta">
-            <h3 class="tracklist-item__name">{tracklist.name}</h3>
+          <div>
+            <h3 class={nameClassName}>{tracklist.name}</h3>
 
-            <div class="tracklist-item__tags">
+            <div>
               <Tag text={`${tracklist.trackCount} Tracks`} color="lilac" />
-              <Tag text={formatDate(new Date(tracklist.date))} color="light-blue" />
+              <Tag
+                text={formatDate(new Date(tracklist.date))}
+                color="light-blue"
+              />
             </div>
           </div>
         </div>

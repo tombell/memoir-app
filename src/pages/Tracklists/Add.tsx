@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useCallback, useState } from "preact/hooks";
 import { route, RoutableProps } from "preact-router";
+import { css } from "g-style";
 
 import API, { NewTracklist } from "services/memoir";
 
@@ -10,6 +11,19 @@ import Submit from "components/form/Submit";
 import ArtworkUploader from "components/ArtworkUploader";
 import Subheader from "components/Subheader";
 import TracklistPicker from "components/TracklistPicker";
+
+const className = css({
+  marginBottom: "1rem",
+});
+
+const sectionClassName = css({
+  marginBottom: "0.5rem",
+});
+
+const textClassName = css({
+  marginBottom: "0.5rem",
+  fontWeight: "bold",
+});
 
 interface Props extends RoutableProps {
   api: API;
@@ -72,20 +86,20 @@ export default ({ api }: Props) => {
   }, [tracklist]);
 
   return (
-    <div class="add-tracklist">
+    <div class={className}>
       <Subheader text="Add Tracklist" />
 
       <Input name="name" text="Name" type="text" onInput={handleNameInput} />
       <Input name="date" text="Date" type="date" onInput={handleDateInput} />
       <Input name="url" text="URL" type="text" onInput={handleUrlInput} />
 
-      <div class="add-tracklist__section">
-        <h2 class="add-tracklist__subheader">Artwork</h2>
+      <div class={sectionClassName}>
+        <h2 class={textClassName}>Artwork</h2>
         <ArtworkUploader api={api} onUpload={handleUpload} />
       </div>
 
-      <div class="add-tracklist__section">
-        <h2 class="add-tracklist__subheader">Tracklist</h2>
+      <div class={sectionClassName}>
+        <h2 class={textClassName}>Tracklist</h2>
         <TracklistPicker onSelect={handleSelect} />
       </div>
 

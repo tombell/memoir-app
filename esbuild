@@ -3,39 +3,7 @@
 const fs = require("fs");
 const http = require("http");
 
-const chokidar = require("chokidar");
-const debounce = require("lodash.debounce");
 const esbuild = require("esbuild");
-const sass = require("sass");
-
-const buildCSS = ({ src, dest, dev }) => {
-  const compile = () => {
-    sass.render(
-      {
-        file: src,
-        outputStyle: dev ? "expanded" : "compressed",
-      },
-      (err, result) => {
-        if (err) {
-          console.error(`build scss errored: ${err}`);
-          console.dir(err);
-          return;
-        }
-
-        fs.writeFileSync(dest, result.css);
-        console.error("build scss successful");
-      }
-    );
-  };
-
-  compile();
-
-  if (dev) {
-    chokidar
-      .watch("src/styles/**/*.scss")
-      .on("change", debounce(compile, 250));
-  }
-};
 
 const buildJS = ({ src, dest, dev }) => {
   try {
@@ -95,12 +63,6 @@ const serve = async (servedir, listen) => {
 };
 
 const dev = process.argv[2] !== "--build";
-
-buildCSS({
-  src: "src/styles/styles.scss",
-  dest: "public/styles.css",
-  dev,
-});
 
 buildJS({
   src: "src/index.tsx",

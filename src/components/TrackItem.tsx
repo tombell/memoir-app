@@ -3,9 +3,9 @@ import { css } from "g-style";
 
 import { Track } from "services/memoir";
 
-import Tag from "./Tag";
-
 import Breakpoints from "components/atoms/Breakpoints";
+
+import Tag from "components/Tag";
 
 const className = css({
   flexDirection: "column",

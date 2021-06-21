@@ -1,9 +1,24 @@
 import { h } from "preact";
 import { useCallback, useState } from "preact/hooks";
+import { css } from "g-style";
 
 import API from "services/memoir";
 
 import FilePicker from "components/FilePicker";
+
+const className = css({
+  boxSizing: "border-box",
+  width: "100%",
+  padding: "1rem",
+  textAlign: "center",
+  /* background: darken($background-color, 5%); */
+  borderRadius: "0.1875rem",
+});
+
+const imgClassName = css({
+  width: "6rem",
+  height: "6rem",
+});
 
 interface Props {
   api: API;
@@ -23,16 +38,16 @@ export default ({ api, onUpload }: Props) => {
   }, []);
 
   return (
-    <div class="artwork-uploader">
+    <div>
       {!artwork && (
         <FilePicker accept="image/jpeg, image/png" onSelect={handleSelect} />
       )}
 
       {artwork && (
-        <div class="artwork-uploader__container">
+        <div class={className}>
           <img
-            class="artwork-uploader__image"
-            alt=""
+            class={imgClassName}
+            alt="Mix Artwork"
             src={`${MEMOIR_CDN_URL}/${artwork}`}
           />
         </div>

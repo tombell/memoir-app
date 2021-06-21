@@ -1,6 +1,7 @@
 import { h, Fragment } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { RoutableProps } from "preact-router";
+import { css } from "g-style";
 
 import API, { Track, Tracklist } from "services/memoir";
 
@@ -9,6 +10,13 @@ import Genres from "components/Genres";
 import Loading from "components/Loading";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";
+
+const linkClassName = css({
+  marginBottom: "1rem",
+  fontSize: "0.8125rem",
+  fontWeight: 600,
+  textAlign: "center",
+});
 
 interface Props extends RoutableProps {
   id?: string;
@@ -38,19 +46,19 @@ export default ({ id, api }: Props) => {
   }
 
   return (
-    <div class="tracklist">
+    <div>
       {loading && <Loading />}
       {tracklist && (
         <Fragment>
           <Subheader text={tracklist.name} />
 
-          <div class="tracklist__link">
+          <div class={linkClassName}>
             <a href={tracklist.url}>Listen on Mixcloud &rarr;</a>
           </div>
 
           {tracklist.tracks && (
             <Fragment>
-              <div class="tracklist__genres">
+              <div>
                 <Genres
                   genres={[
                     ...new Set(
@@ -60,7 +68,7 @@ export default ({ id, api }: Props) => {
                 />
               </div>
 
-              <div class="tracklist__tracks">
+              <div>
                 {tracklist.tracks.map((track) => (
                   <TrackItem track={track} />
                 ))}

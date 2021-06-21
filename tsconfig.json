@@ -13,8 +13,7 @@
     "paths": {
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
-      "services/*": ["services/*"],
-      "utils/*": ["utils/*"]
+      "services/*": ["services/*"]
     }
   }
 }

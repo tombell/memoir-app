@@ -3,7 +3,7 @@ import { useCallback, useState } from "preact/hooks";
 
 import parse from "services/tracklists";
 
-import FilePicker from "components/FilePicker";
+import FilePicker from "components/form/FilePicker";
 import Tag from "components/Tag";
 
 interface Props {

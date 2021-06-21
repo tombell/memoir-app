@@ -1,5 +1,12 @@
 import { h } from "preact";
 import { useCallback, useRef } from "preact/hooks";
+import { css } from "g-style";
+
+const className = css({
+  padding: "1rem",
+  /* background: darken($background-color, 5%); */
+  borderRadius: "0.1875rem",
+});
 
 interface Props {
   accept: string;
@@ -17,14 +24,8 @@ export default ({ accept, onSelect }: Props) => {
   }, []);
 
   return (
-    <div class="file-picker">
-      <input
-        class="file-picker__input"
-        type="file"
-        ref={input}
-        accept={accept}
-        onChange={handleChange}
-      />
+    <div class={className}>
+      <input type="file" ref={input} accept={accept} onChange={handleChange} />
     </div>
   );
 };

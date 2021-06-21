@@ -4,7 +4,7 @@ import { css } from "g-style";
 
 import API from "services/memoir";
 
-import FilePicker from "components/FilePicker";
+import FilePicker from "components/form/FilePicker";
 
 const className = css({
   boxSizing: "border-box",

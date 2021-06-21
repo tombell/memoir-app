@@ -1,4 +1,23 @@
 import { h } from "preact";
+import { css } from "g-style";
+
+import Breakpoints from "components/atoms/Breakpoints";
+
+const className = css({
+  display: "flex",
+  alignItems: "center",
+  margin: "2rem 0",
+  fontWeight: "bold",
+  [Breakpoints.Desktop]: {
+    margin: "3.125rem 0",
+  },
+});
+
+const linkClassName = css({
+  display: "flex",
+  flex: 1,
+  justifyContent: "center",
+});
 
 interface Props {
   path: string;
@@ -19,12 +38,12 @@ export default ({ path, id, page, hasMore }: Props) => {
   }
 
   return (
-    <div class="pagination">
-      <div class="pagination__link">
+    <div class={className}>
+      <div class={linkClassName}>
         {!isFirstPage && <a href={prevUrl}>← Newer</a>}
       </div>
 
-      <div class="pagination__link">
+      <div class={linkClassName}>
         {hasMore && <a href={nextUrl}>Older →</a>}
       </div>
     </div>

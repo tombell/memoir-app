@@ -94,7 +94,7 @@ const serve = async (servedir, listen) => {
   proxy.listen(listen);
 };
 
-const dev = process.argv[2] !== "--prod";
+const dev = process.argv[2] !== "--build";
 
 buildCSS({
   src: "src/styles/styles.scss",

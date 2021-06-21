@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "tsc --noEmit && ./esbuild",
-    "build": "tsc --noEmit && ./esbuild --prod",
+    "build": "tsc --noEmit && ./esbuild --build",
     "lint": "stylelint src/styles/** && eslint src"
   },
   "husky": {

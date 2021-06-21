@@ -2,7 +2,7 @@ import { h } from "preact";
 
 import { Tracklist } from "services/memoir";
 
-import formatDate from "utils/format-date";
+import formatDate from "services/datetime";
 
 import Tag from "components/Tag";
 
@@ -39,7 +39,7 @@ export default ({ tracklist }: Props) => {
 
             <div class="tracklist-item__tags">
               <Tag text={`${tracklist.trackCount} Tracks`} color="lilac" />
-              <Tag text={formatDate(tracklist.date)} color="light-blue" />
+              <Tag text={formatDate(new Date(tracklist.date))} color="light-blue" />
             </div>
           </div>
         </div>

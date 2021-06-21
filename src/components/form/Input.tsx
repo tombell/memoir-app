@@ -1,5 +1,35 @@
 import { h } from "preact";
 import { useCallback, useState } from "preact/hooks";
+import { css } from "g-style";
+
+import Colors from "components/atoms/Colors";
+
+const className = css({
+  marginBottom: "0.5rem",
+});
+
+const labelClassName = css({
+  display: "block",
+  marginBottom: "0.5rem",
+  fontWeight: "bold",
+});
+
+const inputClassName = css({
+  boxSizing: "border-box",
+  display: "block",
+  width: "100%",
+  padding: "1rem",
+  fontSize: "1rem",
+  color: Colors.primary,
+  /* background: darken($background-color, 5%); */
+  /* border: 0.0625rem solid darken($background-color, 5%); */
+  borderRadius: "0.1875rem",
+  outline: 0,
+
+  "&:focus": {
+    /* border-color: darken($grey, 40%); */
+  },
+});
 
 interface Props {
   name: string;
@@ -19,11 +49,11 @@ export default ({ name, text, type, value, onInput }: Props) => {
   }, []);
 
   return (
-    <div class="input">
+    <div class={className}>
       <label htmlFor={name}>
-        <span class="input__label">{text}</span>
+        <span class={labelClassName}>{text}</span>
         <input
-          class="input__input"
+          class={inputClassName}
           type={type}
           id={name}
           name={name}

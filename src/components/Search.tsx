@@ -1,6 +1,68 @@
 import { h, Component, createRef } from "preact";
+import { css } from "g-style";
 
 import API, { Track } from "services/memoir";
+
+import Breakpoints from "components/atoms/Breakpoints";
+import Colors from "components/atoms/Colors";
+
+const className = css({
+  marginBottom: "1rem",
+});
+
+const boxClassName = css({
+  display: "flex",
+  justifyContent: "center",
+});
+
+const inputClassName = css({
+  boxSizing: "border-box",
+  width: "90vw",
+  padding: "1rem",
+  fontSize: "1rem",
+  color: Colors.primary,
+  /* background: $search-background-color; */
+  border: 0,
+  borderRadius: "0.1875rem",
+  outline: 0,
+  [Breakpoints.Desktop]: {
+    width: "100%",
+  },
+});
+
+const resultsClassName = css({
+  position: "absolute",
+  zIndex: 2,
+  boxSizing: "border-box",
+  width: "100vw",
+  padding: "0.625rem",
+  /* background: $search-background-color; */
+  boxShadow: "0 0.3125rem 0.9375rem rgba(10, 10, 10, 0.3)",
+  [Breakpoints.Desktop]: {
+    width: "50rem",
+  },
+});
+
+const resultsListClassName = css({
+  padding: 0,
+  margin: 0,
+  listStyle: "none",
+});
+
+const resultsItemClassName = css({
+  margin: "0.625rem 0.5rem",
+  [Breakpoints.Desktop]: {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+  },
+
+  b: {
+    fontStyle: "italic",
+    fontWeight: "400",
+    color: Colors.lilac,
+  },
+});
 
 interface Props {}
 
@@ -83,8 +145,8 @@ export default class Search extends Component<Props, State> {
     }
 
     return (
-      <div class="search__results">
-        <ul class="search__results-list">
+      <div class={resultsClassName}>
+        <ul class={resultsListClassName}>
           {tracks.map((t) => this.renderSearchResult(t))}
         </ul>
       </div>
@@ -93,7 +155,7 @@ export default class Search extends Component<Props, State> {
 
   renderSearchResult(track: Track) {
     return (
-      <li class="search__results-item">
+      <li class={resultsItemClassName}>
         <a href={`/track/${track.id}`} onClick={this.hideResults}>
           <span
             // eslint-disable-next-line react/no-danger
@@ -108,10 +170,10 @@ export default class Search extends Component<Props, State> {
 
   render() {
     return (
-      <div class="search" ref={this.ref}>
-        <div class="search__box">
+      <div class={className} ref={this.ref}>
+        <div class={boxClassName}>
           <input
-            class="search__input"
+            class={inputClassName}
             placeholder="Search tracks..."
             onInput={this.onSearchInput}
             onFocus={this.showResults}

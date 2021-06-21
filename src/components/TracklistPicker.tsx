@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useCallback, useState } from "preact/hooks";
 
-import tracklistParser from "utils/tracklist-parser";
+import parse from "services/tracklists";
 
 import FilePicker from "components/FilePicker";
 import Tag from "components/Tag";
@@ -17,7 +17,7 @@ export default ({ onSelect }: Props) => {
 
   const onFileRead = useCallback(() => {
     if (reader.result) {
-      const parsed = tracklistParser(reader.result.toString());
+      const parsed = parse(reader.result.toString());
       setTracks(parsed);
       onSelect(parsed);
     }

@@ -1,4 +1,4 @@
-export default (text: string) => {
+const parse = (text: string) => {
   const tracks: string[][] = [];
 
   text.split("\n").forEach((line) => {
@@ -13,3 +13,5 @@ export default (text: string) => {
 
   return tracks;
 };
+
+export default parse;

@@ -18,7 +18,7 @@ import Redirect from "components/Redirect";
 import Search from "components/Search";
 
 export default () => {
-  const api = new API(MEMOIR_API_URL, MEMOIR_API_KEY);
+  const api = new API(MEMOIR_API_KEY);
 
   return (
     <div class="app">

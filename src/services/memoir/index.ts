@@ -17,12 +17,11 @@ export {
 };
 
 export default class API {
-  private url: string;
+  private url = MEMOIR_API_URL;
 
   private apiKey?: string;
 
-  constructor(url: string, apiKey?: string) {
-    this.url = url;
+  constructor(apiKey?: string) {
     this.apiKey = apiKey;
   }
 

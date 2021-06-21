@@ -4,21 +4,26 @@ import { css } from "g-style";
 
 import API from "services/memoir";
 
+import Colors from "components/atoms/Colors";
+
 import TracklistsIndex from "pages/Tracklists/Index";
 import TracklistsShow from "pages/Tracklists/Show";
 import TracklistsAdd from "pages/Tracklists/Add";
 import TracklistsEdit from "pages/Tracklists/Edit";
 
 import MostPlayedTracksPage from "pages/MostPlayedTracks";
-import TracklistsByTrackPage from "pages/TracklistsByTrack";
-
 import NotFoundPage from "pages/NotFound";
+import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
 import Header from "components/Header";
 import Redirect from "components/Redirect";
 import Search from "components/Search";
 
 const className = css({
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  color: Colors.primary,
+  /* background: $background-color; */
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { Router } from "preact-router";
+import { css } from "g-style";
 
 import API from "services/memoir";
 
@@ -17,12 +18,23 @@ import Header from "components/Header";
 import Redirect from "components/Redirect";
 import Search from "components/Search";
 
+const className = css({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+});
+
+const colClassName = css({
+  flex: 1,
+  maxWidth: "40rem",
+});
+
 export default () => {
   const api = new API(MEMOIR_API_KEY);
 
   return (
-    <div class="app">
-      <div class="app__column">
+    <div class={className}>
+      <div class={colClassName}>
         <Header />
         <Search />
         <Router>

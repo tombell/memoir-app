@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { route, RoutableProps } from "preact-router";
+import { css } from "g-style";
 
 import API, { Tracklist } from "services/memoir";
 
@@ -8,6 +9,10 @@ import Footer from "components/Footer";
 import Loading from "components/Loading";
 import Pagination from "components/Pagination";
 import TracklistItem from "components/TracklistItem";
+
+const className = css({
+  minHeight: "33.625rem",
+});
 
 interface Props extends RoutableProps {
   page?: string;
@@ -46,7 +51,7 @@ export default ({ path, page, api }: Props) => {
   }, [page]);
 
   return (
-    <div class="tracklists">
+    <div class={className}>
       {loading && <Loading />}
       {tracklists &&
         tracklists.map((tracklist) => <TracklistItem tracklist={tracklist} />)}

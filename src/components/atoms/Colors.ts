@@ -11,6 +11,8 @@ enum Colors {
 
   primary = white,
   secondary = green,
+
+  background = "#2c2a31",
 }
 
 export default Colors;

@@ -25,7 +25,7 @@ const inputClassName = css({
   border: 0,
   borderRadius: "0.1875rem",
   outline: 0,
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     width: "100%",
   },
 });
@@ -38,7 +38,7 @@ const resultsClassName = css({
   padding: "0.625rem",
   /* background: darken($background-color, 5%) */
   boxShadow: "0 0.3125rem 0.9375rem rgba(10, 10, 10, 0.3)",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     width: "50rem",
   },
 });
@@ -51,7 +51,7 @@ const resultsListClassName = css({
 
 const resultsItemClassName = css({
   margin: "0.625rem 0.5rem",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     overflow: "hidden",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",

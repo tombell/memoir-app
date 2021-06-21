@@ -11,7 +11,7 @@ const className = css({
   flexDirection: "column",
   alignItems: "center",
   margin: "0 0.5rem 1rem 0.5rem",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     margin: "0 0 1.5rem 0",
   },
 });

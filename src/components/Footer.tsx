@@ -8,7 +8,7 @@ const className = css({
   margin: "3rem 1rem 1rem",
   fontSize: "0.75rem",
   fontWeight: "bold",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     margin: "5rem 0 3.125rem 0",
   },
 });
@@ -26,7 +26,7 @@ const rightClassName = css({
 const linkClassName = css({
   display: "block",
   marginBottom: "0.5rem",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     display: "inline",
     marginRight: "1rem",
   },

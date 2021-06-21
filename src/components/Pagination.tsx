@@ -8,7 +8,7 @@ const className = css({
   alignItems: "center",
   margin: "2rem 0",
   fontWeight: "bold",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     margin: "3.125rem 0",
   },
 });

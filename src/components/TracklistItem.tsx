@@ -14,7 +14,7 @@ const className = css({
   padding: "0.5rem",
   margin: "0 0.5rem 1rem 0.5rem",
   borderRadius: "0.1875rem",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     margin: "0 0 0.625rem 0",
   },
 });

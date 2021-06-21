@@ -6,7 +6,7 @@ import Breakpoints from "components/atoms/Breakpoints";
 const className = css({
   width: 60,
   margin: "1rem auto",
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     width: 120,
     marginBottom: "4rem",
   },
@@ -15,7 +15,7 @@ const className = css({
 const logoClassName = css({
   width: 60,
   height: 44,
-  [Breakpoints.Desktop]: {
+  [Breakpoints.desktop]: {
     width: 120,
     height: 88,
   },

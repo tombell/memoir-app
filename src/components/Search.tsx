@@ -21,7 +21,7 @@ const inputClassName = css({
   padding: "1rem",
   fontSize: "1rem",
   color: Colors.primary,
-  /* background: $search-background-color; */
+  /* background: darken($background-color, 5%) */
   border: 0,
   borderRadius: "0.1875rem",
   outline: 0,
@@ -36,7 +36,7 @@ const resultsClassName = css({
   boxSizing: "border-box",
   width: "100vw",
   padding: "0.625rem",
-  /* background: $search-background-color; */
+  /* background: darken($background-color, 5%) */
   boxShadow: "0 0.3125rem 0.9375rem rgba(10, 10, 10, 0.3)",
   [Breakpoints.Desktop]: {
     width: "50rem",

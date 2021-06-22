@@ -1,6 +1,6 @@
 enum Colors {
   black = "#000000",
-  white = "#e8dcd8",
+  white = "#ffffff",
   grey = "#cccccc",
 
   purple = "#b433ff",

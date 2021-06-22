@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "lib": ["es2020"],
     "downlevelIteration": true,
     "strict": true,
@@ -15,6 +16,5 @@
       "pages/*": ["pages/*"],
       "services/*": ["services/*"]
     }
-  },
-  "exclude": ["src/stories/**/*"]
+  }
 }

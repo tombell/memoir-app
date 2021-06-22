@@ -7,12 +7,12 @@ const className = css({
   padding: "0.75rem 1rem",
   fontWeight: "bold",
   color: Colors.primary,
-  /* TODO: background: darken($background-color, 5%); */
+  background: Colors.backgroundDark,
   border: 0,
   borderRadius: "0.1875rem",
 });
 
-interface Props {
+export interface Props {
   onClick: () => void;
 }
 

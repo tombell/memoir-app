@@ -28,7 +28,7 @@ export default ({ id, api }: Props) => {
   const [loading, setLoading] = useState(false);
   const [tracklist, setTracklist] = useState<Tracklist | null>(null);
 
-  let timer: number;
+  let timer: NodeJS.Timeout;
 
   useEffect(() => {
     const fn = async () => {

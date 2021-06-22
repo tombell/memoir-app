@@ -20,7 +20,7 @@ export default ({ path, id, page, api }: Props) => {
   const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
   const [hasMore, setHasMore] = useState(false);
 
-  let timer: number;
+  let timer: NodeJS.Timeout;
 
   useEffect(() => {
     const fn = async () => {

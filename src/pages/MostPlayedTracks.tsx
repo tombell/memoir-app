@@ -17,7 +17,7 @@ export default ({ api }: Props) => {
   const [loading, setLoading] = useState(false);
   const [tracks, setTracks] = useState<Track[] | null>(null);
 
-  let timer: number;
+  let timer: NodeJS.Timeout;
 
   useEffect(() => {
     const fn = async () => {

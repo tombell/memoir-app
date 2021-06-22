@@ -17,6 +17,14 @@ module.exports = {
     "react/prop-types": "off",
     "react/require-default-props": "off",
   },
+  overrides: [
+    {
+      files: ["**/*.stories.*"],
+      rules: {
+        "react/jsx-props-no-spreading": "off",
+      },
+    },
+  ],
   globals: {
     MEMOIR_ADMIN_ENABLED: "readonly",
     MEMOIR_API_KEY: "readonly",

@@ -20,8 +20,6 @@ import Redirect from "components/Redirect";
 import Search from "components/Search";
 
 const className = css({
-  fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   color: Colors.primary,
   /* TODO: background: $background-color; */
   display: "flex",

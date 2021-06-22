@@ -7,10 +7,8 @@ import Link from "components/Link";
 
 const className = css({
   width: 60,
-  margin: "1rem auto",
   [Breakpoints.desktop]: {
     width: 120,
-    marginBottom: "4rem",
   },
 });
 

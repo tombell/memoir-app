@@ -21,7 +21,7 @@ const className = css({
   "&.light-blue": { background: Colors.lightBlue },
 });
 
-type TagColor = "purple" | "lilac" | "blue" | "green" | "light-blue";
+export type TagColor = "purple" | "lilac" | "blue" | "green" | "light-blue";
 
 interface Props {
   text: string | number;

@@ -5,8 +5,4 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-postcss",
   ],
-  babel: (options) => ({
-    ...options,
-    presets: [["@babel/typescript", { jsxPragma: "h" }]],
-  }),
 };

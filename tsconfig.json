@@ -15,5 +15,6 @@
       "pages/*": ["pages/*"],
       "services/*": ["services/*"]
     }
-  }
+  },
+  "exclude": ["src/stories/**/*"]
 }

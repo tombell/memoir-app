@@ -12,7 +12,6 @@ module.exports = {
       version: "16",
     },
   },
-  ignorePatterns: ["**/*.stories.*"],
   rules: {
     "react/no-unknown-property": ["error", { ignore: ["class"] }],
     "react/prop-types": "off",

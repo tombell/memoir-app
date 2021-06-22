@@ -4,11 +4,12 @@ import { css } from "g-style";
 import Tag from "components/Tag";
 
 const className = css({
+  display: "flex",
   margin: "0 0.5rem 1rem",
-  textAlign: "center",
+  justifyContext: "space-between",
 });
 
-interface Props {
+export interface Props {
   genres: string[];
 }
 

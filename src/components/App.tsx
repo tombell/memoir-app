@@ -23,7 +23,7 @@ const className = css({
   fontFamily:
     '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   color: Colors.primary,
-  /* background: $background-color; */
+  /* TODO: background: $background-color; */
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

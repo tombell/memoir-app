@@ -13,7 +13,7 @@ const tracksClassName = css({
   padding: "1rem",
   listStylePosition: "inside",
   listStyleType: "decimal",
-  /* background: darken($background-color, 5%); */
+  /* TODO: background: darken($background-color, 5%); */
   borderRadius: "0.1875rem",
 });
 

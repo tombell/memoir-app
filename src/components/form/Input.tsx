@@ -21,13 +21,13 @@ const inputClassName = css({
   padding: "1rem",
   fontSize: "1rem",
   color: Colors.primary,
-  /* background: darken($background-color, 5%); */
-  /* border: 0.0625rem solid darken($background-color, 5%); */
+  /* TODO: background: darken($background-color, 5%); */
+  /* TODO: border: 0.0625rem solid darken($background-color, 5%); */
   borderRadius: "0.1875rem",
   outline: 0,
 
   "&:focus": {
-    /* border-color: darken($grey, 40%); */
+    /* TODO: border-color: darken($grey, 40%); */
   },
 });
 

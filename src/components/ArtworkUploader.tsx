@@ -11,7 +11,7 @@ const className = css({
   width: "100%",
   padding: "1rem",
   textAlign: "center",
-  /* background: darken($background-color, 5%); */
+  /* TODO: background: darken($background-color, 5%); */
   borderRadius: "0.1875rem",
 });
 

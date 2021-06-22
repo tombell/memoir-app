@@ -7,7 +7,7 @@ const className = css({
   padding: "0.75rem 1rem",
   fontWeight: "bold",
   color: Colors.primary,
-  /* background: darken($background-color, 5%); */
+  /* TODO: background: darken($background-color, 5%); */
   border: 0,
   borderRadius: "0.1875rem",
 });

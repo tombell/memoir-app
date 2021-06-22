@@ -27,7 +27,7 @@ const detailsClassName = css({
 
 const imgClassName = css({
   marginRight: "0.75rem",
-  /* border: 0.0625rem solid darken($grey, 35%); */
+  /* TODO: border: 0.0625rem solid darken($grey, 35%); */
 });
 
 const artClassName = css({

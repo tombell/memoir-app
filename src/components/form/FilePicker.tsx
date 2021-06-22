@@ -4,7 +4,7 @@ import { css } from "g-style";
 
 const className = css({
   padding: "1rem",
-  /* background: darken($background-color, 5%); */
+  /* TODO: background: darken($background-color, 5%); */
   borderRadius: "0.1875rem",
 });
 

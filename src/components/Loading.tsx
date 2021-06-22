@@ -6,7 +6,7 @@ import Colors from "components/atoms/Colors";
 const className = css({
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  color: Colors.white,
 });
 
 const spinnerClassName = css({

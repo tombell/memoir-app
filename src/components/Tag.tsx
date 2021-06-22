@@ -11,7 +11,6 @@ const className = css({
   fontWeight: "bold",
   color: Colors.black,
   textAlign: "center",
-  background: Colors.secondary,
   borderRadius: "0.1875rem",
 
   "&.purple": { background: Colors.purple },
@@ -28,6 +27,6 @@ interface Props {
   color?: TagColor;
 }
 
-export default ({ text, color }: Props) => (
+export default ({ text, color = "green" }: Props) => (
   <div class={[className, color].join(" ")}>{text}</div>
 );

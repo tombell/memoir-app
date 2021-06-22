@@ -13,6 +13,7 @@ enum Colors {
   secondary = green,
 
   background = "#2c2a31",
+  backgroundDark = "#2a282f",
 }
 
 export default Colors;

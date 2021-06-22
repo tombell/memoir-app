@@ -9,7 +9,7 @@ const className = css({
   marginRight: "0.5rem",
   fontSize: "0.75rem",
   fontWeight: "bold",
-  color: Colors.black,
+  color: Colors.white,
   textAlign: "center",
   borderRadius: "0.1875rem",
 

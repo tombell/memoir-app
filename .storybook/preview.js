@@ -9,3 +9,5 @@ export const parameters = {
     },
   },
 };
+
+global.MEMOIR_CDN_URL = "";

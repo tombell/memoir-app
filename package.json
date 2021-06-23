@@ -36,7 +36,7 @@
     "start": "tsc --noEmit && ./esbuild",
     "build": "tsc --noEmit && ./esbuild --build",
     "lint": "eslint src",
-    "storybook": "start-storybook -p 6006 -s ./public",
+    "storybook": "start-storybook -p 6006 -s ./public,./.storybook/public",
     "build-storybook": "build-storybook"
   },
   "husky": {

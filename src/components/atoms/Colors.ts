@@ -1,7 +1,9 @@
 enum Colors {
   black = "#000000",
   white = "#ffffff",
+
   grey = "#cccccc",
+  greyDark = "#7a7a7a",
 
   purple = "#b433ff",
   lilac = "#aa72ff",
@@ -14,6 +16,7 @@ enum Colors {
 
   background = "#2c2a31",
   backgroundDark = "#2a282f",
+  backgroundDarker = "#232227",
 }
 
 export default Colors;

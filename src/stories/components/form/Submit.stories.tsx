@@ -7,7 +7,6 @@ const meta: Meta = {
   component: Submit,
   title: "Components/Form/Submit",
   argTypes: { onClick: { action: "clicked" } },
-  parameters: { actions: { argTypesRegex: "^on.*" } },
 };
 export default meta;
 

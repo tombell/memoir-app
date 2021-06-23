@@ -7,7 +7,6 @@ const meta: Meta = {
   component: FilePicker,
   title: "Components/Form/FilePicker",
   argTypes: { onSelect: { action: "select" } },
-  parameters: { actions: { argTypesRegex: "^on.*" } },
 };
 export default meta;
 

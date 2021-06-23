@@ -7,7 +7,6 @@ const meta: Meta = {
   component: Link,
   title: "Components/Link",
   argTypes: { onClick: { action: "clicked" } },
-  parameters: { actions: { argTypesRegex: "^on.*" } },
 };
 export default meta;
 

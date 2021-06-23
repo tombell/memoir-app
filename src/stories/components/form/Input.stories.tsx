@@ -7,7 +7,6 @@ const meta: Meta = {
   component: Input,
   title: "Components/Form/Input",
   argTypes: { onInput: { action: "input" } },
-  parameters: { actions: { argTypesRegex: "^on.*" } },
 };
 export default meta;
 

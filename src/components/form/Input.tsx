@@ -10,6 +10,7 @@ const className = css({
 
 const labelClassName = css({
   display: "block",
+  color: Colors.white,
   marginBottom: "0.5rem",
   fontWeight: "bold",
 });
@@ -21,17 +22,17 @@ const inputClassName = css({
   padding: "1rem",
   fontSize: "1rem",
   color: Colors.primary,
-  /* TODO: background: darken($background-color, 5%); */
-  /* TODO: border: 0.0625rem solid darken($background-color, 5%); */
+  background: Colors.backgroundDark,
+  border: `0.0625rem solid ${Colors.backgroundDarker}`,
   borderRadius: "0.1875rem",
   outline: 0,
 
   "&:focus": {
-    /* TODO: border-color: darken($grey, 40%); */
+    borderColor: Colors.greyDark,
   },
 });
 
-interface Props {
+export interface Props {
   name: string;
   text: string;
   type: string;

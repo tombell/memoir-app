@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { css } from "g-style";
 
-import Tag from "components/Tag";
+import Tag from "components/molecules/Tag";
 
 const className = css({
   display: "flex",

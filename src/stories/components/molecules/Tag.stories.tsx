@@ -1,11 +1,11 @@
 import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
 
-import Tag, { Props } from "components/Tag";
+import Tag, { Props } from "components/molecules/Tag";
 
 const meta: Meta = {
   component: Tag,
-  title: "Components/Tag",
+  title: "Components/Molecules/Tag",
 };
 export default meta;
 

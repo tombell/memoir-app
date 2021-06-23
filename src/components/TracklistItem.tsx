@@ -7,7 +7,7 @@ import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
 
 import Link from "components/Link";
-import Tag from "components/Tag";
+import Tag from "components/molecules/Tag";
 
 const className = css({
   flexWrap: "wrap",
@@ -78,10 +78,7 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
 
             <div>
               <Tag text={`${trackCount} Tracks`} color="lilac" />
-              <Tag
-                text={formatDate(new Date(date))}
-                color="light-blue"
-              />
+              <Tag text={formatDate(new Date(date))} color="light-blue" />
             </div>
           </div>
         </div>

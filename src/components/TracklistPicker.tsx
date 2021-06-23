@@ -5,7 +5,7 @@ import { css } from "g-style";
 import parse from "services/tracklists";
 
 import FilePicker from "components/form/FilePicker";
-import Tag from "components/Tag";
+import Tag from "components/molecules/Tag";
 
 const tracksClassName = css({
   boxSizing: "border-box",

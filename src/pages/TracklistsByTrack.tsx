@@ -7,7 +7,7 @@ import API, { Tracklist } from "services/memoir";
 import Footer from "components/Footer";
 import Loading from "components/Loading";
 import Pagination from "components/Pagination";
-import TracklistItem from "components/TracklistItem";
+import TracklistItem from "components/organisms/TracklistItem";
 
 interface Props extends RoutableProps {
   id?: string;
@@ -44,7 +44,16 @@ export default ({ path, id, page, api }: Props) => {
   return (
     <div class="tracklists">
       {tracklists &&
-        tracklists.map((tracklist) => <TracklistItem tracklist={tracklist} />)}
+        tracklists.map(({ id, name, date, artwork, trackCount }) => (
+          <TracklistItem
+            key={id}
+            id={id}
+            name={name}
+            date={date}
+            artwork={artwork}
+            trackCount={trackCount}
+          />
+        ))}
       {loading && <Loading />}
       <Pagination
         path={path!}

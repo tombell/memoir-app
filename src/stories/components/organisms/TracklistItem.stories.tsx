@@ -1,11 +1,11 @@
 import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
 
-import TracklistItem, { Props } from "components/TracklistItem";
+import TracklistItem, { Props } from "components/organisms/TracklistItem";
 
 const meta: Meta = {
   component: TracklistItem,
-  title: "Components/TracklistItem",
+  title: "Components/Organisms/TracklistItem",
 };
 export default meta;
 

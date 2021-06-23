@@ -5,7 +5,7 @@ import {
   PagedTracklists,
   Track,
   Tracklist,
-} from "./types";
+} from "services/memoir/types";
 
 export {
   Artwork,

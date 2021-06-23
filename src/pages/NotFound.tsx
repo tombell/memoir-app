@@ -1,7 +1,7 @@
 import { h, FunctionalComponent } from "preact";
 
 import Footer from "components/Footer";
-import Subheader from "components/Subheader";
+import Subheader from "components/molecules/Subheader";
 
 const NotFoundPage: FunctionalComponent = () => (
   <div class="not-found">

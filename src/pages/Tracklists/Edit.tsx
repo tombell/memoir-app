@@ -1,14 +1,19 @@
 import { h } from "preact";
 import { useCallback, useEffect, useState } from "preact/hooks";
 import { RoutableProps } from "preact-router";
+import { css } from "g-style";
 
 import API, { Tracklist } from "services/memoir";
 
-import Input from "components/form/Input";
-import Submit from "components/form/Submit";
+import Input from "components/molecules/form/Input";
+import Submit from "components/molecules/form/Submit";
 
-import Subheader from "components/Subheader";
-import TrackItem from "components/TrackItem";
+import Subheader from "components/molecules/Subheader";
+import TrackItem from "components/organisms/TrackItem";
+
+const formClassName = css({
+  marginBottom: "1rem",
+});
 
 interface Props extends RoutableProps {
   id?: string;
@@ -59,12 +64,12 @@ export default ({ id, api }: Props) => {
   }, [tracklist]);
 
   return (
-    <div class="edit-tracklist">
+    <div>
       <Subheader text="Edit Tracklist" />
 
       {tracklist && (
         <div>
-          <div class="edit-tracklist__form">
+          <div class={formClassName}>
             <Input
               name="name"
               text="Name"
@@ -92,9 +97,16 @@ export default ({ id, api }: Props) => {
             <Submit onClick={handleSubmit} />
           </div>
 
-          <div class="edit-tracklist__tracks">
+          <div>
             {tracklist.tracks!.map((track) => (
-              <TrackItem track={track} />
+              <TrackItem
+                id={track.id}
+                artist={track.artist}
+                name={track.name}
+                genre={track.genre}
+                bpm={track.bpm}
+                camelotKey={track.key}
+              />
             ))}
           </div>
         </div>

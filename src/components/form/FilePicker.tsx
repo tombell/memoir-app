@@ -2,13 +2,16 @@ import { h } from "preact";
 import { useCallback, useRef } from "preact/hooks";
 import { css } from "g-style";
 
+import Colors from "components/atoms/Colors";
+
 const className = css({
   padding: "1rem",
-  /* TODO: background: darken($background-color, 5%); */
+  color: Colors.white,
+  background: Colors.backgroundDark,
   borderRadius: "0.1875rem",
 });
 
-interface Props {
+export interface Props {
   accept: string;
   onSelect: (file: File) => void;
 }
@@ -21,7 +24,7 @@ export default ({ accept, onSelect }: Props) => {
       const file = input.current.files[0];
       onSelect(file);
     }
-  }, []);
+  }, [input]);
 
   return (
     <div class={className}>

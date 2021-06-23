@@ -4,7 +4,7 @@ import { css } from "g-style";
 
 import parse from "services/tracklists";
 
-import FilePicker from "components/form/FilePicker";
+import FilePicker from "components/molecules/form/FilePicker";
 import Tag from "components/molecules/Tag";
 
 const tracksClassName = css({

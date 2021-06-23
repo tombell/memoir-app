@@ -1,11 +1,11 @@
 import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
 
-import Input, { Props } from "components/form/Input";
+import Input, { Props } from "components/molecules/form/Input";
 
 const meta: Meta = {
   component: Input,
-  title: "Components/Form/Input",
+  title: "Components/Molecules/Form/Input",
   argTypes: { onInput: { action: "input" } },
 };
 export default meta;

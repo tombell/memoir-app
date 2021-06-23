@@ -5,8 +5,8 @@ import { css } from "g-style";
 
 import API, { NewTracklist } from "services/memoir";
 
-import Input from "components/form/Input";
-import Submit from "components/form/Submit";
+import Input from "components/molecules/form/Input";
+import Submit from "components/molecules/form/Submit";
 
 import ArtworkUploader from "components/ArtworkUploader";
 import Subheader from "components/Subheader";

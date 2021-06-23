@@ -21,7 +21,7 @@ const linkClassName = css({
   justifyContent: "center",
 });
 
-interface Props {
+export interface Props {
   path: string;
   id?: string;
   page: number;

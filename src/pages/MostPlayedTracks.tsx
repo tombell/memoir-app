@@ -35,7 +35,17 @@ export default ({ api }: Props) => {
     <div class="most-played">
       <Subheader text="Most Played Tracks" />
       {loading && <Loading />}
-      {tracks && tracks.map((track) => <TrackItem track={track} />)}
+      {tracks &&
+        tracks.map((track) => (
+          <TrackItem
+            id={track.id}
+            artist={track.artist}
+            name={track.name}
+            genre={track.genre}
+            bpm={track.bpm}
+            key={track.key}
+          />
+        ))}
       <Footer />
     </div>
   );

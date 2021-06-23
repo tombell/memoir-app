@@ -1,8 +1,6 @@
 import { h } from "preact";
 import { css } from "g-style";
 
-import { Track } from "services/memoir";
-
 import Breakpoints from "components/atoms/Breakpoints";
 
 import Link from "components/Link";
@@ -23,22 +21,27 @@ const nameClassName = css({
   lineHeight: 1.2,
 });
 
-interface Props {
-  track: Track;
+export interface Props {
+  id: string;
+  artist: string;
+  name: string;
+  genre: string;
+  bpm: number;
+  key: string;
 }
 
-export default ({ track }: Props) => (
+export default ({ id, artist, name, genre, bpm, key }: Props) => (
   <div class={className}>
     <div class={nameClassName}>
-      <Link href={`/track/${track.id}`}>
-        {`${track.artist} - ${track.name}`}
+      <Link href={`/track/${id}`}>
+        {`${artist} - ${name}`}
       </Link>
     </div>
 
     <div>
-      <Tag text={track.bpm.toFixed(2)} color="purple" />
-      <Tag text={track.key} color="lilac" />
-      <Tag text={track.genre} color="blue" />
+      <Tag text={bpm.toFixed(2)} color="purple" />
+      <Tag text={key} color="lilac" />
+      <Tag text={genre} color="blue" />
     </div>
   </div>
 );

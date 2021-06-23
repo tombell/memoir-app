@@ -99,7 +99,14 @@ export default ({ id, api }: Props) => {
 
           <div>
             {tracklist.tracks!.map((track) => (
-              <TrackItem track={track} />
+              <TrackItem
+                id={track.id}
+                artist={track.artist}
+                name={track.name}
+                genre={track.genre}
+                bpm={track.bpm}
+                key={track.key}
+              />
             ))}
           </div>
         </div>

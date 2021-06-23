@@ -2,9 +2,9 @@ import { h } from "preact";
 import { css } from "g-style";
 
 import formatDate from "services/datetime";
-import { Tracklist } from "services/memoir";
 
 import Breakpoints from "components/atoms/Breakpoints";
+import Colors from "components/atoms/Colors";
 
 import Link from "components/Link";
 import Tag from "components/Tag";
@@ -27,7 +27,7 @@ const detailsClassName = css({
 
 const imgClassName = css({
   marginRight: "0.75rem",
-  /* TODO: border: 0.0625rem solid darken($grey, 35%); */
+  border: `0.0625rem solid ${Colors.greyDark}`,
 });
 
 const artClassName = css({
@@ -41,15 +41,19 @@ const nameClassName = css({
   lineHeight: 1.3,
 });
 
-interface Props {
-  tracklist: Tracklist;
+export interface Props {
+  id: string;
+  name: string;
+  date: string;
+  artwork: string;
+  trackCount: number;
 }
 
 const linearGradient =
   "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%,rgba(0, 0, 0, 0.6) 100%)";
 
-export default ({ tracklist }: Props) => {
-  const backgroundImage = `${MEMOIR_CDN_URL}/${tracklist.artwork}`;
+export default ({ id, name, date, artwork, trackCount }: Props) => {
+  const backgroundImage = `${MEMOIR_CDN_URL}/${artwork}`;
 
   const background = {
     backgroundImage: `${linearGradient}, url(${backgroundImage})`,
@@ -58,24 +62,24 @@ export default ({ tracklist }: Props) => {
   };
 
   return (
-    <Link href={`/tracklist/${tracklist.id}`}>
+    <Link href={`/tracklist/${id}`}>
       <div class={className} style={background}>
         <div class={detailsClassName}>
           <div class={imgClassName}>
             <img
               class={artClassName}
-              alt={`${tracklist.name} Artwork`}
+              alt={`${name} Artwork`}
               src={backgroundImage}
             />
           </div>
 
           <div>
-            <h3 class={nameClassName}>{tracklist.name}</h3>
+            <h3 class={nameClassName}>{name}</h3>
 
             <div>
-              <Tag text={`${tracklist.trackCount} Tracks`} color="lilac" />
+              <Tag text={`${trackCount} Tracks`} color="lilac" />
               <Tag
-                text={formatDate(new Date(tracklist.date))}
+                text={formatDate(new Date(date))}
                 color="light-blue"
               />
             </div>

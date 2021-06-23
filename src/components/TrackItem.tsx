@@ -27,20 +27,18 @@ export interface Props {
   name: string;
   genre: string;
   bpm: number;
-  key: string;
+  camelotKey: string;
 }
 
-export default ({ id, artist, name, genre, bpm, key }: Props) => (
+export default ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
   <div class={className}>
     <div class={nameClassName}>
-      <Link href={`/track/${id}`}>
-        {`${artist} - ${name}`}
-      </Link>
+      <Link href={`/track/${id}`}>{`${artist} - ${name}`}</Link>
     </div>
 
     <div>
       <Tag text={bpm.toFixed(2)} color="purple" />
-      <Tag text={key} color="lilac" />
+      <Tag text={camelotKey} color="lilac" />
       <Tag text={genre} color="blue" />
     </div>
   </div>

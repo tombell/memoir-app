@@ -77,7 +77,7 @@ export default ({ id, api }: Props) => {
                     name={track.name}
                     genre={track.genre}
                     bpm={track.bpm}
-                    key={track.key}
+                    camelotKey={track.key}
                   />
                 ))}
               </div>

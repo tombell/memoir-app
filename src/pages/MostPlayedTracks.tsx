@@ -43,7 +43,7 @@ export default ({ api }: Props) => {
             name={track.name}
             genre={track.genre}
             bpm={track.bpm}
-            key={track.key}
+            camelotKey={track.key}
           />
         ))}
       <Footer />

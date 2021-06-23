@@ -6,13 +6,14 @@ import Colors from "components/atoms/Colors";
 const baseClassName = css({
   color: Colors.primary,
   textDecoration: "none",
+  cursor: "pointer",
 
   "&:hover": {
     color: Colors.secondary,
   },
 });
 
-interface Props {
+export interface Props {
   className?: string;
   href?: string;
   onClick?: any;

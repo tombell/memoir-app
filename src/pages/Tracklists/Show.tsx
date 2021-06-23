@@ -10,7 +10,7 @@ import Genres from "components/organisms/Genres";
 import Link from "components/molecules/Link";
 import Loading from "components/Loading";
 import Subheader from "components/Subheader";
-import TrackItem from "components/TrackItem";
+import TrackItem from "components/organisms/TrackItem";
 
 const linkClassName = css({
   marginBottom: "1rem",

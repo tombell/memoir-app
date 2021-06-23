@@ -9,7 +9,7 @@ import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
 
 import Subheader from "components/Subheader";
-import TrackItem from "components/TrackItem";
+import TrackItem from "components/organisms/TrackItem";
 
 const formClassName = css({
   marginBottom: "1rem",

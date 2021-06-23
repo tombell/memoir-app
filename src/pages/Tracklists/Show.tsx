@@ -7,7 +7,7 @@ import API, { Track, Tracklist } from "services/memoir";
 
 import Footer from "components/Footer";
 import Genres from "components/Genres";
-import Link from "components/Link";
+import Link from "components/molecules/Link";
 import Loading from "components/Loading";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";

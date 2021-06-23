@@ -6,7 +6,7 @@ import API, { Track } from "services/memoir";
 import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
 
-import Link from "components/Link";
+import Link from "components/molecules/Link";
 
 const className = css({
   marginBottom: "1rem",

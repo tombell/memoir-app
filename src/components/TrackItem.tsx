@@ -3,7 +3,7 @@ import { css } from "g-style";
 
 import Breakpoints from "components/atoms/Breakpoints";
 
-import Link from "components/Link";
+import Link from "components/molecules/Link";
 import Tag from "components/molecules/Tag";
 
 const className = css({

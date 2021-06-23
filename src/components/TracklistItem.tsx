@@ -6,7 +6,7 @@ import formatDate from "services/datetime";
 import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
 
-import Link from "components/Link";
+import Link from "components/molecules/Link";
 import Tag from "components/molecules/Tag";
 
 const className = css({

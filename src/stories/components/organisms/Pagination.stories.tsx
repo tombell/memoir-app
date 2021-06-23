@@ -1,11 +1,11 @@
 import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
 
-import Pagination, { Props } from "components/Pagination";
+import Pagination, { Props } from "components/organisms/Pagination";
 
 const meta: Meta = {
   component: Pagination,
-  title: "Components/Pagination",
+  title: "Components/Organisms/Pagination",
 };
 export default meta;
 

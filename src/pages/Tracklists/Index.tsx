@@ -7,7 +7,7 @@ import API, { Tracklist } from "services/memoir";
 
 import Footer from "components/Footer";
 import Loading from "components/Loading";
-import Pagination from "components/Pagination";
+import Pagination from "components/organisms/Pagination";
 import TracklistItem from "components/organisms/TracklistItem";
 
 const className = css({

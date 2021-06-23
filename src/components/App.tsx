@@ -21,7 +21,6 @@ import Search from "components/Search";
 
 const className = css({
   color: Colors.primary,
-  /* TODO: background: $background-color; */
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

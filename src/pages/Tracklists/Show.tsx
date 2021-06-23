@@ -6,7 +6,7 @@ import { css } from "g-style";
 import API, { Track, Tracklist } from "services/memoir";
 
 import Footer from "components/Footer";
-import Genres from "components/Genres";
+import Genres from "components/organisms/Genres";
 import Link from "components/molecules/Link";
 import Loading from "components/Loading";
 import Subheader from "components/Subheader";

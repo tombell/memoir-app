@@ -1,11 +1,11 @@
 import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
 
-import Genres, { Props } from "components/Genres";
+import Genres, { Props } from "components/organisms/Genres";
 
 const meta: Meta = {
   component: Genres,
-  title: "Components/Genres",
+  title: "Components/Organisms/Genres",
 };
 export default meta;
 

@@ -6,7 +6,7 @@ import API, { Track } from "services/memoir";
 
 import Footer from "components/Footer";
 import Loading from "components/Loading";
-import Subheader from "components/Subheader";
+import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
 
 interface Props extends RoutableProps {

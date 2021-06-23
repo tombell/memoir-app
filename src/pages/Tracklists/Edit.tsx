@@ -8,7 +8,7 @@ import API, { Tracklist } from "services/memoir";
 import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
 
-import Subheader from "components/Subheader";
+import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
 
 const formClassName = css({

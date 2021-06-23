@@ -9,7 +9,7 @@ import Footer from "components/Footer";
 import Genres from "components/organisms/Genres";
 import Link from "components/molecules/Link";
 import Loading from "components/Loading";
-import Subheader from "components/Subheader";
+import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
 
 const linkClassName = css({

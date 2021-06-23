@@ -9,7 +9,7 @@ import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
 
 import ArtworkUploader from "components/ArtworkUploader";
-import Subheader from "components/Subheader";
+import Subheader from "components/molecules/Subheader";
 import TracklistPicker from "components/TracklistPicker";
 
 const className = css({

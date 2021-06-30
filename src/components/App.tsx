@@ -6,7 +6,8 @@ import CenterColumn from "components/layouts/CenterColumn";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import Redirect from "components/Redirect";
-import Search from "components/Search";
+
+import TrackSearch from "components/organisms/TrackSearch";
 
 import TracklistsAdd from "pages/Tracklists/Add";
 import TracklistsEdit from "pages/Tracklists/Edit";
@@ -19,9 +20,8 @@ import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
 export default () => (
   <CenterColumn>
-
     <Header center />
-    <Search />
+    <TrackSearch />
     <Router>
       <Redirect path="/" to="/tracklists/1" />
 

@@ -10,8 +10,9 @@ import { NewTracklist } from "services/memoir/types";
 import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
 
-import ArtworkUploader from "components/ArtworkUploader";
 import Subheader from "components/molecules/Subheader";
+
+import ArtworkUploader from "components/organisms/ArtworkUploader";
 import TracklistPicker from "components/organisms/TracklistPicker";
 
 const className = css({

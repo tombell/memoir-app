@@ -25,7 +25,7 @@ const inputClassName = css({
   padding: "1rem",
   fontSize: "1rem",
   color: Colors.primary,
-  /* TODO: background: darken($background-color, 5%) */
+  background: Colors.backgroundDark,
   border: 0,
   borderRadius: "0.1875rem",
   outline: 0,
@@ -40,7 +40,7 @@ const resultsClassName = css({
   boxSizing: "border-box",
   width: "100vw",
   padding: "0.625rem",
-  /* TODO: background: darken($background-color, 5%) */
+  background: Colors.backgroundDark,
   boxShadow: "0 0.3125rem 0.9375rem rgba(10, 10, 10, 0.3)",
   [Breakpoints.desktop]: {
     width: "50rem",

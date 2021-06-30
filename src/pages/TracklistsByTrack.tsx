@@ -44,23 +44,26 @@ export default ({ path, id, page, api }: Props) => {
   return (
     <div class="tracklists">
       {tracklists &&
-        tracklists.map(({ id, name, date, artwork, trackCount }) => (
+        tracklists.map(({ id: trackId, name, date, artwork, trackCount }) => (
           <TracklistItem
-            key={id}
-            id={id}
+            key={trackId}
+            id={trackId}
             name={name}
             date={date}
             artwork={artwork}
             trackCount={trackCount}
           />
         ))}
+
       {loading && <Loading />}
+
       <Pagination
         path={path!}
         id={id}
         page={parseInt(page || "1", 10)}
         hasMore={hasMore}
       />
+
       <Footer />
     </div>
   );

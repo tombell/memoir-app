@@ -4,6 +4,8 @@ import { css } from "g-style";
 
 import { uploadArtwork } from "services/memoir";
 
+import Colors from "components/atoms/Colors";
+
 import FilePicker from "components/molecules/form/FilePicker";
 
 const className = css({
@@ -11,7 +13,7 @@ const className = css({
   width: "100%",
   padding: "1rem",
   textAlign: "center",
-  /* TODO: background: darken($background-color, 5%); */
+  background: Colors.backgroundDark,
   borderRadius: "0.1875rem",
 });
 

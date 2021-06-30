@@ -4,6 +4,8 @@ import { css } from "g-style";
 
 import parse from "services/tracklists";
 
+import Colors from "components/atoms/Colors";
+
 import FilePicker from "components/molecules/form/FilePicker";
 import Tag from "components/molecules/Tag";
 
@@ -13,7 +15,7 @@ const tracksClassName = css({
   padding: "1rem",
   listStylePosition: "inside",
   listStyleType: "decimal",
-  /* TODO: background: darken($background-color, 5%); */
+  background: Colors.backgroundDark,
   borderRadius: "0.1875rem",
 });
 

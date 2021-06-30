@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h, Fragment } from "preact";
 import { route, RoutableProps } from "preact-router";
 
 import Loading from "components/Loading";
@@ -24,7 +24,7 @@ export default ({ path, id, page = "1" }: Props) => {
   const { isLoading, hasMore, tracklists } = useTracklistsByTrack(id!, pageNum);
 
   return (
-    <div class="tracklists">
+    <>
       {isLoading && <Loading />}
 
       {!isLoading &&
@@ -41,6 +41,6 @@ export default ({ path, id, page = "1" }: Props) => {
         ))}
 
       <Pagination path={path!} id={id} page={pageNum} hasMore={hasMore} />
-    </div>
+    </>
   );
 };

@@ -1,17 +1,14 @@
 import { h, Fragment } from "preact";
-import { useEffect, useState } from "preact/hooks";
 import { RoutableProps } from "preact-router";
 import { css } from "g-style";
-
-import { fetchTracklist } from "services/memoir/tracklists";
-
-import { Track, Tracklist } from "services/memoir/types";
 
 import Genres from "components/organisms/Genres";
 import Link from "components/molecules/Link";
 import Loading from "components/Loading";
 import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
+
+import useTracklist from "hooks/useTracklist";
 
 const linkClassName = css({
   marginBottom: "1rem",
@@ -25,22 +22,7 @@ interface Props extends RoutableProps {
 }
 
 export default ({ id }: Props) => {
-  const [loading, setLoading] = useState(false);
-  const [tracklist, setTracklist] = useState<Tracklist | null>(null);
-
-  let timer: NodeJS.Timeout;
-
-  useEffect(() => {
-    const fn = async () => {
-      timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await fetchTracklist(id!);
-      setLoading(false);
-      clearTimeout(timer);
-      setTracklist(resp);
-    };
-
-    fn();
-  }, []);
+  const { isLoading, tracklist } = useTracklist(id!);
 
   if (!tracklist) {
     return null;
@@ -48,9 +30,9 @@ export default ({ id }: Props) => {
 
   return (
     <>
-      {loading && <Loading />}
+      {isLoading && <Loading />}
 
-      {tracklist && (
+      {!isLoading && tracklist && (
         <>
           <Subheader text={tracklist.name} />
 
@@ -63,9 +45,7 @@ export default ({ id }: Props) => {
               <>
                 <Genres
                   genres={[
-                    ...new Set(
-                      tracklist.tracks.map((track: Track) => track.genre)
-                    ),
+                    ...new Set(tracklist.tracks.map((track) => track.genre)),
                   ]}
                 />
               </>

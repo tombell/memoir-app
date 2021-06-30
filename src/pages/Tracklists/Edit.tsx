@@ -1,17 +1,17 @@
 import { h, Fragment } from "preact";
-import { useCallback, useEffect, useState } from "preact/hooks";
+import { useCallback } from "preact/hooks";
 import { RoutableProps } from "preact-router";
 import { css } from "g-style";
 
-import { fetchTracklist, patchTracklist } from "services/memoir/tracklists";
-
-import { Tracklist } from "services/memoir/types";
+import { patchTracklist } from "services/memoir/tracklists";
 
 import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
 
 import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
+
+import useTracklist from "hooks/useTracklist";
 
 const formClassName = css({
   marginBottom: "1rem",
@@ -22,21 +22,11 @@ interface Props extends RoutableProps {
 }
 
 export default ({ id }: Props) => {
-  const [tracklist, setTracklist] = useState<Tracklist | null>(null);
-
-  useEffect(() => {
-    const fn = async () => {
-      const resp = await fetchTracklist(id!);
-      setTracklist(resp);
-    };
-
-    fn();
-  }, []);
+  const { tracklist } = useTracklist(id!);
 
   const handleNameInput = useCallback(
     (e: Event) => {
       tracklist!.name = (e.target as HTMLInputElement).value;
-      setTracklist(tracklist);
     },
     [tracklist]
   );
@@ -44,7 +34,6 @@ export default ({ id }: Props) => {
   const handleDateInput = useCallback(
     (e: Event) => {
       tracklist!.date = (e.target as HTMLInputElement).value;
-      setTracklist(tracklist);
     },
     [tracklist]
   );
@@ -52,15 +41,13 @@ export default ({ id }: Props) => {
   const handleUrlInput = useCallback(
     (e: Event) => {
       tracklist!.url = (e.target as HTMLInputElement).value;
-      setTracklist(tracklist);
     },
     [tracklist]
   );
 
   const handleSubmit = useCallback(async () => {
     if (tracklist) {
-      const resp = await patchTracklist(id!, tracklist);
-      setTracklist(resp);
+      await patchTracklist(id!, tracklist);
     }
   }, [tracklist]);
 

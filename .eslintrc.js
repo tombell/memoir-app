@@ -9,7 +9,7 @@ module.exports = {
   settings: {
     react: {
       pragma: "h",
-      version: "16",
+      version: "17",
     },
   },
   rules: {

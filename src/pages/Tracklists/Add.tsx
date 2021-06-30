@@ -1,9 +1,11 @@
-import { h } from "preact";
+import { h, FunctionalComponent } from "preact";
 import { useCallback, useState } from "preact/hooks";
-import { route, RoutableProps } from "preact-router";
+import { route } from "preact-router";
 import { css } from "g-style";
 
-import API, { NewTracklist } from "services/memoir";
+import { postTracklist } from "services/memoir/tracklists";
+
+import { NewTracklist } from "services/memoir/types";
 
 import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
@@ -25,11 +27,7 @@ const textClassName = css({
   fontWeight: "bold",
 });
 
-interface Props extends RoutableProps {
-  api: API;
-}
-
-export default ({ api }: Props) => {
+const Add: FunctionalComponent = () => {
   const [tracklist, setTracklist] = useState<NewTracklist>({
     name: "",
     date: "",
@@ -78,7 +76,7 @@ export default ({ api }: Props) => {
   );
 
   const handleSubmit = useCallback(async () => {
-    const resp = await api.postTracklist(tracklist);
+    const resp = await postTracklist(tracklist);
 
     if (resp) {
       route(`/tracklists/edit/${resp.id}`);
@@ -95,7 +93,7 @@ export default ({ api }: Props) => {
 
       <div class={sectionClassName}>
         <h2 class={textClassName}>Artwork</h2>
-        <ArtworkUploader api={api} onUpload={handleUpload} />
+        <ArtworkUploader onUpload={handleUpload} />
       </div>
 
       <div class={sectionClassName}>
@@ -107,3 +105,5 @@ export default ({ api }: Props) => {
     </div>
   );
 };
+
+export default Add;

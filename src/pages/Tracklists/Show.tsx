@@ -3,7 +3,9 @@ import { useEffect, useState } from "preact/hooks";
 import { RoutableProps } from "preact-router";
 import { css } from "g-style";
 
-import API, { Track, Tracklist } from "services/memoir";
+import { fetchTracklist } from "services/memoir/tracklists";
+
+import { Track, Tracklist } from "services/memoir/types";
 
 import Footer from "components/Footer";
 import Genres from "components/organisms/Genres";
@@ -21,10 +23,9 @@ const linkClassName = css({
 
 interface Props extends RoutableProps {
   id?: string;
-  api: API;
 }
 
-export default ({ id, api }: Props) => {
+export default ({ id }: Props) => {
   const [loading, setLoading] = useState(false);
   const [tracklist, setTracklist] = useState<Tracklist | null>(null);
 
@@ -33,7 +34,7 @@ export default ({ id, api }: Props) => {
   useEffect(() => {
     const fn = async () => {
       timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await api.fetchTracklist(id!);
+      const resp = await fetchTracklist(id!);
       setLoading(false);
       clearTimeout(timer);
       setTracklist(resp);
@@ -47,10 +48,11 @@ export default ({ id, api }: Props) => {
   }
 
   return (
-    <div>
+    <>
       {loading && <Loading />}
+
       {tracklist && (
-        <Fragment>
+        <>
           <Subheader text={tracklist.name} />
 
           <div class={linkClassName}>
@@ -58,8 +60,8 @@ export default ({ id, api }: Props) => {
           </div>
 
           {tracklist.tracks && (
-            <Fragment>
-              <div>
+            <>
+              <>
                 <Genres
                   genres={[
                     ...new Set(
@@ -67,9 +69,9 @@ export default ({ id, api }: Props) => {
                     ),
                   ]}
                 />
-              </div>
+              </>
 
-              <div>
+              <>
                 {tracklist.tracks.map((track) => (
                   <TrackItem
                     id={track.id}
@@ -80,12 +82,13 @@ export default ({ id, api }: Props) => {
                     camelotKey={track.key}
                   />
                 ))}
-              </div>
-            </Fragment>
+              </>
+            </>
           )}
-        </Fragment>
+        </>
       )}
+
       <Footer />
-    </div>
+    </>
   );
 };

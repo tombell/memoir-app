@@ -1,7 +1,9 @@
 import { h, Component, createRef } from "preact";
 import { css } from "g-style";
 
-import API, { Track } from "services/memoir";
+import { searchTracks } from "services/memoir/tracks";
+
+import { Track } from "services/memoir/types";
 
 import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
@@ -76,12 +78,8 @@ interface State {
 export default class Search extends Component<Props, State> {
   private ref = createRef();
 
-  private api: API;
-
   constructor(props: Props) {
     super(props);
-
-    this.api = new API(MEMOIR_API_URL);
 
     this.state = {
       showResults: false,
@@ -130,7 +128,7 @@ export default class Search extends Component<Props, State> {
   }
 
   async searchTracks(query: string) {
-    const paged = await this.api.searchTracks(query);
+    const paged = await searchTracks(query);
 
     if (paged) {
       const { tracks } = paged;

@@ -1,8 +1,8 @@
-import { h } from "preact";
+import { h, Fragment } from "preact";
 import { useCallback, useState } from "preact/hooks";
 import { css } from "g-style";
 
-import API from "services/memoir";
+import { uploadArtwork } from "services/memoir";
 
 import FilePicker from "components/molecules/form/FilePicker";
 
@@ -21,15 +21,14 @@ const imgClassName = css({
 });
 
 interface Props {
-  api: API;
   onUpload: (artwork: string) => void;
 }
 
-export default ({ api, onUpload }: Props) => {
+export default ({ onUpload }: Props) => {
   const [artwork, setArtwork] = useState<string | null>(null);
 
   const handleSelect = useCallback(async (file: File) => {
-    const upload = await api.uploadArtwork(file);
+    const upload = await uploadArtwork(file);
 
     if (upload) {
       setArtwork(upload.key);
@@ -38,7 +37,7 @@ export default ({ api, onUpload }: Props) => {
   }, []);
 
   return (
-    <div>
+    <>
       {!artwork && (
         <FilePicker accept="image/jpeg, image/png" onSelect={handleSelect} />
       )}
@@ -52,6 +51,6 @@ export default ({ api, onUpload }: Props) => {
           />
         </div>
       )}
-    </div>
+    </>
   );
 };

@@ -1,19 +1,15 @@
-import { h } from "preact";
-import { RoutableProps } from "preact-router";
+import { h, FunctionalComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
-import API, { Track } from "services/memoir";
+import { fetchMostPlayedTracks } from "services/memoir/tracks";
+import { Track } from "services/memoir/types";
 
 import Footer from "components/Footer";
 import Loading from "components/Loading";
 import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
 
-interface Props extends RoutableProps {
-  api: API;
-}
-
-export default ({ api }: Props) => {
+const MostPlayedTracks: FunctionalComponent = () => {
   const [loading, setLoading] = useState(false);
   const [tracks, setTracks] = useState<Track[] | null>(null);
 
@@ -22,7 +18,7 @@ export default ({ api }: Props) => {
   useEffect(() => {
     const fn = async () => {
       timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await api.fetchMostPlayedTracks();
+      const resp = await fetchMostPlayedTracks();
       setLoading(false);
       clearTimeout(timer);
       setTracks(resp);
@@ -34,7 +30,9 @@ export default ({ api }: Props) => {
   return (
     <div class="most-played">
       <Subheader text="Most Played Tracks" />
+
       {loading && <Loading />}
+
       {tracks &&
         tracks.map((track) => (
           <TrackItem
@@ -46,7 +44,10 @@ export default ({ api }: Props) => {
             camelotKey={track.key}
           />
         ))}
+
       <Footer />
     </div>
   );
 };
+
+export default MostPlayedTracks;

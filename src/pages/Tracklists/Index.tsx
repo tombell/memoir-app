@@ -3,7 +3,9 @@ import { useEffect, useState } from "preact/hooks";
 import { route, RoutableProps } from "preact-router";
 import { css } from "g-style";
 
-import API, { Tracklist } from "services/memoir";
+import { fetchTracklists } from "services/memoir/tracklists";
+
+import { Tracklist } from "services/memoir/types";
 
 import Footer from "components/Footer";
 import Loading from "components/Loading";
@@ -16,10 +18,9 @@ const className = css({
 
 interface Props extends RoutableProps {
   page?: string;
-  api: API;
 }
 
-export default ({ path, page, api }: Props) => {
+export default ({ path, page }: Props) => {
   const [loading, setLoading] = useState(false);
   const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
   const [hasMore, setHasMore] = useState(false);
@@ -37,7 +38,7 @@ export default ({ path, page, api }: Props) => {
       }
 
       timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await api.fetchTracklists(parseInt(page!, 10));
+      const resp = await fetchTracklists(parseInt(page!, 10));
       setLoading(false);
       clearTimeout(timer);
 
@@ -53,6 +54,7 @@ export default ({ path, page, api }: Props) => {
   return (
     <div class={className}>
       {loading && <Loading />}
+
       {tracklists &&
         tracklists.map(({ id, name, date, artwork, trackCount }) => (
           <TracklistItem
@@ -64,7 +66,9 @@ export default ({ path, page, api }: Props) => {
             trackCount={trackCount}
           />
         ))}
+
       <Pagination path={path!} page={parseInt(page!, 10)} hasMore={hasMore} />
+
       <Footer />
     </div>
   );

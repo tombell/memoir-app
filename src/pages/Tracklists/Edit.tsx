@@ -1,9 +1,11 @@
-import { h } from "preact";
+import { h, Fragment } from "preact";
 import { useCallback, useEffect, useState } from "preact/hooks";
 import { RoutableProps } from "preact-router";
 import { css } from "g-style";
 
-import API, { Tracklist } from "services/memoir";
+import { fetchTracklist, patchTracklist } from "services/memoir/tracklists";
+
+import { Tracklist } from "services/memoir/types";
 
 import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
@@ -17,15 +19,14 @@ const formClassName = css({
 
 interface Props extends RoutableProps {
   id?: string;
-  api: API;
 }
 
-export default ({ id, api }: Props) => {
+export default ({ id }: Props) => {
   const [tracklist, setTracklist] = useState<Tracklist | null>(null);
 
   useEffect(() => {
     const fn = async () => {
-      const resp = await api.fetchTracklist(id!);
+      const resp = await fetchTracklist(id!);
       setTracklist(resp);
     };
 
@@ -58,17 +59,17 @@ export default ({ id, api }: Props) => {
 
   const handleSubmit = useCallback(async () => {
     if (tracklist) {
-      const resp = await api.patchTracklist(id!, tracklist);
+      const resp = await patchTracklist(id!, tracklist);
       setTracklist(resp);
     }
   }, [tracklist]);
 
   return (
-    <div>
+    <>
       <Subheader text="Edit Tracklist" />
 
       {tracklist && (
-        <div>
+        <>
           <div class={formClassName}>
             <Input
               name="name"
@@ -97,7 +98,7 @@ export default ({ id, api }: Props) => {
             <Submit onClick={handleSubmit} />
           </div>
 
-          <div>
+          <>
             {tracklist.tracks!.map((track) => (
               <TrackItem
                 id={track.id}
@@ -108,9 +109,9 @@ export default ({ id, api }: Props) => {
                 camelotKey={track.key}
               />
             ))}
-          </div>
-        </div>
+          </>
+        </>
       )}
-    </div>
+    </>
   );
 };

@@ -16,30 +16,22 @@ import MostPlayedTracksPage from "pages/MostPlayedTracks";
 import NotFoundPage from "pages/NotFound";
 import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
-import API from "services/memoir";
+export default () => (
+  <CenterColumn>
+    <Header />
+    <Search />
+    <Router>
+      <Redirect path="/" to="/tracklists/1" />
 
-export default () => {
-  const api = new API(MEMOIR_API_KEY);
+      <TracklistsIndex path="/tracklists/:page" />
+      {MEMOIR_ADMIN_ENABLED && <TracklistsAdd path="/tracklists/add" />}
+      {MEMOIR_ADMIN_ENABLED && <TracklistsEdit path="/tracklists/edit/:id" />}
+      <TracklistsShow path="/tracklist/:id" />
 
-  return (
-    <CenterColumn>
-      <Header />
-      <Search />
-      <Router>
-        <Redirect path="/" to="/tracklists/1" />
+      <TracklistsByTrackPage path="/track/:id/:page?" />
+      <MostPlayedTracksPage path="/tracks/mostplayed" />
 
-        <TracklistsIndex path="/tracklists/:page" api={api} />
-        {MEMOIR_ADMIN_ENABLED && [
-          <TracklistsAdd path="/tracklists/add" api={api} />,
-          <TracklistsEdit path="/tracklists/edit/:id" api={api} />,
-        ]}
-        <TracklistsShow path="/tracklist/:id" api={api} />
-
-        <TracklistsByTrackPage path="/track/:id/:page?" api={api} />
-        <MostPlayedTracksPage path="/tracks/mostplayed" api={api} />
-
-        <NotFoundPage path="/404" default />
-      </Router>
-    </CenterColumn>
-  );
-};
+      <NotFoundPage path="/404" default />
+    </Router>
+  </CenterColumn>
+);

@@ -2,7 +2,9 @@ import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { RoutableProps } from "preact-router";
 
-import API, { Tracklist } from "services/memoir";
+import { fetchTracklistsByTrack } from "services/memoir/tracklists";
+
+import { Tracklist } from "services/memoir/types";
 
 import Footer from "components/Footer";
 import Loading from "components/Loading";
@@ -12,10 +14,9 @@ import TracklistItem from "components/organisms/TracklistItem";
 interface Props extends RoutableProps {
   id?: string;
   page?: string;
-  api: API;
 }
 
-export default ({ path, id, page, api }: Props) => {
+export default ({ path, id, page }: Props) => {
   const [loading, setLoading] = useState(false);
   const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
   const [hasMore, setHasMore] = useState(false);
@@ -25,10 +26,7 @@ export default ({ path, id, page, api }: Props) => {
   useEffect(() => {
     const fn = async () => {
       timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await api.fetchTracklistsByTrack(
-        id!,
-        parseInt(page || "1", 10)
-      );
+      const resp = await fetchTracklistsByTrack(id!, parseInt(page || "1", 10));
       setLoading(false);
       clearTimeout(timer);
 

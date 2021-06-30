@@ -7,7 +7,6 @@ import { fetchTracklist } from "services/memoir/tracklists";
 
 import { Track, Tracklist } from "services/memoir/types";
 
-import Footer from "components/Footer";
 import Genres from "components/organisms/Genres";
 import Link from "components/molecules/Link";
 import Loading from "components/Loading";
@@ -87,8 +86,6 @@ export default ({ id }: Props) => {
           )}
         </>
       )}
-
-      <Footer />
     </>
   );
 };

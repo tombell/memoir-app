@@ -3,6 +3,7 @@ import { Router } from "preact-router";
 
 import CenterColumn from "components/layouts/CenterColumn";
 
+import Footer from "components/Footer";
 import Header from "components/Header";
 import Redirect from "components/Redirect";
 import Search from "components/Search";
@@ -33,5 +34,6 @@ export default () => (
 
       <NotFoundPage path="/404" default />
     </Router>
+    <Footer />
   </CenterColumn>
 );

@@ -4,7 +4,6 @@ import { useEffect, useState } from "preact/hooks";
 import { fetchMostPlayedTracks } from "services/memoir/tracks";
 import { Track } from "services/memoir/types";
 
-import Footer from "components/Footer";
 import Loading from "components/Loading";
 import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
@@ -44,8 +43,6 @@ const MostPlayedTracks: FunctionalComponent = () => {
             camelotKey={track.key}
           />
         ))}
-
-      <Footer />
     </div>
   );
 };

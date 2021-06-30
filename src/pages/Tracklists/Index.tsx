@@ -7,7 +7,6 @@ import { fetchTracklists } from "services/memoir/tracklists";
 
 import { Tracklist } from "services/memoir/types";
 
-import Footer from "components/Footer";
 import Loading from "components/Loading";
 import Pagination from "components/organisms/Pagination";
 import TracklistItem from "components/organisms/TracklistItem";
@@ -68,8 +67,6 @@ export default ({ path, page }: Props) => {
         ))}
 
       <Pagination path={path!} page={parseInt(page!, 10)} hasMore={hasMore} />
-
-      <Footer />
     </div>
   );
 };

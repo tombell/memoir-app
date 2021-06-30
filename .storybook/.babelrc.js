@@ -2,7 +2,7 @@ module.exports = {
   presets: [
     "@babel/preset-env",
     "preact",
-    ["@babel/typescript", { jsxPragma: "h" }],
+    ["@babel/typescript", { jsxPragma: "h", jsxPragmaFrag: "Fragment" }],
   ],
   plugins: [
     ["@babel/plugin-proposal-class-properties", { loose: true }],
@@ -15,6 +15,13 @@ module.exports = {
           pages: "./src/pages",
           services: "./src/services",
         },
+      },
+    ],
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        pragma: "h",
+        pragmaFrag: "Fragment",
       },
     ],
   ],

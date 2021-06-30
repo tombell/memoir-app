@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h, Fragment } from "preact";
 import { useCallback, useState } from "preact/hooks";
 import { css } from "g-style";
 
@@ -52,7 +52,7 @@ export default ({ onSelect }: Props) => {
   }, []);
 
   return (
-    <div>
+    <>
       {!tracks && <FilePicker accept="text/plain" onSelect={handleSelect} />}
 
       {tracks && (
@@ -74,6 +74,6 @@ export default ({ onSelect }: Props) => {
           ))}
         </ol>
       )}
-    </div>
+    </>
   );
 };

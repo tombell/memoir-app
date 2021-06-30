@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h, Fragment } from "preact";
 import { css } from "g-style";
 
 import formatDate from "services/datetime";
@@ -73,14 +73,14 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
             />
           </div>
 
-          <div>
+          <>
             <h3 class={nameClassName}>{name}</h3>
 
-            <div>
+            <>
               <Tag text={`${trackCount} Tracks`} color="lilac" />
               <Tag text={formatDate(new Date(date))} color="light-blue" />
-            </div>
-          </div>
+            </>
+          </>
         </div>
       </div>
     </Link>

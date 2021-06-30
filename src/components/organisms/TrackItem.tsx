@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h, Fragment } from "preact";
 import { css } from "g-style";
 
 import Breakpoints from "components/atoms/Breakpoints";
@@ -36,10 +36,10 @@ export default ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
       <Link href={`/track/${id}`}>{`${artist} - ${name}`}</Link>
     </div>
 
-    <div>
+    <>
       <Tag text={bpm.toFixed(2)} color="purple" />
       <Tag text={camelotKey} color="lilac" />
       <Tag text={genre} color="blue" />
-    </div>
+    </>
   </div>
 );

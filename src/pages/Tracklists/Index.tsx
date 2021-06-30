@@ -1,15 +1,12 @@
 import { h } from "preact";
-import { useEffect, useState } from "preact/hooks";
 import { route, RoutableProps } from "preact-router";
 import { css } from "g-style";
-
-import { fetchTracklists } from "services/memoir/tracklists";
-
-import { Tracklist } from "services/memoir/types";
 
 import Loading from "components/Loading";
 import Pagination from "components/organisms/Pagination";
 import TracklistItem from "components/organisms/TracklistItem";
+
+import useTracklists from "hooks/useTracklists";
 
 const className = css({
   minHeight: "33.625rem",
@@ -20,41 +17,22 @@ interface Props extends RoutableProps {
 }
 
 export default ({ path, page }: Props) => {
-  const [loading, setLoading] = useState(false);
-  const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
-  const [hasMore, setHasMore] = useState(false);
+  const pageNum = parseInt(page!, 10);
 
-  let timer: NodeJS.Timeout;
+  // eslint-disable-next-line no-restricted-globals
+  if (isNaN(pageNum)) {
+    route("/404", true);
+    return null;
+  }
 
-  useEffect(() => {
-    const fn = async () => {
-      const pageNum = parseInt(page!, 10);
-
-      // eslint-disable-next-line no-restricted-globals
-      if (isNaN(pageNum)) {
-        route("/404", true);
-        return;
-      }
-
-      timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await fetchTracklists(parseInt(page!, 10));
-      setLoading(false);
-      clearTimeout(timer);
-
-      if (resp) {
-        setTracklists(resp.tracklists);
-        setHasMore(resp.hasMore);
-      }
-    };
-
-    fn();
-  }, [page]);
+  const { isLoading, hasMore, tracklists } = useTracklists(pageNum);
 
   return (
     <div class={className}>
-      {loading && <Loading />}
+      {isLoading && <Loading />}
 
-      {tracklists &&
+      {!isLoading &&
+        tracklists &&
         tracklists.map(({ id, name, date, artwork, trackCount }) => (
           <TracklistItem
             key={id}
@@ -66,7 +44,7 @@ export default ({ path, page }: Props) => {
           />
         ))}
 
-      <Pagination path={path!} page={parseInt(page!, 10)} hasMore={hasMore} />
+      <Pagination path={path!} page={pageNum} hasMore={hasMore} />
     </div>
   );
 };

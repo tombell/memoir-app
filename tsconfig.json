@@ -10,6 +10,7 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "baseUrl": "src",
     "paths": {
       "components/*": ["components/*"],

@@ -1,46 +1,34 @@
 import { h } from "preact";
-import { useEffect, useState } from "preact/hooks";
-import { RoutableProps } from "preact-router";
-
-import { fetchTracklistsByTrack } from "services/memoir/tracklists";
-
-import { Tracklist } from "services/memoir/types";
+import { route, RoutableProps } from "preact-router";
 
 import Loading from "components/Loading";
 import Pagination from "components/organisms/Pagination";
 import TracklistItem from "components/organisms/TracklistItem";
+
+import useTracklistsByTrack from "hooks/useTracklistsByTrack";
 
 interface Props extends RoutableProps {
   id?: string;
   page?: string;
 }
 
-export default ({ path, id, page }: Props) => {
-  const [loading, setLoading] = useState(false);
-  const [tracklists, setTracklists] = useState<Tracklist[] | null>(null);
-  const [hasMore, setHasMore] = useState(false);
+export default ({ path, id, page = "1" }: Props) => {
+  const pageNum = parseInt(page!, 10);
 
-  let timer: NodeJS.Timeout;
+  // eslint-disable-next-line no-restricted-globals
+  if (isNaN(pageNum)) {
+    route("/404", true);
+    return null;
+  }
 
-  useEffect(() => {
-    const fn = async () => {
-      timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await fetchTracklistsByTrack(id!, parseInt(page || "1", 10));
-      setLoading(false);
-      clearTimeout(timer);
-
-      if (resp) {
-        setTracklists(resp.tracklists);
-        setHasMore(resp.hasMore);
-      }
-    };
-
-    fn();
-  }, [page]);
+  const { isLoading, hasMore, tracklists } = useTracklistsByTrack(id!, pageNum);
 
   return (
     <div class="tracklists">
-      {tracklists &&
+      {isLoading && <Loading />}
+
+      {!isLoading &&
+        tracklists &&
         tracklists.map(({ id: trackId, name, date, artwork, trackCount }) => (
           <TracklistItem
             key={trackId}
@@ -52,14 +40,7 @@ export default ({ path, id, page }: Props) => {
           />
         ))}
 
-      {loading && <Loading />}
-
-      <Pagination
-        path={path!}
-        id={id}
-        page={parseInt(page || "1", 10)}
-        hasMore={hasMore}
-      />
+      <Pagination path={path!} id={id} page={pageNum} hasMore={hasMore} />
     </div>
   );
 };

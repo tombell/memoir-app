@@ -12,7 +12,7 @@ import Submit from "components/molecules/form/Submit";
 
 import ArtworkUploader from "components/ArtworkUploader";
 import Subheader from "components/molecules/Subheader";
-import TracklistPicker from "components/TracklistPicker";
+import TracklistPicker from "components/organisms/TracklistPicker";
 
 const className = css({
   marginBottom: "1rem",

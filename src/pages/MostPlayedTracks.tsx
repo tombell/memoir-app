@@ -1,38 +1,22 @@
-import { h, FunctionalComponent } from "preact";
-import { useEffect, useState } from "preact/hooks";
-
-import { fetchMostPlayedTracks } from "services/memoir/tracks";
-import { Track } from "services/memoir/types";
+import { h, Fragment, FunctionalComponent } from "preact";
 
 import Loading from "components/Loading";
 import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
 
+import useMostPlayedTracks from "hooks/useMostPlayedTracks";
+
 const MostPlayedTracks: FunctionalComponent = () => {
-  const [loading, setLoading] = useState(false);
-  const [tracks, setTracks] = useState<Track[] | null>(null);
-
-  let timer: NodeJS.Timeout;
-
-  useEffect(() => {
-    const fn = async () => {
-      timer = setTimeout(() => setLoading(true), 1000);
-      const resp = await fetchMostPlayedTracks();
-      setLoading(false);
-      clearTimeout(timer);
-      setTracks(resp);
-    };
-
-    fn();
-  }, []);
+  const { isLoading, tracks } = useMostPlayedTracks();
 
   return (
-    <div class="most-played">
+    <>
       <Subheader text="Most Played Tracks" />
 
-      {loading && <Loading />}
+      {isLoading && <Loading />}
 
-      {tracks &&
+      {!isLoading &&
+        tracks &&
         tracks.map((track) => (
           <TrackItem
             id={track.id}
@@ -43,7 +27,7 @@ const MostPlayedTracks: FunctionalComponent = () => {
             camelotKey={track.key}
           />
         ))}
-    </div>
+    </>
   );
 };
 

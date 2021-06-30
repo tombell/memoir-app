@@ -19,7 +19,8 @@ import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
 export default () => (
   <CenterColumn>
-    <Header />
+
+    <Header center />
     <Search />
     <Router>
       <Redirect path="/" to="/tracklists/1" />

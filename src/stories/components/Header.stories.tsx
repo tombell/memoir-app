@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
 
-import Header from "components/Header";
+import Header, { Props } from "components/Header";
 
 const meta: Meta = {
   component: Header,
@@ -9,7 +9,12 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story = () => <Header />;
+const Template: Story<Props> = (props) => <Header {...props} />;
 
 export const Base = Template.bind({});
 Base.storyName = "Header";
+
+export const Center = Template.bind({});
+Center.args = {
+  center: true,
+};

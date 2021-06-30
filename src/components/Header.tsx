@@ -21,8 +21,12 @@ const logoClassName = css({
   },
 });
 
-export default () => (
-  <header class={className}>
+export interface Props {
+  center?: boolean;
+}
+
+export default ({ center = false }: Props) => (
+  <header class={className} style={{ margin: center ? "0 auto" : null }}>
     <Link href="/tracklists/1">
       <img class={logoClassName} src="/images/logo.svg" alt="Memoir" />
     </Link>

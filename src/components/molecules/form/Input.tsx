@@ -47,7 +47,7 @@ export default ({ name, text, type, value, onInput }: Props) => {
     const target = e.target as HTMLInputElement;
     onInput(e);
     setInputValue(target.value);
-  }, []);
+  }, [onInput]);
 
   return (
     <div class={className}>

@@ -1,5 +1,5 @@
 import { h, Fragment } from "preact";
-import { useCallback, useState } from "preact/hooks";
+import { useCallback, useMemo, useState } from "preact/hooks";
 import { css } from "g-style";
 
 import parse from "services/tracklists";
@@ -38,7 +38,7 @@ interface Props {
 export default ({ onSelect }: Props) => {
   const [tracks, setTracks] = useState<string[][] | null>(null);
 
-  const reader = new FileReader();
+  const reader = useMemo(() => new FileReader(), []);
 
   const onFileRead = useCallback(() => {
     if (reader.result) {
@@ -46,12 +46,12 @@ export default ({ onSelect }: Props) => {
       setTracks(parsed);
       onSelect(parsed);
     }
-  }, []);
+  }, [reader, onSelect]);
 
   const handleSelect = useCallback((file: File) => {
     reader.onload = onFileRead;
     reader.readAsText(file);
-  }, []);
+  }, [reader, onFileRead]);
 
   return (
     <>

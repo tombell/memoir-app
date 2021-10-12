@@ -49,7 +49,7 @@ export default ({ id }: Props) => {
     if (tracklist) {
       await patchTracklist(id!, tracklist);
     }
-  }, [tracklist]);
+  }, [tracklist, id]);
 
   return (
     <>

@@ -24,7 +24,7 @@ export default ({ accept, onSelect }: Props) => {
       const file = input.current.files[0];
       onSelect(file);
     }
-  }, [input]);
+  }, [input, onSelect]);
 
   return (
     <div class={className}>

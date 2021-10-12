@@ -22,7 +22,7 @@ export default (id: string, page: number = 1) => {
     };
 
     fn();
-  }, [page]);
+  }, [id, page]);
 
   return { isLoading, hasMore, tracklists };
 };

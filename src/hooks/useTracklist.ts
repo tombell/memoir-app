@@ -20,7 +20,7 @@ export default (id: string) => {
     };
 
     fn();
-  }, []);
+  }, [id]);
 
   return { isLoading, tracklist };
 };

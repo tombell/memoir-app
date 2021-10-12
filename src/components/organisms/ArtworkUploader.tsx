@@ -36,7 +36,7 @@ export default ({ onUpload }: Props) => {
       setArtwork(upload.key);
       onUpload(upload.key);
     }
-  }, []);
+  }, [onUpload]);
 
   return (
     <>

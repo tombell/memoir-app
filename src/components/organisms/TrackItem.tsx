@@ -33,7 +33,7 @@ export interface Props {
 export default ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
   <div class={className}>
     <div class={nameClassName}>
-      <Link href={`/track/${id}`}>{`${artist} - ${name}`}</Link>
+      <Link href={`/tracks/${id}`}>{`${artist} - ${name}`}</Link>
     </div>
 
     <>

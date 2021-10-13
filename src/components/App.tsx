@@ -30,7 +30,7 @@ export default () => (
       {MEMOIR_ADMIN_ENABLED && <TracklistsEdit path="/tracklists/edit/:id" />}
       <TracklistsShow path="/tracklist/:id" />
 
-      <TracklistsByTrackPage path="/track/:id/:page?" />
+      <TracklistsByTrackPage path="/tracks/:id/:page?" />
       <MostPlayedTracksPage path="/tracks/mostplayed" />
 
       <NotFoundPage path="/404" default />

@@ -12,8 +12,8 @@ interface Props extends RoutableProps {
   page?: string;
 }
 
-export default ({ path, id, page = "1" }: Props) => {
-  const pageNum = parseInt(page!, 10);
+export default ({ path, id, page }: Props) => {
+  const pageNum = parseInt(page || "1", 10);
 
   // eslint-disable-next-line no-restricted-globals
   if (isNaN(pageNum)) {

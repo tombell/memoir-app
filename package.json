@@ -13,7 +13,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-preact": "^2.0.0",
     "core-js": "^3.18.3",
-    "esbuild": "^0.13.4",
+    "esbuild": "^0.13.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.1",

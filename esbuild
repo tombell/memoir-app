@@ -25,7 +25,9 @@ const buildJS = ({ src, dest, dev }) => {
         MEMOIR_API_URL: dev
           ? '"http://localhost:8080"'
           : '"https://api.iamdjriff.co.uk"',
-        MEMOIR_CDN_URL: '"https://d2a0hkcquufay7.cloudfront.net"',
+        MEMOIR_CDN_URL: dev
+          ? '"https://memoir-artwork-development.s3.amazonaws.com"'
+          : '"https://d4vv6ayb6g3d4.cloudfront.net"',
       },
     });
   } catch {}

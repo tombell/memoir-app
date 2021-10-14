@@ -156,7 +156,7 @@ export default class Search extends Component<Props, State> {
   renderSearchResult(track: Track) {
     return (
       <li class={resultsItemClassName}>
-        <Link href={`/track/${track.id}`} onClick={this.hideResults}>
+        <Link href={`/tracks/${track.id}`} onClick={this.hideResults}>
           <span
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{

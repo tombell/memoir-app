@@ -26,33 +26,43 @@ module.exports = {
         "newlines-between": "always",
         pathGroups: [
           {
+            pattern: "pages/**",
+            group: "internal",
+            position: "after",
+          },
+          {
             pattern: "components/atoms/**",
-            group: "external",
+            group: "internal",
             position: "after",
           },
           {
             pattern: "components/molecules/**",
-            group: "external",
+            group: "internal",
             position: "after",
           },
           {
             pattern: "components/organisms/**",
-            group: "external",
+            group: "internal",
+            position: "after",
+          },
+          {
+            pattern: "components/*",
+            group: "internal",
             position: "after",
           },
           {
             pattern: "components/layouts/**",
-            group: "external",
+            group: "internal",
             position: "after",
           },
           {
             pattern: "hooks/**",
-            group: "external",
+            group: "internal",
             position: "after",
           },
           {
             pattern: "services/**",
-            group: "external",
+            group: "internal",
             position: "after",
           },
         ],

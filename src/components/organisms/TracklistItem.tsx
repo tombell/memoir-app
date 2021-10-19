@@ -1,7 +1,7 @@
 import { h, Fragment } from "preact";
 import { css } from "g-style";
 
-import formatDate from "services/datetime";
+import { formatFriendlyDate } from "services/datetime";
 
 import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
@@ -78,7 +78,7 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
 
             <>
               <Tag text={`${trackCount} Tracks`} color="lilac" />
-              <Tag text={formatDate(new Date(date))} color="light-blue" />
+              <Tag text={formatFriendlyDate(date)} color="light-blue" />
             </>
           </>
         </div>

@@ -88,14 +88,14 @@ export default ({ id }: Props) => {
           </div>
 
           <>
-            {tracklist.tracks!.map(({ id, artist, name, genre, bpm, key }) => (
+            {tracklist.tracks!.map((track) => (
               <TrackItem
-                id={id}
-                artist={artist}
-                name={name}
-                genre={genre}
-                bpm={bpm}
-                camelotKey={key}
+                id={track.id}
+                artist={track.artist}
+                name={track.name}
+                genre={track.genre}
+                bpm={track.bpm}
+                camelotKey={track.key}
               />
             ))}
           </>

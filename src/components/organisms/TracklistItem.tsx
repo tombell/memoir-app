@@ -44,7 +44,7 @@ const nameClassName = css({
 export interface Props {
   id: string;
   name: string;
-  date: string;
+  date: Date;
   artwork: string;
   trackCount: number;
 }

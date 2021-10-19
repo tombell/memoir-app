@@ -15,6 +15,7 @@ export default (id: string) => {
       setIsLoading(false);
 
       if (resp) {
+        resp.date = new Date(resp.date);
         setTracklist(resp);
       }
     };

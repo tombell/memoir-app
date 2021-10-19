@@ -16,7 +16,7 @@ export interface Track {
 export interface Tracklist {
   id: string;
   name: string;
-  date: string;
+  date: Date;
   artwork: string;
   url: string;
   trackCount: number;

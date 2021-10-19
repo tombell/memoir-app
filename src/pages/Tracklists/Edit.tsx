@@ -13,6 +13,8 @@ import TrackItem from "components/organisms/TrackItem";
 
 import useTracklist from "hooks/useTracklist";
 
+import { formatYearMonthDay } from "services/datetime";
+
 const formClassName = css({
   marginBottom: "1rem",
 });
@@ -33,7 +35,7 @@ export default ({ id }: Props) => {
 
   const handleDateInput = useCallback(
     (e: Event) => {
-      tracklist!.date = (e.target as HTMLInputElement).value;
+      tracklist!.date = new Date((e.target as HTMLInputElement).value);
     },
     [tracklist]
   );
@@ -70,7 +72,7 @@ export default ({ id }: Props) => {
               name="date"
               text="Date"
               type="date"
-              value={tracklist.date}
+              value={formatYearMonthDay(tracklist.date)}
               onInput={handleDateInput}
             />
 

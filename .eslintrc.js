@@ -1,5 +1,6 @@
 module.exports = {
   extends: ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
+  plugins: ["import"],
   parserOptions: {
     project: "./tsconfig.json",
   },
@@ -13,6 +14,48 @@ module.exports = {
     },
   },
   rules: {
+    "import/order": [
+      "error",
+      {
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: false,
+        },
+        "newlines-between": "always",
+        pathGroups: [
+          {
+            pattern: "components/atoms/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "components/molecules/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "components/organisms/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "components/layouts/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "hooks/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "services/**",
+            group: "external",
+            position: "after",
+          },
+        ],
+      },
+    ],
     "react/no-unknown-property": ["error", { ignore: ["class"] }],
     "react/prop-types": "off",
     "react/require-default-props": "off",

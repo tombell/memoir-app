@@ -12,8 +12,10 @@ module.exports = {
       pragma: "h",
       version: "17",
     },
+    "import/internal-regex": "^components|hooks|pages|services/",
   },
   rules: {
+    "import/extensions": "off",
     "import/order": [
       "error",
       {
@@ -59,6 +61,14 @@ module.exports = {
     "react/no-unknown-property": ["error", { ignore: ["class"] }],
     "react/prop-types": "off",
     "react/require-default-props": "off",
+    "sort-imports": [
+      "error",
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+      },
+    ],
   },
   overrides: [
     {

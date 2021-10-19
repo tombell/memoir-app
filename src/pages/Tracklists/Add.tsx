@@ -1,7 +1,6 @@
 import { css } from "g-style";
 import { FunctionalComponent, h } from "preact";
 import { route } from "preact-router";
-
 import { useCallback, useState } from "preact/hooks";
 
 import Subheader from "components/molecules/Subheader";

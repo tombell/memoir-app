@@ -1,6 +1,5 @@
 import { css } from "g-style";
 import { Fragment, h } from "preact";
-
 import { useCallback, useMemo, useState } from "preact/hooks";
 
 import Colors from "components/atoms/Colors";

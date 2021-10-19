@@ -26,6 +26,10 @@ module.exports = {
         "newlines-between": "always",
         pathGroups: [
           {
+            pattern: "preact/hooks",
+            group: "external",
+          },
+          {
             pattern: "pages/**",
             group: "internal",
             position: "after",

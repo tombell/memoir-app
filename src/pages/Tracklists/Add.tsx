@@ -1,19 +1,18 @@
-import { h, FunctionalComponent } from "preact";
-import { useCallback, useState } from "preact/hooks";
-import { route } from "preact-router";
 import { css } from "g-style";
+import { FunctionalComponent, h } from "preact";
+import { route } from "preact-router";
 
-import { postTracklist } from "services/memoir/tracklists";
+import { useCallback, useState } from "preact/hooks";
 
-import { NewTracklist } from "services/memoir/types";
-
+import Subheader from "components/molecules/Subheader";
 import Input from "components/molecules/form/Input";
 import Submit from "components/molecules/form/Submit";
 
-import Subheader from "components/molecules/Subheader";
-
 import ArtworkUploader from "components/organisms/ArtworkUploader";
 import TracklistPicker from "components/organisms/TracklistPicker";
+
+import { postTracklist } from "services/memoir/tracklists";
+import { NewTracklist } from "services/memoir/types";
 
 const className = css({
   marginBottom: "1rem",

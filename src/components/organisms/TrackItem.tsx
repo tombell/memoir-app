@@ -1,5 +1,5 @@
-import { h, Fragment } from "preact";
 import { css } from "g-style";
+import { Fragment, h } from "preact";
 
 import Breakpoints from "components/atoms/Breakpoints";
 

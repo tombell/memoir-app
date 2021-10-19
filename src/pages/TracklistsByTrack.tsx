@@ -1,9 +1,10 @@
-import { h, Fragment } from "preact";
-import { route, RoutableProps } from "preact-router";
+import { Fragment, h } from "preact";
+import { RoutableProps, route } from "preact-router";
 
-import Loading from "components/Loading";
 import Pagination from "components/organisms/Pagination";
 import TracklistItem from "components/organisms/TracklistItem";
+
+import Loading from "components/Loading";
 
 import useTracklistsByTrack from "hooks/useTracklistsByTrack";
 

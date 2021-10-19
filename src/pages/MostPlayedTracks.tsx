@@ -1,8 +1,10 @@
-import { h, Fragment, FunctionalComponent } from "preact";
+import { Fragment, FunctionalComponent, h } from "preact";
+
+import Subheader from "components/molecules/Subheader";
+
+import TrackItem from "components/organisms/TrackItem";
 
 import Loading from "components/Loading";
-import Subheader from "components/molecules/Subheader";
-import TrackItem from "components/organisms/TrackItem";
 
 import useMostPlayedTracks from "hooks/useMostPlayedTracks";
 

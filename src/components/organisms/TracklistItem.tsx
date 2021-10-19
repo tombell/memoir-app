@@ -1,13 +1,13 @@
-import { h, Fragment } from "preact";
 import { css } from "g-style";
-
-import { formatFriendlyDate } from "services/datetime";
+import { Fragment, h } from "preact";
 
 import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
 
 import Link from "components/molecules/Link";
 import Tag from "components/molecules/Tag";
+
+import { formatFriendlyDate } from "services/datetime";
 
 const className = css({
   flexWrap: "wrap",

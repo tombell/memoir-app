@@ -1,5 +1,5 @@
-import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
+import { h } from "preact";
 
 import Subheader, { Props } from "components/molecules/Subheader";
 

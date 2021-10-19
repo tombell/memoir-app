@@ -1,5 +1,5 @@
-import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
+import { h } from "preact";
 
 import Tag, { Props } from "components/molecules/Tag";
 

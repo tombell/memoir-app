@@ -1,9 +1,9 @@
+import { request } from "services/memoir";
 import {
   NewTracklist,
   PagedTracklists,
   Tracklist,
 } from "services/memoir/types";
-import { request } from "services/memoir";
 
 export const fetchTracklist = async (id: string): Promise<Tracklist | null> => {
   try {

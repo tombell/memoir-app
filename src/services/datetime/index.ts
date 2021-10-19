@@ -16,4 +16,4 @@ export const formatYearMonthDay = (date: Date): string => {
   ];
 
   return parts.join("-");
-}
+};

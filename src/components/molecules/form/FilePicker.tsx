@@ -1,6 +1,7 @@
-import { h } from "preact";
-import { useCallback, useRef } from "preact/hooks";
 import { css } from "g-style";
+import { h } from "preact";
+
+import { useCallback, useRef } from "preact/hooks";
 
 import Colors from "components/atoms/Colors";
 

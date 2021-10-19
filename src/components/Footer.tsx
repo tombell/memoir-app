@@ -1,5 +1,5 @@
-import { h } from "preact";
 import { css } from "g-style";
+import { h } from "preact";
 
 import Breakpoints from "components/atoms/Breakpoints";
 

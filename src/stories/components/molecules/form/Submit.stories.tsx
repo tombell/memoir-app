@@ -1,5 +1,5 @@
-import { h } from "preact";
 import { Meta, Story } from "@storybook/preact";
+import { h } from "preact";
 
 import Submit, { Props } from "components/molecules/form/Submit";
 

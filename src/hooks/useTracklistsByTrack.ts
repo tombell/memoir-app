@@ -1,7 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 
 import { fetchTracklistsByTrack } from "services/memoir/tracklists";
-
 import { Tracklist } from "services/memoir/types";
 
 export default (id: string, page: number = 1) => {

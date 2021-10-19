@@ -1,5 +1,5 @@
-import { h } from "preact";
 import { css } from "g-style";
+import { h } from "preact";
 
 import Tag from "components/molecules/Tag";
 

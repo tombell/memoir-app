@@ -1,12 +1,13 @@
-import { h, Fragment } from "preact";
-import { useCallback, useState } from "preact/hooks";
 import { css } from "g-style";
+import { Fragment, h } from "preact";
 
-import { uploadArtwork } from "services/memoir";
+import { useCallback, useState } from "preact/hooks";
 
 import Colors from "components/atoms/Colors";
 
 import FilePicker from "components/molecules/form/FilePicker";
+
+import { uploadArtwork } from "services/memoir";
 
 const className = css({
   boxSizing: "border-box",
@@ -29,14 +30,17 @@ interface Props {
 export default ({ onUpload }: Props) => {
   const [artwork, setArtwork] = useState<string | null>(null);
 
-  const handleSelect = useCallback(async (file: File) => {
-    const upload = await uploadArtwork(file);
+  const handleSelect = useCallback(
+    async (file: File) => {
+      const upload = await uploadArtwork(file);
 
-    if (upload) {
-      setArtwork(upload.key);
-      onUpload(upload.key);
-    }
-  }, [onUpload]);
+      if (upload) {
+        setArtwork(upload.key);
+        onUpload(upload.key);
+      }
+    },
+    [onUpload]
+  );
 
   return (
     <>

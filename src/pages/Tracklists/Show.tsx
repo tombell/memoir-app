@@ -1,12 +1,14 @@
-import { h, Fragment } from "preact";
-import { RoutableProps } from "preact-router";
 import { css } from "g-style";
+import { Fragment, h } from "preact";
+import { RoutableProps } from "preact-router";
+
+import Link from "components/molecules/Link";
+import Subheader from "components/molecules/Subheader";
 
 import Genres from "components/organisms/Genres";
-import Link from "components/molecules/Link";
-import Loading from "components/Loading";
-import Subheader from "components/molecules/Subheader";
 import TrackItem from "components/organisms/TrackItem";
+
+import Loading from "components/Loading";
 
 import useTracklist from "hooks/useTracklist";
 

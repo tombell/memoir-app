@@ -1,14 +1,13 @@
-import { h, Component, createRef } from "preact";
 import { css } from "g-style";
-
-import { searchTracks } from "services/memoir/tracks";
-
-import { Track } from "services/memoir/types";
+import { Component, createRef, h } from "preact";
 
 import Breakpoints from "components/atoms/Breakpoints";
 import Colors from "components/atoms/Colors";
 
 import Link from "components/molecules/Link";
+
+import { searchTracks } from "services/memoir/tracks";
+import { Track } from "services/memoir/types";
 
 const className = css({
   marginBottom: "1rem",

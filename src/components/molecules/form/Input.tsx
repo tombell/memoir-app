@@ -1,6 +1,7 @@
-import { h } from "preact";
-import { useCallback, useState } from "preact/hooks";
 import { css } from "g-style";
+import { h } from "preact";
+
+import { useCallback, useState } from "preact/hooks";
 
 import Colors from "components/atoms/Colors";
 
@@ -43,11 +44,14 @@ export interface Props {
 export default ({ name, text, type, value, onInput }: Props) => {
   const [inputValue, setInputValue] = useState(value);
 
-  const handleInput = useCallback((e: Event) => {
-    const target = e.target as HTMLInputElement;
-    onInput(e);
-    setInputValue(target.value);
-  }, [onInput]);
+  const handleInput = useCallback(
+    (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      onInput(e);
+      setInputValue(target.value);
+    },
+    [onInput]
+  );
 
   return (
     <div class={className}>

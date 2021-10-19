@@ -1,7 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 
 import { fetchMostPlayedTracks } from "services/memoir/tracks";
-
 import { Track } from "services/memoir/types";
 
 export default () => {

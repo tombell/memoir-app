@@ -1,13 +1,14 @@
-import { h, Fragment } from "preact";
-import { useCallback, useMemo, useState } from "preact/hooks";
 import { css } from "g-style";
+import { Fragment, h } from "preact";
 
-import parse from "services/tracklists";
+import { useCallback, useMemo, useState } from "preact/hooks";
 
 import Colors from "components/atoms/Colors";
 
-import FilePicker from "components/molecules/form/FilePicker";
 import Tag from "components/molecules/Tag";
+import FilePicker from "components/molecules/form/FilePicker";
+
+import parse from "services/tracklists";
 
 const tracksClassName = css({
   boxSizing: "border-box",
@@ -48,10 +49,13 @@ export default ({ onSelect }: Props) => {
     }
   }, [reader, onSelect]);
 
-  const handleSelect = useCallback((file: File) => {
-    reader.onload = onFileRead;
-    reader.readAsText(file);
-  }, [reader, onFileRead]);
+  const handleSelect = useCallback(
+    (file: File) => {
+      reader.onload = onFileRead;
+      reader.readAsText(file);
+    },
+    [reader, onFileRead]
+  );
 
   return (
     <>

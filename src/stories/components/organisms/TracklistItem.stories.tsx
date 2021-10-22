@@ -16,7 +16,7 @@ Base.storyName = "TracklistItem";
 Base.args = {
   id: "def-abc",
   name: "IAMDJRIFF pres. The Weekend Warmup (18/06/2021)",
-  date: "2021-06-18",
+  date: new Date("2021-06-18"),
   artwork: "the-weekend-warmup.png",
   trackCount: 16,
 };

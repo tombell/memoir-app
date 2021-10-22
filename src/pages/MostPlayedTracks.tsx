@@ -1,3 +1,4 @@
+import { css } from "g-style";
 import { Fragment, FunctionalComponent, h } from "preact";
 
 import Subheader from "components/molecules/Subheader";
@@ -8,25 +9,31 @@ import Loading from "components/Loading";
 
 import useMostPlayedTracks from "hooks/useMostPlayedTracks";
 
+const subHeaderClassName = css({
+  marginBottom: "1rem",
+});
+
 const MostPlayedTracks: FunctionalComponent = () => {
   const { isLoading, tracks } = useMostPlayedTracks();
 
   return (
     <>
-      <Subheader text="Most Played Tracks" />
+      <div class={subHeaderClassName}>
+        <Subheader text="Most Played Tracks" center />
+      </div>
 
       {isLoading && <Loading />}
 
       {!isLoading &&
-        tracks &&
-        tracks.map((track) => (
+        tracks?.map(({ id, artist, name, genre, bpm, key }) => (
           <TrackItem
-            id={track.id}
-            artist={track.artist}
-            name={track.name}
-            genre={track.genre}
-            bpm={track.bpm}
-            camelotKey={track.key}
+            key={id}
+            id={id}
+            artist={artist}
+            name={name}
+            genre={genre}
+            bpm={bpm}
+            camelotKey={key}
           />
         ))}
     </>

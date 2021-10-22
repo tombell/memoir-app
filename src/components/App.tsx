@@ -1,4 +1,3 @@
-import { css } from "g-style";
 import { h } from "preact";
 import { Router } from "preact-router";
 
@@ -19,13 +18,9 @@ import Redirect from "components/Redirect";
 
 import CenterColumn from "components/layouts/CenterColumn";
 
-const headerClassName = css({
-  margin: "1rem 0",
-});
-
 export default () => (
   <CenterColumn>
-    <div class={headerClassName}>
+    <div class="my-4">
       <Header center />
     </div>
 
@@ -44,6 +39,9 @@ export default () => (
 
       <NotFoundPage path="/404" default />
     </Router>
-    <Footer />
+
+    <div class="mb-4">
+      <Footer />
+    </div>
   </CenterColumn>
 );

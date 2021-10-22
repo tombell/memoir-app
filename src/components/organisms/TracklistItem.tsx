@@ -10,35 +10,40 @@ import Tag from "components/molecules/Tag";
 import { formatFriendlyDate } from "services/datetime";
 
 const className = css({
-  flexWrap: "wrap",
   alignItems: "center",
-  padding: "0.5rem",
-  margin: "0 0.5rem 1rem 0.5rem",
   borderRadius: "0.1875rem",
+  flexWrap: "wrap",
+  margin: "0 0.5rem 1rem 0.5rem",
+  padding: "0.5rem",
   [Breakpoints.desktop]: {
     margin: "0 0 0.625rem 0",
   },
 });
 
 const detailsClassName = css({
-  display: "flex",
   alignItems: "center",
+  display: "flex",
 });
 
 const imgClassName = css({
-  marginRight: "0.75rem",
   border: `0.0625rem solid ${Colors.greyDark}`,
+  marginRight: "0.75rem",
 });
 
 const artClassName = css({
-  width: "5rem",
   height: "5rem",
+  width: "5rem",
 });
 
 const nameClassName = css({
-  margin: "0 0 0.5rem 0",
+  flex: 1,
   fontWeight: "bold",
   lineHeight: 1.3,
+  margin: 0,
+});
+
+const tagsClassName = css({
+  marginLeft: 'auto',
 });
 
 export interface Props {
@@ -50,7 +55,7 @@ export interface Props {
 }
 
 const linearGradient =
-  "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%,rgba(0, 0, 0, 0.6) 100%)";
+  "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%)";
 
 export default ({ id, name, date, artwork, trackCount }: Props) => {
   const backgroundImage = `${MEMOIR_CDN_URL}/${artwork}`;
@@ -76,10 +81,10 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
           <>
             <h3 class={nameClassName}>{name}</h3>
 
-            <>
+            <div class={tagsClassName}>
               <Tag text={`${trackCount} Tracks`} color="lilac" />
               <Tag text={formatFriendlyDate(date)} color="light-blue" />
-            </>
+            </div>
           </>
         </div>
       </div>

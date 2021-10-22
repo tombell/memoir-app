@@ -1,52 +1,20 @@
-import { css } from "g-style";
 import { h } from "preact";
-
-import Breakpoints from "components/atoms/Breakpoints";
 
 import Link from "components/molecules/Link";
 
-const className = css({
-  display: "flex",
-  margin: "3rem 1rem 1rem",
-  fontSize: "0.75rem",
-  fontWeight: "bold",
-  [Breakpoints.desktop]: {
-    margin: "5rem 0 3.125rem 0",
-  },
-});
-
-const leftClassName = css({
-  flex: 1,
-});
-
-const rightClassName = css({
-  display: "flex",
-  flex: 1,
-  justifyContent: "flex-end",
-});
-
-const linkClassName = css({
-  display: "block",
-  marginBottom: "0.5rem",
-  [Breakpoints.desktop]: {
-    display: "inline",
-    marginRight: "1rem",
-  },
-});
-
 export default () => (
-  <footer class={className}>
-    <div class={leftClassName}>
-      <Link className={linkClassName} href="/tracklists/1">
+  <footer class="flex font-bold text-xs">
+    <div class="flex-1">
+      <Link className="inline mb-2 mr-4" href="/tracklists/1">
         Tracklists
       </Link>
-      <Link className={linkClassName} href="/tracks/mostplayed">
+      <Link className="inline mb-2 mr-4" href="/tracks/mostplayed">
         Most Played Tracks
       </Link>
     </div>
 
-    <div class={rightClassName}>
-      <Link className={linkClassName} href="https://mixcloud.com/iamdjriff">
+    <div class="flex flex-1 justify-end">
+      <Link className="inline mb-2 mr-4" href="https://mixcloud.com/iamdjriff">
         IAMDJRIFF on Mixcloud
       </Link>
     </div>

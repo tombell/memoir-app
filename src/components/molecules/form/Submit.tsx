@@ -1,23 +1,11 @@
-import { css } from "g-style";
 import { h } from "preact";
-
-import Colors from "components/atoms/Colors";
-
-const className = css({
-  padding: "0.75rem 1rem",
-  fontWeight: "bold",
-  color: Colors.primary,
-  background: Colors.backgroundDark,
-  border: 0,
-  borderRadius: "0.1875rem",
-});
 
 export interface Props {
   onClick: () => void;
 }
 
 export default ({ onClick }: Props) => (
-  <button class={className} type="submit" onClick={onClick}>
+  <button class="px-3 py-1 font-bold text-white bg-gray-700 rounded" type="submit" onClick={onClick}>
     Submit
   </button>
 );

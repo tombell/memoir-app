@@ -5,8 +5,6 @@ module.exports = {
     ["@babel/typescript", { jsxPragma: "h", jsxPragmaFrag: "Fragment" }],
   ],
   plugins: [
-    ["@babel/plugin-proposal-class-properties", { loose: true }],
-    ["@babel/plugin-proposal-private-methods", { loose: true }],
     [
       "module-resolver",
       {

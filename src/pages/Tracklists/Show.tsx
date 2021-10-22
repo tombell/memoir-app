@@ -18,6 +18,10 @@ const linkClassName = css({
   textAlign: "center",
 });
 
+const subHeaderClassName = css({
+  marginBottom: "1rem",
+});
+
 interface Props extends RoutableProps {
   id?: string;
 }
@@ -35,7 +39,9 @@ export default ({ id }: Props) => {
 
       {!isLoading && tracklist && (
         <>
-          <Subheader text={tracklist.name} />
+          <div class={subHeaderClassName}>
+            <Subheader text={tracklist.name} center />
+          </div>
 
           <div class={linkClassName}>
             <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>

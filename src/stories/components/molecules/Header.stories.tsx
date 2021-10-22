@@ -5,7 +5,7 @@ import Header, { Props } from "components/molecules/Header";
 
 const meta: Meta = {
   component: Header,
-  title: "Components/Header",
+  title: "Components/Molecules/Header",
 };
 export default meta;
 

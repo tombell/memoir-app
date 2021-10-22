@@ -1,3 +1,4 @@
+import { css } from "g-style";
 import { h } from "preact";
 import { Router } from "preact-router";
 
@@ -9,18 +10,27 @@ import TracklistsIndex from "pages/Tracklists/Index";
 import TracklistsShow from "pages/Tracklists/Show";
 import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
+import Header from "components/molecules/Header";
+
 import TrackSearch from "components/organisms/TrackSearch";
 
 import Footer from "components/Footer";
-import Header from "components/Header";
 import Redirect from "components/Redirect";
 
 import CenterColumn from "components/layouts/CenterColumn";
 
+const headerClassName = css({
+  margin: "1rem 0",
+});
+
 export default () => (
   <CenterColumn>
-    <Header center />
+    <div class={headerClassName}>
+      <Header center />
+    </div>
+
     <TrackSearch />
+
     <Router>
       <Redirect path="/" to="/tracklists/1" />
 

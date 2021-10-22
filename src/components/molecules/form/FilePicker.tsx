@@ -17,7 +17,7 @@ export interface Props {
 }
 
 export default ({ accept, onSelect }: Props) => {
-  const input = useRef<HTMLInputElement>();
+  const input = useRef<HTMLInputElement>(null);
 
   const handleChange = useCallback(() => {
     if (input.current && input.current.files) {

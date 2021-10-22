@@ -1,11 +1,11 @@
 import { Meta, Story } from "@storybook/preact";
 import { h } from "preact";
 
-import Footer from "components/Footer";
+import Footer from "components/organisms/Footer";
 
 const meta: Meta = {
   component: Footer,
-  title: "Components/Footer",
+  title: "Components/Organisms/Footer",
 };
 export default meta;
 

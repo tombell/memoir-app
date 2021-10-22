@@ -12,9 +12,9 @@ import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
 import Header from "components/molecules/Header";
 
+import Footer from "components/organisms/Footer";
 import TrackSearch from "components/organisms/TrackSearch";
 
-import Footer from "components/Footer";
 import Redirect from "components/Redirect";
 
 import CenterColumn from "components/layouts/CenterColumn";

@@ -1,13 +1,13 @@
 import { request } from "services/memoir";
 import {
   NewTracklist,
-  PagedTracklists,
   Tracklist,
 } from "services/memoir/types";
 
 export const fetchTracklist = async (id: string): Promise<Tracklist | null> => {
   try {
-    return await request(`/tracklists/${id}`);
+    const resp = await request(`/tracklists/${id}`);
+    return await resp.json();
   } catch {
     return null;
   }
@@ -18,7 +18,8 @@ export const postTracklist = async (
 ): Promise<Tracklist | null> => {
   try {
     const data = JSON.stringify(tracklist);
-    return await request("/tracklists", "POST", data);
+    const resp = await request("/tracklists", "POST", data);
+    return await resp.json();
   } catch {
     return null;
   }
@@ -31,7 +32,8 @@ export const patchTracklist = async (
   try {
     const { name, date, url } = tracklist;
     const data = JSON.stringify({ name, date, url });
-    return await request(`/tracklists/${id}`, "PATCH", data);
+    const resp = await request(`/tracklists/${id}`, "PATCH", data);
+    return await resp.json();
   } catch {
     return null;
   }
@@ -39,21 +41,33 @@ export const patchTracklist = async (
 
 export const fetchTracklists = async (
   page: number = 1
-): Promise<PagedTracklists | null> => {
+): Promise<[Tracklist[] | null, boolean]> => {
   try {
-    return await request(`/tracklists?page=${page}`);
+    const resp = await request(`/tracklists?page=${page}`);
+    const body = await resp.json();
+
+    const current = resp.headers.get("Current-Page");
+    const total = resp.headers.get("Total-Pages");
+
+    return [body, current! <= total!];
   } catch {
-    return null;
+    return [null, false]
   }
 };
 
 export const fetchTracklistsByTrack = async (
   id: string,
   page: number = 1
-): Promise<PagedTracklists | null> => {
+): Promise<[Tracklist[] | null, boolean]> => {
   try {
-    return await request(`/tracks/${id}/tracklists?page=${page}`);
+    const resp =  await request(`/tracks/${id}/tracklists?page=${page}`);
+    const body =  await resp.json();
+
+    const current = resp.headers.get("Current-Page");
+    const total = resp.headers.get("Total-Pages");
+
+    return [body, current! <= total!];
   } catch {
-    return null;
+    return [null, false];
   }
 };

@@ -11,20 +11,19 @@ export const request = async (
     headers["API-Write-Key"] = MEMOIR_API_KEY;
   }
 
-  const resp = await fetch(`${MEMOIR_API_URL}${endpoint}`, {
+  return fetch(`${MEMOIR_API_URL}${endpoint}`, {
     method,
     body,
     headers,
   });
-
-  return resp.json();
 };
 
 export const uploadArtwork = async (file: File): Promise<Artwork | null> => {
   try {
     const data = new FormData();
     data.append("artwork", file);
-    return await request("/uploads/artwork", "POST", data);
+    const resp = await request("/uploads/artwork", "POST", data);
+    return await resp.json();
   } catch {
     return null;
   }

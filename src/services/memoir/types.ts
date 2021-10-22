@@ -23,17 +23,6 @@ export interface Tracklist {
   tracks?: Track[];
 }
 
-export interface PagedTracks {
-  tracks: Track[] | null;
-  hasMore: boolean;
-}
-
-export interface PagedTracklists {
-  track?: Track;
-  tracklists: Tracklist[] | null;
-  hasMore: boolean;
-}
-
 export interface NewTracklist {
   name: string;
   date: string;

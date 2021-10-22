@@ -11,12 +11,17 @@ export default (page: number = 1) => {
   useEffect(() => {
     const fn = async () => {
       setIsLoading(true);
-      const resp = await fetchTracklists(page);
+      const [resp, more] = await fetchTracklists(page);
       setIsLoading(false);
 
       if (resp) {
-        setHasMore(resp.hasMore);
-        setTracklists(resp.tracklists);
+        resp.forEach((tracklist) => {
+          // eslint-disable-next-line no-param-reassign
+          tracklist.date = new Date(tracklist.date);
+        });
+
+        setTracklists(resp);
+        setHasMore(more);
       }
     };
 

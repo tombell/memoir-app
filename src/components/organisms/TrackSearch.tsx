@@ -127,11 +127,9 @@ export default class Search extends Component<Props, State> {
   }
 
   async searchTracks(query: string) {
-    const paged = await searchTracks(query);
+   const tracks = await searchTracks(query);
 
-    if (paged) {
-      const { tracks } = paged;
-
+    if (tracks) {
       this.setState({ tracks, showResults: true });
     }
   }

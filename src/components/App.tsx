@@ -9,9 +9,8 @@ import TracklistsIndex from "pages/Tracklists/Index";
 import TracklistsShow from "pages/Tracklists/Show";
 import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
-import Header from "components/molecules/Header";
-
 import Footer from "components/organisms/Footer";
+import Header from "components/organisms/Header";
 import TrackSearch from "components/organisms/TrackSearch";
 
 import Redirect from "components/Redirect";

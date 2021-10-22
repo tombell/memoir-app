@@ -2,10 +2,10 @@ import { css } from "g-style";
 import { h } from "preact";
 import { RoutableProps, route } from "preact-router";
 
+import Loading from "components/molecules/Loading";
+
 import Pagination from "components/organisms/Pagination";
 import TracklistItem from "components/organisms/TracklistItem";
-
-import Loading from "components/Loading";
 
 import useTracklists from "hooks/useTracklists";
 

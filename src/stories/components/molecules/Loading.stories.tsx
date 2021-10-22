@@ -1,11 +1,11 @@
 import { Meta, Story } from "@storybook/preact";
 import { h } from "preact";
 
-import Loading from "components/Loading";
+import Loading from "components/molecules/Loading";
 
 const meta: Meta = {
   component: Loading,
-  title: "Components/Loading",
+  title: "Components/Molecules/Loading",
 };
 export default meta;
 

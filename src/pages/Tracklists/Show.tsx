@@ -3,12 +3,11 @@ import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 
 import Link from "components/molecules/Link";
+import Loading from "components/molecules/Loading";
 import Subheader from "components/molecules/Subheader";
 
 import Genres from "components/organisms/Genres";
 import TrackItem from "components/organisms/TrackItem";
-
-import Loading from "components/Loading";
 
 import useTracklist from "hooks/useTracklist";
 

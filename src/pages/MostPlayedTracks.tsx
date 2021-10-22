@@ -1,11 +1,10 @@
 import { css } from "g-style";
 import { Fragment, FunctionalComponent, h } from "preact";
 
+import Loading from "components/molecules/Loading";
 import Subheader from "components/molecules/Subheader";
 
 import TrackItem from "components/organisms/TrackItem";
-
-import Loading from "components/Loading";
 
 import useMostPlayedTracks from "hooks/useMostPlayedTracks";
 

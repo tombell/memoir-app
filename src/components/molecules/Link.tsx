@@ -1,17 +1,4 @@
-import { css } from "g-style";
 import { h } from "preact";
-
-import Colors from "components/atoms/Colors";
-
-const baseClassName = css({
-  color: Colors.primary,
-  textDecoration: "none",
-  cursor: "pointer",
-
-  "&:hover": {
-    color: Colors.secondary,
-  },
-});
 
 export interface Props {
   className?: string;
@@ -21,7 +8,14 @@ export interface Props {
 }
 
 export default ({ className, href, onClick, children }: Props) => (
-  <a class={[baseClassName, className].join(" ")} href={href} onClick={onClick}>
+  <a
+    class={[
+      "text-white no-underline cursor-pointer hover:text-green-600",
+      className,
+    ].join(" ")}
+    href={href}
+    onClick={onClick}
+  >
     {children}
   </a>
 );

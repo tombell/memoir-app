@@ -35,6 +35,7 @@
     "preact": "^10.5.15",
     "preact-router": "^3.2.1",
     "prettier": "^2.4.1",
+    "rustywind": "^0.12.2",
     "storybook-addon-mock": "^1.6.0",
     "tailwindcss": "^2.2.17",
     "typescript": "^4.4.4"

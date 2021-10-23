@@ -22,6 +22,7 @@ const tracksClassName = css({
 const trackClassName = css({
   margin: "0.5rem 0",
   fontSize: "0.75rem",
+  color: Colors.white,
   "&:last-of-type": {
     marginBottom: 0,
   },
@@ -31,7 +32,7 @@ const tagsClassName = css({
   marginTop: "0.5rem",
 });
 
-interface Props {
+export interface Props {
   onSelect: (tracks: string[][]) => void;
 }
 

@@ -36,8 +36,8 @@
     "tailwindcss": "^2.2.17"
   },
   "scripts": {
-    "start": "tsc --noEmit && ./esbuild",
-    "build": "tsc --noEmit && ./esbuild --build",
+    "start": "tsc --noEmit && ./src/build",
+    "build": "tsc --noEmit && ./src/build --build",
     "lint": "eslint --ext .ts,.tsx src",
     "storybook": "start-storybook -p 6006"
   },

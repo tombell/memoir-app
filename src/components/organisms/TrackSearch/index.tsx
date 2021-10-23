@@ -1,4 +1,5 @@
-import { Component, createRef, h } from "preact";
+import { h } from "preact";
+import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 
 import Input from "components/organisms/TrackSearch/Input";
 import Results from "components/organisms/TrackSearch/Results";
@@ -6,82 +7,53 @@ import Results from "components/organisms/TrackSearch/Results";
 import { searchTracks } from "services/memoir/tracks";
 import { Track } from "services/memoir/types";
 
-interface State {
-  showResults: boolean;
-  tracks: Track[] | null;
-}
+export default () => {
+  const ref = useRef<HTMLDivElement>(null);
 
-export default class Search extends Component<{}, State> {
-  private ref = createRef();
+  const [tracks, setTracks] = useState<Track[] | null>(null);
+  const [showResults, setShowResults] = useState(false);
 
-  constructor(props: {}) {
-    super(props);
-
-    this.state = {
-      showResults: false,
-      tracks: null,
-    };
-  }
-
-  onBodyClick = (event: MouseEvent) => {
-    if (!this.ref.current) {
-      return;
+  const onBodyClick = useCallback(({ target }: any) => {
+    if (!ref.current?.contains(target)) {
+      setShowResults(false);
     }
+  }, []);
 
-    if (this.ref.current.contains(event.target)) {
-      return;
-    }
-
-    this.hideResults();
-  };
-
-  onSearchInput = (event: any) => {
-    const { value } = event.target;
-
+  const onInput = useCallback(async ({ target: { value } }: any) => {
     if (value.length < 3) {
+      setShowResults(false);
       return;
     }
 
-    this.searchTracks(value);
-  };
+    const resp = await searchTracks(value);
 
-  showResults = () => {
-    this.registerBodyClick();
-    this.setState({ showResults: true });
-  };
-
-  hideResults = () => {
-    this.unregisterBodyClick();
-    this.setState({ showResults: false });
-  };
-
-  registerBodyClick() {
-    document.addEventListener("click", this.onBodyClick);
-  }
-
-  unregisterBodyClick() {
-    document.removeEventListener("click", this.onBodyClick);
-  }
-
-  async searchTracks(query: string) {
-    const tracks = await searchTracks(query);
-
-    if (tracks) {
-      this.setState({ tracks, showResults: true });
+    if (resp) {
+      setTracks(resp);
+      setShowResults(true);
     }
-  }
+  }, []);
 
-  render() {
-    const { tracks, showResults } = this.state;
+  const onInputFocus = useCallback(() => setShowResults(true), []);
 
-    return (
-      <div class="mb-8" ref={this.ref}>
-        <div class="flex justify-center">
-          <Input onInput={this.onSearchInput} onFocus={this.showResults} />
-        </div>
+  const onResultClick = useCallback(() => setShowResults(false), []);
 
-        <Results tracks={tracks} show={showResults} onResultClick={this.hideResults} />
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    if (showResults) {
+      document.addEventListener("click", onBodyClick);
+    } else {
+      document.removeEventListener("click", onBodyClick);
+    }
+  }, [onBodyClick, showResults]);
+
+  return (
+    <div ref={ref}>
+      <Input onInput={onInput} onFocus={onInputFocus} />
+
+      <Results
+        tracks={tracks}
+        show={showResults}
+        onResultClick={onResultClick}
+      />
+    </div>
+  );
+};

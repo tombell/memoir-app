@@ -25,7 +25,9 @@ export default () => (
       <Header center />
     </div>
 
-    <TrackSearch />
+    <div class="mb-8">
+      <TrackSearch />
+    </div>
 
     <Router>
       <Redirect path="/" to="/tracklists/1" />

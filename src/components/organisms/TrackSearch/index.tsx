@@ -1,5 +1,6 @@
 import { Component, createRef, h } from "preact";
 
+import Input from "components/organisms/TrackSearch/Input";
 import Results from "components/organisms/TrackSearch/Results";
 
 import { searchTracks } from "services/memoir/tracks";
@@ -76,12 +77,7 @@ export default class Search extends Component<{}, State> {
     return (
       <div class="mb-8" ref={this.ref}>
         <div class="flex justify-center">
-          <input
-            class="outline-none w-full p-4 text-white bg-gray-800 border border-solid border-gray-700 rounded"
-            placeholder="Search tracks..."
-            onInput={this.onSearchInput}
-            onFocus={this.showResults}
-          />
+          <Input onInput={this.onSearchInput} onFocus={this.showResults} />
         </div>
 
         <Results tracks={tracks} show={showResults} onResultClick={this.hideResults} />

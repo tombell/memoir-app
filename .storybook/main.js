@@ -4,5 +4,6 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-links",
     "@storybook/addon-postcss",
+    "storybook-addon-mock/register",
   ],
 };

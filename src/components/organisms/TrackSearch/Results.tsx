@@ -11,15 +11,17 @@ export interface Props {
 }
 
 export default ({ show, tracks, onResultClick }: Props) => {
-    if (!tracks || !show) {
-      return null;
-    }
+  if (!tracks || !show) {
+    return null;
+  }
 
-    return (
-      <div class="absolute z-10 p-2.5 mt-2 w-full bg-gray-800 rounded border border-gray-700 border-solid box-border">
-        <ul class="p-0 m-0">
-          {tracks.map((track) => <Result track={track} onClick={onResultClick} />)}
-        </ul>
-      </div>
-    );
+  return (
+    <div class="absolute z-10 p-2.5 mt-2 w-full bg-gray-800 rounded border border-gray-700 border-solid box-border">
+      <ul class="p-0 m-0">
+        {tracks.map((track) => (
+          <Result track={track} onClick={onResultClick} />
+        ))}
+      </ul>
+    </div>
+  );
 };

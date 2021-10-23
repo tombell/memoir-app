@@ -26,7 +26,9 @@ export default ({ track, onClick }: Props) => (
       <span
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
-          __html: `${highlight(track.artistHighlighted)} - ${highlight(track.nameHighlighted)}`,
+          __html: `${highlight(track.artistHighlighted)} - ${highlight(
+            track.nameHighlighted
+          )}`,
         }}
       />
     </Link>

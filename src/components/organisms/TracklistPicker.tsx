@@ -39,9 +39,7 @@ export default ({ onSelect }: Props) => {
         <ol class="p-8 w-full bg-gray-700 rounded box-border">
           {tracks.map((track) => (
             <li class="mx-0 mb-2 text-xs font-bold list-none list-inside text-white">
-              <p>
-                {`${track[1]} - ${track[0]}`}
-              </p>
+              <p>{`${track[1]} - ${track[0]}`}</p>
 
               <div class="mt-2">
                 <Tag text={track[2]} color="purple" />

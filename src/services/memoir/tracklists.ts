@@ -1,8 +1,5 @@
 import { request } from "services/memoir";
-import {
-  NewTracklist,
-  Tracklist,
-} from "services/memoir/types";
+import { NewTracklist, Tracklist } from "services/memoir/types";
 
 export const fetchTracklist = async (id: string): Promise<Tracklist | null> => {
   try {
@@ -51,7 +48,7 @@ export const fetchTracklists = async (
 
     return [body, current! <= total!];
   } catch {
-    return [null, false]
+    return [null, false];
   }
 };
 
@@ -60,8 +57,8 @@ export const fetchTracklistsByTrack = async (
   page: number = 1
 ): Promise<[Tracklist[] | null, boolean]> => {
   try {
-    const resp =  await request(`/tracks/${id}/tracklists?page=${page}`);
-    const body =  await resp.json();
+    const resp = await request(`/tracks/${id}/tracklists?page=${page}`);
+    const body = await resp.json();
 
     const current = resp.headers.get("Current-Page");
     const total = resp.headers.get("Total-Pages");

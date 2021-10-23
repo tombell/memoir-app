@@ -3,6 +3,7 @@
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@deanc/esbuild-plugin-postcss": "^1.0.2",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
@@ -14,7 +15,6 @@
     "babel-preset-preact": "^2.0.0",
     "core-js": "^3.18.3",
     "esbuild": "^0.13.8",
-    "esbuild-plugin-postcss2": "^0.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.1",

@@ -13,9 +13,9 @@ import Footer from "components/organisms/Footer";
 import Header from "components/organisms/Header";
 import TrackSearch from "components/organisms/TrackSearch";
 
-import Redirect from "components/Redirect";
-
 import CenterColumn from "components/layouts/CenterColumn";
+
+import Redirect from "components/Redirect";
 
 import "./App.css";
 

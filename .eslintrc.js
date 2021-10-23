@@ -50,12 +50,12 @@ module.exports = {
             position: "after",
           },
           {
-            pattern: "components/*",
+            pattern: "components/layouts/**",
             group: "internal",
             position: "after",
           },
           {
-            pattern: "components/layouts/**",
+            pattern: "components/*",
             group: "internal",
             position: "after",
           },

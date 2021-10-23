@@ -97,6 +97,5 @@ module.exports = {
     MEMOIR_API_KEY: "readonly",
     MEMOIR_API_URL: "readonly",
     MEMOIR_CDN_URL: "readonly",
-    NodeJS: "readonly",
   },
 };

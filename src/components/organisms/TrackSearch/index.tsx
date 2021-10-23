@@ -1,7 +1,8 @@
 import { h } from "preact";
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 
-import Input from "components/organisms/TrackSearch/Input";
+import Input from "components/molecules/form/Input";
+
 import Results from "components/organisms/TrackSearch/Results";
 
 import { searchTracks } from "services/memoir/tracks";
@@ -48,7 +49,12 @@ export default () => {
 
   return (
     <div class="relative" ref={ref}>
-      <Input onInput={onInput} onFocus={onInputFocus} />
+      <Input
+        name="search"
+        placeholder="Search tracks..."
+        onInput={onInput}
+        onFocus={onInputFocus}
+      />
 
       <Results
         tracks={tracks}

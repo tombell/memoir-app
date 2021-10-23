@@ -72,21 +72,29 @@ const Add: FunctionalComponent = () => {
     <div class="mb-4">
       <Subheader text="Add Tracklist" center />
 
-      <Input name="name" text="Name" type="text" onInput={handleNameInput} />
-      <Input name="date" text="Date" type="date" onInput={handleDateInput} />
-      <Input name="url" text="URL" type="text" onInput={handleUrlInput} />
+      <div class="space-y-4">
+        <div>
+          <Input name="name" label="Name" placeholder="Name..." onInput={handleNameInput} />
+        </div>
+        <div>
+          <Input name="date" label="Date" placeholder="Date..." type="date" onInput={handleDateInput} />
+        </div>
+        <div>
+          <Input name="url" label="Mixcloud URL" placeholder="Mixcloud URL..." onInput={handleUrlInput} />
+        </div>
 
-      <div class="mb-2">
-        <h2 class="mb-2 font-bold">Artwork</h2>
-        <ArtworkUploader onUpload={handleUpload} />
+        <div>
+          <h3 class="mb-2 font-bold text-white">Artwork</h3>
+          <ArtworkUploader onUpload={handleUpload} />
+        </div>
+
+        <div>
+          <h3 class="mb-2 font-bold text-white">Tracklist</h3>
+          <TracklistPicker onSelect={handleSelect} />
+        </div>
+
+        <Submit onClick={handleSubmit} />
       </div>
-
-      <div class="mb-2">
-        <h2 class="mb-2 font-bold">Tracklist</h2>
-        <TracklistPicker onSelect={handleSelect} />
-      </div>
-
-      <Submit onClick={handleSubmit} />
     </div>
   );
 };

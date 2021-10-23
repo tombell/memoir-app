@@ -56,7 +56,7 @@ export default ({ id }: Props) => {
           <div class="mb-4">
             <Input
               name="name"
-              text="Name"
+              label="Name"
               type="text"
               value={tracklist.name}
               onInput={handleNameInput}
@@ -64,7 +64,7 @@ export default ({ id }: Props) => {
 
             <Input
               name="date"
-              text="Date"
+              label="Date"
               type="date"
               value={formatYearMonthDay(tracklist.date)}
               onInput={handleDateInput}
@@ -72,7 +72,7 @@ export default ({ id }: Props) => {
 
             <Input
               name="url"
-              text="URL"
+              label="URL"
               type="text"
               value={tracklist.url}
               onInput={handleUrlInput}

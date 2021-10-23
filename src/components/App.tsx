@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { Router } from "preact-router";
 
-import "tailwindcss/tailwind.css";
+import "./App.css";
 
 import MostPlayedTracksPage from "pages/MostPlayedTracks";
 import NotFoundPage from "pages/NotFound";

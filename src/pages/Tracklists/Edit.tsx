@@ -1,4 +1,3 @@
-import { css } from "g-style";
 import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 import { useCallback } from "preact/hooks";
@@ -13,10 +12,6 @@ import useTracklist from "hooks/useTracklist";
 
 import { formatYearMonthDay } from "services/datetime";
 import { patchTracklist } from "services/memoir/tracklists";
-
-const formClassName = css({
-  marginBottom: "1rem",
-});
 
 interface Props extends RoutableProps {
   id?: string;
@@ -58,7 +53,7 @@ export default ({ id }: Props) => {
 
       {tracklist && (
         <>
-          <div class={formClassName}>
+          <div class="mb-4">
             <Input
               name="name"
               text="Name"

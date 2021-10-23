@@ -29,8 +29,8 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
         class="items-center rounded mb-2.5 p-2 bg-cover bg-no-repeat"
         style={background}
       >
-        <div class="flex items-center">
-          <div class="border border-gray-600 border-solid mr-3">
+        <div class="flex items-center space-x-3">
+          <div class="border border-gray-600 border-solid">
             <img
               class="w-20 h-20"
               alt={`${name} Artwork`}

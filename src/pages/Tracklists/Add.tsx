@@ -1,4 +1,4 @@
-import { FunctionalComponent, h } from "preact";
+import { Fragment, FunctionalComponent, h } from "preact";
 import { route } from "preact-router";
 import { useCallback, useState } from "preact/hooks";
 
@@ -69,19 +69,15 @@ const Add: FunctionalComponent = () => {
   }, [tracklist]);
 
   return (
-    <div class="mb-4">
-      <Subheader text="Add Tracklist" center />
+    <>
+      <div class="mb-4">
+        <Subheader text="Add Tracklist" center />
+      </div>
 
       <div class="space-y-4">
-        <div>
-          <Input name="name" label="Name" placeholder="Name..." onInput={handleNameInput} />
-        </div>
-        <div>
-          <Input name="date" label="Date" placeholder="Date..." type="date" onInput={handleDateInput} />
-        </div>
-        <div>
-          <Input name="url" label="Mixcloud URL" placeholder="Mixcloud URL..." onInput={handleUrlInput} />
-        </div>
+        <Input name="name" label="Name" placeholder="Name..." onInput={handleNameInput} />
+        <Input name="date" label="Date" placeholder="Date..." type="date" onInput={handleDateInput} />
+        <Input name="url" label="Mixcloud URL" placeholder="Mixcloud URL..." onInput={handleUrlInput} />
 
         <div>
           <h3 class="mb-2 font-bold text-white">Artwork</h3>
@@ -95,7 +91,7 @@ const Add: FunctionalComponent = () => {
 
         <Submit onClick={handleSubmit} />
       </div>
-    </div>
+    </>
   );
 };
 

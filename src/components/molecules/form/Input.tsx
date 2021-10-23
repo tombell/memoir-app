@@ -1,4 +1,4 @@
-import { Fragment, h } from "preact";
+import { h } from "preact";
 import { useCallback, useState } from "preact/hooks";
 
 export interface Props {
@@ -31,7 +31,7 @@ export default ({
   );
 
   return (
-    <>
+    <div>
       <label htmlFor={name}>
         {label && <span class="block font-bold text-white mb-2">{label}</span>}
 
@@ -46,6 +46,6 @@ export default ({
           onFocus={onFocus}
         />
       </label>
-    </>
+    </div>
   );
 };

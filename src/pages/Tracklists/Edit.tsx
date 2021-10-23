@@ -49,51 +49,50 @@ export default ({ id }: Props) => {
 
   return (
     <>
-      <Subheader text="Edit Tracklist" />
+      <div class="mb-4">
+        <Subheader text="Edit Tracklist" center />
+      </div>
 
       {tracklist && (
-        <>
-          <div class="mb-4">
-            <Input
-              name="name"
-              label="Name"
-              type="text"
-              value={tracklist.name}
-              onInput={handleNameInput}
+        <div class="space-y-4">
+          <Input
+            name="name"
+            label="Name"
+            placeholder="Name..."
+            value={tracklist.name}
+            onInput={handleNameInput}
+          />
+
+          <Input
+            name="date"
+            label="Date"
+            placeholder="Date..."
+            type="date"
+            value={formatYearMonthDay(tracklist.date)}
+            onInput={handleDateInput}
+          />
+
+          <Input
+            name="url"
+            label="Mixcloud URL"
+            placeholder="Mixcloud URL..."
+            value={tracklist.url}
+            onInput={handleUrlInput}
+          />
+
+          <Submit onClick={handleSubmit} />
+
+          {tracklist.tracks!.map((track) => (
+            <TrackItem
+              id={track.id}
+              artist={track.artist}
+              name={track.name}
+              genre={track.genre}
+              bpm={track.bpm}
+              camelotKey={track.key}
             />
-
-            <Input
-              name="date"
-              label="Date"
-              type="date"
-              value={formatYearMonthDay(tracklist.date)}
-              onInput={handleDateInput}
-            />
-
-            <Input
-              name="url"
-              label="URL"
-              type="text"
-              value={tracklist.url}
-              onInput={handleUrlInput}
-            />
-
-            <Submit onClick={handleSubmit} />
-          </div>
-
-          <>
-            {tracklist.tracks!.map((track) => (
-              <TrackItem
-                id={track.id}
-                artist={track.artist}
-                name={track.name}
-                genre={track.genre}
-                bpm={track.bpm}
-                camelotKey={track.key}
-              />
-            ))}
-          </>
-        </>
+          ))}
+        </div>
       )}
     </>
   );

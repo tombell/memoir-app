@@ -1,5 +1,7 @@
 import { h } from "preact";
 
+import "../src/components/App.css";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

@@ -1,4 +1,4 @@
-import "../public/styles.css";
+import "../src/components/App.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -9,6 +9,13 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (story) => {
+    document.body.classList.add("font-sans", "bg-gray-900");
+    return story();
+  },
+];
 
 global.MEMOIR_API_KEY = "asdf-asdf";
 global.MEMOIR_API_URL = "http://localhost:8080";

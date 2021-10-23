@@ -1,36 +1,10 @@
-import { css } from "g-style";
 import { Fragment, h } from "preact";
 import { useCallback, useMemo, useState } from "preact/hooks";
-
-import Colors from "components/atoms/Colors";
 
 import Tag from "components/molecules/Tag";
 import FilePicker from "components/molecules/form/FilePicker";
 
 import parse from "services/tracklists";
-
-const tracksClassName = css({
-  boxSizing: "border-box",
-  width: "100%",
-  padding: "1rem",
-  listStylePosition: "inside",
-  listStyleType: "decimal",
-  background: Colors.backgroundDark,
-  borderRadius: "0.1875rem",
-});
-
-const trackClassName = css({
-  margin: "0.5rem 0",
-  fontSize: "0.75rem",
-  color: Colors.white,
-  "&:last-of-type": {
-    marginBottom: 0,
-  },
-});
-
-const tagsClassName = css({
-  marginTop: "0.5rem",
-});
 
 export interface Props {
   onSelect: (tracks: string[][]) => void;
@@ -62,16 +36,14 @@ export default ({ onSelect }: Props) => {
       {!tracks && <FilePicker accept="text/plain" onSelect={handleSelect} />}
 
       {tracks && (
-        <ol class={tracksClassName}>
+        <ol class="box-border w-full p-8 bg-gray-700 rounded">
           {tracks.map((track) => (
-            <li class={trackClassName}>
+            <li class="mb-2 mx-0 font-bold text-xs text-white list-inside list-none">
               <p>
-                {track[1]}
-                {" - "}
-                {track[0]}
+                {`${track[1]} - ${track[0]}`}
               </p>
 
-              <div class={tagsClassName}>
+              <div class="mt-2">
                 <Tag text={track[2]} color="purple" />
                 <Tag text={track[3]} color="lilac" />
                 <Tag text={track[4]} color="blue" />

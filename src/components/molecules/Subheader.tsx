@@ -1,12 +1,4 @@
-import { css } from "g-style";
 import { h } from "preact";
-
-import Colors from "components/atoms/Colors";
-
-const className = css({
-  color: Colors.white,
-  fontWeight: "bold",
-});
 
 export interface Props {
   text: string;
@@ -14,7 +6,7 @@ export interface Props {
 }
 
 export default ({ text, center = false }: Props) => (
-  <h2 class={className} style={{ textAlign: center ? "center" : "left" }}>
+  <h2 class={`font-bold text-white ${center ? "text-center" : "text-left"}`}>
     {text}
   </h2>
 );

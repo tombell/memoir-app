@@ -61,5 +61,6 @@ typings/
 .next
 
 # built assets in the public directory
-app.js
-app.js.map
+public/app.css
+public/app.js
+public/app.js.map

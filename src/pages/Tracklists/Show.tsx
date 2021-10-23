@@ -1,4 +1,3 @@
-import { css } from "g-style";
 import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 
@@ -10,17 +9,6 @@ import Genres from "components/organisms/Genres";
 import TrackItem from "components/organisms/TrackItem";
 
 import useTracklist from "hooks/useTracklist";
-
-const linkClassName = css({
-  marginBottom: "1rem",
-  fontSize: "0.8125rem",
-  fontWeight: 600,
-  textAlign: "center",
-});
-
-const subHeaderClassName = css({
-  marginBottom: "1rem",
-});
 
 interface Props extends RoutableProps {
   id?: string;
@@ -39,23 +27,23 @@ export default ({ id }: Props) => {
 
       {!isLoading && tracklist && (
         <>
-          <div class={subHeaderClassName}>
+          <div class="mb-4">
             <Subheader text={tracklist.name} center />
           </div>
 
-          <div class={linkClassName}>
+          <div class="mb-4 font-semibold text-xs text-center">
             <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>
           </div>
 
           {tracklist.tracks && (
             <>
-              <>
+              <div class="mb-4 text-center">
                 <Genres
                   genres={[
                     ...new Set(tracklist.tracks.map((track) => track.genre)),
                   ]}
                 />
-              </>
+              </div>
 
               <>
                 {tracklist.tracks.map((track) => (

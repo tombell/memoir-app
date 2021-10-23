@@ -1,26 +1,9 @@
-import { css } from "g-style";
 import { Fragment, h } from "preact";
 import { useCallback, useState } from "preact/hooks";
-
-import Colors from "components/atoms/Colors";
 
 import FilePicker from "components/molecules/form/FilePicker";
 
 import { uploadArtwork } from "services/memoir";
-
-const className = css({
-  boxSizing: "border-box",
-  width: "100%",
-  padding: "1rem",
-  textAlign: "center",
-  background: Colors.backgroundDark,
-  borderRadius: "0.1875rem",
-});
-
-const imgClassName = css({
-  width: "6rem",
-  height: "6rem",
-});
 
 export interface Props {
   onUpload: (artwork: string) => void;
@@ -48,9 +31,9 @@ export default ({ onUpload }: Props) => {
       )}
 
       {artwork && (
-        <div class={className}>
+        <div class="box-border w-full p-4 text-center bg-gray-700 rounded">
           <img
-            class={imgClassName}
+            class="w-24 h-24"
             alt="Mix Artwork"
             src={`${MEMOIR_CDN_URL}/${artwork}`}
           />

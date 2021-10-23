@@ -1,25 +1,6 @@
-import { css } from "g-style";
 import { h } from "preact";
 
-import Breakpoints from "components/atoms/Breakpoints";
-
 import Link from "components/molecules/Link";
-
-const className = css({
-  display: "flex",
-  alignItems: "center",
-  margin: "2rem 0",
-  fontWeight: "bold",
-  [Breakpoints.desktop]: {
-    margin: "3.125rem 0",
-  },
-});
-
-const linkClassName = css({
-  display: "flex",
-  flex: 1,
-  justifyContent: "center",
-});
 
 export interface Props {
   path: string;
@@ -40,12 +21,12 @@ export default ({ path, id, page, hasMore }: Props) => {
   }
 
   return (
-    <div class={className}>
-      <div class={linkClassName}>
+    <div class="flex items-center font-bold my-12">
+      <div class="flex flex-1 justify-center">
         {!isFirstPage && <Link href={prevUrl}>← Newer</Link>}
       </div>
 
-      <div class={linkClassName}>
+      <div class="flex flex-1 justify-center">
         {hasMore && <Link href={nextUrl}>Older →</Link>}
       </div>
     </div>

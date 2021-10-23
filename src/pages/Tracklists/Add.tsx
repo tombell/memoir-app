@@ -1,4 +1,3 @@
-import { css } from "g-style";
 import { FunctionalComponent, h } from "preact";
 import { route } from "preact-router";
 import { useCallback, useState } from "preact/hooks";
@@ -12,19 +11,6 @@ import TracklistPicker from "components/organisms/TracklistPicker";
 
 import { postTracklist } from "services/memoir/tracklists";
 import { NewTracklist } from "services/memoir/types";
-
-const className = css({
-  marginBottom: "1rem",
-});
-
-const sectionClassName = css({
-  marginBottom: "0.5rem",
-});
-
-const textClassName = css({
-  marginBottom: "0.5rem",
-  fontWeight: "bold",
-});
 
 const Add: FunctionalComponent = () => {
   const [tracklist, setTracklist] = useState<NewTracklist>({
@@ -83,20 +69,20 @@ const Add: FunctionalComponent = () => {
   }, [tracklist]);
 
   return (
-    <div class={className}>
-      <Subheader text="Add Tracklist" />
+    <div class="mb-4">
+      <Subheader text="Add Tracklist" center />
 
       <Input name="name" text="Name" type="text" onInput={handleNameInput} />
       <Input name="date" text="Date" type="date" onInput={handleDateInput} />
       <Input name="url" text="URL" type="text" onInput={handleUrlInput} />
 
-      <div class={sectionClassName}>
-        <h2 class={textClassName}>Artwork</h2>
+      <div class="mb-2">
+        <h2 class="mb-2 font-bold">Artwork</h2>
         <ArtworkUploader onUpload={handleUpload} />
       </div>
 
-      <div class={sectionClassName}>
-        <h2 class={textClassName}>Tracklist</h2>
+      <div class="mb-2">
+        <h2 class="mb-2 font-bold">Tracklist</h2>
         <TracklistPicker onSelect={handleSelect} />
       </div>
 

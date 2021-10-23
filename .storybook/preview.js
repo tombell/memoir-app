@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 import "../src/components/App.css";
 
 export const parameters = {
@@ -13,9 +11,9 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story) => {
+  (story) => {
     document.body.classList.add("font-sans", "bg-gray-900");
-    return <Story />;
+    return story();
   },
 ];
 

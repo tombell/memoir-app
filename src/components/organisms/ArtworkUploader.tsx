@@ -22,7 +22,7 @@ const imgClassName = css({
   height: "6rem",
 });
 
-interface Props {
+export interface Props {
   onUpload: (artwork: string) => void;
 }
 

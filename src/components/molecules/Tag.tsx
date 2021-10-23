@@ -17,7 +17,7 @@ export interface Props {
 
 export default ({ text, color = "green" }: Props) => (
   <div
-    class={`inline-block py-0.5 px-2 mr-2 font-bold text-xs text-center text-white rounded ${colors[color]}`}
+    class={`inline-block py-0.5 px-2 font-bold text-xs text-center text-white rounded ${colors[color]}`}
   >
     {text}
   </div>

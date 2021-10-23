@@ -1,4 +1,4 @@
-import { Fragment, h } from "preact";
+import { h } from "preact";
 
 import Link from "components/molecules/Link";
 import Tag from "components/molecules/Tag";
@@ -18,10 +18,10 @@ export default ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
       <Link href={`/tracks/${id}`}>{`${artist} - ${name}`}</Link>
     </div>
 
-    <>
+    <div class="space-x-2">
       <Tag text={bpm.toFixed(2)} color="purple" />
       <Tag text={camelotKey} color="lilac" />
       <Tag text={genre} color="blue" />
-    </>
+    </div>
   </div>
 );

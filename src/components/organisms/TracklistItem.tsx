@@ -40,7 +40,7 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
 
           <h3 class="flex-1 m-0 leading-5 font-bold">{name}</h3>
 
-          <div class="ml-auto">
+          <div class="ml-auto space-x-2">
             <Tag text={`${trackCount} Tracks`} color="lilac" />
             <Tag text={formatFriendlyDate(date)} color="lightBlue" />
           </div>

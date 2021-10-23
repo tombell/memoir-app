@@ -19,8 +19,8 @@ import "./App.css";
 
 export default () => (
   <div class="containr mx-auto px-96">
-    <div class="my-4">
-      <Header center />
+    <div class="flex justify-center my-4">
+      <Header />
     </div>
 
     <div class="mb-8">

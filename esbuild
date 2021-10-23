@@ -4,6 +4,7 @@ const fs = require("fs");
 const http = require("http");
 
 const esbuild = require("esbuild");
+const postCssPlugin = require("@deanc/esbuild-plugin-postcss");
 
 const buildJS = ({ src, dest, dev }) => {
   try {
@@ -29,6 +30,7 @@ const buildJS = ({ src, dest, dev }) => {
           ? '"https://memoir-artwork-development.s3.amazonaws.com"'
           : '"https://d4vv6ayb6g3d4.cloudfront.net"',
       },
+      plugins: [postCssPlugin({ plugins: [require("tailwindcss")] })],
     });
   } catch {}
 };

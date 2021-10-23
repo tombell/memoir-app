@@ -41,7 +41,7 @@ export default () => (
       <NotFoundPage path="/404" default />
     </Router>
 
-    <div class="mb-4">
+    <div class="my-8">
       <Footer />
     </div>
   </div>

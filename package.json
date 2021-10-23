@@ -14,6 +14,7 @@
     "babel-preset-preact": "^2.0.0",
     "core-js": "^3.18.3",
     "esbuild": "^0.13.8",
+    "esbuild-plugin-postcss2": "^0.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.1",
@@ -31,7 +32,8 @@
   "dependencies": {
     "@storybook/preact": "^6.3.12",
     "preact": "^10.5.15",
-    "preact-router": "^3.2.1"
+    "preact-router": "^3.2.1",
+    "tailwindcss": "^2.2.17"
   },
   "scripts": {
     "start": "tsc --noEmit && ./esbuild",

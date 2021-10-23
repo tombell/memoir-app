@@ -21,6 +21,7 @@ export default () => {
 
   const onInput = useCallback(async ({ target: { value } }: any) => {
     if (value.length < 3) {
+      setTracks(null);
       setShowResults(false);
       return;
     }
@@ -46,7 +47,7 @@ export default () => {
   }, [onBodyClick, showResults]);
 
   return (
-    <div ref={ref}>
+    <div class="relative" ref={ref}>
       <Input onInput={onInput} onFocus={onInputFocus} />
 
       <Results

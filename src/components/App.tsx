@@ -13,14 +13,12 @@ import Footer from "components/organisms/Footer";
 import Header from "components/organisms/Header";
 import TrackSearch from "components/organisms/TrackSearch";
 
-import CenterColumn from "components/layouts/CenterColumn";
-
 import Redirect from "components/Redirect";
 
 import "./App.css";
 
 export default () => (
-  <CenterColumn>
+  <div class="containr mx-auto px-96">
     <div class="my-4">
       <Header center />
     </div>
@@ -46,5 +44,5 @@ export default () => (
     <div class="mb-4">
       <Footer />
     </div>
-  </CenterColumn>
+  </div>
 );

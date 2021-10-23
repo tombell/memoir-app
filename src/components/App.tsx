@@ -1,8 +1,6 @@
 import { h } from "preact";
 import { Router } from "preact-router";
 
-import "./App.css";
-
 import MostPlayedTracksPage from "pages/MostPlayedTracks";
 import NotFoundPage from "pages/NotFound";
 import TracklistsAdd from "pages/Tracklists/Add";
@@ -18,6 +16,8 @@ import TrackSearch from "components/organisms/TrackSearch";
 import Redirect from "components/Redirect";
 
 import CenterColumn from "components/layouts/CenterColumn";
+
+import "./App.css";
 
 export default () => (
   <CenterColumn>

@@ -39,7 +39,7 @@
     "start": "tsc --noEmit && ./esbuild",
     "build": "tsc --noEmit && ./esbuild --build",
     "lint": "eslint --ext .ts,.tsx src",
-    "storybook": "start-storybook -p 6006 -s ./public,./.storybook/public"
+    "storybook": "start-storybook -p 6006"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": "prettier --write"

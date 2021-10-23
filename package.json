@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "@storybook/preact": "^6.3.12",
-    "g-style": "^1.2.10",
     "preact": "^10.5.15",
     "preact-router": "^3.2.1"
   },

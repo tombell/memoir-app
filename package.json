@@ -1,12 +1,19 @@
 {
   "name": "memoir-app",
   "private": true,
-  "devDependencies": {
+  "scripts": {
+    "start": "tsc --noEmit && ./src/build",
+    "build": "tsc --noEmit && ./src/build --build",
+    "lint": "eslint --ext .ts,.tsx src",
+    "storybook": "start-storybook -p 6006"
+  },
+  "dependencies": {
     "@babel/core": "^7.15.8",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/preact": "^6.3.12",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "babel-loader": "^8.2.3",
@@ -25,21 +32,12 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.3",
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
-  },
-  "dependencies": {
-    "@storybook/preact": "^6.3.12",
     "preact": "^10.5.15",
     "preact-router": "^3.2.1",
+    "prettier": "^2.4.1",
     "storybook-addon-mock": "^1.6.0",
-    "tailwindcss": "^2.2.17"
-  },
-  "scripts": {
-    "start": "tsc --noEmit && ./src/build",
-    "build": "tsc --noEmit && ./src/build --build",
-    "lint": "eslint --ext .ts,.tsx src",
-    "storybook": "start-storybook -p 6006"
+    "tailwindcss": "^2.2.17",
+    "typescript": "^4.4.4"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": "prettier --write"

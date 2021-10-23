@@ -1,10 +1,9 @@
 import { Component, createRef, h } from "preact";
 
-import Link from "components/molecules/Link";
+import Results from "components/organisms/TrackSearch/Results";
 
 import { searchTracks } from "services/memoir/tracks";
 import { Track } from "services/memoir/types";
-import highlight from "services/search";
 
 interface State {
   showResults: boolean;
@@ -71,52 +70,21 @@ export default class Search extends Component<{}, State> {
     }
   }
 
-  renderSearchResults() {
+  render() {
     const { tracks, showResults } = this.state;
 
-    if (!tracks || !showResults) {
-      return null;
-    }
-
     return (
-      <div class="absolute z-10 box-border w-1/2 p-2.5 bg-gray-700 shadow-md rounded">
-        <ul class="p-0 m-0 list-none">
-          {tracks.map((t) => this.renderSearchResult(t))}
-        </ul>
-      </div>
-    );
-  }
-
-  renderSearchResult(track: Track) {
-    return (
-      <li class="truncate mx-2 my-2.5">
-        <Link href={`/tracks/${track.id}`} onClick={this.hideResults}>
-          <span
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: `${highlight(track.artistHighlighted)} - ${highlight(
-                track.nameHighlighted
-              )}`,
-            }}
-          />
-        </Link>
-      </li>
-    );
-  }
-
-  render() {
-    return (
-      <div class="mb-4" ref={this.ref}>
+      <div class="mb-8" ref={this.ref}>
         <div class="flex justify-center">
           <input
-            class="outline-none w-full p-4 text-white bg-gray-700 rounded"
+            class="outline-none w-full p-4 text-white bg-gray-800 border border-solid border-gray-700 rounded"
             placeholder="Search tracks..."
             onInput={this.onSearchInput}
             onFocus={this.showResults}
           />
         </div>
 
-        {this.renderSearchResults()}
+        <Results tracks={tracks} show={showResults} onResultClick={this.hideResults} />
       </div>
     );
   }

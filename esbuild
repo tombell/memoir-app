@@ -33,9 +33,7 @@ const buildJS = ({ src, dest, dev }) => {
       },
       plugins: [
         postCssPlugin.default({
-          plugins: [
-            tailwindcss,
-          ]
+          plugins: [tailwindcss],
         }),
       ],
     });

@@ -17,7 +17,7 @@ export default ({ accept, onSelect }: Props) => {
   }, [input, onSelect]);
 
   return (
-    <div class="p-3 text-white bg-gray-800 border border-solid border-gray-700 rounded">
+    <div class="p-3 text-white bg-gray-800 rounded border border-gray-700 border-solid">
       <input type="file" ref={input} accept={accept} onChange={handleChange} />
     </div>
   );

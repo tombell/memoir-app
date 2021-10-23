@@ -6,7 +6,7 @@ export interface Props {
 
 export default ({ onClick }: Props) => (
   <button
-    class="px-6 py-3 font-bold text-white bg-gray-800 border-solid border-gray-700 rounded"
+    class="py-3 px-6 font-bold text-white bg-gray-800 rounded border-gray-700 border-solid"
     type="submit"
     onClick={onClick}
   >

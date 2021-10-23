@@ -16,7 +16,7 @@ export default ({ show, tracks, onResultClick }: Props) => {
     }
 
     return (
-      <div class="absolute z-10 box-border w-full mt-2 p-2.5 bg-gray-800 border border-solid border-gray-700 rounded">
+      <div class="absolute z-10 p-2.5 mt-2 w-full bg-gray-800 rounded border border-gray-700 border-solid box-border">
         <ul class="p-0 m-0">
           {tracks.map((track) => <Result track={track} onClick={onResultClick} />)}
         </ul>

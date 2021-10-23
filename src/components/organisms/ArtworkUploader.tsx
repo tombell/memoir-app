@@ -31,7 +31,7 @@ export default ({ onUpload }: Props) => {
       )}
 
       {artwork && (
-        <div class="box-border w-full p-4 text-center bg-gray-700 rounded">
+        <div class="p-4 w-full text-center bg-gray-700 rounded box-border">
           <img
             class="w-24 h-24"
             alt="Mix Artwork"

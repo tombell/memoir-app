@@ -21,7 +21,7 @@ export default ({ path, id, page, hasMore }: Props) => {
   }
 
   return (
-    <div class="flex items-center font-bold my-12">
+    <div class="flex items-center my-12 font-bold">
       <div class="flex flex-1 justify-center">
         {!isFirstPage && <Link href={prevUrl}>← Newer</Link>}
       </div>

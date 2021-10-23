@@ -3,7 +3,7 @@ import { h } from "preact";
 export default () => (
   <div class="flex items-center text-white">
     <svg
-      class="animate-spin h-5 w-5 text-green-600"
+      class="w-5 h-5 text-green-600 animate-spin"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

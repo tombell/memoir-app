@@ -33,10 +33,10 @@ export default ({
   return (
     <div>
       <label htmlFor={name}>
-        {label && <span class="block font-bold text-white mb-2">{label}</span>}
+        {label && <span class="block mb-2 font-bold text-white">{label}</span>}
 
         <input
-          class="box-border w-full p-3 text-white bg-gray-800 border border-solid border-gray-700 rounded"
+          class="p-3 w-full text-white bg-gray-800 rounded border border-gray-700 border-solid box-border"
           type={type}
           id={name}
           name={name}

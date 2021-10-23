@@ -21,7 +21,7 @@ export interface Props {
 }
 
 export default ({ track, onClick }: Props) => (
-  <li class="list-none truncate mx-2 my-2.5 text-white">
+  <li class="my-2.5 mx-2 list-none text-white truncate">
     <Link href={`/tracks/${track.id}`} onClick={onClick}>
       <span
         // eslint-disable-next-line react/no-danger

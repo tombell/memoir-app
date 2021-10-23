@@ -3,7 +3,7 @@ import { h } from "preact";
 import Link from "components/molecules/Link";
 
 export default () => (
-  <footer class="flex font-bold text-xs">
+  <footer class="flex text-xs font-bold">
     <div class="flex-1 space-x-4">
       <Link className="inline" href="/tracklists/1">
         Tracklists

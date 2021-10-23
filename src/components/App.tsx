@@ -18,7 +18,7 @@ import Redirect from "components/Redirect";
 import "./App.css";
 
 export default () => (
-  <div class="containr mx-auto px-96">
+  <div class="px-96 mx-auto containr">
     <div class="flex justify-center my-4">
       <Header />
     </div>

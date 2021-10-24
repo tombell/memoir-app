@@ -2,9 +2,9 @@ import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 import { useCallback } from "preact/hooks";
 
+import Button from "components/molecules/Button";
 import Subheader from "components/molecules/Subheader";
 import Input from "components/molecules/form/Input";
-import Submit from "components/molecules/form/Submit";
 
 import TrackItem from "components/organisms/TrackItem";
 
@@ -80,7 +80,7 @@ export default ({ id }: Props) => {
             onInput={handleUrlInput}
           />
 
-          <Submit onClick={handleSubmit} />
+          <Button text="Update" type="submit" onClick={handleSubmit} />
 
           {tracklist.tracks!.map((track) => (
             <TrackItem

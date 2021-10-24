@@ -18,8 +18,3 @@ Base.args = {
   href: "https://google.com",
   children: "Google",
 };
-
-export const Clickable = Template.bind({});
-Clickable.args = {
-  children: "Click me",
-};

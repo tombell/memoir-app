@@ -2,9 +2,9 @@ import { Fragment, FunctionalComponent, h } from "preact";
 import { route } from "preact-router";
 import { useCallback, useState } from "preact/hooks";
 
+import Button from "components/molecules/Button";
 import Subheader from "components/molecules/Subheader";
 import Input from "components/molecules/form/Input";
-import Submit from "components/molecules/form/Submit";
 
 import ArtworkUploader from "components/organisms/ArtworkUploader";
 import TracklistPicker from "components/organisms/TracklistPicker";
@@ -75,9 +75,25 @@ const Add: FunctionalComponent = () => {
       </div>
 
       <div class="space-y-4">
-        <Input name="name" label="Name" placeholder="Name..." onInput={handleNameInput} />
-        <Input name="date" label="Date" placeholder="Date..." type="date" onInput={handleDateInput} />
-        <Input name="url" label="Mixcloud URL" placeholder="Mixcloud URL..." onInput={handleUrlInput} />
+        <Input
+          name="name"
+          label="Name"
+          placeholder="Name..."
+          onInput={handleNameInput}
+        />
+        <Input
+          name="date"
+          label="Date"
+          placeholder="Date..."
+          type="date"
+          onInput={handleDateInput}
+        />
+        <Input
+          name="url"
+          label="Mixcloud URL"
+          placeholder="Mixcloud URL..."
+          onInput={handleUrlInput}
+        />
 
         <div>
           <h3 class="mb-2 font-bold text-white">Artwork</h3>
@@ -89,7 +105,7 @@ const Add: FunctionalComponent = () => {
           <TracklistPicker onSelect={handleSelect} />
         </div>
 
-        <Submit onClick={handleSubmit} />
+        <Button text="Add" type="submit" onClick={handleSubmit} />
       </div>
     </>
   );

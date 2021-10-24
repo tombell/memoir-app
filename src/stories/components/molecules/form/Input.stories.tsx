@@ -6,7 +6,7 @@ import Input, { Props } from "components/molecules/form/Input";
 const meta: Meta = {
   component: Input,
   title: "Components/Molecules/Form/Input",
-  argTypes: { onInput: { action: "input" } },
+  argTypes: { onInput: { action: "input" }, onFocus: { action: "focus" } },
 };
 export default meta;
 

@@ -26,11 +26,11 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
   return (
     <Link href={`/tracklist/${id}`}>
       <div
-        class="items-center p-2 mb-2.5 bg-no-repeat bg-cover rounded border border-indigo-900 border-solid"
+        class="items-center p-2 mb-2.5 bg-no-repeat bg-cover rounded border border-gray-700 border-solid"
         style={background}
       >
         <div class="flex items-center space-x-3">
-          <div class="rounded border border-indigo-900 border-solid">
+          <div class="rounded border border-gray-700 border-solid">
             <img
               class="w-20 h-20"
               alt={`${name} Artwork`}

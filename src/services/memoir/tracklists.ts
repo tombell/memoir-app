@@ -46,7 +46,7 @@ export const fetchTracklists = async (
     const current = resp.headers.get("Current-Page");
     const total = resp.headers.get("Total-Pages");
 
-    return [body, current! <= total!];
+    return [body, parseInt(current!, 10) <= parseInt(total!, 10)];
   } catch {
     return [null, false];
   }
@@ -63,7 +63,7 @@ export const fetchTracklistsByTrack = async (
     const current = resp.headers.get("Current-Page");
     const total = resp.headers.get("Total-Pages");
 
-    return [body, current! <= total!];
+    return [body, parseInt(current!, 10) <= parseInt(total!, 10)];
   } catch {
     return [null, false];
   }

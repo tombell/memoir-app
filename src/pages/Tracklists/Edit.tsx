@@ -80,7 +80,7 @@ export default ({ id }: Props) => {
             onInput={handleUrlInput}
           />
 
-          <Button text="Update" type="submit" onClick={handleSubmit} />
+          <Button text="Update" onClick={handleSubmit} />
 
           {tracklist.tracks!.map((track) => (
             <TrackItem

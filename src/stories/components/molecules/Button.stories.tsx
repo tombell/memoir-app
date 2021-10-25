@@ -17,9 +17,3 @@ Base.storyName = "Button";
 Base.args = {
   text: "Button",
 };
-
-export const Submit = Template.bind({});
-Submit.args = {
-  text: "Submit",
-  type: "submit",
-};

@@ -9,7 +9,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.16.0",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
@@ -31,7 +31,7 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.4",
-    "lint-staged": "^11.2.4",
+    "lint-staged": "^11.2.6",
     "preact": "^10.5.15",
     "preact-router": "^3.2.1",
     "prettier": "^2.4.1",

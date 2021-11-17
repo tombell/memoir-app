@@ -3,7 +3,7 @@ import { Artwork } from "services/memoir/types";
 export const request = async (
   endpoint: string,
   method = "GET",
-  body?: FormData | string
+  body: FormData | string | null = null
 ) => {
   const headers: any = {};
 

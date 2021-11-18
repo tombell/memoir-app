@@ -67,6 +67,7 @@ module.exports = {
         ],
       },
     ],
+    "react/function-component-definition": "off",
     "react/no-unknown-property": ["error", { ignore: ["class"] }],
     "react/prop-types": "off",
     "react/require-default-props": "off",

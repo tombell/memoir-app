@@ -1,6 +1,6 @@
 import { h } from "preact";
 
-import Tag from "components/molecules/Tag";
+import Tag from "components/atoms/Tag";
 
 export interface Props {
   genres: string[];

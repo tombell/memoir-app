@@ -1,8 +1,7 @@
 import { h } from "preact";
 
 import Link from "components/atoms/Link";
-
-import Tag from "components/molecules/Tag";
+import Tag from "components/atoms/Tag";
 
 export interface Props {
   id: string;

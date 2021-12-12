@@ -2,8 +2,7 @@ import { Fragment, h } from "preact";
 import { useCallback, useMemo, useState } from "preact/hooks";
 
 import FilePicker from "components/atoms/FilePicker";
-
-import Tag from "components/molecules/Tag";
+import Tag from "components/atoms/Tag";
 
 import parse from "services/tracklists";
 

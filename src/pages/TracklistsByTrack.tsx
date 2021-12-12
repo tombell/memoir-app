@@ -1,7 +1,8 @@
 import { Fragment, h } from "preact";
 import { RoutableProps, route } from "preact-router";
 
-import Pagination from "components/organisms/Pagination";
+import Pagination from "components/molecules/Pagination";
+
 import TracklistItem from "components/organisms/TracklistItem";
 import TracklistItemSkeleton from "components/organisms/TracklistItemSkeleton";
 

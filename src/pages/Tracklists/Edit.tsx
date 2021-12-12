@@ -4,8 +4,7 @@ import { useCallback } from "preact/hooks";
 
 import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
-
-import Subheader from "components/molecules/Subheader";
+import Subheader from "components/atoms/Subheader";
 
 import TrackItem from "components/organisms/TrackItem";
 

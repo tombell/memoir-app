@@ -4,8 +4,7 @@ import { useCallback, useState } from "preact/hooks";
 
 import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
-
-import Subheader from "components/molecules/Subheader";
+import Subheader from "components/atoms/Subheader";
 
 import ArtworkUploader from "components/organisms/ArtworkUploader";
 import TracklistPicker from "components/organisms/TracklistPicker";

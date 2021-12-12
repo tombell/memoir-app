@@ -5,7 +5,7 @@
     "start": "tsc --noEmit && ./src/build",
     "build": "tsc --noEmit && ./src/build --build",
     "lint": "eslint --ext .ts,.tsx src",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./public,./.storybook/public",
     "prepare": "husky install"
   },
   "dependencies": {

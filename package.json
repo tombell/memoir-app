@@ -34,7 +34,7 @@
     "lint-staged": "^12.1.2",
     "preact": "^10.6.1",
     "preact-router": "^3.2.1",
-    "prettier": "^2.5.0",
+    "prettier": "^2.5.1",
     "rustywind": "^0.12.2",
     "storybook-addon-mock": "^2.0.0",
     "tailwindcss": "^2.2.19",

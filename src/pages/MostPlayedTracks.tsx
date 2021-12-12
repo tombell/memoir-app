@@ -1,8 +1,7 @@
 import { Fragment, FunctionalComponent, h } from "preact";
 
+import Loading from "components/atoms/Loading";
 import Subheader from "components/atoms/Subheader";
-
-import Loading from "components/molecules/Loading";
 
 import TrackItem from "components/organisms/TrackItem";
 

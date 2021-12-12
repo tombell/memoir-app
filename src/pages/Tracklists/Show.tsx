@@ -2,9 +2,8 @@ import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 
 import Link from "components/atoms/Link";
+import Loading from "components/atoms/Loading";
 import Subheader from "components/atoms/Subheader";
-
-import Loading from "components/molecules/Loading";
 
 import Genres from "components/organisms/Genres";
 import TrackItem from "components/organisms/TrackItem";

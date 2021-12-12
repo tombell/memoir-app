@@ -31,7 +31,7 @@ const Add: FunctionalComponent = () => {
 
   const handleDateInput = useCallback(
     (e: Event) => {
-      tracklist.date = (e.target as HTMLInputElement).value;
+      tracklist.date = `${(e.target as HTMLInputElement).value}T00:00:00Z`;
       setTracklist(tracklist);
     },
     [tracklist]

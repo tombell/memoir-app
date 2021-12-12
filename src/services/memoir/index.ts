@@ -22,7 +22,7 @@ export const uploadArtwork = async (file: File): Promise<Artwork | null> => {
   try {
     const data = new FormData();
     data.append("artwork", file);
-    const resp = await request("/uploads/artwork", "POST", data);
+    const resp = await request("/artwork", "POST", data);
     return await resp.json();
   } catch {
     return null;

@@ -1,7 +1,8 @@
 import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 
-import Link from "components/molecules/Link";
+import Link from "components/atoms/Link";
+
 import Loading from "components/molecules/Loading";
 import Subheader from "components/molecules/Subheader";
 
@@ -31,7 +32,7 @@ export default ({ id }: Props) => {
             <Subheader text={tracklist.name} center />
           </div>
 
-          <div class="mb-4 font-semibold text-xs text-center">
+          <div class="mb-4 text-xs font-semibold text-center">
             <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>
           </div>
 

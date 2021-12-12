@@ -1,6 +1,6 @@
 import { h } from "preact";
 
-import Link from "components/molecules/Link";
+import Link from "components/atoms/Link";
 
 import { Track } from "services/memoir/types";
 

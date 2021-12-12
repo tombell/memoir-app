@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 import { h } from "preact";
-import withMock from 'storybook-addon-mock';
+import withMock from "storybook-addon-mock";
 
 import ArtworkUploader, { Props } from "components/organisms/ArtworkUploader";
 
@@ -19,7 +19,7 @@ Base.storyName = "ArtworkUploader";
 Base.parameters = {
   mockData: [
     {
-      url: "http://localhost:8080/uploads/artwork",
+      url: "http://localhost:8080/artwork",
       method: "POST",
       status: 200,
       response: {

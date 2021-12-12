@@ -5,7 +5,8 @@ import Link from "components/atoms/Link";
 import Loading from "components/atoms/Loading";
 import Subheader from "components/atoms/Subheader";
 
-import Genres from "components/organisms/Genres";
+import Genres from "components/molecules/Genres";
+
 import TrackItem from "components/organisms/TrackItem";
 
 import useTracklist from "hooks/useTracklist";

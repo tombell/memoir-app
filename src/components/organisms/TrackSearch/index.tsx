@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 
-import Input from "components/molecules/form/Input";
+import Input from "components/atoms/Input";
 
 import Results from "components/organisms/TrackSearch/Results";
 

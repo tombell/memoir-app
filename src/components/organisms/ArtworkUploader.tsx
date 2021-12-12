@@ -1,7 +1,7 @@
 import { Fragment, h } from "preact";
 import { useCallback, useState } from "preact/hooks";
 
-import FilePicker from "components/molecules/form/FilePicker";
+import FilePicker from "components/atoms/FilePicker";
 
 import { uploadArtwork } from "services/memoir";
 

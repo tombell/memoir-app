@@ -2,9 +2,10 @@ import { Fragment, FunctionalComponent, h } from "preact";
 import { route } from "preact-router";
 import { useCallback, useState } from "preact/hooks";
 
+import Input from "components/atoms/Input";
+
 import Button from "components/molecules/Button";
 import Subheader from "components/molecules/Subheader";
-import Input from "components/molecules/form/Input";
 
 import ArtworkUploader from "components/organisms/ArtworkUploader";
 import TracklistPicker from "components/organisms/TracklistPicker";

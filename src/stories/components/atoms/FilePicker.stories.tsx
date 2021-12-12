@@ -1,11 +1,11 @@
 import { Meta, Story } from "@storybook/preact";
 import { h } from "preact";
 
-import FilePicker, { Props } from "components/molecules/form/FilePicker";
+import FilePicker, { Props } from "components/atoms/FilePicker";
 
 const meta: Meta = {
   component: FilePicker,
-  title: "Components/Molecules/Form/FilePicker",
+  title: "Components/Atoms/FilePicker",
   argTypes: { onSelect: { action: "select" } },
 };
 export default meta;

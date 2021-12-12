@@ -1,11 +1,11 @@
 import { Meta, Story } from "@storybook/preact";
 import { h } from "preact";
 
-import Button, { Props } from "components/molecules/Button";
+import Button, { Props } from "components/atoms/Button";
 
 const meta: Meta = {
   component: Button,
-  title: "Components/Molecules/Button",
+  title: "Components/Atoms/Button",
   argTypes: { onClick: { action: "clicked" } },
 };
 export default meta;

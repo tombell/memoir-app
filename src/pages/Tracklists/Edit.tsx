@@ -2,9 +2,9 @@ import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 import { useCallback } from "preact/hooks";
 
+import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
 
-import Button from "components/molecules/Button";
 import Subheader from "components/molecules/Subheader";
 
 import TrackItem from "components/organisms/TrackItem";

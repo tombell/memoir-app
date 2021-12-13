@@ -1,10 +1,6 @@
 module.exports = {
-  purge: {
-    enabled: true,
-    safelist: ["italic", "font-bold", "text-indigo-500"],
-    content: ["./public/index.html", "./src/**/*.tsx"],
-  },
-  darkMode: false,
+  content: ["./public/index.html", "./src/**/*.tsx"],
+  safelist: ["italic", "font-bold", "text-indigo-500"],
   theme: {
     extend: {},
   },

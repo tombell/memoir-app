@@ -105,7 +105,9 @@ const Add: FunctionalComponent = () => {
           <TracklistPicker onSelect={handleSelect} />
         </div>
 
-        <Button text="Add" onClick={handleSubmit} />
+        <div class="mt-2">
+          <Button text="Add" onClick={handleSubmit} />
+        </div>
       </div>
     </>
   );

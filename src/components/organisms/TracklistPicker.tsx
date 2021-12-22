@@ -36,9 +36,9 @@ export default ({ onSelect }: Props) => {
       {!tracks && <FilePicker accept="text/plain" onSelect={handleSelect} />}
 
       {tracks && (
-        <ol class="p-8 w-full bg-gray-800 rounded box-border">
+        <ol class="p-8 space-y-2 w-full bg-gray-800 rounded box-border">
           {tracks.map((track, idx) => (
-            <li class="mx-0 mb-2 text-xs font-bold list-none list-inside text-white">
+            <li class="mx-0 text-xs font-bold list-none list-inside text-white">
               <p>{`${idx + 1}. ${track[1]} - ${track[0]}`}</p>
 
               <div class="mt-2 space-x-2">

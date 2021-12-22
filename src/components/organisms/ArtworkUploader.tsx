@@ -31,9 +31,9 @@ export default ({ onUpload }: Props) => {
       )}
 
       {artwork && (
-        <div class="p-4 w-full text-center bg-gray-700 rounded box-border">
+        <div class="p-4 w-full text-center bg-gray-800 rounded box-border">
           <img
-            class="w-24 h-24"
+            class="w-24 h-24 border border-gray-700 border-solid"
             alt="Mix Artwork"
             src={`${MEMOIR_CDN_URL}/${artwork}`}
           />

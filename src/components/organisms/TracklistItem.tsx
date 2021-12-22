@@ -6,17 +6,41 @@ import Tag from "components/atoms/Tag";
 import { formatFriendlyDate } from "services/datetime";
 
 export interface Props {
-  id: string;
-  name: string;
-  date: Date;
-  artwork: string;
-  trackCount: number;
+  loading?: boolean;
+  id?: string;
+  name?: string;
+  date?: Date;
+  artwork?: string;
+  trackCount?: number;
 }
 
 const linearGradient =
   "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%)";
 
-export default ({ id, name, date, artwork, trackCount }: Props) => {
+export default ({
+  loading = false,
+  id,
+  name,
+  date,
+  artwork,
+  trackCount,
+}: Props) => {
+  if (loading) {
+    return (
+      <div class="items-center p-2 mb-2.5 rounded border border-gray-700 border-solid animate-pulse">
+        <div class="flex items-center space-x-3">
+          <div class="rounded border border-gray-700 border-solid">
+            <div class="w-20 h-20" />
+          </div>
+
+          <h3 class="m-0 w-full font-bold leading-5 rounded border border-gray-700 border-solid">
+            &nbsp;
+          </h3>
+        </div>
+      </div>
+    );
+  }
+
   const backgroundImage = `${MEMOIR_CDN_URL}/${artwork}`;
 
   const background = {
@@ -42,7 +66,7 @@ export default ({ id, name, date, artwork, trackCount }: Props) => {
 
           <div class="ml-auto space-x-2">
             <Tag text={`${trackCount} Tracks`} color="lilac" />
-            <Tag text={formatFriendlyDate(date)} color="lightBlue" />
+            <Tag text={formatFriendlyDate(date!)} color="lightBlue" />
           </div>
         </div>
       </div>

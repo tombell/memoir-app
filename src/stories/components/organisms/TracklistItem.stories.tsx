@@ -20,3 +20,7 @@ Base.args = {
   artwork: "0cd728bbdbb38f2c1d451b3dea6dd18e.png",
   trackCount: 16,
 };
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};

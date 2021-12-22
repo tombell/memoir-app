@@ -4,7 +4,6 @@ import { RoutableProps, route } from "preact-router";
 import Pagination from "components/molecules/Pagination";
 
 import TracklistItem from "components/organisms/TracklistItem";
-import TracklistItemSkeleton from "components/organisms/TracklistItemSkeleton";
 
 import useTracklists from "hooks/useTracklists";
 
@@ -25,7 +24,7 @@ export default ({ path, page }: Props) => {
 
   return (
     <>
-      {isLoading && [0, 1, 2, 3, 4].map(() => <TracklistItemSkeleton />)}
+      {isLoading && [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)}
 
       {!isLoading &&
         tracklists?.map(({ id, name, date, artwork, trackCount }) => (

@@ -8,17 +8,18 @@ import Subheader from "components/atoms/Subheader";
 
 import TrackItem from "components/organisms/TrackItem";
 
-import useTracklist from "hooks/useTracklist";
+import useGetResource from "hooks/useGetResource";
 
 import { formatYearMonthDay } from "services/datetime";
-import { patchTracklist } from "services/memoir/tracklists";
+import { patchTracklist } from "services/memoir";
+import { Tracklist } from "services/memoir/types";
 
 interface Props extends RoutableProps {
   id?: string;
 }
 
 export default ({ id }: Props) => {
-  const { tracklist } = useTracklist(id!);
+  const { data: tracklist } = useGetResource<Tracklist>(`/tracklists/${id!}`);
 
   const handleNameInput = useCallback(
     (e: Event) => {
@@ -29,7 +30,7 @@ export default ({ id }: Props) => {
 
   const handleDateInput = useCallback(
     (e: Event) => {
-      tracklist!.date = new Date((e.target as HTMLInputElement).value);
+      tracklist!.date = (e.target as HTMLInputElement).value;
     },
     [tracklist]
   );
@@ -68,7 +69,7 @@ export default ({ id }: Props) => {
             label="Date"
             placeholder="Date..."
             type="date"
-            value={formatYearMonthDay(tracklist.date)}
+            value={formatYearMonthDay(new Date(tracklist.date))}
             onInput={handleDateInput}
           />
 

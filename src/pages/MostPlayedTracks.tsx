@@ -5,10 +5,13 @@ import Subheader from "components/atoms/Subheader";
 
 import TrackItem from "components/organisms/TrackItem";
 
-import useMostPlayedTracks from "hooks/useMostPlayedTracks";
+import useGetResources from "hooks/useGetResources";
+
+import { Track } from "services/memoir/types";
 
 const MostPlayedTracks: FunctionalComponent = () => {
-  const { isLoading, tracks } = useMostPlayedTracks();
+  const { isLoading, data: tracks } =
+    useGetResources<Track[]>("/tracks/mostplayed");
 
   return (
     <>

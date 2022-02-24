@@ -1,4 +1,4 @@
-import { Artwork } from "services/memoir/types";
+import { Artwork, NewTracklist, Track, Tracklist } from "services/memoir/types";
 
 export const request = async (
   endpoint: string,
@@ -11,11 +11,42 @@ export const request = async (
     headers["API-Write-Key"] = MEMOIR_API_KEY;
   }
 
-  return fetch(`${MEMOIR_API_URL}${endpoint}`, {
-    method,
-    body,
-    headers,
-  });
+  return fetch(`${MEMOIR_API_URL}${endpoint}`, { method, body, headers });
+};
+
+export const postTracklist = async (
+  tracklist: NewTracklist
+): Promise<Tracklist | null> => {
+  try {
+    const data = JSON.stringify(tracklist);
+    const resp = await request("/tracklists", "POST", data);
+    return await resp.json();
+  } catch {
+    return null;
+  }
+};
+
+export const patchTracklist = async (
+  id: string,
+  tracklist: Tracklist
+): Promise<Tracklist | null> => {
+  try {
+    const { name, date, url } = tracklist;
+    const data = JSON.stringify({ name, date, url });
+    const resp = await request(`/tracklists/${id}`, "PATCH", data);
+    return await resp.json();
+  } catch {
+    return null;
+  }
+};
+
+export const searchTracks = async (query: string): Promise<Track[] | null> => {
+  try {
+    const resp = await request(`/tracks/search?q=${query}`);
+    return await resp.json();
+  } catch {
+    return null;
+  }
 };
 
 export const uploadArtwork = async (file: File): Promise<Artwork | null> => {

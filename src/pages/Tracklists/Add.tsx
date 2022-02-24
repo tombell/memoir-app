@@ -9,7 +9,7 @@ import Subheader from "components/atoms/Subheader";
 import ArtworkUploader from "components/organisms/ArtworkUploader";
 import TracklistPicker from "components/organisms/TracklistPicker";
 
-import { postTracklist } from "services/memoir/tracklists";
+import { postTracklist } from "services/memoir";
 import { NewTracklist } from "services/memoir/types";
 
 const Add: FunctionalComponent = () => {

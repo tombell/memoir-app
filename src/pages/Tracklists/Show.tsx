@@ -9,14 +9,18 @@ import Genres from "components/molecules/Genres";
 
 import TrackItem from "components/organisms/TrackItem";
 
-import useTracklist from "hooks/useTracklist";
+import useGetResource from "hooks/useGetResource";
+
+import { Tracklist } from "services/memoir/types";
 
 interface Props extends RoutableProps {
   id?: string;
 }
 
 export default ({ id }: Props) => {
-  const { isLoading, tracklist } = useTracklist(id!);
+  const { isLoading, data: tracklist } = useGetResource<Tracklist>(
+    `/tracklists/${id}`
+  );
 
   if (!tracklist) {
     return null;

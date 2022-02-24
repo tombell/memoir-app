@@ -5,7 +5,9 @@ import Pagination from "components/molecules/Pagination";
 
 import TracklistItem from "components/organisms/TracklistItem";
 
-import useTracklists from "hooks/useTracklists";
+import useGetResources from "hooks/useGetResources";
+
+import { Tracklist } from "services/memoir/types";
 
 interface Props extends RoutableProps {
   page?: string;
@@ -20,7 +22,11 @@ export default ({ path, page }: Props) => {
     return null;
   }
 
-  const { isLoading, hasMore, tracklists } = useTracklists(pageNum);
+  const {
+    isLoading,
+    hasMore,
+    data: tracklists,
+  } = useGetResources<Tracklist[]>("/tracklists", pageNum);
 
   return (
     <>
@@ -32,7 +38,7 @@ export default ({ path, page }: Props) => {
             key={id}
             id={id}
             name={name}
-            date={date}
+            date={new Date(date)}
             artwork={artwork}
             trackCount={trackCount}
           />

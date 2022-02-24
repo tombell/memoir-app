@@ -23,5 +23,5 @@ Base.args = {
     key: "10A",
     artistHighlighted: "Armand Van Helden",
     nameHighlighted: "I <<Want>> Your Soul",
-  }
+  },
 };

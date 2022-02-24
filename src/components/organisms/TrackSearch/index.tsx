@@ -5,7 +5,7 @@ import Input from "components/atoms/Input";
 
 import Results from "components/organisms/TrackSearch/Results";
 
-import { searchTracks } from "services/memoir/tracks";
+import { searchTracks } from "services/memoir";
 import { Track } from "services/memoir/types";
 
 export default () => {

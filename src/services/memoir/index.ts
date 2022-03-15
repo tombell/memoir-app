@@ -20,7 +20,8 @@ export const postTracklist = async (
   try {
     const data = JSON.stringify(tracklist);
     const resp = await request("/tracklists", "POST", data);
-    return await resp.json();
+    const json = await resp.json();
+    return json;
   } catch {
     return null;
   }
@@ -34,7 +35,8 @@ export const patchTracklist = async (
     const { name, date, url } = tracklist;
     const data = JSON.stringify({ name, date, url });
     const resp = await request(`/tracklists/${id}`, "PATCH", data);
-    return await resp.json();
+    const json = await resp.json();
+    return json;
   } catch {
     return null;
   }
@@ -43,7 +45,8 @@ export const patchTracklist = async (
 export const searchTracks = async (query: string): Promise<Track[] | null> => {
   try {
     const resp = await request(`/tracks/search?q=${query}`);
-    return await resp.json();
+    const json = await resp.json();
+    return json;
   } catch {
     return null;
   }
@@ -54,7 +57,8 @@ export const uploadArtwork = async (file: File): Promise<Artwork | null> => {
     const data = new FormData();
     data.append("artwork", file);
     const resp = await request("/artwork", "POST", data);
-    return await resp.json();
+    const json = await resp.json();
+    return json;
   } catch {
     return null;
   }

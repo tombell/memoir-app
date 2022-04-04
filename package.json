@@ -32,7 +32,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
-    "preact": "^10.6.6",
+    "preact": "^10.7.0",
     "preact-router": "^4.0.1",
     "prettier": "^2.6.0",
     "rustywind": "^0.13.0",

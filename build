@@ -4,7 +4,7 @@ const fs = require("fs");
 const http = require("http");
 
 const esbuild = require("esbuild");
-const postCssPlugin = require("esbuild-plugin-postcss2");
+const stylePlugin = require("esbuild-style-plugin");
 const tailwindcss = require("tailwindcss");
 
 const buildJS = ({ src, dest, dev }) => {
@@ -15,7 +15,7 @@ const buildJS = ({ src, dest, dev }) => {
       bundle: true,
       minify: !dev,
       watch: dev && {
-        onRebuild(err, result) {
+        onRebuild(err, _result) {
           err
             ? console.error(`build js errored: ${err}`)
             : console.error("build js successful");
@@ -32,8 +32,10 @@ const buildJS = ({ src, dest, dev }) => {
           : '"https://d4vv6ayb6g3d4.cloudfront.net"',
       },
       plugins: [
-        postCssPlugin.default({
-          plugins: [tailwindcss],
+        stylePlugin({
+          postcss: {
+            plugins: [tailwindcss],
+          },
         }),
       ],
     });

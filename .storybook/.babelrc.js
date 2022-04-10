@@ -10,6 +10,7 @@ module.exports = {
       {
         alias: {
           components: "./src/components",
+          hooks: "./src/hooks",
           pages: "./src/pages",
           services: "./src/services",
         },

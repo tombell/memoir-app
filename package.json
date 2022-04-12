@@ -20,7 +20,7 @@
     "babel-loader": "^8.2.4",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-preact": "^2.0.0",
-    "esbuild": "^0.14.34",
+    "esbuild": "^0.14.36",
     "esbuild-style-plugin": "^1.4.1",
     "eslint": "^8.13.0",
     "eslint-config-airbnb": "^19.0.4",

@@ -1,11 +1,10 @@
-#!/usr/bin/env node
+// eslint no-console: "off"
 
-const fs = require("fs");
-const http = require("http");
+import { createServer, request } from "http";
 
-const esbuild = require("esbuild");
-const stylePlugin = require("esbuild-style-plugin");
-const tailwindcss = require("tailwindcss");
+import esbuild from "esbuild";
+import stylePlugin from "esbuild-style-plugin";
+import tailwindcss from "tailwindcss";
 
 const buildJS = ({ src, dest, dev }) => {
   try {
@@ -15,10 +14,12 @@ const buildJS = ({ src, dest, dev }) => {
       bundle: true,
       minify: !dev,
       watch: dev && {
-        onRebuild(err, _result) {
-          err
-            ? console.error(`build js errored: ${err}`)
-            : console.error("build js successful");
+        onRebuild(err) {
+          if (err) {
+            console.error(`build js errored: ${err}`)
+          } else {
+            console.error("build js successful");
+          }
         },
       },
       define: {
@@ -39,13 +40,14 @@ const buildJS = ({ src, dest, dev }) => {
         }),
       ],
     });
-  } catch {}
+    // eslint-disable-next-line no-empty
+  } catch { }
 };
 
 const serve = async (servedir, listen) => {
   const { host, port } = await esbuild.serve({ servedir }, {});
 
-  const proxy = http.createServer((req, res) => {
+  const proxy = createServer((req, res) => {
     const forwardRequest = (path) => {
       const options = {
         hostname: host,
@@ -55,9 +57,10 @@ const serve = async (servedir, listen) => {
         headers: req.headers,
       };
 
-      const proxyReq = http.request(options, (proxyRes) => {
+      const proxyReq = request(options, (proxyRes) => {
         if (proxyRes.statusCode === 404) {
-          return forwardRequest("/");
+          forwardRequest("/");
+          return;
         }
 
         res.writeHead(proxyRes.statusCode, proxyRes.headers);

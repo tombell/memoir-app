@@ -2,8 +2,8 @@
   "name": "memoir-app",
   "private": true,
   "scripts": {
-    "start": "tsc --noEmit && ./build",
-    "build": "tsc --noEmit && ./build --build",
+    "start": "tsc --noEmit && node src/esbuild.mjs",
+    "build": "tsc --noEmit && node src/esbuild.mjs --build",
     "lint": "eslint --ext .ts,.tsx src",
     "storybook": "start-storybook -p 6006 -s public,.storybook/public",
     "prepare": "husky install"

@@ -16,8 +16,7 @@ interface Props extends RoutableProps {
 export default ({ path, page }: Props) => {
   const pageNum = parseInt(page || "1", 10);
 
-  // eslint-disable-next-line no-restricted-globals
-  if (isNaN(pageNum)) {
+  if (Number.isNaN(pageNum)) {
     route("/404", true);
     return null;
   }

@@ -1,0 +1,7 @@
+.track-search-result {
+  @apply my-2.5 mx-2 list-none text-white truncate
+}
+
+.track-search-result-highlight {
+  @apply italic font-bold text-indigo-500
+}

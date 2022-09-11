@@ -11,4 +11,4 @@ export const decorators = [
 
 global.MEMOIR_API_KEY = "asdf-asdf";
 global.MEMOIR_API_URL = "http://localhost:8080";
-global.MEMOIR_CDN_URL = "https://memoir-artwork-development.s3.amazonaws.com";
+global.MEMOIR_CDN_URL = "";

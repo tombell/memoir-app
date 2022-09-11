@@ -6,8 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "storybook": "start-storybook -p 6006 -s public,.storybook/public",
-    "lint": "eslint --ext .ts,.tsx src",
+    "storybook": "start-storybook -p 6006",
+    "lint": "eslint src",
     "prepare": "husky install"
   },
   "dependencies": {

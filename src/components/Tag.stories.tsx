@@ -42,5 +42,5 @@ Green.args = {
 export const LightBlue = Template.bind({});
 LightBlue.args = {
   text: "Light Blue",
-  color: "lightBlue",
+  color: "lightblue",
 };

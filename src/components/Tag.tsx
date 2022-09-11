@@ -1,12 +1,6 @@
-type TagColor = "blue" | "green" | "lightBlue" | "lilac" | "purple";
+import "./Tag.css";
 
-const colors = {
-  blue: "bg-blue-600",
-  green: "bg-green-600",
-  lightBlue: "bg-blue-400",
-  lilac: "bg-indigo-500",
-  purple: "bg-purple-600",
-};
+type TagColor = "blue" | "green" | "lightblue" | "lilac" | "purple";
 
 export interface Props {
   text: string | number;
@@ -14,11 +8,7 @@ export interface Props {
 }
 
 const Tag = ({ text, color = "green" }: Props) => (
-  <div
-    class={`inline-block py-0.5 px-2 font-bold text-xs text-center text-white rounded ${colors[color]}`}
-  >
-    {text}
-  </div>
+  <div class={`tag tag-${color}`}>{text}</div>
 );
 
 export default Tag;

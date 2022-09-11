@@ -1,10 +1,14 @@
+import "./SubHeader.css";
+
 export interface Props {
   text: string;
   center?: boolean;
 }
 
 const SubHeader = ({ text, center = false }: Props) => (
-  <h2 class={`font-bold text-white ${center ? "text-center" : "text-left"}`}>
+  <h2
+    class={["subheader", center && "subheader-center"].filter(Boolean).join("")}
+  >
     {text}
   </h2>
 );

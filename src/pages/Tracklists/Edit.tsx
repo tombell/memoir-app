@@ -42,7 +42,7 @@ const Edit = ({ id }: Props) => {
 
   const handleSubmit = useCallback(async () => {
     if (tracklist) {
-      await patchTracklist(id!, tracklist);
+      await patchTracklist(tracklist);
     }
   }, [tracklist, id]);
 

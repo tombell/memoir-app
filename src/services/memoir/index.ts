@@ -28,11 +28,10 @@ export const postTracklist = async (
 };
 
 export const patchTracklist = async (
-  id: string,
   tracklist: Tracklist
 ): Promise<Tracklist | null> => {
   try {
-    const { name, date, url } = tracklist;
+    const { id, name, date, url } = tracklist;
     const data = JSON.stringify({ name, date, url });
     const resp = await request(`/tracklists/${id}`, "PATCH", data);
     const json = await resp.json();

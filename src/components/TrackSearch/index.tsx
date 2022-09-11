@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "preact/hooks";
+import { signal, useSignal } from "@preact/signals";
+import { useCallback, useEffect, useRef } from "preact/hooks";
 
 import Input from "components/Input";
 
@@ -9,44 +10,52 @@ import { Track } from "services/memoir/types";
 
 import "./index.css";
 
+const showResults = signal(false);
+
 const Index = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [tracks, setTracks] = useState<Track[] | null>(null);
-  const [showResults, setShowResults] = useState(false);
+  const tracks = useSignal<Track[] | null>(null);
 
   const onBodyClick = useCallback(({ target }: any) => {
     if (!ref.current?.contains(target)) {
-      setShowResults(false);
+      showResults.value = false;
     }
   }, []);
 
-  const onInput = useCallback(async ({ target: { value } }: any) => {
-    if (value.length < 3) {
-      setTracks(null);
-      setShowResults(false);
-      return;
-    }
+  const onInput = useCallback(
+    async ({ target: { value } }: any) => {
+      if (value.length < 3) {
+        tracks.value = null;
+        showResults.value = false;
+        return;
+      }
 
-    const resp = await searchTracks(value);
+      const resp = await searchTracks(value);
 
-    if (resp) {
-      setTracks(resp);
-      setShowResults(true);
-    }
+      if (resp) {
+        tracks.value = resp;
+        showResults.value = true;
+      }
+    },
+    [tracks]
+  );
+
+  const onInputFocus = useCallback(() => {
+    showResults.value = true;
   }, []);
 
-  const onInputFocus = useCallback(() => setShowResults(true), []);
-
-  const onResultClick = useCallback(() => setShowResults(false), []);
+  const onResultClick = useCallback(() => {
+    showResults.value = false;
+  }, []);
 
   useEffect(() => {
-    if (showResults) {
+    if (showResults.value) {
       document.addEventListener("click", onBodyClick);
     } else {
       document.removeEventListener("click", onBodyClick);
     }
-  }, [onBodyClick, showResults]);
+  }, [onBodyClick]);
 
   return (
     <div class="track-search" ref={ref}>
@@ -58,8 +67,8 @@ const Index = () => {
       />
 
       <Results
-        tracks={tracks}
-        show={showResults}
+        tracks={tracks.value}
+        show={showResults.value}
         onResultClick={onResultClick}
       />
     </div>

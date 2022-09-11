@@ -44,7 +44,7 @@ const Edit = ({ id }: Props) => {
     if (tracklist) {
       await patchTracklist(tracklist);
     }
-  }, [tracklist, id]);
+  }, [tracklist]);
 
   return (
     <>

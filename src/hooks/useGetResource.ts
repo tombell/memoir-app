@@ -34,7 +34,7 @@ export default <T>(url: string | null, page?: number) => {
     };
 
     fn();
-  }, [url]);
+  }, [url, page]);
 
   return { isLoading, data, hasMore };
 };

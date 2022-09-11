@@ -1,4 +1,5 @@
-import { useCallback, useState } from "preact/hooks";
+import { useSignal } from "@preact/signals";
+import { useCallback } from "preact/hooks";
 
 import "./Input.css";
 
@@ -21,14 +22,14 @@ const Input = ({
   onInput,
   onFocus,
 }: Props) => {
-  const [inputValue, setInputValue] = useState(value);
+  const input = useSignal(value);
 
   const handleInput = useCallback(
     (e: Event) => {
-      setInputValue((e.target as HTMLInputElement).value);
+      input.value = (e.target as HTMLInputElement).value;
       onInput(e);
     },
-    [onInput]
+    [input, onInput]
   );
 
   return (
@@ -42,7 +43,7 @@ const Input = ({
           id={name}
           name={name}
           placeholder={placeholder}
-          value={inputValue}
+          value={input.value}
           onInput={handleInput}
           onFocus={onFocus}
         />

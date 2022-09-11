@@ -5,7 +5,6 @@ import TrackSearch from "components/TrackSearch";
 
 const meta: Meta = {
   component: TrackSearch,
-  title: "Components/Organisms/TrackSearch/TrackSearch",
   decorators: [withMock],
 };
 export default meta;

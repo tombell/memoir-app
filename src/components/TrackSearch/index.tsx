@@ -7,6 +7,8 @@ import Results from "components/TrackSearch/Results";
 import { searchTracks } from "services/memoir";
 import { Track } from "services/memoir/types";
 
+import "./index.css";
+
 const Index = () => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -47,7 +49,7 @@ const Index = () => {
   }, [onBodyClick, showResults]);
 
   return (
-    <div class="relative" ref={ref}>
+    <div class="track-search" ref={ref}>
       <Input
         name="search"
         placeholder="Search tracks..."

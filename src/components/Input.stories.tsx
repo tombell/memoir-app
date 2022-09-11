@@ -4,8 +4,10 @@ import Input, { Props } from "components/Input";
 
 const meta: Meta = {
   component: Input,
-  title: "Components/Atoms/Input",
-  argTypes: { onInput: { action: "input" }, onFocus: { action: "focus" } },
+  argTypes: {
+    onInput: { action: "changed" },
+    onFocus: { action: "focused" },
+  },
 };
 export default meta;
 

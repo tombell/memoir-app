@@ -4,7 +4,6 @@ import Genres, { Props } from "components/Genres";
 
 const meta: Meta = {
   component: Genres,
-  title: "Components/Molecules/Genres",
 };
 export default meta;
 

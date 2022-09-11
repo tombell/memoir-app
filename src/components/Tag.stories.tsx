@@ -4,7 +4,6 @@ import Tag, { Props } from "components/Tag";
 
 const meta: Meta = {
   component: Tag,
-  title: "Components/Atoms/Tag",
 };
 export default meta;
 

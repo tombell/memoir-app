@@ -5,8 +5,9 @@ import ArtworkUploader, { Props } from "components/ArtworkUploader";
 
 const meta: Meta = {
   component: ArtworkUploader,
-  title: "Components/Organisms/ArtworkUploader",
-  argTypes: { onUpload: { action: "upload" } },
+  argTypes: {
+    onUpload: { action: "uploaded" },
+  },
   decorators: [withMock],
 };
 export default meta;

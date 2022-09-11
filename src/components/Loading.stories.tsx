@@ -4,7 +4,6 @@ import Loading from "components/Loading";
 
 const meta: Meta = {
   component: Loading,
-  title: "Components/Atoms/Loading",
 };
 export default meta;
 

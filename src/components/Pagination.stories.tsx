@@ -4,7 +4,6 @@ import Pagination, { Props } from "components/Pagination";
 
 const meta: Meta = {
   component: Pagination,
-  title: "Components/Molecules/Pagination",
 };
 export default meta;
 

@@ -4,8 +4,9 @@ import Link from "components/Link";
 
 const meta: Meta = {
   component: Link,
-  title: "Components/Atoms/Link",
-  argTypes: { onClick: { action: "clicked" } },
+  argTypes: {
+    onClick: { action: "clicked" },
+  },
 };
 export default meta;
 

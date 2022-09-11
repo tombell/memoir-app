@@ -4,7 +4,6 @@ import TrackItem, { Props } from "components/TrackItem";
 
 const meta: Meta = {
   component: TrackItem,
-  title: "Components/Organisms/TrackItem",
 };
 export default meta;
 

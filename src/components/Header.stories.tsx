@@ -4,7 +4,6 @@ import Header from "components/Header";
 
 const meta: Meta = {
   component: Header,
-  title: "Components/Molecules/Header",
 };
 export default meta;
 

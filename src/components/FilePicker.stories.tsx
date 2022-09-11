@@ -4,8 +4,9 @@ import FilePicker, { Props } from "components/FilePicker";
 
 const meta: Meta = {
   component: FilePicker,
-  title: "Components/Atoms/FilePicker",
-  argTypes: { onSelect: { action: "select" } },
+  argTypes: {
+    onSelect: { action: "selected" },
+  },
 };
 export default meta;
 

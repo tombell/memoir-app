@@ -4,7 +4,6 @@ import Subheader, { Props } from "components/Subheader";
 
 const meta: Meta = {
   component: Subheader,
-  title: "Components/Atoms/Subheader",
 };
 export default meta;
 

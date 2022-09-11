@@ -4,7 +4,6 @@ import TracklistItem, { Props } from "components/TracklistItem";
 
 const meta: Meta = {
   component: TracklistItem,
-  title: "Components/Organisms/TracklistItem",
 };
 export default meta;
 

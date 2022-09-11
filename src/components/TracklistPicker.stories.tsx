@@ -4,8 +4,9 @@ import TracklistPicker, { Props } from "components/TracklistPicker";
 
 const meta: Meta = {
   component: TracklistPicker,
-  title: "Components/Organisms/TracklistPicker",
-  argTypes: { onSelect: { action: "select" } },
+  argTypes: {
+    onSelect: { action: "selected" },
+  },
 };
 export default meta;
 

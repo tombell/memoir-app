@@ -4,7 +4,6 @@ import Footer from "components/Footer";
 
 const meta: Meta = {
   component: Footer,
-  title: "Components/Molecules/Footer",
 };
 export default meta;
 

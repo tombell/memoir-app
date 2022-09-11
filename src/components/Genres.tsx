@@ -1,11 +1,13 @@
 import Tag from "components/Tag";
 
+import "./Genres.css";
+
 export interface Props {
   genres: string[];
 }
 
 const Genres = ({ genres }: Props) => (
-  <div class="space-x-2">
+  <div class="genres">
     {genres.sort().map((genre) => (
       <Tag text={genre} color="blue" />
     ))}

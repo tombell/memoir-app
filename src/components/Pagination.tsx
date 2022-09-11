@@ -1,5 +1,7 @@
 import Link from "components/Link";
 
+import "./Pagination.css";
+
 export interface Props {
   path: string;
   id?: string;
@@ -19,12 +21,12 @@ const Pagination = ({ path, id, page, hasMore }: Props) => {
   }
 
   return (
-    <div class="flex items-center my-12 font-bold">
-      <div class="flex flex-1 justify-center">
+    <div class="pagination">
+      <div class="pagination-link">
         {!isFirstPage && <Link href={prevUrl}>← Newer</Link>}
       </div>
 
-      <div class="flex flex-1 justify-center">
+      <div class="pagination-link">
         {hasMore && <Link href={nextUrl}>Older →</Link>}
       </div>
     </div>

@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 .app {
-  @apply px-96 mx-auto container
+  @apply px-96 mx-auto container;
 }
 
 .app-header {
-  @apply flex justify-center my-4
+  @apply flex justify-center my-4;
 }
 
 .app-search {
-  @apply mb-8
+  @apply mb-8;
 }
 
 .app-footer {
-  @apply my-8
+  @apply my-8;
 }

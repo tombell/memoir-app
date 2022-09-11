@@ -1,11 +1,11 @@
 .tracklist-picker {
-  @apply p-8 space-y-2 w-full bg-gray-800 rounded box-border
+  @apply p-8 space-y-2 w-full bg-gray-800 rounded box-border;
 }
 
 .tracklist-picker-track {
-  @apply mx-0 text-xs font-bold list-none list-inside text-white
+  @apply mx-0 text-xs font-bold list-none list-inside text-white;
 }
 
 .tracklist-picker-track-tags {
-  @apply mt-2 space-x-2
+  @apply mt-2 space-x-2;
 }

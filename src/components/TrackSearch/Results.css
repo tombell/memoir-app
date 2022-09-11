@@ -1,7 +1,7 @@
 .track-search-results {
-  @apply absolute z-10 p-2.5 mt-2 w-full bg-gray-800 rounded border border-gray-700 border-solid box-border
+  @apply absolute z-10 p-2.5 mt-2 w-full bg-gray-800 rounded border border-gray-700 border-solid box-border;
 }
 
 .track-search-results-list {
-  @apply p-0 m-0
+  @apply p-0 m-0;
 }

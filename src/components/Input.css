@@ -1,7 +1,7 @@
 .input {
-  @apply p-3 w-full text-white bg-gray-800 rounded border border-gray-700 border-solid box-border
+  @apply p-3 w-full text-white bg-gray-800 rounded border border-gray-700 border-solid box-border;
 }
 
 .input-label {
-  @apply block mb-2 font-bold text-white
+  @apply block mb-2 font-bold text-white;
 }

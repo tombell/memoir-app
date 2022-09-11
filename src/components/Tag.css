@@ -1,23 +1,23 @@
 .tag {
-  @apply inline-block py-0.5 px-2 font-bold text-xs text-center text-white rounded
+  @apply inline-block py-0.5 px-2 font-bold text-xs text-center text-white rounded;
 }
 
 .tag-blue {
-  @apply bg-blue-600
+  @apply bg-blue-600;
 }
 
 .tag-green {
-  @apply bg-green-600
+  @apply bg-green-600;
 }
 
 .tag-lightblue {
-  @apply bg-blue-400
+  @apply bg-blue-400;
 }
 
 .tag-lilac {
-  @apply bg-indigo-500
+  @apply bg-indigo-500;
 }
 
 .tag-purple {
-  @apply bg-purple-600
+  @apply bg-purple-600;
 }

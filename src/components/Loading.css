@@ -1,11 +1,11 @@
 .loading {
-  @apply flex items-center text-white
+  @apply flex items-center text-white;
 }
 
 .loading-circle {
-  @apply w-5 h-5 text-green-600 animate-spin
+  @apply w-5 h-5 text-green-600 animate-spin;
 }
 
 .loading-text {
-  @apply ml-3
+  @apply ml-3;
 }

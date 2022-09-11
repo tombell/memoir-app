@@ -1,15 +1,15 @@
 .footer {
-  @apply flex text-xs font-bold
+  @apply flex text-xs font-bold;
 }
 
 .footer-left {
-  @apply flex-1 space-x-4
+  @apply flex-1 space-x-4;
 }
 
 .footer-right {
-  @apply flex flex-1 justify-end
+  @apply flex flex-1 justify-end;
 }
 
 .footer-link {
-  @apply inline
+  @apply inline;
 }

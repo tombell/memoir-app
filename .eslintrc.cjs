@@ -7,7 +7,6 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:storybook/recommended",
   ],
-  plugins: ["import"],
   parserOptions: {
     project: [
       "./tsconfig.json",

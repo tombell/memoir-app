@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app {
+  @apply px-96 mx-auto container
+}
+
+.app-header {
+  @apply flex justify-center my-4
+}
+
+.app-search {
+  @apply mb-8
+}
+
+.app-footer {
+  @apply my-8
+}

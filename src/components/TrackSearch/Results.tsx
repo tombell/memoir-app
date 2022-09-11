@@ -2,6 +2,8 @@ import Result from "components/TrackSearch/Result";
 
 import { Track } from "services/memoir/types";
 
+import "./Results.css";
+
 export interface Props {
   show: boolean;
   tracks?: Track[] | null;
@@ -14,8 +16,8 @@ const Results = ({ show, tracks, onResultClick }: Props) => {
   }
 
   return (
-    <div class="absolute z-10 p-2.5 mt-2 w-full bg-gray-800 rounded border border-gray-700 border-solid box-border">
-      <ul class="p-0 m-0">
+    <div class="track-search-results">
+      <ul class="track-search-results-list">
         {tracks.map((track) => (
           <Result track={track} onClick={onResultClick} />
         ))}

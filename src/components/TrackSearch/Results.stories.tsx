@@ -4,7 +4,6 @@ import Results, { Props } from "components/TrackSearch/Results";
 
 const meta: Meta = {
   component: Results,
-  title: "Components/Organisms/TrackSearch/Results",
 };
 export default meta;
 

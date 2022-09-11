@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/preact";
-import { h } from "preact";
 
 import Footer from "components/molecules/Footer";
 

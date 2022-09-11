@@ -1,4 +1,3 @@
-import { Fragment, h } from "preact";
 import { RoutableProps, route } from "preact-router";
 
 import Pagination from "components/molecules/Pagination";
@@ -13,12 +12,11 @@ interface Props extends RoutableProps {
   page?: string;
 }
 
-export default ({ path, page }: Props) => {
+const Index = ({ path, page }: Props) => {
   const pageNum = parseInt(page || "1", 10);
 
   if (Number.isNaN(pageNum)) {
     route("/404", true);
-    return null;
   }
 
   const {
@@ -47,3 +45,5 @@ export default ({ path, page }: Props) => {
     </>
   );
 };
+
+export default Index;

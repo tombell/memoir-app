@@ -1,4 +1,3 @@
-import { Fragment, h } from "preact";
 import { useCallback, useState } from "preact/hooks";
 
 import FilePicker from "components/atoms/FilePicker";
@@ -9,7 +8,7 @@ export interface Props {
   onUpload: (artwork: string) => void;
 }
 
-export default ({ onUpload }: Props) => {
+const ArtworkUploader = ({ onUpload }: Props) => {
   const [artwork, setArtwork] = useState<string | null>(null);
 
   const handleSelect = useCallback(
@@ -42,3 +41,5 @@ export default ({ onUpload }: Props) => {
     </>
   );
 };
+
+export default ArtworkUploader;

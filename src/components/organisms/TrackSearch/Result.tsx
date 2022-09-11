@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 import Link from "components/atoms/Link";
 
 import { Track } from "services/memoir/types";
@@ -20,7 +18,7 @@ export interface Props {
   onClick: () => void;
 }
 
-export default ({ track, onClick }: Props) => (
+const Result = ({ track, onClick }: Props) => (
   <li class="my-2.5 mx-2 list-none text-white truncate">
     <Link href={`/tracks/${track.id}`} onClick={onClick}>
       <span
@@ -34,3 +32,5 @@ export default ({ track, onClick }: Props) => (
     </Link>
   </li>
 );
+
+export default Result;

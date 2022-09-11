@@ -1,4 +1,3 @@
-import { h } from "preact";
 import { Router } from "preact-router";
 
 import MostPlayedTracksPage from "pages/MostPlayedTracks";
@@ -18,7 +17,7 @@ import Redirect from "components/Redirect";
 
 import "./App.css";
 
-export default () => (
+const App = () => (
   <div class="px-96 mx-auto containr">
     <div class="flex justify-center my-4">
       <Header />
@@ -47,3 +46,5 @@ export default () => (
     </div>
   </div>
 );
+
+export default App;

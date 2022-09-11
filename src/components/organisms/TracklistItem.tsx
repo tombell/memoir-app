@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 import Link from "components/atoms/Link";
 import Tag from "components/atoms/Tag";
 
@@ -17,7 +15,7 @@ export interface Props {
 const linearGradient =
   "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%)";
 
-export default ({
+const TracklistItem = ({
   loading = false,
   id,
   name,
@@ -73,3 +71,5 @@ export default ({
     </Link>
   );
 };
+
+export default TracklistItem;

@@ -8,7 +8,7 @@ export const request = async (
   const headers: any = {};
 
   if (MEMOIR_API_KEY) {
-    headers["API-Write-Key"] = MEMOIR_API_KEY;
+    headers["API-Token"] = MEMOIR_API_KEY;
   }
 
   return fetch(`${MEMOIR_API_URL}${endpoint}`, { method, body, headers });

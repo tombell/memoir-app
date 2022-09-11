@@ -1,4 +1,4 @@
-import { Fragment, FunctionalComponent, h } from "preact";
+import { FunctionalComponent } from "preact";
 
 import Loading from "components/atoms/Loading";
 import Subheader from "components/atoms/Subheader";

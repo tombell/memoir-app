@@ -1,4 +1,4 @@
-import { Fragment, FunctionalComponent, h } from "preact";
+import { FunctionalComponent } from "preact";
 import { route } from "preact-router";
 import { useCallback, useState } from "preact/hooks";
 

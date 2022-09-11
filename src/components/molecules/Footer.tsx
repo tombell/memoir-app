@@ -1,8 +1,6 @@
-import { h } from "preact";
-
 import Link from "components/atoms/Link";
 
-export default () => (
+const Footer = () => (
   <footer class="flex text-xs font-bold">
     <div class="flex-1 space-x-4">
       <Link className="inline" href="/tracklists/1">
@@ -20,3 +18,5 @@ export default () => (
     </div>
   </footer>
 );
+
+export default Footer;

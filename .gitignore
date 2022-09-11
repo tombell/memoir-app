@@ -60,7 +60,5 @@ typings/
 # next.js build output
 .next
 
-# built assets in the public directory
-public/app.css
-public/app.js
-public/app.js.map
+# built assets
+dist/

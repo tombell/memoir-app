@@ -1,6 +1,4 @@
-import { h } from "preact";
-
-export default () => (
+const Loading = () => (
   <div class="flex items-center text-white">
     <svg
       class="w-5 h-5 text-green-600 animate-spin"
@@ -25,3 +23,5 @@ export default () => (
     <h2 class="ml-3">Loading...</h2>
   </div>
 );
+
+export default Loading;

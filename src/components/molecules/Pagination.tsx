@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 import Link from "components/atoms/Link";
 
 export interface Props {
@@ -9,7 +7,7 @@ export interface Props {
   hasMore: boolean;
 }
 
-export default ({ path, id, page, hasMore }: Props) => {
+const Pagination = ({ path, id, page, hasMore }: Props) => {
   const isFirstPage = page === 1;
 
   let prevUrl = path.replace(/:page\??/, `${page - 1}`);
@@ -32,3 +30,5 @@ export default ({ path, id, page, hasMore }: Props) => {
     </div>
   );
 };
+
+export default Pagination;

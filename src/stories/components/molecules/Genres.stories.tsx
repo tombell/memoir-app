@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/preact";
-import { h } from "preact";
 
 import Genres, { Props } from "components/molecules/Genres";
 

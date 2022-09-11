@@ -1,5 +1,5 @@
-import { h, render } from "preact";
+import { render } from "preact";
 
 import App from "components/App";
 
-render(<App />, document.getElementById("root")!);
+render(<App />, document.getElementById("app") as HTMLElement);

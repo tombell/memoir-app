@@ -1,4 +1,3 @@
-import { h } from "preact";
 import { useCallback, useRef } from "preact/hooks";
 
 export interface Props {
@@ -6,7 +5,7 @@ export interface Props {
   onSelect: (file: File) => void;
 }
 
-export default ({ accept, onSelect }: Props) => {
+const FilePicker = ({ accept, onSelect }: Props) => {
   const input = useRef<HTMLInputElement>(null);
 
   const handleChange = useCallback(() => {
@@ -28,3 +27,5 @@ export default ({ accept, onSelect }: Props) => {
     </div>
   );
 };
+
+export default FilePicker;

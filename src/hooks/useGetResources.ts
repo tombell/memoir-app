@@ -19,7 +19,7 @@ export default <T>(url: string | null, page: number = 1) => {
       const current = resp.headers.get("Current-Page");
       const total = resp.headers.get("Total-Pages");
       setIsLoading(false);
-      setHasMore(parseInt(current!, 10) <= parseInt(total!, 10));
+      setHasMore(parseInt(current!, 10) < parseInt(total!, 10));
       setData(json);
     };
 

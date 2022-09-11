@@ -1,4 +1,3 @@
-import { Fragment, h } from "preact";
 import { useCallback, useMemo, useState } from "preact/hooks";
 
 import FilePicker from "components/atoms/FilePicker";
@@ -10,7 +9,7 @@ export interface Props {
   onSelect: (tracks: string[][]) => void;
 }
 
-export default ({ onSelect }: Props) => {
+const TracklistPicker = ({ onSelect }: Props) => {
   const [tracks, setTracks] = useState<string[][] | null>(null);
 
   const reader = useMemo(() => new FileReader(), []);
@@ -53,3 +52,5 @@ export default ({ onSelect }: Props) => {
     </>
   );
 };
+
+export default TracklistPicker;

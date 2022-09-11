@@ -1,11 +1,13 @@
-import { useEffect, useState } from "preact/hooks";
+import { signal, useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
 import { request } from "services/memoir";
 
+const isLoading = signal(false);
+const hasMore = signal(false);
+
 export default <T>(url: string | null, page?: number) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<T | null>(null);
-  const [hasMore, setHasMore] = useState(false);
+  const data = useSignal<T | null>(null);
 
   useEffect(() => {
     if (!url) {
@@ -13,13 +15,12 @@ export default <T>(url: string | null, page?: number) => {
     }
 
     const fn = async () => {
-      setIsLoading(true);
+      isLoading.value = true;
 
       const resp = await request(`${url}${page ? `?page=${page}` : ""}`);
-      const json = await resp.json();
 
-      setIsLoading(false);
-      setData(json);
+      data.value = await resp.json();
+      isLoading.value = false;
 
       if (!page) {
         return;
@@ -29,12 +30,12 @@ export default <T>(url: string | null, page?: number) => {
       const total = resp.headers.get("Total-Pages");
 
       if (current && total) {
-        setHasMore(parseInt(current, 10) < parseInt(total, 10));
+        hasMore.value = parseInt(current, 10) < parseInt(total, 10);
       }
     };
 
     fn();
-  }, [url, page]);
+  }, [url, page, data]);
 
   return { isLoading, data, hasMore };
 };

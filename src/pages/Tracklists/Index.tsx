@@ -12,7 +12,7 @@ interface Props extends RoutableProps {
 }
 
 const Index = ({ path, page }: Props) => {
-  const pageNum = parseInt(page || "1", 10);
+  const pageNum = parseInt(page!, 10);
 
   if (Number.isNaN(pageNum)) {
     route("/404", true);
@@ -26,21 +26,20 @@ const Index = ({ path, page }: Props) => {
 
   return (
     <>
-      {isLoading && [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)}
+      {isLoading.value
+        ? [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)
+        : tracklists.value?.map(({ id, name, date, artwork, trackCount }) => (
+            <TracklistItem
+              key={id}
+              id={id}
+              name={name}
+              date={new Date(date)}
+              artwork={artwork}
+              trackCount={trackCount}
+            />
+          ))}
 
-      {!isLoading &&
-        tracklists?.map(({ id, name, date, artwork, trackCount }) => (
-          <TracklistItem
-            key={id}
-            id={id}
-            name={name}
-            date={new Date(date)}
-            artwork={artwork}
-            trackCount={trackCount}
-          />
-        ))}
-
-      <Pagination path={path!} page={pageNum} hasMore={hasMore} />
+      <Pagination path={path!} page={pageNum} hasMore={hasMore.value} />
     </>
   );
 };

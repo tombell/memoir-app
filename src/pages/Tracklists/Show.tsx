@@ -19,48 +19,42 @@ const Show = ({ id }: Props) => {
     `/tracklists/${id}`
   );
 
-  if (!tracklist) {
+  if (!tracklist.value) {
     return null;
   }
 
-  return (
+  return isLoading.value ? (
+    <Loading />
+  ) : (
     <>
-      {isLoading && <Loading />}
+      <div class="mb-4">
+        <Subheader text={tracklist.value.name} center />
+      </div>
 
-      {!isLoading && tracklist && (
+      <div class="mb-4 text-xs font-semibold text-center">
+        <Link href={tracklist.value.url}>Listen on Mixcloud &rarr;</Link>
+      </div>
+
+      {tracklist.value.tracks && (
         <>
-          <div class="mb-4">
-            <Subheader text={tracklist.name} center />
+          <div class="mb-4 text-center">
+            <Genres
+              genres={[
+                ...new Set(tracklist.value.tracks.map((track) => track.genre)),
+              ]}
+            />
           </div>
 
-          <div class="mb-4 text-xs font-semibold text-center">
-            <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>
-          </div>
-
-          {tracklist.tracks && (
-            <>
-              <div class="mb-4 text-center">
-                <Genres
-                  genres={[
-                    ...new Set(tracklist.tracks.map((track) => track.genre)),
-                  ]}
-                />
-              </div>
-
-              <>
-                {tracklist.tracks.map((track) => (
-                  <TrackItem
-                    id={track.id}
-                    artist={track.artist}
-                    name={track.name}
-                    genre={track.genre}
-                    bpm={track.bpm}
-                    camelotKey={track.key}
-                  />
-                ))}
-              </>
-            </>
-          )}
+          {tracklist.value.tracks.map((track) => (
+            <TrackItem
+              id={track.id}
+              artist={track.artist}
+              name={track.name}
+              genre={track.genre}
+              bpm={track.bpm}
+              camelotKey={track.key}
+            />
+          ))}
         </>
       )}
     </>

@@ -21,28 +21,28 @@ const Edit = ({ id }: Props) => {
 
   const handleNameInput = useCallback(
     (e: Event) => {
-      tracklist!.name = (e.target as HTMLInputElement).value;
+      tracklist.value!.name = (e.target as HTMLInputElement).value;
     },
     [tracklist]
   );
 
   const handleDateInput = useCallback(
     (e: Event) => {
-      tracklist!.date = (e.target as HTMLInputElement).value;
+      tracklist.value!.date = (e.target as HTMLInputElement).value;
     },
     [tracklist]
   );
 
   const handleUrlInput = useCallback(
     (e: Event) => {
-      tracklist!.url = (e.target as HTMLInputElement).value;
+      tracklist.value!.url = (e.target as HTMLInputElement).value;
     },
     [tracklist]
   );
 
   const handleSubmit = useCallback(async () => {
-    if (tracklist) {
-      await patchTracklist(tracklist);
+    if (tracklist.value) {
+      await patchTracklist(tracklist.value);
     }
   }, [tracklist]);
 
@@ -52,13 +52,13 @@ const Edit = ({ id }: Props) => {
         <Subheader text="Edit Tracklist" center />
       </div>
 
-      {tracklist && (
+      {tracklist.value && (
         <div class="space-y-4">
           <Input
             name="name"
             label="Name"
             placeholder="Name..."
-            value={tracklist.name}
+            value={tracklist.value.name}
             onInput={handleNameInput}
           />
 
@@ -67,7 +67,7 @@ const Edit = ({ id }: Props) => {
             label="Date"
             placeholder="Date..."
             type="date"
-            value={formatYearMonthDay(new Date(tracklist.date))}
+            value={formatYearMonthDay(new Date(tracklist.value.date))}
             onInput={handleDateInput}
           />
 
@@ -75,13 +75,13 @@ const Edit = ({ id }: Props) => {
             name="url"
             label="Mixcloud URL"
             placeholder="Mixcloud URL..."
-            value={tracklist.url}
+            value={tracklist.value.url}
             onInput={handleUrlInput}
           />
 
           <Button text="Update" onClick={handleSubmit} />
 
-          {tracklist.tracks!.map((track) => (
+          {tracklist.value.tracks!.map((track) => (
             <TrackItem
               id={track.id}
               artist={track.artist}

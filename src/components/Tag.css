@@ -1,5 +1,5 @@
 .tag {
-  @apply inline-block py-0.5 px-2 font-bold text-xs text-center text-white rounded;
+  @apply inline-block py-0.5 px-2 text-xs font-bold text-center text-white rounded;
 }
 
 .tag-blue {

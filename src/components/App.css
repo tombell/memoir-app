@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .app {
-  @apply px-96 mx-auto container;
+  @apply container px-96 mx-auto;
 }
 
 .app-header {

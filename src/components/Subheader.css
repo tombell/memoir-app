@@ -1,5 +1,5 @@
 .subheader {
-  @apply font-bold text-white text-left;
+  @apply font-bold text-left text-white;
 }
 
 .subheader-center {

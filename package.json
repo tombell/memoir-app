@@ -43,6 +43,10 @@
     "vite-tsconfig-paths": "^3.5.0"
   },
   "lint-staged": {
+    "src/**/*.css": [
+      "rustywind --custom-regex '@apply ([_a-zA\\.-Z0-9\\s\\-:\\[\\]]+);' --write",
+      "prettier --write"
+    ],
     "src/**/*.{ts,tsx,js,jsx}": [
       "rustywind --write",
       "prettier --write"

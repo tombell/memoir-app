@@ -14,66 +14,7 @@ module.exports = {
       "./tsconfig.node.json",
     ],
   },
-  settings: {
-    react: {
-      pragma: "h",
-      version: "17",
-    },
-    "import/internal-regex": "^components|hooks|pages|services/",
-  },
   rules: {
-    "import/extensions": "off",
-    "import/order": [
-      "error",
-      {
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: false,
-        },
-        "newlines-between": "always",
-        pathGroups: [
-          {
-            pattern: "preact/hooks",
-            group: "external",
-          },
-          {
-            pattern: "pages/**",
-            group: "internal",
-            position: "after",
-          },
-          {
-            pattern: "components/atoms/**",
-            group: "internal",
-            position: "after",
-          },
-          {
-            pattern: "components/molecules/**",
-            group: "internal",
-            position: "after",
-          },
-          {
-            pattern: "components/organisms/**",
-            group: "internal",
-            position: "after",
-          },
-          {
-            pattern: "components/*",
-            group: "internal",
-            position: "after",
-          },
-          {
-            pattern: "hooks/**",
-            group: "internal",
-            position: "after",
-          },
-          {
-            pattern: "services/**",
-            group: "internal",
-            position: "after",
-          },
-        ],
-      },
-    ],
     "react/function-component-definition": [
       2,
       {

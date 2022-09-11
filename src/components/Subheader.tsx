@@ -7,7 +7,9 @@ export interface Props {
 
 const SubHeader = ({ text, center = false }: Props) => (
   <h2
-    class={["subheader", center && "subheader-center"].filter(Boolean).join("")}
+    class={["subheader", center && "subheader-center"]
+      .filter(Boolean)
+      .join(" ")}
   >
     {text}
   </h2>

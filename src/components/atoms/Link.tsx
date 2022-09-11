@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 export interface Props {
   className?: string;
   href?: string;
@@ -7,7 +5,7 @@ export interface Props {
   children?: any;
 }
 
-export default ({ className, href, onClick, children }: Props) => (
+const Link = ({ className, href, onClick, children }: Props) => (
   <a
     class={[
       "text-white no-underline cursor-pointer hover:text-green-600",
@@ -19,3 +17,5 @@ export default ({ className, href, onClick, children }: Props) => (
     {children}
   </a>
 );
+
+export default Link;

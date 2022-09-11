@@ -1,4 +1,3 @@
-import { h } from "preact";
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 
 import Input from "components/atoms/Input";
@@ -8,7 +7,7 @@ import Results from "components/organisms/TrackSearch/Results";
 import { searchTracks } from "services/memoir";
 import { Track } from "services/memoir/types";
 
-export default () => {
+const Index = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [tracks, setTracks] = useState<Track[] | null>(null);
@@ -64,3 +63,5 @@ export default () => {
     </div>
   );
 };
+
+export default Index;

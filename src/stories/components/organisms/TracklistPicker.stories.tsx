@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/preact";
-import { h } from "preact";
 
 import TracklistPicker, { Props } from "components/organisms/TracklistPicker";
 

@@ -1,4 +1,3 @@
-import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 
 import Link from "components/atoms/Link";
@@ -17,7 +16,7 @@ interface Props extends RoutableProps {
   id?: string;
 }
 
-export default ({ id }: Props) => {
+const Show = ({ id }: Props) => {
   const { isLoading, data: tracklist } = useGetResource<Tracklist>(
     `/tracklists/${id}`
   );
@@ -69,3 +68,5 @@ export default ({ id }: Props) => {
     </>
   );
 };
+
+export default Show;

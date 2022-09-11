@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 import Result from "components/organisms/TrackSearch/Result";
 
 import { Track } from "services/memoir/types";
@@ -10,7 +8,7 @@ export interface Props {
   onResultClick: () => void;
 }
 
-export default ({ show, tracks, onResultClick }: Props) => {
+const Results = ({ show, tracks, onResultClick }: Props) => {
   if (!tracks || !show) {
     return null;
   }
@@ -25,3 +23,5 @@ export default ({ show, tracks, onResultClick }: Props) => {
     </div>
   );
 };
+
+export default Results;

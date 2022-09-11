@@ -1,4 +1,3 @@
-import { h } from "preact";
 import { useCallback, useState } from "preact/hooks";
 
 export interface Props {
@@ -11,7 +10,7 @@ export interface Props {
   onFocus?: (e: Event) => void;
 }
 
-export default ({
+const Input = ({
   name,
   label,
   placeholder,
@@ -49,3 +48,5 @@ export default ({
     </div>
   );
 };
+
+export default Input;

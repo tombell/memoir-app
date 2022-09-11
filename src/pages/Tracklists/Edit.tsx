@@ -1,4 +1,3 @@
-import { Fragment, h } from "preact";
 import { RoutableProps } from "preact-router";
 import { useCallback } from "preact/hooks";
 
@@ -18,7 +17,7 @@ interface Props extends RoutableProps {
   id?: string;
 }
 
-export default ({ id }: Props) => {
+const Edit = ({ id }: Props) => {
   const { data: tracklist } = useGetResource<Tracklist>(`/tracklists/${id!}`);
 
   const handleNameInput = useCallback(
@@ -98,3 +97,5 @@ export default ({ id }: Props) => {
     </>
   );
 };
+
+export default Edit;

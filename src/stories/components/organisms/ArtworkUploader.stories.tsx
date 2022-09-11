@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/preact";
-import { h } from "preact";
 import withMock from "storybook-addon-mock";
 
 import ArtworkUploader, { Props } from "components/organisms/ArtworkUploader";

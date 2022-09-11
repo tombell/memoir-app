@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 import Link from "components/atoms/Link";
 import Tag from "components/atoms/Tag";
 
@@ -12,7 +10,7 @@ export interface Props {
   camelotKey: string;
 }
 
-export default ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
+const TrackItem = ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
   <div class="items-center mb-6 flex-column">
     <div class="mb-2 font-bold leading-5">
       <Link href={`/tracks/${id}`}>{`${artist} - ${name}`}</Link>
@@ -25,3 +23,5 @@ export default ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
     </div>
   </div>
 );
+
+export default TrackItem;

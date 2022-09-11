@@ -1,11 +1,18 @@
 module.exports = {
-  extends: ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
+  extends: [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "prettier",
+    "plugin:react/jsx-runtime",
+    "plugin:storybook/recommended",
+  ],
   plugins: ["import"],
   parserOptions: {
-    project: "./tsconfig.json",
-  },
-  env: {
-    browser: true,
+    project: [
+      "./tsconfig.json",
+      "./tsconfig.node.json",
+    ],
   },
   settings: {
     react: {
@@ -67,8 +74,18 @@ module.exports = {
         ],
       },
     ],
-    "react/function-component-definition": "off",
-    "react/no-unknown-property": ["error", { ignore: ["class"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        namedComponents: "arrow-function",
+      },
+    ],
+    "react/no-unknown-property": [
+      "error",
+      {
+        ignore: ["class"],
+      },
+    ],
     "react/require-default-props": "off",
     "sort-imports": [
       "error",

@@ -1,5 +1,3 @@
-import { h } from "preact";
-
 type TagColor = "blue" | "green" | "lightBlue" | "lilac" | "purple";
 
 const colors = {
@@ -15,10 +13,12 @@ export interface Props {
   color?: TagColor;
 }
 
-export default ({ text, color = "green" }: Props) => (
+const Tag = ({ text, color = "green" }: Props) => (
   <div
     class={`inline-block py-0.5 px-2 font-bold text-xs text-center text-white rounded ${colors[color]}`}
   >
     {text}
   </div>
 );
+
+export default Tag;

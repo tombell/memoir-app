@@ -1,0 +1,11 @@
+.track-item {
+  @apply items-center mb-6
+}
+
+.track-item-details {
+  @apply font-bold
+}
+
+.track-item-tags {
+  @apply space-x-2
+}

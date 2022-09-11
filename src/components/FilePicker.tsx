@@ -1,5 +1,7 @@
 import { useCallback, useRef } from "preact/hooks";
 
+import "./FilePicker.css";
+
 export interface Props {
   accept: string;
   onSelect: (file: File) => void;
@@ -16,9 +18,9 @@ const FilePicker = ({ accept, onSelect }: Props) => {
   }, [input, onSelect]);
 
   return (
-    <div class="p-3 text-white bg-gray-800 rounded border border-gray-700 border-solid">
+    <div class="filepicker">
       <input
-        class="block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white-50 file:text-gray-900 hover:file:bg-white-100"
+        class="filepicker-input"
         type="file"
         ref={input}
         accept={accept}

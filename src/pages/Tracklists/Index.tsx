@@ -3,7 +3,7 @@ import { RoutableProps, route } from "preact-router";
 import Pagination from "components/Pagination";
 import TracklistItem from "components/TracklistItem";
 
-import useGetResources from "hooks/useGetResources";
+import useGetResource from "hooks/useGetResource";
 
 import { Tracklist } from "services/memoir/types";
 
@@ -22,7 +22,7 @@ const Index = ({ path, page }: Props) => {
     isLoading,
     hasMore,
     data: tracklists,
-  } = useGetResources<Tracklist[]>("/tracklists", pageNum);
+  } = useGetResource<Tracklist[]>("/tracklists", pageNum);
 
   return (
     <>

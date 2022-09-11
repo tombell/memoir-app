@@ -4,13 +4,13 @@ import Loading from "components/Loading";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";
 
-import useGetResources from "hooks/useGetResources";
+import useGetResource from "hooks/useGetResource";
 
 import { Track } from "services/memoir/types";
 
 const MostPlayedTracks: FunctionalComponent = () => {
   const { isLoading, data: tracks } =
-    useGetResources<Track[]>("/tracks/mostplayed");
+    useGetResource<Track[]>("/tracks/mostplayed");
 
   return (
     <>

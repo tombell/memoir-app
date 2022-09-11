@@ -1,9 +1,8 @@
 import { FunctionalComponent } from "preact";
 
-import Loading from "components/atoms/Loading";
-import Subheader from "components/atoms/Subheader";
-
-import TrackItem from "components/organisms/TrackItem";
+import Loading from "components/Loading";
+import Subheader from "components/Subheader";
+import TrackItem from "components/TrackItem";
 
 import useGetResources from "hooks/useGetResources";
 

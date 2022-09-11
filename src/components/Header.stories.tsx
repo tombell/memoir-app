@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import Header from "components/molecules/Header";
+import Header from "components/Header";
 
 const meta: Meta = {
   component: Header,

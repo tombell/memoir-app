@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "preact/hooks";
 
-import FilePicker from "components/atoms/FilePicker";
-import Tag from "components/atoms/Tag";
+import FilePicker from "components/FilePicker";
+import Tag from "components/Tag";
 
 import parse from "services/tracklists";
 

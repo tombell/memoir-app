@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import Link from "components/atoms/Link";
+import Link from "components/Link";
 
 const meta: Meta = {
   component: Link,

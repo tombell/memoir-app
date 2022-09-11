@@ -1,5 +1,5 @@
-import Link from "components/atoms/Link";
-import Tag from "components/atoms/Tag";
+import Link from "components/Link";
+import Tag from "components/Tag";
 
 export interface Props {
   id: string;

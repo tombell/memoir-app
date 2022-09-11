@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import Loading from "components/atoms/Loading";
+import Loading from "components/Loading";
 
 const meta: Meta = {
   component: Loading,

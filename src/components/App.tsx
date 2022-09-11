@@ -8,12 +8,10 @@ import TracklistsIndex from "pages/Tracklists/Index";
 import TracklistsShow from "pages/Tracklists/Show";
 import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
-import Footer from "components/molecules/Footer";
-import Header from "components/molecules/Header";
-
-import TrackSearch from "components/organisms/TrackSearch";
-
+import Footer from "components/Footer";
+import Header from "components/Header";
 import Redirect from "components/Redirect";
+import TrackSearch from "components/TrackSearch";
 
 import "./App.css";
 

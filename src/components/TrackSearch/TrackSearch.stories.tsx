@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/preact";
 import withMock from "storybook-addon-mock";
 
-import TrackSearch from "components/organisms/TrackSearch";
+import TrackSearch from "components/TrackSearch";
 
 const meta: Meta = {
   component: TrackSearch,

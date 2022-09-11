@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import Pagination, { Props } from "components/molecules/Pagination";
+import Pagination, { Props } from "components/Pagination";
 
 const meta: Meta = {
   component: Pagination,

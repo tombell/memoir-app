@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/preact";
 import withMock from "storybook-addon-mock";
 
-import ArtworkUploader, { Props } from "components/organisms/ArtworkUploader";
+import ArtworkUploader, { Props } from "components/ArtworkUploader";
 
 const meta: Meta = {
   component: ArtworkUploader,

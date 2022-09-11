@@ -1,6 +1,6 @@
 import { useCallback, useState } from "preact/hooks";
 
-import FilePicker from "components/atoms/FilePicker";
+import FilePicker from "components/FilePicker";
 
 import { uploadArtwork } from "services/memoir";
 

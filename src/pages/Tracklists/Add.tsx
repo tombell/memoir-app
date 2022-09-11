@@ -1,13 +1,12 @@
 import { FunctionalComponent } from "preact";
-import { route } from "preact-router";
 import { useCallback, useState } from "preact/hooks";
+import { route } from "preact-router";
 
-import Button from "components/atoms/Button";
-import Input from "components/atoms/Input";
-import Subheader from "components/atoms/Subheader";
-
-import ArtworkUploader from "components/organisms/ArtworkUploader";
-import TracklistPicker from "components/organisms/TracklistPicker";
+import ArtworkUploader from "components/ArtworkUploader";
+import Button from "components/Button";
+import Input from "components/Input";
+import Subheader from "components/Subheader";
+import TracklistPicker from "components/TracklistPicker";
 
 import { postTracklist } from "services/memoir";
 import { NewTracklist } from "services/memoir/types";

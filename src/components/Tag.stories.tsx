@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import Tag, { Props } from "components/atoms/Tag";
+import Tag, { Props } from "components/Tag";
 
 const meta: Meta = {
   component: Tag,

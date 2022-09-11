@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
 
-import Input from "components/atoms/Input";
+import Input from "components/Input";
 
-import Results from "components/organisms/TrackSearch/Results";
+import Results from "components/TrackSearch/Results";
 
 import { searchTracks } from "services/memoir";
 import { Track } from "services/memoir/types";

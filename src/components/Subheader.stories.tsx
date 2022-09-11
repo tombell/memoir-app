@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import Subheader, { Props } from "components/atoms/Subheader";
+import Subheader, { Props } from "components/Subheader";
 
 const meta: Meta = {
   component: Subheader,

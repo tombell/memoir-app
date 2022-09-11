@@ -1,8 +1,7 @@
 import { RoutableProps, route } from "preact-router";
 
-import Pagination from "components/molecules/Pagination";
-
-import TracklistItem from "components/organisms/TracklistItem";
+import Pagination from "components/Pagination";
+import TracklistItem from "components/TracklistItem";
 
 import useGetResources from "hooks/useGetResources";
 

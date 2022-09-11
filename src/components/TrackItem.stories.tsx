@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import TrackItem, { Props } from "components/organisms/TrackItem";
+import TrackItem, { Props } from "components/TrackItem";
 
 const meta: Meta = {
   component: TrackItem,

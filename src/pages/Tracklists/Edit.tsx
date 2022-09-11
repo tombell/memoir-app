@@ -1,11 +1,10 @@
-import { RoutableProps } from "preact-router";
 import { useCallback } from "preact/hooks";
+import { RoutableProps } from "preact-router";
 
-import Button from "components/atoms/Button";
-import Input from "components/atoms/Input";
-import Subheader from "components/atoms/Subheader";
-
-import TrackItem from "components/organisms/TrackItem";
+import Button from "components/Button";
+import Input from "components/Input";
+import Subheader from "components/Subheader";
+import TrackItem from "components/TrackItem";
 
 import useGetResource from "hooks/useGetResource";
 

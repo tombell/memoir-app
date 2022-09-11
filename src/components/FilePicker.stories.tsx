@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import FilePicker, { Props } from "components/atoms/FilePicker";
+import FilePicker, { Props } from "components/FilePicker";
 
 const meta: Meta = {
   component: FilePicker,

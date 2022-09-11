@@ -1,4 +1,4 @@
-import Result from "components/organisms/TrackSearch/Result";
+import Result from "components/TrackSearch/Result";
 
 import { Track } from "services/memoir/types";
 

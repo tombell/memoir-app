@@ -1,12 +1,10 @@
 import { RoutableProps } from "preact-router";
 
-import Link from "components/atoms/Link";
-import Loading from "components/atoms/Loading";
-import Subheader from "components/atoms/Subheader";
-
-import Genres from "components/molecules/Genres";
-
-import TrackItem from "components/organisms/TrackItem";
+import Genres from "components/Genres";
+import Link from "components/Link";
+import Loading from "components/Loading";
+import Subheader from "components/Subheader";
+import TrackItem from "components/TrackItem";
 
 import useGetResource from "hooks/useGetResource";
 

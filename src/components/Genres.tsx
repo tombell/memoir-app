@@ -1,4 +1,4 @@
-import Tag from "components/atoms/Tag";
+import Tag from "components/Tag";
 
 export interface Props {
   genres: string[];

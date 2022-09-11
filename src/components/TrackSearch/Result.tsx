@@ -1,4 +1,4 @@
-import Link from "components/atoms/Link";
+import Link from "components/Link";
 
 import { Track } from "services/memoir/types";
 

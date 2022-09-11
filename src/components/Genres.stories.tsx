@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/preact";
 
-import Genres, { Props } from "components/molecules/Genres";
+import Genres, { Props } from "components/Genres";
 
 const meta: Meta = {
   component: Genres,

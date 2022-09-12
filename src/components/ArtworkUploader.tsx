@@ -1,4 +1,5 @@
-import { useCallback, useState } from "preact/hooks";
+import { signal } from "@preact/signals";
+import { useCallback } from "preact/hooks";
 
 import FilePicker from "components/FilePicker";
 
@@ -10,27 +11,27 @@ export interface Props {
   onUpload: (artwork: string) => void;
 }
 
-const ArtworkUploader = ({ onUpload }: Props) => {
-  const [artwork, setArtwork] = useState<string | null>(null);
+const artwork = signal<string | null>(null);
 
+const ArtworkUploader = ({ onUpload }: Props) => {
   const handleSelect = useCallback(
     async (file: File) => {
       const upload = await uploadArtwork(file);
 
       if (upload) {
-        setArtwork(upload.key);
-        onUpload(upload.key);
+        artwork.value = upload.key;
+        onUpload(artwork.value);
       }
     },
     [onUpload]
   );
 
-  return artwork ? (
+  return artwork.value ? (
     <div class="artwork-uploader">
       <img
         class="artwork-uploader-image"
         alt="Mix Artwork"
-        src={`${MEMOIR_CDN_URL}/${artwork}`}
+        src={`${MEMOIR_CDN_URL}/${artwork.value}`}
       />
     </div>
   ) : (

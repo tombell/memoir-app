@@ -1,5 +1,5 @@
-import { FunctionalComponent } from "preact";
-import { useCallback, useState } from "preact/hooks";
+import { signal } from "@preact/signals";
+import { useCallback } from "preact/hooks";
 import { route } from "preact-router";
 
 import ArtworkUploader from "components/ArtworkUploader";
@@ -11,61 +11,42 @@ import TracklistPicker from "components/TracklistPicker";
 import { postTracklist } from "services/memoir";
 import { NewTracklist } from "services/memoir/types";
 
-const Add: FunctionalComponent = () => {
-  const [tracklist, setTracklist] = useState<NewTracklist>({
-    name: "",
-    date: "",
-    url: "",
-    artwork: "",
-    tracks: [],
-  });
+const tracklist = signal<NewTracklist>({
+  name: "",
+  date: "",
+  url: "",
+  artwork: "",
+  tracks: [],
+});
 
-  const handleNameInput = useCallback(
-    (e: Event) => {
-      tracklist.name = (e.target as HTMLInputElement).value;
-      setTracklist(tracklist);
-    },
-    [tracklist]
-  );
+const Add = () => {
+  const handleNameInput = useCallback((e: Event) => {
+    tracklist.value.name = (e.target as HTMLInputElement).value;
+  }, []);
 
-  const handleDateInput = useCallback(
-    (e: Event) => {
-      tracklist.date = `${(e.target as HTMLInputElement).value}T00:00:00Z`;
-      setTracklist(tracklist);
-    },
-    [tracklist]
-  );
+  const handleDateInput = useCallback((e: Event) => {
+    tracklist.value.date = `${(e.target as HTMLInputElement).value}T00:00:00Z`;
+  }, []);
 
-  const handleUrlInput = useCallback(
-    (e: Event) => {
-      tracklist.url = (e.target as HTMLInputElement).value;
-      setTracklist(tracklist);
-    },
-    [tracklist]
-  );
+  const handleUrlInput = useCallback((e: Event) => {
+    tracklist.value.url = (e.target as HTMLInputElement).value;
+  }, []);
 
-  const handleUpload = useCallback(
-    (filename: string) => {
-      tracklist.artwork = filename;
-      setTracklist(tracklist);
-    },
-    [tracklist]
-  );
+  const handleUpload = useCallback((filename: string) => {
+    tracklist.value.artwork = filename;
+  }, []);
 
-  const handleSelect = useCallback(
-    (tracks: string[][]) => {
-      tracklist.tracks = tracks;
-    },
-    [tracklist]
-  );
+  const handleSelect = useCallback((tracks: string[][]) => {
+    tracklist.value.tracks = tracks;
+  }, []);
 
   const handleSubmit = useCallback(async () => {
-    const resp = await postTracklist(tracklist);
+    const resp = await postTracklist(tracklist.value);
 
     if (resp) {
       route(`/tracklists/edit/${resp.id}`);
     }
-  }, [tracklist]);
+  }, []);
 
   return (
     <>

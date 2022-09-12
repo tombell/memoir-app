@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useState } from "preact/hooks";
+import { signal } from "@preact/signals";
+import { useCallback, useMemo } from "preact/hooks";
 
 import FilePicker from "components/FilePicker";
 import Tag from "components/Tag";
@@ -11,16 +12,16 @@ export interface Props {
   onSelect: (tracks: string[][]) => void;
 }
 
-const TracklistPicker = ({ onSelect }: Props) => {
-  const [tracks, setTracks] = useState<string[][] | null>(null);
+const tracks = signal<string[][] | null>(null);
 
+const TracklistPicker = ({ onSelect }: Props) => {
   const reader = useMemo(() => new FileReader(), []);
 
   const onFileRead = useCallback(() => {
     if (reader.result) {
       const parsed = parse(reader.result.toString());
-      setTracks(parsed);
-      onSelect(parsed);
+      tracks.value = parsed;
+      onSelect(tracks.value);
     }
   }, [reader, onSelect]);
 
@@ -32,9 +33,9 @@ const TracklistPicker = ({ onSelect }: Props) => {
     [reader, onFileRead]
   );
 
-  return tracks ? (
+  return tracks.value ? (
     <ol class="tracklist-picker">
-      {tracks.map((track, idx) => (
+      {tracks.value.map((track, idx) => (
         <li class="tracklist-picker-track">
           <p>{`${idx + 1}. ${track[1]} - ${track[0]}`}</p>
 

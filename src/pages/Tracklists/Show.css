@@ -1,0 +1,11 @@
+.tracklists-show {
+  @apply space-y-4;
+}
+
+.tracklists-show-link {
+  @apply text-xs font-semibold text-center;
+}
+
+.tracklists-show-genres {
+  @apply text-center;
+}

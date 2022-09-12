@@ -10,6 +10,8 @@ import useGetResource from "hooks/useGetResource";
 
 import { Tracklist } from "services/memoir/types";
 
+import "./Show.css";
+
 interface Props extends RoutableProps {
   id?: string;
 }
@@ -26,18 +28,16 @@ const Show = ({ id }: Props) => {
   return isLoading.value ? (
     <Loading />
   ) : (
-    <>
-      <div class="mb-4">
-        <Subheader text={tracklist.value.name} center />
-      </div>
+    <div class="tracklists-show">
+      <Subheader text={tracklist.value.name} center />
 
-      <div class="mb-4 text-xs font-semibold text-center">
+      <div class="tracklists-show-link">
         <Link href={tracklist.value.url}>Listen on Mixcloud &rarr;</Link>
       </div>
 
       {tracklist.value.tracks && (
         <>
-          <div class="mb-4 text-center">
+          <div class="tracklists-show-genres">
             <Genres
               genres={[
                 ...new Set(tracklist.value.tracks.map((track) => track.genre)),
@@ -57,7 +57,7 @@ const Show = ({ id }: Props) => {
           ))}
         </>
       )}
-    </>
+    </div>
   );
 };
 

@@ -6,15 +6,15 @@ import useGetResource from "hooks/useGetResource";
 
 import { Track } from "services/memoir/types";
 
+import "./MostPlayedTracks.css";
+
 const MostPlayedTracks = () => {
   const { isLoading, data: tracks } =
     useGetResource<Track[]>("/tracks/mostplayed");
 
   return (
-    <>
-      <div class="mb-4">
-        <Subheader text="Most Played Tracks" center />
-      </div>
+    <div class="most-played-tracks">
+      <Subheader text="Most Played Tracks" center />
 
       {isLoading.value ? (
         <Loading />
@@ -31,7 +31,7 @@ const MostPlayedTracks = () => {
           />
         ))
       )}
-    </>
+    </div>
   );
 };
 

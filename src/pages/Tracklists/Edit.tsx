@@ -12,6 +12,8 @@ import { formatYearMonthDay } from "services/datetime";
 import { patchTracklist } from "services/memoir";
 import { Tracklist } from "services/memoir/types";
 
+import "./Edit.css";
+
 interface Props extends RoutableProps {
   id?: string;
 }
@@ -47,13 +49,11 @@ const Edit = ({ id }: Props) => {
   }, [tracklist]);
 
   return (
-    <>
-      <div class="mb-4">
-        <Subheader text="Edit Tracklist" center />
-      </div>
+    <div class="tracklists-edit">
+      <Subheader text="Edit Tracklist" center />
 
       {tracklist.value && (
-        <div class="space-y-4">
+        <div class="tracklists-edit-form">
           <Input
             name="name"
             label="Name"
@@ -93,7 +93,7 @@ const Edit = ({ id }: Props) => {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

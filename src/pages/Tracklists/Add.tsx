@@ -11,6 +11,8 @@ import TracklistPicker from "components/TracklistPicker";
 import { postTracklist } from "services/memoir";
 import { NewTracklist } from "services/memoir/types";
 
+import "./Add.css";
+
 const tracklist = signal<NewTracklist>({
   name: "",
   date: "",
@@ -49,18 +51,17 @@ const Add = () => {
   }, []);
 
   return (
-    <>
-      <div class="mb-4">
-        <Subheader text="Add Tracklist" center />
-      </div>
+    <div class="tracklists-add">
+      <Subheader text="Add Tracklist" center />
 
-      <div class="space-y-4">
+      <div class="tracklists-add-form">
         <Input
           name="name"
           label="Name"
           placeholder="Name..."
           onInput={handleNameInput}
         />
+
         <Input
           name="date"
           label="Date"
@@ -68,6 +69,7 @@ const Add = () => {
           type="date"
           onInput={handleDateInput}
         />
+
         <Input
           name="url"
           label="Mixcloud URL"
@@ -76,20 +78,18 @@ const Add = () => {
         />
 
         <div>
-          <h3 class="mb-2 font-bold text-white">Artwork</h3>
+          <h3 class="tracklists-add-label">Artwork</h3>
           <ArtworkUploader onUpload={handleUpload} />
         </div>
 
         <div>
-          <h3 class="mb-2 font-bold text-white">Tracklist</h3>
+          <h3 class="tracklists-add-label">Tracklist</h3>
           <TracklistPicker onSelect={handleSelect} />
         </div>
 
-        <div class="mt-2">
-          <Button text="Add" onClick={handleSubmit} />
-        </div>
+        <Button text="Add" onClick={handleSubmit} />
       </div>
-    </>
+    </div>
   );
 };
 

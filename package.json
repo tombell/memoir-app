@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@preact/signals": "^1.0.4",
-    "@storybook/preact": "^6.5.10",
+    "@storybook/preact": "^6.5.12",
     "preact": "^10.10.6",
     "preact-router": "^4.1.0",
     "storybook-addon-mock": "^2.4.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.3.0",
-    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.12",
     "@storybook/builder-vite": "^0.2.2",
     "@types/node": "^18.7.16",
     "autoprefixer": "^10.4.8",

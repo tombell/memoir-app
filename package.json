@@ -13,7 +13,7 @@
   "dependencies": {
     "@preact/signals": "^1.0.4",
     "@storybook/preact": "^6.5.12",
-    "preact": "^10.10.6",
+    "preact": "^10.11.0",
     "preact-router": "^4.1.0",
     "storybook-addon-mock": "^2.4.1"
   },
@@ -23,7 +23,7 @@
     "@storybook/builder-vite": "^0.2.2",
     "@types/node": "^18.7.18",
     "autoprefixer": "^10.4.11",
-    "eslint": "^8.23.0",
+    "eslint": "^8.23.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",

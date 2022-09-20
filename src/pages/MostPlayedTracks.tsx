@@ -1,3 +1,5 @@
+import { FunctionalComponent } from "preact";
+
 import Loading from "components/Loading";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";
@@ -8,7 +10,7 @@ import { Track } from "services/memoir/types";
 
 import "./MostPlayedTracks.css";
 
-const MostPlayedTracks = () => {
+const MostPlayedTracks: FunctionalComponent = () => {
   const { isLoading, data: tracks } =
     useGetResource<Track[]>("/tracks/mostplayed");
 

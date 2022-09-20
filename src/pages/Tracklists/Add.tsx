@@ -1,4 +1,5 @@
 import { signal } from "@preact/signals";
+import { FunctionalComponent } from "preact";
 import { useCallback } from "preact/hooks";
 import { route } from "preact-router";
 
@@ -21,7 +22,7 @@ const tracklist = signal<NewTracklist>({
   tracks: [],
 });
 
-const Add = () => {
+const Add: FunctionalComponent = () => {
   const handleNameInput = useCallback((e: Event) => {
     tracklist.value.name = (e.target as HTMLInputElement).value;
   }, []);

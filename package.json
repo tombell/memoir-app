@@ -21,7 +21,7 @@
     "@preact/preset-vite": "^2.3.0",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/builder-vite": "^0.2.3",
-    "@types/node": "^18.7.22",
+    "@types/node": "^18.7.23",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.24.0",
     "eslint-config-airbnb": "^19.0.4",

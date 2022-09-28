@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-open",
     "lint": "eslint src",
     "prepare": "husky install"
   },
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@preact/preset-vite": "^2.3.0",
     "@storybook/addon-essentials": "^6.5.12",
-    "@storybook/builder-vite": "^0.2.2",
+    "@storybook/builder-vite": "^0.2.3",
     "@types/node": "^18.7.22",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.24.0",

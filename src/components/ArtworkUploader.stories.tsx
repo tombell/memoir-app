@@ -1,5 +1,4 @@
 import { Meta, Story } from "@storybook/preact";
-import withMock from "storybook-addon-mock";
 
 import ArtworkUploader, { Props } from "components/ArtworkUploader";
 
@@ -8,7 +7,6 @@ const meta: Meta = {
   argTypes: {
     onUpload: { action: "uploaded" },
   },
-  decorators: [withMock],
 };
 export default meta;
 

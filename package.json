@@ -17,7 +17,7 @@
     "preact-router": "^4.1.0"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.3.0",
+    "@preact/preset-vite": "^2.5.0",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/builder-vite": "^0.2.5",
     "@types/node": "^18.11.18",

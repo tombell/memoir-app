@@ -31,7 +31,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.10",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^13.1.0",
     "postcss": "^8.4.17",
     "prettier": "^2.8.3",
     "rustywind": "^0.15.1",

@@ -32,7 +32,7 @@
     "eslint-plugin-storybook": "^0.6.10",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "postcss": "^8.4.17",
+    "postcss": "^8.4.21",
     "prettier": "^2.8.3",
     "rustywind": "^0.15.3",
     "storybook-addon-mock": "^3.2.0",

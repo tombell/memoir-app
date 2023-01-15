@@ -30,7 +30,7 @@
     "eslint-plugin-react": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.10",
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "postcss": "^8.4.17",
     "prettier": "^2.8.3",

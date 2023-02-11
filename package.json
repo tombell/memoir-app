@@ -33,7 +33,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.4",
     "rustywind": "^0.15.3",
     "storybook": "^7.0.0-beta.46",
     "storybook-addon-mock": "^3.2.0",

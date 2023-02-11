@@ -23,28 +23,28 @@ const Edit = ({ id }: Props) => {
 
   const handleNameInput = useCallback(
     (e: Event) => {
-      tracklist.value!.name = (e.target as HTMLInputElement).value;
+      tracklist!.name = (e.target as HTMLInputElement).value;
     },
     [tracklist]
   );
 
   const handleDateInput = useCallback(
     (e: Event) => {
-      tracklist.value!.date = (e.target as HTMLInputElement).value;
+      tracklist!.date = (e.target as HTMLInputElement).value;
     },
     [tracklist]
   );
 
   const handleUrlInput = useCallback(
     (e: Event) => {
-      tracklist.value!.url = (e.target as HTMLInputElement).value;
+      tracklist!.url = (e.target as HTMLInputElement).value;
     },
     [tracklist]
   );
 
   const handleSubmit = useCallback(async () => {
-    if (tracklist.value) {
-      await patchTracklist(tracklist.value);
+    if (tracklist) {
+      await patchTracklist(tracklist);
     }
   }, [tracklist]);
 
@@ -52,13 +52,13 @@ const Edit = ({ id }: Props) => {
     <div class="tracklists-edit">
       <Subheader text="Edit Tracklist" center />
 
-      {tracklist.value && (
+      {tracklist && (
         <div class="tracklists-edit-form">
           <Input
             name="name"
             label="Name"
             placeholder="Name..."
-            value={tracklist.value.name}
+            value={tracklist.name}
             onInput={handleNameInput}
           />
 
@@ -67,7 +67,7 @@ const Edit = ({ id }: Props) => {
             label="Date"
             placeholder="Date..."
             type="date"
-            value={formatYearMonthDay(new Date(tracklist.value.date))}
+            value={formatYearMonthDay(new Date(tracklist.date))}
             onInput={handleDateInput}
           />
 
@@ -75,13 +75,13 @@ const Edit = ({ id }: Props) => {
             name="url"
             label="Mixcloud URL"
             placeholder="Mixcloud URL..."
-            value={tracklist.value.url}
+            value={tracklist.url}
             onInput={handleUrlInput}
           />
 
           <Button text="Update" onClick={handleSubmit} />
 
-          {tracklist.value.tracks!.map((track) => (
+          {tracklist.tracks!.map((track) => (
             <TrackItem
               id={track.id}
               artist={track.artist}

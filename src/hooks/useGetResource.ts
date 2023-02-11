@@ -37,5 +37,9 @@ export default <T>(url: string | null, page?: number) => {
     fn();
   }, [url, page, data]);
 
-  return { isLoading, data, hasMore };
+  return {
+    isLoading: isLoading.value,
+    data: data.value,
+    hasMore: hasMore.value,
+  };
 };

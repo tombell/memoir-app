@@ -27,9 +27,9 @@ const TracklistsByTrack = ({ path, id, page }: Props) => {
 
   return (
     <>
-      {isLoading.value
+      {isLoading
         ? [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)
-        : tracklists.value?.map(
+        : tracklists?.map(
             ({ id: trackId, name, date, artwork, trackCount }) => (
               <TracklistItem
                 key={trackId}
@@ -42,7 +42,7 @@ const TracklistsByTrack = ({ path, id, page }: Props) => {
             )
           )}
 
-      <Pagination path={path!} id={id} page={pageNum} hasMore={hasMore.value} />
+      <Pagination path={path!} id={id} page={pageNum} hasMore={hasMore} />
     </>
   );
 };

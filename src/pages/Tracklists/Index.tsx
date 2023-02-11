@@ -26,9 +26,9 @@ const Index = ({ path, page }: Props) => {
 
   return (
     <>
-      {isLoading.value
+      {isLoading
         ? [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)
-        : tracklists.value?.map(({ id, name, date, artwork, trackCount }) => (
+        : tracklists?.map(({ id, name, date, artwork, trackCount }) => (
             <TracklistItem
               key={id}
               id={id}
@@ -39,7 +39,7 @@ const Index = ({ path, page }: Props) => {
             />
           ))}
 
-      <Pagination path={path!} page={pageNum} hasMore={hasMore.value} />
+      <Pagination path={path!} page={pageNum} hasMore={hasMore} />
     </>
   );
 };

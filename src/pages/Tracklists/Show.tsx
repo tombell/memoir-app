@@ -21,31 +21,31 @@ const Show = ({ id }: Props) => {
     `/tracklists/${id}`
   );
 
-  if (!tracklist.value) {
+  if (!tracklist) {
     return null;
   }
 
-  return isLoading.value ? (
+  return isLoading ? (
     <Loading />
   ) : (
     <div class="tracklists-show">
-      <Subheader text={tracklist.value.name} center />
+      <Subheader text={tracklist.name} center />
 
       <div class="tracklists-show-link">
-        <Link href={tracklist.value.url}>Listen on Mixcloud &rarr;</Link>
+        <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>
       </div>
 
-      {tracklist.value.tracks && (
+      {tracklist.tracks && (
         <>
           <div class="tracklists-show-genres">
             <Genres
               genres={[
-                ...new Set(tracklist.value.tracks.map((track) => track.genre)),
+                ...new Set(tracklist.tracks.map((track) => track.genre)),
               ]}
             />
           </div>
 
-          {tracklist.value.tracks.map((track) => (
+          {tracklist.tracks.map((track) => (
             <TrackItem
               id={track.id}
               artist={track.artist}

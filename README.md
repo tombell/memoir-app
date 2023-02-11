@@ -1,16 +1,17 @@
 # Memoir App
 
-The front end application for the Memoir API.
+The front end application for the Memoir API, used for hosting track lists for
+DJ mixes.
 
 It is powered by [Preact][preact], and [Tailwind][tailwind].
 
-Built with [esbuild][esbuild] and [TypeScript][typescript].
+Built with [vite][vite] and [TypeScript][typescript].
 
 Linted and formatted with [ESLint][eslint] and [Prettier][prettier]
 
 [preact]: https://preactjs.com
 [tailwind]: https://tailwindcss.com
-[esbuild]: https://esbuild.github.io
+[vite]: https://vitejs.dev/
 [typescript]: https://www.typescriptlang.org
 [eslint]: https://eslint.org
 [prettier]: https://prettier.io

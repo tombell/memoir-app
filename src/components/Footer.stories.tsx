@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/preact";
+import { Meta } from "@storybook/preact";
 
 import Footer from "components/Footer";
 
@@ -7,7 +7,7 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story = () => <Footer />;
-
-export const Base = Template.bind({});
-Base.storyName = "Footer";
+export const Base = {
+  render: () => <Footer />,
+  name: "Footer",
+};

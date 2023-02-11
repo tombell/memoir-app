@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/preact";
+import { Meta } from "@storybook/preact";
 
 import Genres, { Props } from "components/Genres";
 
@@ -7,10 +7,10 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story<Props> = (props) => <Genres {...props} />;
+export const Base = {
+  name: "Genres",
 
-export const Base = Template.bind({});
-Base.storyName = "Genres";
-Base.args = {
-  genres: ["House", "Tech House", "Funky/Goove/Jackin' House"],
+  args: {
+    genres: ["House", "Tech House", "Funky/Goove/Jackin' House"],
+  },
 };

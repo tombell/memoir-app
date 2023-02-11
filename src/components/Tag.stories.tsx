@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/preact";
+import { Meta } from "@storybook/preact";
 
 import Tag, { Props } from "components/Tag";
 
@@ -7,40 +7,45 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story<Props> = (props) => <Tag {...props} />;
+export const Base = {
+  name: "Tag",
 
-export const Base = Template.bind({});
-Base.storyName = "Tag";
-Base.args = {
-  text: "Base",
+  args: {
+    text: "Base",
+  },
 };
 
-export const Purple = Template.bind({});
-Purple.args = {
-  text: "Purple",
-  color: "purple",
+export const Purple = {
+  args: {
+    text: "Purple",
+    color: "purple",
+  },
 };
 
-export const Lilac = Template.bind({});
-Lilac.args = {
-  text: "Lilac",
-  color: "lilac",
+export const Lilac = {
+  args: {
+    text: "Lilac",
+    color: "lilac",
+  },
 };
 
-export const Blue = Template.bind({});
-Blue.args = {
-  text: "Blue",
-  color: "blue",
+export const Blue = {
+  args: {
+    text: "Blue",
+    color: "blue",
+  },
 };
 
-export const Green = Template.bind({});
-Green.args = {
-  text: "Green",
-  color: "green",
+export const Green = {
+  args: {
+    text: "Green",
+    color: "green",
+  },
 };
 
-export const LightBlue = Template.bind({});
-LightBlue.args = {
-  text: "Light Blue",
-  color: "lightblue",
+export const LightBlue = {
+  args: {
+    text: "Light Blue",
+    color: "lightblue",
+  },
 };

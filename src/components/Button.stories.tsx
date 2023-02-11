@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/preact";
+import { Meta } from "@storybook/preact";
 
 import Button, { Props } from "components/Button";
 
@@ -10,10 +10,10 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story<Props> = (props) => <Button {...props} />;
+export const Base = {
+  name: "Button",
 
-export const Base = Template.bind({});
-Base.storyName = "Button";
-Base.args = {
-  text: "Button",
+  args: {
+    text: "Button",
+  },
 };

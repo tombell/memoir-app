@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/preact";
+import { Meta } from "@storybook/preact";
 
 import Link from "components/Link";
 
@@ -10,11 +10,11 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story = (props) => <Link {...props} />;
+export const Base = {
+  name: "Link",
 
-export const Base = Template.bind({});
-Base.storyName = "Link";
-Base.args = {
-  href: "https://google.com",
-  children: "Google",
+  args: {
+    href: "https://google.com",
+    children: "Google",
+  },
 };

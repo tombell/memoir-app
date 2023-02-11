@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/preact";
+import { Meta } from "@storybook/preact";
 
 import FilePicker, { Props } from "components/FilePicker";
 
@@ -10,10 +10,10 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story<Props> = (props) => <FilePicker {...props} />;
+export const Base = {
+  name: "FilePicker",
 
-export const Base = Template.bind({});
-Base.storyName = "FilePicker";
-Base.args = {
-  accept: "text/plain",
+  args: {
+    accept: "text/plain",
+  },
 };

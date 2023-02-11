@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/preact";
+import { Meta } from "@storybook/preact";
 
 import Loading from "components/Loading";
 
@@ -7,7 +7,7 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story = () => <Loading />;
-
-export const Base = Template.bind({});
-Base.storyName = "Loading";
+export const Base = {
+  render: () => <Loading />,
+  name: "Loading",
+};

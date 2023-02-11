@@ -5,7 +5,7 @@ export const request = async (
   method = "GET",
   body: FormData | string | null = null
 ) => {
-  const headers: any = {};
+  const headers: { [key: string]: string } = {};
 
   if (MEMOIR_API_KEY) {
     headers["API-Token"] = MEMOIR_API_KEY;

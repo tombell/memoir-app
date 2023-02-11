@@ -18,6 +18,10 @@ const Results = ({ show, tracks, onResultClick }: Props) => {
   return (
     <div class="track-search-results">
       <ul class="track-search-results-list">
+        {tracks.length === 0 && (
+          <li class="track-search-results-list-item">No results</li>
+        )}
+
         {tracks.map((track) => (
           <Result track={track} onClick={onResultClick} />
         ))}

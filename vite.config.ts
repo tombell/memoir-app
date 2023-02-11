@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
         ? '"http://localhost:8080"'
         : '"https://api.iamdjriff.co.uk"',
       MEMOIR_CDN_URL: dev
-        ? '"https://memoir-artwork.s3.amazonaws.com"'
+        ? '"https://memoir-artwork-development.s3.amazonaws.com"'
         : '"https://d4vv6ayb6g3d4.cloudfront.net"',
     },
     esbuild: {

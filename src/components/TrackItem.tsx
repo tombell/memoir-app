@@ -3,7 +3,7 @@ import Tag from "components/Tag";
 
 import "./TrackItem.css";
 
-export interface Props {
+interface Props {
   id: string;
   artist: string;
   name: string;

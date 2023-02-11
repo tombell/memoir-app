@@ -2,7 +2,7 @@ import "./Tag.css";
 
 type TagColor = "blue" | "green" | "lightblue" | "lilac" | "purple";
 
-export interface Props {
+interface Props {
   text: string | number;
   color?: TagColor;
 }

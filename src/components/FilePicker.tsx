@@ -2,7 +2,7 @@ import { useCallback, useRef } from "preact/hooks";
 
 import "./FilePicker.css";
 
-export interface Props {
+interface Props {
   accept: string;
   onSelect: (file: File) => void;
 }

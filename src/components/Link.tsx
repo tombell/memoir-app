@@ -1,6 +1,6 @@
 import "./Link.css";
 
-export interface Props {
+interface Props {
   className?: string;
   href?: string;
   onClick?: any;

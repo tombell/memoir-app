@@ -4,7 +4,7 @@ import { Track } from "services/memoir/types";
 
 import "./Results.css";
 
-export interface Props {
+interface Props {
   show: boolean;
   tracks?: Track[] | null;
   onResultClick: () => void;

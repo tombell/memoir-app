@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/preact";
 
-import Pagination, { Props } from "components/Pagination";
+import Pagination from "components/Pagination";
 
 const meta: Meta = {
   component: Pagination,
@@ -27,7 +27,7 @@ export const WithNewer = {
   },
 };
 
-export const WithMore = {
+export const WithOlder = {
   args: {
     path: "https://example.com/:id/page/:page",
     id: "abc-def",
@@ -36,7 +36,7 @@ export const WithMore = {
   },
 };
 
-export const WithNewerAndMore = {
+export const WithNewerAndOlder = {
   args: {
     path: "https://example.com/:id/page/:page",
     id: "abc-def",

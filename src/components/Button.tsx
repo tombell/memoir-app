@@ -1,6 +1,6 @@
 import "./Button.css";
 
-export interface Props {
+interface Props {
   text: string;
   onClick: () => void;
 }

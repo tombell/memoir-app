@@ -15,7 +15,7 @@ const highlight = (text?: string | null) => {
   );
 };
 
-export interface Props {
+interface Props {
   track: Track;
   onClick: () => void;
 }

@@ -1,6 +1,6 @@
 import "./SubHeader.css";
 
-export interface Props {
+interface Props {
   text: string;
   center?: boolean;
 }

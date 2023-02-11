@@ -2,7 +2,7 @@ import Link from "components/Link";
 
 import "./Pagination.css";
 
-export interface Props {
+interface Props {
   path: string;
   id?: string;
   page: number;

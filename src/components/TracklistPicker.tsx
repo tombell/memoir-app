@@ -8,7 +8,7 @@ import parse from "services/tracklists";
 
 import "./TracklistPicker.css";
 
-export interface Props {
+interface Props {
   onSelect: (tracks: string[][]) => void;
 }
 

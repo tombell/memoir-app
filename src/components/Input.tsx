@@ -3,7 +3,7 @@ import { useCallback } from "preact/hooks";
 
 import "./Input.css";
 
-export interface Props {
+interface Props {
   name: string;
   label?: string;
   placeholder: string;

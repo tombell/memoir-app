@@ -2,7 +2,7 @@ import Tag from "components/Tag";
 
 import "./Genres.css";
 
-export interface Props {
+interface Props {
   genres: string[];
 }
 

@@ -7,7 +7,7 @@ import { uploadArtwork } from "services/memoir";
 
 import "./ArtworkUploader.css";
 
-export interface Props {
+interface Props {
   onUpload: (artwork: string) => void;
 }
 

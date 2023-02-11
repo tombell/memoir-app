@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/preact";
 
-import Results, { Props } from "components/TrackSearch/Results";
+import Results from "components/TrackSearch/Results";
 
 const meta: Meta = {
   component: Results,

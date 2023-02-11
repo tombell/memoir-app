@@ -5,7 +5,7 @@ import { formatFriendlyDate } from "services/datetime";
 
 import "./TracklistItem.css";
 
-export interface Props {
+interface Props {
   loading?: boolean;
   id?: string;
   name?: string;

@@ -5,13 +5,9 @@ module.exports = {
   viteFinal: (config) => mergeConfig(config, { plugins: [tsconfigPaths()] }),
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   staticDirs: ["./public", "../public"],
-  addons: [
-    "@storybook/addon-essentials",
-    "storybook-addon-mock/register",
-  ],
-  framework: "@storybook/preact",
-  core: {
-    builder: "@storybook/builder-vite",
+  addons: ["@storybook/addon-essentials", "storybook-addon-mock/register"],
+  framework: {
+    name: "@storybook/preact-vite",
   },
   features: {
     storyStoreV7: true,

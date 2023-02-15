@@ -5,8 +5,6 @@ import FilePicker from "components/FilePicker";
 
 import { uploadArtwork } from "services/memoir";
 
-import "./ArtworkUploader.css";
-
 interface Props {
   onUpload: (artwork: string) => void;
 }
@@ -27,9 +25,9 @@ const ArtworkUploader = ({ onUpload }: Props) => {
   );
 
   return artwork.value ? (
-    <div class="artwork-uploader">
+    <div class="p-4 w-full text-center bg-gray-800 rounded box-border">
       <img
-        class="artwork-uploader-image"
+        class="w-24 h-24 border border-gray-700 border-solid"
         alt="Mix Artwork"
         src={`${MEMOIR_CDN_URL}/${artwork.value}`}
       />

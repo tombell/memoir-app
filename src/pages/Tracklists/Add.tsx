@@ -12,8 +12,6 @@ import TracklistPicker from "components/TracklistPicker";
 import { postTracklist } from "services/memoir";
 import { NewTracklist } from "services/memoir/types";
 
-import "./Add.css";
-
 const tracklist = signal<NewTracklist>({
   name: "",
   date: "",
@@ -52,10 +50,10 @@ const Add: FunctionalComponent = () => {
   }, []);
 
   return (
-    <div class="tracklists-add">
+    <div class="space-y-4">
       <Subheader text="Add Tracklist" center />
 
-      <div class="tracklists-add-form">
+      <div class="space-y-4">
         <Input
           name="name"
           label="Name"
@@ -79,12 +77,14 @@ const Add: FunctionalComponent = () => {
         />
 
         <div>
-          <h3 class="tracklists-add-label">Artwork</h3>
+          {/* TODO: refactor into label component */}
+          <h3 class="mb-2 font-bold text-white">Artwork</h3>
           <ArtworkUploader onUpload={handleUpload} />
         </div>
 
         <div>
-          <h3 class="tracklists-add-label">Tracklist</h3>
+          {/* TODO: refactor into label component */}
+          <h3 class="mb-2 font-bold text-white">Tracklist</h3>
           <TracklistPicker onSelect={handleSelect} />
         </div>
 

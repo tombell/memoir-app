@@ -3,8 +3,6 @@ import Tag from "components/Tag";
 
 import { formatFriendlyDate } from "services/datetime";
 
-import "./TracklistItem.css";
-
 interface Props {
   loading?: boolean;
   id?: string;
@@ -27,13 +25,15 @@ const TracklistItem = ({
 }: Props) => {
   if (loading) {
     return (
-      <div class="tracklist-item-loading">
-        <div class="tracklist-item-loading-container">
-          <div class="tracklist-item-loading-artwork">
-            <div class="tracklist-item-artwork" />
+      <div class="items-center p-2 mb-2.5 rounded border border-gray-700 border-solid animate-pulse">
+        <div class="flex items-center space-x-3">
+          <div class="rounded border border-gray-700 border-solid">
+            <div class="w-20 h-20" />
           </div>
 
-          <h3 class="tracklist-item-loading-name">&nbsp;</h3>
+          <h3 class="m-0 w-full font-bold leading-5 rounded border border-gray-700 border-solid">
+            &nbsp;
+          </h3>
         </div>
       </div>
     );
@@ -47,19 +47,22 @@ const TracklistItem = ({
 
   return (
     <Link href={`/tracklist/${id}`}>
-      <div class="tracklist-item" style={background}>
-        <div class="tracklist-item-container">
-          <div class="tracklist-item-artwork-container">
+      <div
+        class="items-center p-2 mb-2.5 bg-no-repeat bg-cover rounded border border-gray-700 border-solid"
+        style={background}
+      >
+        <div class="flex items-center space-x-3">
+          <div class="rounded border border-gray-700 border-solid">
             <img
-              class="tracklist-item-artwork"
+              class="w-20 h-20"
               alt={`${name} Artwork`}
               src={backgroundImage}
             />
           </div>
 
-          <h3 class="tracklist-item-name">{name}</h3>
+          <h3 class="flex-1 m-0 font-bold leading-5">{name}</h3>
 
-          <div class="tracklist-item-tags">
+          <div class="ml-auto space-x-2">
             <Tag text={`${trackCount} Tracks`} color="lilac" />
             <Tag text={formatFriendlyDate(date!)} color="lightblue" />
           </div>

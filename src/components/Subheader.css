@@ -1,7 +1,0 @@
-.subheader {
-  @apply font-bold text-left text-white;
-}
-
-.subheader-center {
-  @apply text-center;
-}

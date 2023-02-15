@@ -2,8 +2,6 @@ import Result from "components/TrackSearch/Result";
 
 import { Track } from "services/memoir/types";
 
-import "./Results.css";
-
 interface Props {
   show: boolean;
   tracks?: Track[] | null;
@@ -16,11 +14,9 @@ const Results = ({ show, tracks, onResultClick }: Props) => {
   }
 
   return (
-    <div class="track-search-results">
-      <ul class="track-search-results-list">
-        {tracks.length === 0 && (
-          <li class="track-search-results-list-item">No results</li>
-        )}
+    <div class="absolute z-10 p-2.5 mt-2 w-full bg-gray-800 rounded border border-gray-700 border-solid box-border">
+      <ul class="p-0 m-0">
+        {tracks.length === 0 && <li class="text-white">No results</li>}
 
         {tracks.map((track) => (
           <Result track={track} onClick={onResultClick} />

@@ -1,8 +1,6 @@
 import Link from "components/Link";
 import Tag from "components/Tag";
 
-import "./TrackItem.css";
-
 interface Props {
   id: string;
   artist: string;
@@ -13,12 +11,12 @@ interface Props {
 }
 
 const TrackItem = ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
-  <div class="track-item">
-    <div class="track-item-details">
+  <div class="items-center mb-6">
+    <div class="font-bold">
       <Link href={`/tracks/${id}`}>{`${artist} - ${name}`}</Link>
     </div>
 
-    <div class="track-item-tags">
+    <div class="space-x-2">
       <Tag text={bpm.toFixed(2)} color="purple" />
       <Tag text={camelotKey} color="lilac" />
       <Tag text={genre} color="blue" />

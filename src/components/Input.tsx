@@ -1,8 +1,6 @@
 import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
 
-import "./Input.css";
-
 interface Props {
   name: string;
   label?: string;
@@ -35,10 +33,10 @@ const Input = ({
   return (
     <div>
       <label htmlFor={name}>
-        {label && <span class="input-label">{label}</span>}
+        {label && <span class="block mb-2 font-bold text-white">{label}</span>}
 
         <input
-          class="input"
+          class="p-3 w-full text-white bg-gray-800 rounded border border-gray-700 border-solid box-border"
           type={type}
           id={name}
           name={name}

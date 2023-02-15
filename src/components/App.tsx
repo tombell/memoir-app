@@ -16,12 +16,12 @@ import TrackSearch from "components/TrackSearch";
 import "./App.css";
 
 const App = () => (
-  <div class="app">
-    <div class="app-header">
+  <div class="container px-96 mx-auto">
+    <div class="flex justify-center my-4">
       <Header />
     </div>
 
-    <div class="app-search">
+    <div class="mb-8">
       <TrackSearch />
     </div>
 
@@ -39,7 +39,7 @@ const App = () => (
       <NotFoundPage path="/404" default />
     </Router>
 
-    <div class="app-footer">
+    <div class="my-8">
       <Footer />
     </div>
   </div>

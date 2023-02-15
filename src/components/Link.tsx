@@ -1,5 +1,3 @@
-import "./Link.css";
-
 interface Props {
   className?: string;
   href?: string;
@@ -9,7 +7,12 @@ interface Props {
 
 const Link = ({ className, href, onClick, children }: Props) => (
   <a
-    class={["link", className].filter(Boolean).join(" ")}
+    class={[
+      "text-white no-underline cursor-pointer hover:text-green-600",
+      className,
+    ]
+      .filter(Boolean)
+      .join(" ")}
     href={href}
     onClick={onClick}
   >

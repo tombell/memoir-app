@@ -2,8 +2,6 @@ import Link from "components/Link";
 
 import { Track } from "services/memoir/types";
 
-import "./Result.css";
-
 const highlight = (text?: string | null) => {
   if (!text) {
     return "";
@@ -11,7 +9,7 @@ const highlight = (text?: string | null) => {
 
   return text.replace(
     /<<(.*?)>>/g,
-    (_a, str) => `<b class="track-search-result-highlight">${str}</b>`
+    (_a, str) => `<b class="italic font-bold text-indigo-500">${str}</b>`
   );
 };
 
@@ -21,7 +19,7 @@ interface Props {
 }
 
 const Result = ({ track, onClick }: Props) => (
-  <li class="track-search-result">
+  <li class="my-2.5 mx-2 list-none text-white truncate">
     <Link href={`/tracks/${track.id}`} onClick={onClick}>
       <span
         // eslint-disable-next-line react/no-danger

@@ -1,7 +1,0 @@
-.pagination {
-  @apply flex items-center my-12 font-bold;
-}
-
-.pagination-link {
-  @apply flex flex-1 justify-center;
-}

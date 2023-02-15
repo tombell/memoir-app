@@ -6,8 +6,6 @@ import Tag from "components/Tag";
 
 import parse from "services/tracklists";
 
-import "./TracklistPicker.css";
-
 interface Props {
   onSelect: (tracks: string[][]) => void;
 }
@@ -34,12 +32,12 @@ const TracklistPicker = ({ onSelect }: Props) => {
   );
 
   return tracks.value ? (
-    <ol class="tracklist-picker">
+    <ol class="p-8 space-y-2 w-full bg-gray-800 rounded box-border">
       {tracks.value.map((track, idx) => (
-        <li class="tracklist-picker-track">
+        <li class="mx-0 text-xs font-bold list-none list-inside text-white">
           <p>{`${idx + 1}. ${track[1]} - ${track[0]}`}</p>
 
-          <div class="tracklist-picker-track-tags">
+          <div class="mt-2 space-x-2">
             <Tag text={track[2]} color="purple" />
             <Tag text={track[3]} color="lilac" />
             <Tag text={track[4]} color="blue" />

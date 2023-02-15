@@ -8,14 +8,12 @@ import useGetResource from "hooks/useGetResource";
 
 import { Track } from "services/memoir/types";
 
-import "./MostPlayedTracks.css";
-
 const MostPlayedTracks: FunctionalComponent = () => {
   const { isLoading, data: tracks } =
     useGetResource<Track[]>("/tracks/mostplayed");
 
   return (
-    <div class="most-played-tracks">
+    <div class="space-y-4">
       <Subheader text="Most Played Tracks" center />
 
       {isLoading ? (

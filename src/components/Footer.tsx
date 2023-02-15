@@ -1,20 +1,18 @@
 import Link from "components/Link";
 
-import "./Footer.css";
-
 const Footer = () => (
-  <footer class="footer">
-    <div class="footer-left">
-      <Link className="footer-link" href="/tracklists/1">
+  <footer class="flex text-xs font-bold">
+    <div class="flex-1 space-x-4">
+      <Link className="inline" href="/tracklists/1">
         Tracklists
       </Link>
-      <Link className="footer-link" href="/tracks/mostplayed">
+      <Link className="inline" href="/tracks/mostplayed">
         Most Played Tracks
       </Link>
     </div>
 
-    <div class="footer-right">
-      <Link className="footer-link" href="https://mixcloud.com/iamdjriff">
+    <div class="flex flex-1 justify-end">
+      <Link className="inline" href="https://mixcloud.com/iamdjriff">
         IAMDJRIFF on Mixcloud
       </Link>
     </div>

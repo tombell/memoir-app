@@ -4,6 +4,12 @@ import Tag from "components/Tag";
 
 const meta: Meta = {
   component: Tag,
+  argTypes: {
+    color: {
+      options: ["blue", "green", "lightblue", "lilac", "purple"],
+      control: { type: "radio" },
+    },
+  },
 };
 export default meta;
 

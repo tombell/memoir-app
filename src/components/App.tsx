@@ -16,8 +16,8 @@ import TrackSearch from "components/TrackSearch";
 import "./App.css";
 
 const App = () => (
-  <div class="container px-96 mx-auto">
-    <div class="flex justify-center my-4">
+  <div class="container mx-auto px-96">
+    <div class="my-4 flex justify-center">
       <Header />
     </div>
 

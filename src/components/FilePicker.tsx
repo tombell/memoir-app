@@ -16,9 +16,9 @@ const FilePicker = ({ accept, onSelect }: Props) => {
   }, [input, onSelect]);
 
   return (
-    <div class="p-3 text-white bg-gray-800 rounded border border-gray-700 border-solid">
+    <div class="rounded border border-solid border-gray-700 bg-gray-800 p-3 text-white">
       <input
-        class="block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:text-gray-900 file:bg-violet-50 hover:file:bg-violet-100"
+        class="block w-full text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-gray-900 hover:file:bg-violet-100"
         type="file"
         ref={input}
         accept={accept}

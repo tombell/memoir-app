@@ -25,9 +25,9 @@ const ArtworkUploader = ({ onUpload }: Props) => {
   );
 
   return artwork.value ? (
-    <div class="p-4 w-full text-center bg-gray-800 rounded box-border">
+    <div class="box-border w-full rounded bg-gray-800 p-4 text-center">
       <img
-        class="w-24 h-24 border border-gray-700 border-solid"
+        class="h-24 w-24 border border-solid border-gray-700"
         alt="Mix Artwork"
         src={`${MEMOIR_CDN_URL}/${artwork.value}`}
       />

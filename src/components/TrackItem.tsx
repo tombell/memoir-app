@@ -11,7 +11,7 @@ interface Props {
 }
 
 const TrackItem = ({ id, artist, name, genre, bpm, camelotKey }: Props) => (
-  <div class="items-center mb-6">
+  <div class="mb-6 items-center">
     <div class="font-bold">
       <Link href={`/tracks/${id}`}>{`${artist} - ${name}`}</Link>
     </div>

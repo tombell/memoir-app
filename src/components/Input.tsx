@@ -33,10 +33,10 @@ const Input = ({
   return (
     <div>
       <label htmlFor={name}>
-        {label && <span class="block mb-2 font-bold text-white">{label}</span>}
+        {label && <span class="mb-2 block font-bold text-white">{label}</span>}
 
         <input
-          class="p-3 w-full text-white bg-gray-800 rounded border border-gray-700 border-solid box-border"
+          class="box-border w-full rounded border border-solid border-gray-700 bg-gray-800 p-3 text-white"
           type={type}
           id={name}
           name={name}

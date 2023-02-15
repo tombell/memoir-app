@@ -25,13 +25,13 @@ const TracklistItem = ({
 }: Props) => {
   if (loading) {
     return (
-      <div class="items-center p-2 mb-2.5 rounded border border-gray-700 border-solid animate-pulse">
+      <div class="mb-2.5 animate-pulse items-center rounded border border-solid border-gray-700 p-2">
         <div class="flex items-center space-x-3">
-          <div class="rounded border border-gray-700 border-solid">
-            <div class="w-20 h-20" />
+          <div class="rounded border border-solid border-gray-700">
+            <div class="h-20 w-20" />
           </div>
 
-          <h3 class="m-0 w-full font-bold leading-5 rounded border border-gray-700 border-solid">
+          <h3 class="m-0 w-full rounded border border-solid border-gray-700 font-bold leading-5">
             &nbsp;
           </h3>
         </div>
@@ -48,19 +48,19 @@ const TracklistItem = ({
   return (
     <Link href={`/tracklist/${id}`}>
       <div
-        class="items-center p-2 mb-2.5 bg-no-repeat bg-cover rounded border border-gray-700 border-solid"
+        class="mb-2.5 items-center rounded border border-solid border-gray-700 bg-cover bg-no-repeat p-2"
         style={background}
       >
         <div class="flex items-center space-x-3">
-          <div class="rounded border border-gray-700 border-solid">
+          <div class="rounded border border-solid border-gray-700">
             <img
-              class="w-20 h-20"
+              class="h-20 w-20"
               alt={`${name} Artwork`}
               src={backgroundImage}
             />
           </div>
 
-          <h3 class="flex-1 m-0 font-bold leading-5">{name}</h3>
+          <h3 class="m-0 flex-1 font-bold leading-5">{name}</h3>
 
           <div class="ml-auto space-x-2">
             <Tag text={`${trackCount} Tracks`} color="lilac" />

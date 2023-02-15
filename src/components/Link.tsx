@@ -8,7 +8,7 @@ interface Props {
 const Link = ({ className, href, onClick, children }: Props) => (
   <a
     class={[
-      "text-white no-underline cursor-pointer hover:text-green-600",
+      "cursor-pointer text-white no-underline hover:text-green-600",
       className,
     ]
       .filter(Boolean)

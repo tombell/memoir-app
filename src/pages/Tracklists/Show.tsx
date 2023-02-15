@@ -29,7 +29,7 @@ const Show = ({ id }: Props) => {
     <div class="space-y-4">
       <Subheader text={tracklist.name} center />
 
-      <div class="text-xs font-semibold text-center">
+      <div class="text-center text-xs font-semibold">
         <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>
       </div>
 

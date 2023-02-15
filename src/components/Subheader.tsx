@@ -5,7 +5,7 @@ interface Props {
 
 const SubHeader = ({ text, center = false }: Props) => (
   <h2
-    class={["font-bold text-left text-white", center && "text-center"]
+    class={["text-left font-bold text-white", center && "text-center"]
       .filter(Boolean)
       .join(" ")}
   >

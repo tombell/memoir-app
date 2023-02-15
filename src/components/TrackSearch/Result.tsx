@@ -19,7 +19,7 @@ interface Props {
 }
 
 const Result = ({ track, onClick }: Props) => (
-  <li class="my-2.5 mx-2 list-none text-white truncate">
+  <li class="my-2.5 mx-2 list-none truncate text-white">
     <Link href={`/tracks/${track.id}`} onClick={onClick}>
       <span
         // eslint-disable-next-line react/no-danger

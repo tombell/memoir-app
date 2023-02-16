@@ -8,6 +8,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --no-open",
     "lint": "eslint src",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -20,9 +22,11 @@
     "@preact/preset-vite": "^2.5.0",
     "@storybook/addon-essentials": "^7.0.0-beta.48",
     "@storybook/preact-vite": "^7.0.0-beta.48",
+    "@testing-library/preact": "^3.2.3",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
+    "@vitest/coverage-c8": "^0.28.5",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -33,6 +37,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.10",
     "husky": "^8.0.3",
+    "jsdom": "^21.1.0",
     "lint-staged": "^13.1.2",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
@@ -42,7 +47,8 @@
     "tailwindcss": "^3.2.6",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
-    "vite-tsconfig-paths": "^4.0.5"
+    "vite-tsconfig-paths": "^4.0.5",
+    "vitest": "^0.28.5"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": [

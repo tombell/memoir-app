@@ -23,6 +23,7 @@ const FilePicker = ({ accept, onSelect }: Props) => {
         ref={input}
         accept={accept}
         onChange={handleChange}
+        data-testid="filepicker"
       />
     </div>
   );

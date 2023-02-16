@@ -14,7 +14,7 @@ const classes = {
 
 const Button = ({ text, variant = "large", onClick }: Props) => (
   <button
-    class={`rounded border-solid border-gray-700 bg-gray-800 font-bold text-white hover:bg-gray-700 ${classes[variant]}`}
+    class={`rounded bg-gray-800 font-bold text-white hover:bg-gray-700 active:bg-gray-800 ${classes[variant]}`}
     type="button"
     onClick={onClick}
   >

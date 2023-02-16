@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(({ mode }) => {
-  const dev = mode === "development";
+  const dev = mode === "development" || mode === "test";
 
   return {
     plugins: [tsconfigPaths(), preact()],
@@ -19,6 +19,9 @@ export default defineConfig(({ mode }) => {
     },
     esbuild: {
       logOverride: { "this-is-undefined-in-esm": "silent" },
+    },
+    test: {
+      environment: "jsdom",
     },
   };
 });

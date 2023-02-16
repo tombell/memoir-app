@@ -1,4 +1,4 @@
-type TagColor = "blue" | "green" | "lightblue" | "lilac" | "purple";
+type Color = "blue" | "green" | "lightblue" | "lilac" | "purple";
 
 const classes = {
   blue: "bg-blue-600",
@@ -10,7 +10,7 @@ const classes = {
 
 interface Props {
   text: string | number;
-  color?: TagColor;
+  color?: Color;
 }
 
 const Tag = ({ text, color = "green" }: Props) => (

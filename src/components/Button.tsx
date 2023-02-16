@@ -1,6 +1,8 @@
+type Variant = "large" | "medium" | "small";
+
 interface Props {
   text: string;
-  variant?: "large" | "medium" | "small";
+  variant?: Variant;
   onClick: () => void;
 }
 

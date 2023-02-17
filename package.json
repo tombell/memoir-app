@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --no-open",
-    "lint": "eslint src",
+    "lint": "eslint src test",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "prepare": "husky install"

@@ -23,6 +23,7 @@
     "@storybook/addon-essentials": "^7.0.0-beta.48",
     "@storybook/preact-vite": "^7.0.0-beta.48",
     "@testing-library/preact": "^3.2.3",
+    "@testing-library/user-event": "^14.4.3",
     "@types/node": "^18.13.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",

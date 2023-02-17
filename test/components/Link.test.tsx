@@ -35,7 +35,7 @@ describe("Link", () => {
     const onClick = vi.fn();
 
     render(
-      <Link href="#" onClick={onClick}>
+      <Link href="https://example.com" onClick={onClick}>
         My link
       </Link>
     );

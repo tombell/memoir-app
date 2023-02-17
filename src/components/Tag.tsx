@@ -1,4 +1,4 @@
-type Color = "blue" | "green" | "lightblue" | "lilac" | "purple";
+export type Color = "blue" | "green" | "lightblue" | "lilac" | "purple";
 
 const classes = {
   blue: "bg-blue-600",

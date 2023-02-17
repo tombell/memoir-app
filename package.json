@@ -52,7 +52,7 @@
     "vitest": "^0.28.5"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,js,jsx}": [
+    "{src,test}/**/*.{ts,tsx,js,jsx}": [
       "prettier --write"
     ]
   }

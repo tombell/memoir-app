@@ -20,22 +20,22 @@ const Edit = ({ id }: Props) => {
   const { data: tracklist } = useGetResource<Tracklist>(`/tracklists/${id!}`);
 
   const handleNameInput = useCallback(
-    (e: Event) => {
-      tracklist!.name = (e.target as HTMLInputElement).value;
+    (value: string) => {
+      tracklist!.name = value;
     },
     [tracklist]
   );
 
   const handleDateInput = useCallback(
-    (e: Event) => {
-      tracklist!.date = (e.target as HTMLInputElement).value;
+    (value: string) => {
+      tracklist!.date = value;
     },
     [tracklist]
   );
 
   const handleUrlInput = useCallback(
-    (e: Event) => {
-      tracklist!.url = (e.target as HTMLInputElement).value;
+    (value: string) => {
+      tracklist!.url = value;
     },
     [tracklist]
   );

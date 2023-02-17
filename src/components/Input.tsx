@@ -7,7 +7,7 @@ interface Props {
   placeholder: string;
   type?: string;
   value?: string;
-  onInput: (e: Event) => void;
+  onInput: (value: string) => void;
   onFocus?: (e: Event) => void;
 }
 
@@ -25,7 +25,7 @@ const Input = ({
   const handleInput = useCallback(
     (e: Event) => {
       input.value = (e.target as HTMLInputElement).value;
-      onInput(e);
+      onInput(input.value);
     },
     [input, onInput]
   );

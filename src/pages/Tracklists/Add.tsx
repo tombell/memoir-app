@@ -21,16 +21,16 @@ const tracklist = signal<NewTracklist>({
 });
 
 const Add: FunctionalComponent = () => {
-  const handleNameInput = useCallback((e: Event) => {
-    tracklist.value.name = (e.target as HTMLInputElement).value;
+  const handleNameInput = useCallback((value: string) => {
+    tracklist.value.name = value;
   }, []);
 
-  const handleDateInput = useCallback((e: Event) => {
-    tracklist.value.date = `${(e.target as HTMLInputElement).value}T00:00:00Z`;
+  const handleDateInput = useCallback((value: string) => {
+    tracklist.value.date = `${value}T00:00:00Z`;
   }, []);
 
-  const handleUrlInput = useCallback((e: Event) => {
-    tracklist.value.url = (e.target as HTMLInputElement).value;
+  const handleUrlInput = useCallback((value: string) => {
+    tracklist.value.url = value;
   }, []);
 
   const handleUpload = useCallback((filename: string) => {

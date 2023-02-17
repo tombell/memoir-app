@@ -2,6 +2,7 @@ import { Mock, vi } from "vitest";
 
 global.fetch = vi.fn();
 
+// eslint-disable-next-line import/prefer-default-export
 export const mockFetchResponse = (
   data: object,
   headers: { [key: string]: string } = {}

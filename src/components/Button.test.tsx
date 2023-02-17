@@ -1,4 +1,5 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/preact";
+import { cleanup, render, screen } from "@testing-library/preact";
+import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, test, vi } from "vitest";
 
 import Button from "components/Button";
@@ -16,12 +17,15 @@ describe("Button", () => {
     ).not.toBeNull();
   });
 
-  test("calls the on click callback", () => {
+  test("calls the on click callback", async () => {
+    const user = userEvent.setup();
+
     const onClick = vi.fn();
 
     render(<Button text="Test button" onClick={onClick} />);
 
-    fireEvent.click(screen.getByRole("button", { name: "Test button" }));
+    const button = screen.getByRole("button", { name: "Test button" });
+    await user.click(button);
 
     expect(onClick).toHaveBeenCalled();
   });

@@ -1,10 +1,5 @@
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/preact";
+import { cleanup, render, screen } from "@testing-library/preact";
+import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, test, vi } from "vitest";
 
 import ArtworkUploader from "components/ArtworkUploader";
@@ -23,6 +18,8 @@ describe("ArtworkUploader", () => {
   });
 
   test("calls the on upload callback and renders the uploaded image", async () => {
+    const user = userEvent.setup();
+
     vi.mock("services/memoir", () => ({
       uploadArtwork: vi.fn().mockReturnValue({ key: "asdfasdfasdf.jpg" }),
     }));
@@ -34,9 +31,7 @@ describe("ArtworkUploader", () => {
     const file = new File(["fake file"], "artwork.jpg", { type: "image/jpeg" });
     const input = screen.getByTestId("filepicker");
 
-    await waitFor(() => {
-      fireEvent.change(input, { target: { files: [file] } });
-    });
+    await user.upload(input, file);
 
     expect(onUpload).toHaveBeenCalledWith("asdfasdfasdf.jpg");
 

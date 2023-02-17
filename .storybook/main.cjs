@@ -9,7 +9,4 @@ module.exports = {
   framework: {
     name: "@storybook/preact-vite",
   },
-  features: {
-    storyStoreV7: true,
-  },
 };

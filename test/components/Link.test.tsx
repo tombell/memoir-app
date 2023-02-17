@@ -9,8 +9,13 @@ describe("Link", () => {
     cleanup();
   });
 
+  const defaultProps = {
+    href: "https://example.com",
+    children: "My link",
+  };
+
   test("renders the link", () => {
-    render(<Link href="https://example.com">My link</Link>);
+    render(<Link {...defaultProps} />);
 
     const link = screen.getByText("My link");
 
@@ -18,11 +23,7 @@ describe("Link", () => {
   });
 
   test("renders the class name", () => {
-    render(
-      <Link href="https://example.com" className="my-class">
-        My link
-      </Link>
-    );
+    render(<Link {...defaultProps} className="my-class" />);
 
     const link = screen.getByText("My link");
 
@@ -34,11 +35,7 @@ describe("Link", () => {
 
     const onClick = vi.fn();
 
-    render(
-      <Link href="/" onClick={onClick}>
-        My link
-      </Link>
-    );
+    render(<Link {...defaultProps} href="/" onClick={onClick} />);
 
     const link = screen.getByText("My link");
 

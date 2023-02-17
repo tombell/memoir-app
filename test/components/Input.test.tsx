@@ -5,15 +5,15 @@ import { afterEach, describe, expect, test, vi } from "vitest";
 import Input from "components/Input";
 
 describe("Input", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   const defaultProps = {
     name: "test-input",
     placeholder: "Placeholder...",
     onInput: () => {},
   };
-
-  afterEach(() => {
-    cleanup();
-  });
 
   test("renders input", () => {
     render(<Input {...defaultProps} />);

@@ -9,8 +9,12 @@ describe("Button", () => {
     cleanup();
   });
 
+  const defaultProps = {
+    text: "Test button",
+  };
+
   test("renders the text", () => {
-    render(<Button text="Test button" onClick={() => {}} />);
+    render(<Button {...defaultProps} onClick={() => {}} />);
 
     expect(
       screen.queryByRole("button", { name: "Test button" })
@@ -22,7 +26,7 @@ describe("Button", () => {
 
     const onClick = vi.fn();
 
-    render(<Button text="Test button" onClick={onClick} />);
+    render(<Button {...defaultProps} onClick={onClick} />);
 
     const button = screen.getByRole("button", { name: "Test button" });
     await user.click(button);

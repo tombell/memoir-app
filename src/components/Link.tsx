@@ -2,7 +2,7 @@ interface Props {
   className?: string;
   href?: string;
   onClick?: any;
-  children?: any;
+  children: any;
 }
 
 const Link = ({ className, href, onClick, children }: Props) => (

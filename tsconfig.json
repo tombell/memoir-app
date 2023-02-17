@@ -20,7 +20,8 @@
       "components/*": ["./src/components/*"],
       "hooks/*": ["./src/hooks/*"],
       "pages/*": ["./src/pages/*"],
-      "services/*": ["./src/services/*"]
+      "services/*": ["./src/services/*"],
+      "test/*": ["./test/*"]
     }
   },
   "include": ["src", "test"],

@@ -8,10 +8,7 @@ module.exports = {
     "plugin:storybook/recommended",
   ],
   parserOptions: {
-    project: [
-      "./tsconfig.json",
-      "./tsconfig.node.json",
-    ],
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
   },
   rules: {
     "react/function-component-definition": [
@@ -40,6 +37,13 @@ module.exports = {
     {
       files: ["**/*.stories.*"],
       rules: {
+        "react/jsx-props-no-spreading": "off",
+      },
+    },
+    {
+      files: ["**/*.test.*"],
+      rules: {
+        "import/first": "off",
         "react/jsx-props-no-spreading": "off",
       },
     },

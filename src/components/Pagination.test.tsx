@@ -9,7 +9,7 @@ describe("Pagination", () => {
   });
 
   const defaultProps = {
-    path: "/",
+    path: "/:page",
   };
 
   test("renders nothing when only one page", () => {
@@ -31,17 +31,17 @@ describe("Pagination", () => {
 
     expect(prev).toBeNull();
 
-    const next = screen.queryByText("Older →");
+    const next = screen.getByText("Older →");
 
-    expect(next).not.toBeNull();
+    expect(next.getAttribute("href")).toBe("/2");
   });
 
   test("renders previous link and not next link when not on page one and does not have more", () => {
     render(<Pagination {...defaultProps} page={2} hasMore={false} />);
 
-    const prev = screen.queryByText("← Newer");
+    const prev = screen.getByText("← Newer");
 
-    expect(prev).not.toBeNull();
+    expect(prev.getAttribute("href")).toBe("/1");
 
     const next = screen.queryByText("Older →");
 
@@ -51,12 +51,26 @@ describe("Pagination", () => {
   test("renders previous link and next link when not on page one and does have more", () => {
     render(<Pagination {...defaultProps} page={2} hasMore />);
 
-    const prev = screen.queryByText("← Newer");
+    const prev = screen.getByText("← Newer");
 
-    expect(prev).not.toBeNull();
+    expect(prev.getAttribute("href")).toBe("/1");
 
-    const next = screen.queryByText("Older →");
+    const next = screen.getByText("Older →");
 
-    expect(next).not.toBeNull();
+    expect(next.getAttribute("href")).toBe("/3");
+  });
+
+  test("renders id in the url in previous link and next link", () => {
+    render(
+      <Pagination path="/:id/:page" id="my-resource-id" page={2} hasMore />
+    );
+
+    const prev = screen.getByText("← Newer");
+
+    expect(prev.getAttribute("href")).toBe("/my-resource-id/1");
+
+    const next = screen.getByText("Older →");
+
+    expect(next.getAttribute("href")).toBe("/my-resource-id/3");
   });
 });

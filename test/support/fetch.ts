@@ -1,8 +1,11 @@
-import { Mock, vi } from "vitest";
+import { Mock, afterEach, vi } from "vitest";
 
 global.fetch = vi.fn();
 
-// eslint-disable-next-line import/prefer-default-export
+afterEach(() => {
+  (fetch as Mock).mockReset();
+});
+
 export const mockFetchResponse = (
   data: object,
   headers: { [key: string]: string } = {}
@@ -12,5 +15,11 @@ export const mockFetchResponse = (
     headers: {
       get: (key: string) => headers[key] || null,
     },
+  });
+};
+
+export const mockFetchThrows = () => {
+  (fetch as Mock).mockImplementation(() => {
+    throw new Error("boom town");
   });
 };

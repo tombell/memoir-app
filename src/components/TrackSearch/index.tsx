@@ -22,7 +22,7 @@ const Index = () => {
   }, []);
 
   const onInput = useCallback(
-    async ({ target: { value } }: any) => {
+    async (value: string) => {
       if (value.length < 3) {
         tracks.value = null;
         showResults.value = false;

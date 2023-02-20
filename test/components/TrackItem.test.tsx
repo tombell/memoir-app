@@ -8,6 +8,12 @@ describe("TrackItem", () => {
     cleanup();
   });
 
+  test("renders loading tracklist when loading", () => {
+    render(<TrackItem loading />);
+
+    expect(screen.getByTestId("track-loading")).toBeDefined();
+  });
+
   test("renders the links", () => {
     render(
       <TrackItem

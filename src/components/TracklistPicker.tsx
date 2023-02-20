@@ -37,7 +37,7 @@ const TracklistPicker = ({ onSelect }: Props) => {
         <li class="mx-0 list-inside list-none text-xs font-bold text-white">
           <p>{`${idx + 1}. ${track[1]} - ${track[0]}`}</p>
 
-          <div class="mt-2 space-x-2">
+          <div class="mt-2 space-x-2" data-testid="track-details">
             <Tag text={track[2]} color="purple" />
             <Tag text={track[3]} color="lilac" />
             <Tag text={track[4]} color="blue" />

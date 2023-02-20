@@ -19,3 +19,9 @@ export const Base = {
     camelotKey: "1A",
   },
 };
+
+export const Loading = {
+  args: {
+    loading: true,
+  },
+};

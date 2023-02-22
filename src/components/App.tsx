@@ -10,7 +10,6 @@ import TracklistsByTrackPage from "pages/TracklistsByTrack";
 
 import Footer from "components/Footer";
 import Header from "components/Header";
-import Redirect from "components/Redirect";
 import TrackSearch from "components/TrackSearch";
 
 import "./App.css";
@@ -26,12 +25,11 @@ const App = () => (
     </div>
 
     <Router>
-      <Redirect path="/" to="/tracklists/1" />
-
-      <TracklistsIndex path="/tracklists/:page" />
+      <TracklistsIndex path="/tracklists" />
       {MEMOIR_ADMIN_ENABLED && <TracklistsAdd path="/tracklists/add" />}
-      {MEMOIR_ADMIN_ENABLED && <TracklistsEdit path="/tracklists/edit/:id" />}
+
       <TracklistsShow path="/tracklist/:id" />
+      {MEMOIR_ADMIN_ENABLED && <TracklistsEdit path="/tracklist/:id/edit" />}
 
       <TracklistsByTrackPage path="/tracks/:id/:page?" />
       <MostPlayedTracksPage path="/tracks/mostplayed" />

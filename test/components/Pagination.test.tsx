@@ -9,7 +9,7 @@ describe("Pagination", () => {
   });
 
   const defaultProps = {
-    path: "/:page",
+    path: "/tracklists",
   };
 
   test("renders nothing when only one page", () => {
@@ -33,7 +33,7 @@ describe("Pagination", () => {
 
     const next = screen.getByText("Older →");
 
-    expect(next.getAttribute("href")).toBe("/2");
+    expect(next.getAttribute("href")).toBe("/tracklists?page=2");
   });
 
   test("renders previous link and not next link when not on page one and does not have more", () => {
@@ -41,7 +41,7 @@ describe("Pagination", () => {
 
     const prev = screen.getByText("← Newer");
 
-    expect(prev.getAttribute("href")).toBe("/1");
+    expect(prev.getAttribute("href")).toBe("/tracklists?page=1");
 
     const next = screen.queryByText("Older →");
 
@@ -53,24 +53,24 @@ describe("Pagination", () => {
 
     const prev = screen.getByText("← Newer");
 
-    expect(prev.getAttribute("href")).toBe("/1");
+    expect(prev.getAttribute("href")).toBe("/tracklists?page=1");
 
     const next = screen.getByText("Older →");
 
-    expect(next.getAttribute("href")).toBe("/3");
+    expect(next.getAttribute("href")).toBe("/tracklists?page=3");
   });
 
   test("renders id in the url in previous link and next link", () => {
     render(
-      <Pagination path="/:id/:page" id="my-resource-id" page={2} hasMore />
+      <Pagination path="/tracklists/:id" id="my-resource-id" page={2} hasMore />
     );
 
     const prev = screen.getByText("← Newer");
 
-    expect(prev.getAttribute("href")).toBe("/my-resource-id/1");
+    expect(prev.getAttribute("href")).toBe("/tracklists/my-resource-id?page=1");
 
     const next = screen.getByText("Older →");
 
-    expect(next.getAttribute("href")).toBe("/my-resource-id/3");
+    expect(next.getAttribute("href")).toBe("/tracklists/my-resource-id?page=3");
   });
 });

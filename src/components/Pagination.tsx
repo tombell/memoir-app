@@ -10,8 +10,8 @@ interface Props {
 const Pagination = ({ path, id, page, hasMore }: Props) => {
   const isFirstPage = page === 1;
 
-  let prevUrl = path.replace(/:page\??/, `${page - 1}`);
-  let nextUrl = path.replace(/:page\??/, `${page + 1}`);
+  let prevUrl = path + `?page=${page - 1}`;
+  let nextUrl = path + `?page=${page + 1}`;
 
   if (id) {
     prevUrl = prevUrl.replace(":id", id);

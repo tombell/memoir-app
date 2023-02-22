@@ -13,7 +13,6 @@ import { NewTracklist, Tracklist } from "services/memoir/types";
 
 beforeEach(() => {
   vi.stubGlobal("MEMOIR_API_URL", "/api");
-  vi.stubGlobal("MEMOIR_API_KEY", "");
 });
 
 afterEach(() => {

@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     plugins: [tsconfigPaths(), preact()],
     define: {
       MEMOIR_ADMIN_ENABLED: `"${dev}"`,
-      MEMOIR_API_KEY: dev ? `"${process.env.MEMOIR_API_KEY}"` : '""',
+      MEMOIR_API_KEY: dev ? `"${process.env.MEMOIR_API_KEY || ""}"` : '""',
       MEMOIR_API_URL: dev
         ? '"http://localhost:8080"'
         : '"https://api.iamdjriff.co.uk"',

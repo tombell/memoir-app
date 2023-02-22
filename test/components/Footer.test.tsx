@@ -14,7 +14,7 @@ describe("Footer", () => {
     const links = screen.getAllByRole("link");
 
     expect(links[0].innerHTML).toBe("Tracklists");
-    expect(links[0].getAttribute("href")).toBe("/tracklists/1");
+    expect(links[0].getAttribute("href")).toBe("/tracklists");
 
     expect(links[1].innerHTML).toBe("Most Played Tracks");
     expect(links[1].getAttribute("href")).toBe("/tracks/mostplayed");

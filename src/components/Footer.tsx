@@ -3,7 +3,7 @@ import Link from "components/Link";
 const Footer = () => (
   <footer class="flex text-xs font-bold">
     <div class="flex-1 space-x-4">
-      <Link className="inline" href="/tracklists/1">
+      <Link className="inline" href="/tracklists">
         Tracklists
       </Link>
       <Link className="inline" href="/tracks/mostplayed">

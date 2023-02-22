@@ -1,28 +1,15 @@
-import { RoutableProps, route } from "preact-router";
+import { RoutableProps } from "preact-router";
 
 import Pagination from "components/Pagination";
 import TracklistItem from "components/TracklistItem";
 
-import useGetResource from "hooks/useGetResource";
+import { useTracklists } from "hooks/memoir";
 
-import { Tracklist } from "services/memoir/types";
+const Index = ({ path }: RoutableProps) => {
+  const params = new URLSearchParams(window.location.search);
+  const page = parseInt(params.get("page") || "1", 10);
 
-interface Props extends RoutableProps {
-  page?: string;
-}
-
-const Index = ({ path, page }: Props) => {
-  const pageNum = parseInt(page!, 10);
-
-  if (Number.isNaN(pageNum)) {
-    route("/404", true);
-  }
-
-  const {
-    isLoading,
-    hasMore,
-    data: tracklists,
-  } = useGetResource<Tracklist[]>("/tracklists", pageNum);
+  const { isLoading, hasMore, data: tracklists } = useTracklists(page);
 
   return (
     <>
@@ -39,7 +26,7 @@ const Index = ({ path, page }: Props) => {
             />
           ))}
 
-      <Pagination path={path!} page={pageNum} hasMore={hasMore} />
+      <Pagination path={path!} page={page} hasMore={hasMore} />
     </>
   );
 };

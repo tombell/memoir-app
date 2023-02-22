@@ -6,18 +6,14 @@ import Loading from "components/Loading";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";
 
-import useGetResource from "hooks/useGetResource";
-
-import { Tracklist } from "services/memoir/types";
+import { useTracklist } from "hooks/memoir";
 
 interface Props extends RoutableProps {
   id?: string;
 }
 
 const Show = ({ id }: Props) => {
-  const { isLoading, data: tracklist } = useGetResource<Tracklist>(
-    `/tracklists/${id}`
-  );
+  const { isLoading, data: tracklist } = useTracklist(id!);
 
   if (!tracklist) {
     return null;

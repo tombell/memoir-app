@@ -13,7 +13,7 @@ describe("Header", () => {
 
     const header = screen.getByRole("link");
 
-    expect(header.getAttribute("href")).toBe("/tracklists/1");
+    expect(header.getAttribute("href")).toBe("/tracklists");
 
     const img = screen.getByRole("img");
 

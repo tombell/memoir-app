@@ -6,18 +6,17 @@ import Input from "components/Input";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";
 
-import useGetResource from "hooks/useGetResource";
+import { useTracklist } from "hooks/memoir";
 
 import { formatYearMonthDay } from "services/datetime";
 import { patchTracklist } from "services/memoir";
-import { Tracklist } from "services/memoir/types";
 
 interface Props extends RoutableProps {
   id?: string;
 }
 
 const Edit = ({ id }: Props) => {
-  const { data: tracklist } = useGetResource<Tracklist>(`/tracklists/${id!}`);
+  const { data: tracklist } = useTracklist(id!);
 
   const handleNameInput = useCallback(
     (value: string) => {

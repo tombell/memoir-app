@@ -25,8 +25,12 @@ const Show = ({ id }: Props) => {
     <div class="space-y-4">
       <Subheader text={tracklist.name} center />
 
-      <div class="text-center text-xs font-semibold">
-        <Link href={tracklist.url}>Listen on Mixcloud &rarr;</Link>
+      <div class="space-x-4 text-center text-xs font-semibold">
+        <Link href={tracklist.url}>Listen on Mixcloud</Link>
+
+        {MEMOIR_API_KEY && (
+          <Link href={`/tracklist/${tracklist.id}/edit`}>(Edit)</Link>
+        )}
       </div>
 
       {tracklist.tracks && (

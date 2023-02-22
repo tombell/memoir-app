@@ -28,7 +28,7 @@ const Edit = ({ id }: Props) => {
 
   const handleDateInput = useCallback(
     (value: string) => {
-      tracklist!.date = value;
+      tracklist!.date = `${value}T00:00:00Z`;
     },
     [tracklist]
   );

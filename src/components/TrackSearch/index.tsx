@@ -1,5 +1,5 @@
-import { signal, useSignal } from "@preact/signals";
-import { useCallback, useEffect, useRef } from "preact/hooks";
+import { effect, signal, useSignal } from "@preact/signals";
+import { useCallback, useRef } from "preact/hooks";
 
 import Input from "components/Input";
 
@@ -47,13 +47,13 @@ const Index = () => {
     showResults.value = false;
   }, []);
 
-  useEffect(() => {
+  effect(() => {
     if (showResults.value) {
       document.addEventListener("click", onBodyClick);
     } else {
       document.removeEventListener("click", onBodyClick);
     }
-  }, [onBodyClick]);
+  });
 
   return (
     <div class="relative" ref={ref}>

@@ -1,4 +1,4 @@
-import { signal } from "@preact/signals";
+import { Signal, computed, useSignal } from "@preact/signals";
 import { FunctionalComponent } from "preact";
 import { useCallback } from "preact/hooks";
 import { route } from "preact-router";
@@ -12,42 +12,34 @@ import TracklistPicker from "components/TracklistPicker";
 import { postTracklist } from "services/memoir";
 import { NewTracklist } from "services/memoir/types";
 
-const tracklist = signal<NewTracklist>({
-  name: "",
-  date: "",
-  url: "",
-  artwork: "",
-  tracks: [],
-});
+const handleChange =
+  <T,>(signal: Signal<T>) =>
+  (value: T) => {
+    signal.value = value;
+  };
 
 const Add: FunctionalComponent = () => {
-  const handleNameInput = useCallback((value: string) => {
-    tracklist.value.name = value;
-  }, []);
+  const name = useSignal("");
+  const date = useSignal("");
+  const url = useSignal("");
+  const artwork = useSignal("");
+  const tracks = useSignal<string[][]>([]);
 
-  const handleDateInput = useCallback((value: string) => {
-    tracklist.value.date = `${value}T00:00:00Z`;
-  }, []);
-
-  const handleUrlInput = useCallback((value: string) => {
-    tracklist.value.url = value;
-  }, []);
-
-  const handleUpload = useCallback((filename: string) => {
-    tracklist.value.artwork = filename;
-  }, []);
-
-  const handleSelect = useCallback((tracks: string[][]) => {
-    tracklist.value.tracks = tracks;
-  }, []);
+  const tracklist = computed<NewTracklist>(() => ({
+    name: name.value,
+    date: `${date.value}T00:00:00Z`,
+    url: url.value,
+    artwork: artwork.value,
+    tracks: tracks.value,
+  }));
 
   const handleSubmit = useCallback(async () => {
     const resp = await postTracklist(tracklist.value);
 
     if (resp) {
-      route(`/tracklists/edit/${resp.id}`);
+      route(`/tracklist/${resp.id}/edit`);
     }
-  }, []);
+  }, [tracklist.value]);
 
   return (
     <div class="space-y-4">
@@ -58,7 +50,7 @@ const Add: FunctionalComponent = () => {
           name="name"
           label="Name"
           placeholder="Name..."
-          onInput={handleNameInput}
+          onInput={handleChange(name)}
         />
 
         <Input
@@ -66,26 +58,26 @@ const Add: FunctionalComponent = () => {
           label="Date"
           placeholder="Date..."
           type="date"
-          onInput={handleDateInput}
+          onInput={handleChange(date)}
         />
 
         <Input
           name="url"
           label="Mixcloud URL"
           placeholder="Mixcloud URL..."
-          onInput={handleUrlInput}
+          onInput={handleChange(url)}
         />
 
         <div>
           {/* TODO: refactor into label component */}
           <h3 class="mb-2 font-bold text-white">Artwork</h3>
-          <ArtworkUploader onUpload={handleUpload} />
+          <ArtworkUploader onUpload={handleChange(artwork)} />
         </div>
 
         <div>
           {/* TODO: refactor into label component */}
           <h3 class="mb-2 font-bold text-white">Tracklist</h3>
-          <TracklistPicker onSelect={handleSelect} />
+          <TracklistPicker onSelect={handleChange(tracks)} />
         </div>
 
         <Button text="Add" onClick={handleSubmit} />

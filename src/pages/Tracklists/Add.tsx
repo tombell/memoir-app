@@ -1,4 +1,4 @@
-import { Signal, computed, useSignal } from "@preact/signals";
+import { Signal, useComputed, useSignal } from "@preact/signals";
 import { FunctionalComponent } from "preact";
 import { useCallback } from "preact/hooks";
 import { route } from "preact-router";
@@ -25,7 +25,7 @@ const Add: FunctionalComponent = () => {
   const artwork = useSignal("");
   const tracks = useSignal<string[][]>([]);
 
-  const tracklist = computed<NewTracklist>(() => ({
+  const tracklist = useComputed<NewTracklist>(() => ({
     name: name.value,
     date: `${date.value}T00:00:00Z`,
     url: url.value,

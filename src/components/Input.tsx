@@ -41,7 +41,7 @@ const Input = ({
           id={name}
           name={name}
           placeholder={placeholder}
-          value={input.value}
+          value={input}
           onInput={handleInput}
           onFocus={onFocus}
         />

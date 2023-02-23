@@ -1,13 +1,12 @@
-import { batch, signal, useSignal } from "@preact/signals";
+import { batch, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
 import { request } from "services/memoir";
 
-const isLoading = signal(false);
-const hasMore = signal(false);
-
 export default <T>(url: string) => {
+  const isLoading = useSignal(false);
   const data = useSignal<T | null>(null);
+  const hasMore = useSignal(false);
 
   useEffect(() => {
     batch(async () => {
@@ -26,7 +25,7 @@ export default <T>(url: string) => {
 
       isLoading.value = false;
     });
-  }, [url, data]);
+  }, [url, isLoading, data, hasMore]);
 
   return {
     isLoading: isLoading.value,

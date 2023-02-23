@@ -11,6 +11,10 @@ module.exports = {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
   },
   rules: {
+    "no-param-reassign": [
+      "error",
+      { props: true, ignorePropertyModificationsFor: ["signal"] },
+    ],
     "react/function-component-definition": [
       2,
       {

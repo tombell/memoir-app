@@ -1,4 +1,4 @@
-import { signal } from "@preact/signals";
+import { useSignal } from "@preact/signals";
 import { useCallback, useMemo } from "preact/hooks";
 
 import FilePicker from "components/FilePicker";
@@ -10,9 +10,9 @@ interface Props {
   onSelect: (tracks: string[][]) => void;
 }
 
-const tracks = signal<string[][] | null>(null);
-
 const TracklistPicker = ({ onSelect }: Props) => {
+  const tracks = useSignal<string[][] | null>(null);
+
   const reader = useMemo(() => new FileReader(), []);
 
   const onFileRead = useCallback(() => {
@@ -21,14 +21,14 @@ const TracklistPicker = ({ onSelect }: Props) => {
       tracks.value = parsed;
       onSelect(tracks.value);
     }
-  }, [reader, onSelect]);
+  }, [onSelect, tracks, reader]);
 
   const handleSelect = useCallback(
     (file: File) => {
       reader.onload = onFileRead;
       reader.readAsText(file);
     },
-    [reader, onFileRead]
+    [onFileRead, reader]
   );
 
   return tracks.value ? (

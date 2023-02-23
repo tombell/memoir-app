@@ -1,4 +1,4 @@
-import { signal } from "@preact/signals";
+import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
 
 import FilePicker from "components/FilePicker";
@@ -9,9 +9,9 @@ interface Props {
   onUpload: (artwork: string) => void;
 }
 
-const artwork = signal<string | null>(null);
-
 const ArtworkUploader = ({ onUpload }: Props) => {
+  const artwork = useSignal<string | null>(null);
+
   const handleSelect = useCallback(
     async (file: File) => {
       const upload = await uploadArtwork(file);
@@ -21,7 +21,7 @@ const ArtworkUploader = ({ onUpload }: Props) => {
         onUpload(artwork.value);
       }
     },
-    [onUpload]
+    [onUpload, artwork]
   );
 
   return artwork.value ? (

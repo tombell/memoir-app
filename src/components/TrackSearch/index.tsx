@@ -1,4 +1,4 @@
-import { effect, signal } from "@preact/signals";
+import { effect, useSignal } from "@preact/signals";
 import { useCallback, useRef } from "preact/hooks";
 
 import Input from "components/Input";
@@ -8,17 +8,20 @@ import Results from "components/TrackSearch/Results";
 import { searchTracks } from "services/memoir";
 import { Track } from "services/memoir/types";
 
-const showResults = signal(false);
-const tracks = signal<Track[] | null>(null);
-
 const Index = () => {
+  const showResults = useSignal(false);
+  const tracks = useSignal<Track[] | null>(null);
+
   const ref = useRef<HTMLDivElement>(null);
 
-  const onBodyClick = useCallback(({ target }: any) => {
-    if (!ref.current?.contains(target)) {
-      showResults.value = false;
-    }
-  }, []);
+  const onBodyClick = useCallback(
+    ({ target }: any) => {
+      if (!ref.current?.contains(target)) {
+        showResults.value = false;
+      }
+    },
+    [showResults]
+  );
 
   const onInput = useCallback(
     async (value: string) => {
@@ -35,16 +38,16 @@ const Index = () => {
         showResults.value = true;
       }
     },
-    [tracks]
+    [showResults, tracks]
   );
 
   const onInputFocus = useCallback(() => {
     showResults.value = true;
-  }, []);
+  }, [showResults]);
 
   const onResultClick = useCallback(() => {
     showResults.value = false;
-  }, []);
+  }, [showResults]);
 
   effect(() => {
     if (showResults.value) {

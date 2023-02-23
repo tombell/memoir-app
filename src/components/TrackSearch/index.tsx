@@ -1,4 +1,4 @@
-import { effect, signal, useSignal } from "@preact/signals";
+import { effect, signal } from "@preact/signals";
 import { useCallback, useRef } from "preact/hooks";
 
 import Input from "components/Input";
@@ -9,11 +9,10 @@ import { searchTracks } from "services/memoir";
 import { Track } from "services/memoir/types";
 
 const showResults = signal(false);
+const tracks = signal<Track[] | null>(null);
 
 const Index = () => {
   const ref = useRef<HTMLDivElement>(null);
-
-  const tracks = useSignal<Track[] | null>(null);
 
   const onBodyClick = useCallback(({ target }: any) => {
     if (!ref.current?.contains(target)) {

@@ -1,4 +1,4 @@
-import { signal, useSignal } from "@preact/signals";
+import { batch, signal, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
 import { request } from "services/memoir";
@@ -18,20 +18,19 @@ export default <T>(url: string | null, page?: number) => {
       isLoading.value = true;
 
       const resp = await request(`${url}${page ? `?page=${page}` : ""}`);
-
-      data.value = await resp.json();
-      isLoading.value = false;
-
-      if (!page) {
-        return;
-      }
+      const json = await resp.json();
 
       const current = resp.headers.get("Current-Page");
       const total = resp.headers.get("Total-Pages");
 
-      if (current && total) {
-        hasMore.value = parseInt(current, 10) < parseInt(total, 10);
-      }
+      batch(() => {
+        data.value = json;
+        isLoading.value = false;
+
+        if (current && total) {
+          hasMore.value = parseInt(current, 10) < parseInt(total, 10);
+        }
+      });
     };
 
     fn();

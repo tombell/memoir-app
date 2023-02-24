@@ -14,8 +14,8 @@ import { NewTracklist } from "services/memoir/types";
 
 const handleChange =
   <T,>(signal: Signal<T>) =>
-  (value: T) => {
-    signal.value = value;
+  (val: T) => {
+    signal.value = val;
   };
 
 const Add: FunctionalComponent = () => {
@@ -69,13 +69,11 @@ const Add: FunctionalComponent = () => {
         />
 
         <div>
-          {/* TODO: refactor into label component */}
           <h3 class="mb-2 font-bold text-white">Artwork</h3>
           <ArtworkUploader onUpload={handleChange(artwork)} />
         </div>
 
         <div>
-          {/* TODO: refactor into label component */}
           <h3 class="mb-2 font-bold text-white">Tracklist</h3>
           <TracklistPicker onSelect={handleChange(tracks)} />
         </div>

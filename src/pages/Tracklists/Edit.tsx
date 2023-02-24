@@ -1,5 +1,6 @@
+import { Signal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
-import { RoutableProps } from "preact-router";
+import { RoutableProps, route } from "preact-router";
 
 import Button from "components/Button";
 import Input from "components/Input";
@@ -10,53 +11,41 @@ import { useTracklist } from "hooks/memoir";
 
 import { formatYearMonthDay } from "services/datetime";
 import { patchTracklist } from "services/memoir";
+import { Tracklist } from "services/memoir/types";
 
 interface Props extends RoutableProps {
   id?: string;
 }
 
+const handleChange =
+  (key: "name" | "date" | "url", signal: Signal<Tracklist | null>) =>
+  (val: string) => {
+    signal.value![key] = key === "date" ? `${val}T00:00:00Z` : val;
+  };
+
 const Edit = ({ id }: Props) => {
   const { data: tracklist } = useTracklist(id!);
 
-  const handleNameInput = useCallback(
-    (value: string) => {
-      tracklist!.name = value;
-    },
-    [tracklist]
-  );
-
-  const handleDateInput = useCallback(
-    (value: string) => {
-      tracklist!.date = `${value}T00:00:00Z`;
-    },
-    [tracklist]
-  );
-
-  const handleUrlInput = useCallback(
-    (value: string) => {
-      tracklist!.url = value;
-    },
-    [tracklist]
-  );
-
   const handleSubmit = useCallback(async () => {
-    if (tracklist) {
-      await patchTracklist(tracklist);
+    const resp = await patchTracklist(tracklist.value!);
+
+    if (resp) {
+      route(`/tracklist/${resp.id}`);
     }
-  }, [tracklist]);
+  }, [tracklist.value]);
 
   return (
     <div class="space-y-4">
       <Subheader text="Edit Tracklist" center />
 
-      {tracklist && (
+      {tracklist.value && (
         <div class="space-y-4">
           <Input
             name="name"
             label="Name"
             placeholder="Name..."
-            value={tracklist.name}
-            onInput={handleNameInput}
+            value={tracklist.value.name}
+            onInput={handleChange("name", tracklist)}
           />
 
           <Input
@@ -64,21 +53,21 @@ const Edit = ({ id }: Props) => {
             label="Date"
             placeholder="Date..."
             type="date"
-            value={formatYearMonthDay(new Date(tracklist.date))}
-            onInput={handleDateInput}
+            value={formatYearMonthDay(new Date(tracklist.value.date))}
+            onInput={handleChange("date", tracklist)}
           />
 
           <Input
             name="url"
             label="Mixcloud URL"
             placeholder="Mixcloud URL..."
-            value={tracklist.url}
-            onInput={handleUrlInput}
+            value={tracklist.value.url}
+            onInput={handleChange("url", tracklist)}
           />
 
           <Button text="Update" onClick={handleSubmit} />
 
-          {tracklist.tracks!.map((track) => (
+          {tracklist.value.tracks!.map((track) => (
             <TrackItem
               id={track.id}
               artist={track.artist}

@@ -1,4 +1,4 @@
-import { RoutableProps, route } from "preact-router";
+import { RoutableProps } from "preact-router";
 
 import Pagination from "components/Pagination";
 import TracklistItem from "components/TracklistItem";
@@ -7,27 +7,23 @@ import { useTracklistsByTrack } from "hooks/memoir";
 
 interface Props extends RoutableProps {
   id?: string;
-  page?: string;
 }
 
-const TracklistsByTrack = ({ path, id, page }: Props) => {
-  const pageNum = parseInt(page || "1", 10);
-
-  if (Number.isNaN(pageNum)) {
-    route("/404", true);
-  }
+const TracklistsByTrack = ({ path, id }: Props) => {
+  const params = new URLSearchParams(window.location.search);
+  const page = parseInt(params.get("page") || "1", 10);
 
   const {
     isLoading,
     hasMore,
     data: tracklists,
-  } = useTracklistsByTrack(id!, pageNum);
+  } = useTracklistsByTrack(id!, page);
 
   return (
     <>
-      {isLoading
+      {isLoading.value
         ? [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)
-        : tracklists?.map(
+        : tracklists.value?.map(
             ({ id: trackId, name, date, artwork, trackCount }) => (
               <TracklistItem
                 key={trackId}
@@ -40,7 +36,7 @@ const TracklistsByTrack = ({ path, id, page }: Props) => {
             )
           )}
 
-      <Pagination path={path!} id={id} page={pageNum} hasMore={hasMore} />
+      <Pagination path={path!} id={id} page={page} hasMore={hasMore.value} />
     </>
   );
 };

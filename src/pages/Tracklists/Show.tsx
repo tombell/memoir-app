@@ -15,35 +15,33 @@ interface Props extends RoutableProps {
 const Show = ({ id }: Props) => {
   const { isLoading, data: tracklist } = useTracklist(id!);
 
-  if (!tracklist) {
+  if (!tracklist.value) {
     return null;
   }
 
-  return isLoading ? (
+  return isLoading.value ? (
     <Loading />
   ) : (
     <div class="space-y-4">
-      <Subheader text={tracklist.name} center />
+      <Subheader text={tracklist.value.name} center />
 
       <div class="space-x-4 text-center text-xs font-semibold">
-        <Link href={tracklist.url}>Listen on Mixcloud</Link>
+        <Link href={tracklist.value.url}>Listen on Mixcloud</Link>
 
-        {MEMOIR_API_KEY && (
-          <Link href={`/tracklist/${tracklist.id}/edit`}>(Edit)</Link>
-        )}
+        {MEMOIR_API_KEY && <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>}
       </div>
 
-      {tracklist.tracks && (
+      {tracklist.value.tracks && (
         <>
           <div class="text-center">
             <Genres
               genres={[
-                ...new Set(tracklist.tracks.map((track) => track.genre)),
+                ...new Set(tracklist.value.tracks.map((track) => track.genre)),
               ]}
             />
           </div>
 
-          {tracklist.tracks.map((track) => (
+          {tracklist.value.tracks.map((track) => (
             <TrackItem
               id={track.id}
               artist={track.artist}

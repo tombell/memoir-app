@@ -13,9 +13,9 @@ const Index = ({ path }: RoutableProps) => {
 
   return (
     <>
-      {isLoading
+      {isLoading.value
         ? [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)
-        : tracklists?.map(({ id, name, date, artwork, trackCount }) => (
+        : tracklists.value?.map(({ id, name, date, artwork, trackCount }) => (
             <TracklistItem
               key={id}
               id={id}
@@ -26,7 +26,7 @@ const Index = ({ path }: RoutableProps) => {
             />
           ))}
 
-      <Pagination path={path!} page={page} hasMore={hasMore} />
+      <Pagination path={path!} page={page} hasMore={hasMore.value} />
     </>
   );
 };

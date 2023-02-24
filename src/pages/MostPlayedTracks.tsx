@@ -12,9 +12,9 @@ const MostPlayedTracks: FunctionalComponent = () => {
     <div class="space-y-4">
       <Subheader text="Most Played Tracks" center />
 
-      {isLoading
+      {isLoading.value
         ? [0, 1, 2, 3, 4].map(() => <TrackItem loading />)
-        : tracks?.map(({ id, artist, name, genre, bpm, key }) => (
+        : tracks.value?.map(({ id, artist, name, genre, bpm, key }) => (
             <TrackItem
               key={id}
               id={id}

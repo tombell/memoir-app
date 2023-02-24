@@ -31,7 +31,7 @@ const App = () => (
       <TracklistsShow path="/tracklist/:id" />
       {MEMOIR_ADMIN_ENABLED && <TracklistsEdit path="/tracklist/:id/edit" />}
 
-      <TracklistsByTrackPage path="/tracks/:id/:page?" />
+      <TracklistsByTrackPage path="/tracks/:id" />
       <MostPlayedTracksPage path="/tracks/mostplayed" />
 
       <NotFoundPage path="/404" default />

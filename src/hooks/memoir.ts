@@ -1,15 +1,44 @@
-import useGetResource from "hooks/useGetResource";
+import { batch, useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 
+import { request } from "services/memoir";
 import { Track, Tracklist } from "services/memoir/types";
 
+const useFetch = <T>(url: string) => {
+  const isLoading = useSignal(false);
+  const data = useSignal<T | null>(null);
+  const hasMore = useSignal(false);
+
+  useEffect(() => {
+    batch(async () => {
+      isLoading.value = true;
+
+      const resp = await request(url);
+      const json = await resp.json();
+      const current = resp.headers.get("Current-Page");
+      const total = resp.headers.get("Total-Pages");
+
+      data.value = json;
+
+      if (current && total) {
+        hasMore.value = parseInt(current, 10) < parseInt(total, 10);
+      }
+
+      isLoading.value = false;
+    });
+  }, [url, isLoading, data, hasMore]);
+
+  return { isLoading, data, hasMore };
+};
+
 export const useTracklists = (page: number) =>
-  useGetResource<Tracklist[]>(`/tracklists?page=${page}`);
+  useFetch<Tracklist[]>(`/tracklists?page=${page}`);
 
 export const useTracklistsByTrack = (id: string, page: number) =>
-  useGetResource<Tracklist[]>(`/tracks/${id!}/tracklists?page=${page}`);
+  useFetch<Tracklist[]>(`/tracks/${id!}/tracklists?page=${page}`);
 
 export const useTracklist = (id: string) =>
-  useGetResource<Tracklist>(`/tracklists/${id}`);
+  useFetch<Tracklist>(`/tracklists/${id}`);
 
 export const useMostPlayedTracks = () =>
-  useGetResource<Track[]>("/tracks/mostplayed");
+  useFetch<Track[]>("/tracks/mostplayed");

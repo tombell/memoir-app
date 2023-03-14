@@ -20,7 +20,11 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
-    "@storybook/addon-essentials": "^7.0.0-rc.3",
+    "@storybook/addon-actions": "^7.0.0-rc.3",
+    "@storybook/addon-controls": "^7.0.0-rc.3",
+    "@storybook/addon-measure": "^7.0.0-rc.3",
+    "@storybook/addon-outline": "^7.0.0-rc.3",
+    "@storybook/addon-viewport": "^7.0.0-rc.3",
     "@storybook/preact-vite": "^7.0.0-rc.3",
     "@testing-library/preact": "^3.2.3",
     "@testing-library/user-event": "^14.4.3",

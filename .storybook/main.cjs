@@ -5,7 +5,13 @@ module.exports = {
   viteFinal: (config) => mergeConfig(config, { plugins: [tsconfigPaths()] }),
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   staticDirs: ["./public", "../public"],
-  addons: ["@storybook/addon-essentials"],
+  addons: [
+    "@storybook/addon-actions",
+    "@storybook/addon-controls",
+    "@storybook/addon-measure",
+    "@storybook/addon-outline",
+    "@storybook/addon-viewport",
+  ],
   framework: {
     name: "@storybook/preact-vite",
   },

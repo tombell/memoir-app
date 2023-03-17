@@ -6,8 +6,8 @@ module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   staticDirs: ["./public", "../public"],
   addons: [
-    "@storybook/addon-actions",
     "@storybook/addon-controls",
+    "@storybook/addon-actions",
     "@storybook/addon-measure",
     "@storybook/addon-outline",
     "@storybook/addon-viewport",

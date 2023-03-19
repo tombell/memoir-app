@@ -2,9 +2,9 @@ export type Color = "blue" | "green" | "lightblue" | "lilac" | "purple";
 
 const classes = {
   blue: "bg-blue-600",
-  green: "bg-green-600",
-  lightblue: "bg-blue-400",
-  lilac: "bg-indigo-500",
+  green: "bg-lime-700",
+  lightblue: "bg-sky-700",
+  lilac: "bg-indigo-700",
   purple: "bg-purple-600",
 };
 

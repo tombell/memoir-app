@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
+    "@storybook/addon-a11y": "^7.0.0-rc.4",
     "@storybook/addon-actions": "^7.0.0-rc.4",
     "@storybook/addon-controls": "^7.0.0-rc.4",
     "@storybook/addon-measure": "^7.0.0-rc.4",

@@ -12,6 +12,7 @@ export const Base = {
 
   args: {
     text: "Subheader",
+    center: false,
   },
 };
 

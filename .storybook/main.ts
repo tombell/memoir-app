@@ -1,8 +1,9 @@
-const { mergeConfig } = require("vite");
-const { default: tsconfigPaths } = require("vite-tsconfig-paths");
+import { mergeConfig } from "vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
-module.exports = {
-  viteFinal: (config) => mergeConfig(config, { plugins: [tsconfigPaths()] }),
+const config = {
+  viteFinal: (config: any) =>
+    mergeConfig(config, { plugins: [tsconfigPaths()] }),
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   staticDirs: ["./public", "../public"],
   addons: [
@@ -17,3 +18,5 @@ module.exports = {
     name: "@storybook/preact-vite",
   },
 };
+
+export default config;

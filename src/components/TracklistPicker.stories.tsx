@@ -12,4 +12,15 @@ export default meta;
 
 export const Base = {
   name: "TracklistPicker",
+
+  args: {
+    name: "tracklistpicker",
+  },
+};
+
+export const Label = {
+  args: {
+    name: "tracklistpicker with label",
+    label: "Tracklist",
+  },
 };

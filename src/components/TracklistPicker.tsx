@@ -7,10 +7,12 @@ import Tag from "components/Tag";
 import parse from "services/tracklists";
 
 interface Props {
+  name: string;
+  label?: string;
   onSelect: (tracks: string[][]) => void;
 }
 
-const TracklistPicker = ({ onSelect }: Props) => {
+const TracklistPicker = ({ name, label, onSelect }: Props) => {
   const tracks = useSignal<string[][] | null>(null);
 
   const reader = useMemo(() => new FileReader(), []);
@@ -46,7 +48,12 @@ const TracklistPicker = ({ onSelect }: Props) => {
       ))}
     </ol>
   ) : (
-    <FilePicker accept="text/plain" onSelect={handleSelect} />
+    <FilePicker
+      name={name}
+      label={label}
+      accept="text/plain"
+      onSelect={handleSelect}
+    />
   );
 };
 

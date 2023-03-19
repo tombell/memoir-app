@@ -16,8 +16,13 @@ export const Base = {
 
   args: {
     name: "input",
-    label: "Base input",
-    type: "text",
+  },
+};
+
+export const Label = {
+  args: {
+    name: "input with label",
+    label: "Text input",
   },
 };
 
@@ -25,10 +30,24 @@ export const Placeholder = {
   args: {
     name: "input with placeholder",
     placeholder: "Placeholder...",
-    type: "text",
   },
 };
 
+export const PlaceholderWithLabel = {
+  args: {
+    name: "input with placeholder",
+    label: "Text input with label",
+    placeholder: "Placeholder...",
+  },
+};
+
+export const Number = {
+  args: {
+    name: "number",
+    label: "Number input",
+    type: "number",
+  },
+};
 export const Date = {
   args: {
     name: "date",

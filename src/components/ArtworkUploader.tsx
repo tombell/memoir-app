@@ -6,10 +6,12 @@ import FilePicker from "components/FilePicker";
 import { uploadArtwork } from "services/memoir";
 
 interface Props {
+  name: string;
+  label?: string;
   onUpload: (artwork: string) => void;
 }
 
-const ArtworkUploader = ({ onUpload }: Props) => {
+const ArtworkUploader = ({ name, label, onUpload }: Props) => {
   const artwork = useSignal<string | null>(null);
 
   const handleSelect = useCallback(
@@ -33,7 +35,12 @@ const ArtworkUploader = ({ onUpload }: Props) => {
       />
     </div>
   ) : (
-    <FilePicker accept="image/jpeg, image/png" onSelect={handleSelect} />
+    <FilePicker
+      name={name}
+      label={label}
+      accept="image/jpeg, image/png"
+      onSelect={handleSelect}
+    />
   );
 };
 

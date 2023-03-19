@@ -69,13 +69,19 @@ const Add: FunctionalComponent = () => {
         />
 
         <div>
-          <h3 class="mb-2 font-bold text-white">Artwork</h3>
-          <ArtworkUploader onUpload={handleChange(artwork)} />
+          <ArtworkUploader
+            name="artwork-uploader"
+            label="Artwork"
+            onUpload={handleChange(artwork)}
+          />
         </div>
 
         <div>
-          <h3 class="mb-2 font-bold text-white">Tracklist</h3>
-          <TracklistPicker onSelect={handleChange(tracks)} />
+          <TracklistPicker
+            name="tracklist"
+            label="Tracklist"
+            onSelect={handleChange(tracks)}
+          />
         </div>
 
         <Button text="Add" onClick={handleSubmit} />

@@ -17,9 +17,6 @@ export default defineConfig(({ mode }) => {
         ? '"https://memoir-artwork-development.s3.amazonaws.com"'
         : '"https://d4vv6ayb6g3d4.cloudfront.net"',
     },
-    esbuild: {
-      logOverride: { "this-is-undefined-in-esm": "silent" },
-    },
     test: {
       environment: "jsdom",
       coverage: {

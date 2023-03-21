@@ -9,8 +9,12 @@ describe("TracklistPicker", () => {
     cleanup();
   });
 
+  const defaultProps = {
+    name: "tracklist-picker",
+  };
+
   test("renders file input", () => {
-    render(<TracklistPicker onSelect={() => {}} />);
+    render(<TracklistPicker {...defaultProps} onSelect={() => {}} />);
 
     const input = screen.getByTestId("filepicker");
 
@@ -22,7 +26,7 @@ describe("TracklistPicker", () => {
 
     const onSelect = vi.fn();
 
-    render(<TracklistPicker onSelect={onSelect} />);
+    render(<TracklistPicker {...defaultProps} onSelect={onSelect} />);
 
     const file = new File(
       [

@@ -9,8 +9,12 @@ describe("ArtworkUploader", () => {
     cleanup();
   });
 
+  const defaultProps = {
+    name: "artwork-uploader",
+  };
+
   test("renders file input", () => {
-    render(<ArtworkUploader onUpload={() => {}} />);
+    render(<ArtworkUploader {...defaultProps} onUpload={() => {}} />);
 
     const input = screen.getByTestId("filepicker");
 
@@ -26,7 +30,7 @@ describe("ArtworkUploader", () => {
 
     const onUpload = vi.fn();
 
-    render(<ArtworkUploader onUpload={onUpload} />);
+    render(<ArtworkUploader {...defaultProps} onUpload={onUpload} />);
 
     const file = new File(["fake file"], "artwork.jpg", { type: "image/jpeg" });
     const input = screen.getByTestId("filepicker");

@@ -46,7 +46,7 @@
     "jsdom": "^21.1.1",
     "lint-staged": "^13.2.0",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.6",
     "prettier-plugin-tailwindcss": "^0.2.5",
     "storybook": "^7.0.0-rc.5",
     "storybook-addon-mock": "^3.2.0",
@@ -57,7 +57,7 @@
     "vitest": "^0.29.3"
   },
   "lint-staged": {
-    "{src,test}/**/*.{ts,tsx,js,jsx}": [
+    "**/*.{ts,tsx,js,jsx}": [
       "prettier --write"
     ]
   }

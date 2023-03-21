@@ -7,11 +7,15 @@ export const request = async (
 ) => {
   const headers: { [key: string]: string } = {};
 
-  if (MEMOIR_API_KEY) {
-    headers["API-Token"] = MEMOIR_API_KEY;
+  if (import.meta.env.VITE_MEMOIR_API_KEY) {
+    headers["API-Token"] = import.meta.env.VITE_MEMOIR_API_KEY;
   }
 
-  return fetch(`${MEMOIR_API_URL}${endpoint}`, { method, body, headers });
+  return fetch(`${import.meta.env.VITE_MEMOIR_API_URL}${endpoint}`, {
+    method,
+    body,
+    headers,
+  });
 };
 
 export const postTracklist = async (

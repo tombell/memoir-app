@@ -31,7 +31,7 @@ const ArtworkUploader = ({ name, label, onUpload }: Props) => {
       <img
         class="h-24 w-24 border border-solid border-gray-700"
         alt="Mix Artwork"
-        src={`${MEMOIR_CDN_URL}/${artwork.value}`}
+        src={`${import.meta.env.VITE_MEMOIR_CDN_URL}/${artwork.value}`}
       />
     </div>
   ) : (

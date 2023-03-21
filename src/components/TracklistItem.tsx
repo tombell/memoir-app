@@ -42,7 +42,7 @@ const TracklistItem = ({
     );
   }
 
-  const backgroundImage = `${MEMOIR_CDN_URL}/${artwork}`;
+  const backgroundImage = `${import.meta.env.VITE_MEMOIR_CDN_URL}/${artwork}`;
 
   const background = {
     backgroundImage: `${linearGradient}, url(${backgroundImage})`,

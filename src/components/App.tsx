@@ -26,10 +26,14 @@ const App = () => (
 
     <Router>
       <TracklistsIndex path="/tracklists" />
-      {MEMOIR_ADMIN_ENABLED && <TracklistsAdd path="/tracklists/add" />}
+      {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
+        <TracklistsAdd path="/tracklists/add" />
+      )}
 
       <TracklistsShow path="/tracklist/:id" />
-      {MEMOIR_ADMIN_ENABLED && <TracklistsEdit path="/tracklist/:id/edit" />}
+      {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
+        <TracklistsEdit path="/tracklist/:id/edit" />
+      )}
 
       <TracklistsByTrackPage path="/tracks/:id" />
       <MostPlayedTracksPage path="/tracks/mostplayed" />

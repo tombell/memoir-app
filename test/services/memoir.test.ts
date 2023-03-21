@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test } from "vitest";
 
 import { mockFetchResponse, mockFetchThrows } from "test/support/fetch";
 
@@ -11,12 +11,8 @@ import {
 } from "services/memoir";
 import { NewTracklist, Tracklist } from "services/memoir/types";
 
-beforeEach(() => {
-  vi.stubGlobal("MEMOIR_API_URL", "/api");
-});
-
 afterEach(() => {
-  vi.unstubAllGlobals();
+  import.meta.env.VITE_MEMOIR_API_KEY = "";
 });
 
 describe("request", () => {
@@ -57,7 +53,7 @@ describe("request", () => {
 
   describe("with an api key", () => {
     beforeEach(() => {
-      vi.stubGlobal("MEMOIR_API_KEY", "asdf-asdf");
+      import.meta.env.VITE_MEMOIR_API_KEY = "asdf-asdf";
     });
 
     test("returns data with a get request", async () => {

@@ -28,7 +28,9 @@ const Show = ({ id }: Props) => {
       <div class="space-x-4 text-center text-xs font-semibold">
         <Link href={tracklist.value.url}>Listen on Mixcloud</Link>
 
-        {MEMOIR_API_KEY && <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>}
+        {import.meta.env.VITE_MEMOIR_API_KEY && (
+          <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>
+        )}
       </div>
 
       {tracklist.value.tracks && (

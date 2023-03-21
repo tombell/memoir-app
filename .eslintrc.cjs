@@ -6,6 +6,7 @@ module.exports = {
     "prettier",
     "plugin:react/jsx-runtime",
     "plugin:storybook/recommended",
+    "plugin:vitest/recommended",
   ],
   parserOptions: {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
@@ -39,15 +40,8 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["**/*.stories.*"],
-      rules: {
-        "react/jsx-props-no-spreading": "off",
-      },
-    },
-    {
       files: ["**/*.test.*"],
       rules: {
-        "import/first": "off",
         "react/jsx-props-no-spreading": "off",
       },
     },

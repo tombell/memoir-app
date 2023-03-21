@@ -19,16 +19,6 @@ export default defineConfig(({ mode }) => {
     },
     test: {
       environment: "jsdom",
-      coverage: {
-        all: true,
-        include: ["src/**/*.ts", "src/**/*.tsx"],
-        exclude: [
-          "**/*.config.*",
-          "**/*.d.ts",
-          "**/*.stories.*",
-          "**/types.ts",
-        ],
-      },
     },
   };
 });

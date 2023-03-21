@@ -46,10 +46,4 @@ module.exports = {
       },
     },
   ],
-  globals: {
-    MEMOIR_ADMIN_ENABLED: "readonly",
-    MEMOIR_API_KEY: "readonly",
-    MEMOIR_API_URL: "readonly",
-    MEMOIR_CDN_URL: "readonly",
-  },
 };

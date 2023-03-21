@@ -6,6 +6,8 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
+    ".storybook/main.ts",
+    ".storybook/preview.cjs",
     ".eslintrc.cjs",
     "postcss.config.cjs",
     "tailwind.config.cjs",

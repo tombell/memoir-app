@@ -11,12 +11,21 @@ describe("ArtworkUploader", () => {
 
   const defaultProps = {
     name: "artwork-uploader",
+    label: "Select artwork to upload",
   };
+
+  test("renders input label", () => {
+    render(<ArtworkUploader {...defaultProps} onUpload={() => {}} />);
+
+    const label = screen.queryByText("Select artwork to upload");
+
+    expect(label).not.toBeNull();
+  });
 
   test("renders file input", () => {
     render(<ArtworkUploader {...defaultProps} onUpload={() => {}} />);
 
-    const input = screen.getByTestId("filepicker");
+    const input = screen.queryByTestId("filepicker");
 
     expect(input).not.toBeNull();
   });

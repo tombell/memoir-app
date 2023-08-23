@@ -16,6 +16,9 @@ const config = {
   framework: {
     name: "@storybook/preact-vite",
   },
+  core: {
+    disableTelemetry: true,
+  },
 };
 
 export default config;

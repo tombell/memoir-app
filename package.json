@@ -42,7 +42,7 @@
     "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "lint-staged": "^14.0.1",
-    "postcss": "^8.4.22",
+    "postcss": "^8.4.28",
     "preact": "^10.13.2",
     "preact-router": "^4.1.0",
     "prettier": "^2.8.7",

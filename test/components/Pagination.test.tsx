@@ -14,7 +14,7 @@ describe("Pagination", () => {
 
   test("renders nothing when only one page", () => {
     const { queryByText } = render(
-      <Pagination {...defaultProps} page={1} hasMore={false} />
+      <Pagination {...defaultProps} page={1} hasMore={false} />,
     );
 
     const prev = queryByText("← Newer");
@@ -28,7 +28,7 @@ describe("Pagination", () => {
 
   test("renders next link when has more", () => {
     const { queryByText, getByText } = render(
-      <Pagination {...defaultProps} page={1} hasMore />
+      <Pagination {...defaultProps} page={1} hasMore />,
     );
 
     const prev = queryByText("← Newer");
@@ -42,7 +42,7 @@ describe("Pagination", () => {
 
   test("renders previous link and not next link when not on page one and does not have more", () => {
     const { queryByText, getByText } = render(
-      <Pagination {...defaultProps} page={2} hasMore={false} />
+      <Pagination {...defaultProps} page={2} hasMore={false} />,
     );
 
     const prev = getByText("← Newer");
@@ -56,7 +56,7 @@ describe("Pagination", () => {
 
   test("renders previous link and next link when not on page one and does have more", () => {
     const { getByText } = render(
-      <Pagination {...defaultProps} page={2} hasMore />
+      <Pagination {...defaultProps} page={2} hasMore />,
     );
 
     const prev = getByText("← Newer");
@@ -70,7 +70,12 @@ describe("Pagination", () => {
 
   test("renders id in the url in previous link and next link", () => {
     const { getByText } = render(
-      <Pagination path="/tracklists/:id" id="my-resource-id" page={2} hasMore />
+      <Pagination
+        path="/tracklists/:id"
+        id="my-resource-id"
+        page={2}
+        hasMore
+      />,
     );
 
     const prev = getByText("← Newer");

@@ -3,7 +3,7 @@ import { Artwork, NewTracklist, Track, Tracklist } from "services/memoir/types";
 export const request = async (
   endpoint: string,
   method = "GET",
-  body: FormData | string | null = null
+  body: FormData | string | null = null,
 ) => {
   const headers: { [key: string]: string } = {};
 
@@ -19,7 +19,7 @@ export const request = async (
 };
 
 export const postTracklist = async (
-  tracklist: NewTracklist
+  tracklist: NewTracklist,
 ): Promise<Tracklist | null> => {
   try {
     const data = JSON.stringify(tracklist);
@@ -32,7 +32,7 @@ export const postTracklist = async (
 };
 
 export const patchTracklist = async (
-  tracklist: Tracklist
+  tracklist: Tracklist,
 ): Promise<Tracklist | null> => {
   try {
     const { id, name, date, url } = tracklist;

@@ -38,7 +38,7 @@ describe("TracklistPicker", () => {
       "tracklist.txt",
       {
         type: "text/plain",
-      }
+      },
     );
 
     const input = screen.getByTestId("filepicker");
@@ -72,17 +72,17 @@ describe("TracklistPicker", () => {
     });
 
     expect(
-      screen.getByText("1. Eugenio Fico - On The Block (Original Mix)")
+      screen.getByText("1. Eugenio Fico - On The Block (Original Mix)"),
     ).toBeDefined();
 
     expect(
       screen.getByText(
-        "2. Block & Crown, Paul Parsons - It's A House Thing (Original Mix)"
-      )
+        "2. Block & Crown, Paul Parsons - It's A House Thing (Original Mix)",
+      ),
     ).toBeDefined();
 
     expect(
-      screen.getByText("3. Manuel Grandi - Around The World (Club Mix)")
+      screen.getByText("3. Manuel Grandi - Around The World (Club Mix)"),
     ).toBeDefined();
 
     const tracks = screen.getAllByTestId("track-details");

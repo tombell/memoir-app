@@ -27,7 +27,7 @@ const Input = ({
       input.value = (e.target as HTMLInputElement).value;
       onInput(input.value);
     },
-    [input, onInput]
+    [input, onInput],
   );
 
   return (

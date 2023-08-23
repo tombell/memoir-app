@@ -8,7 +8,7 @@ afterEach(() => {
 
 export const mockFetchResponse = (
   data: object,
-  headers: { [key: string]: string } = {}
+  headers: { [key: string]: string } = {},
 ) => {
   (fetch as Mock).mockResolvedValue({
     json: () => Promise.resolve(data),

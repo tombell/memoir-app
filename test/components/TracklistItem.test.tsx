@@ -23,7 +23,7 @@ describe("TracklistItem", () => {
         date={new Date("2023-01-02")}
         artwork="artwork.jpg"
         trackCount={10}
-      />
+      />,
     );
 
     const link = screen.getByRole("link");
@@ -33,7 +33,7 @@ describe("TracklistItem", () => {
     const artwork = screen.getByRole("img");
 
     expect(artwork.getAttribute("src")).toBe(
-      "https://memoir-artwork-development.s3.amazonaws.com/artwork.jpg"
+      "https://memoir-artwork-development.s3.amazonaws.com/artwork.jpg",
     );
 
     expect(screen.getByText("My tracklist")).toBeDefined();

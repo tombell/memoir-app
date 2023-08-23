@@ -20,7 +20,7 @@ const Index = () => {
         showResults.value = false;
       }
     },
-    [showResults]
+    [showResults],
   );
 
   const onInput = useCallback(
@@ -38,7 +38,7 @@ const Index = () => {
         showResults.value = true;
       }
     },
-    [showResults, tracks]
+    [showResults, tracks],
   );
 
   const onInputFocus = useCallback(() => {

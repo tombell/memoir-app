@@ -30,7 +30,7 @@ const TracklistPicker = ({ name, label, onSelect }: Props) => {
       reader.onload = onFileRead;
       reader.readAsText(file);
     },
-    [onFileRead, reader]
+    [onFileRead, reader],
   );
 
   return tracks.value ? (

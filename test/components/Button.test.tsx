@@ -17,7 +17,7 @@ describe("Button", () => {
     render(<Button {...defaultProps} onClick={() => {}} />);
 
     expect(
-      screen.queryByRole("button", { name: "Test button" })
+      screen.queryByRole("button", { name: "Test button" }),
     ).not.toBeNull();
   });
 

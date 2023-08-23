@@ -23,7 +23,7 @@ describe("TrackItem", () => {
         genre="Tech House"
         bpm={123.0}
         camelotKey="12B"
-      />
+      />,
     );
 
     const link = screen.getByRole("link", { name: "Artist - Track Name" });

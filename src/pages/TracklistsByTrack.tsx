@@ -33,7 +33,7 @@ const TracklistsByTrack = ({ path, id }: Props) => {
                 artwork={artwork}
                 trackCount={trackCount}
               />
-            )
+            ),
           )}
 
       <Pagination path={path!} id={id} page={page} hasMore={hasMore.value} />

@@ -9,7 +9,7 @@ const highlight = (text?: string | null) => {
 
   return text.replace(
     /<<(.*?)>>/g,
-    (_a, str) => `<b class="italic font-bold text-purple-400">${str}</b>`
+    (_a, str) => `<b class="italic font-bold text-purple-400">${str}</b>`,
   );
 };
 
@@ -25,7 +25,7 @@ const Result = ({ track, onClick }: Props) => (
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `${highlight(track.artistHighlighted)} - ${highlight(
-            track.nameHighlighted
+            track.nameHighlighted,
           )}`,
         }}
       />

@@ -21,7 +21,7 @@ describe("Footer", () => {
 
     expect(links[2].innerHTML).toBe("IAMDJRIFF on Mixcloud");
     expect(links[2].getAttribute("href")).toBe(
-      "https://mixcloud.com/iamdjriff"
+      "https://mixcloud.com/iamdjriff",
     );
   });
 });

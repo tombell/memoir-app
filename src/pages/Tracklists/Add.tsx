@@ -9,8 +9,8 @@ import Input from "components/Input";
 import Subheader from "components/Subheader";
 import TracklistPicker from "components/TracklistPicker";
 
-import { postTracklist } from "services/memoir";
 import { NewTracklist } from "services/memoir/types";
+import { usePostTracklist } from "hooks/memoir";
 
 const handleChange =
   <T,>(signal: Signal<T>) =>
@@ -33,13 +33,15 @@ const Add: FunctionalComponent = () => {
     tracks: tracks.value,
   }));
 
+  const { perform: postTracklist } = usePostTracklist();
+
   const handleSubmit = useCallback(async () => {
     const resp = await postTracklist(tracklist.value);
 
     if (resp) {
       route(`/tracklist/${resp.id}/edit`);
     }
-  }, [tracklist.value]);
+  }, [postTracklist, tracklist.value]);
 
   return (
     <div class="space-y-4">

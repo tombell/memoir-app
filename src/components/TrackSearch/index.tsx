@@ -5,14 +5,16 @@ import Input from "components/Input";
 
 import Results from "components/TrackSearch/Results";
 
-import { searchTracks } from "services/memoir";
 import { Track } from "services/memoir/types";
+import { useSearchTracks } from "hooks/memoir";
 
 const Index = () => {
   const showResults = useSignal(false);
   const tracks = useSignal<Track[] | null>(null);
 
   const ref = useRef<HTMLDivElement>(null);
+
+  const { perform: searchTracks } = useSearchTracks();
 
   const onBodyClick = useCallback(
     ({ target }: any) => {
@@ -38,7 +40,7 @@ const Index = () => {
         showResults.value = true;
       }
     },
-    [showResults, tracks],
+    [showResults, tracks, searchTracks],
   );
 
   const onInputFocus = useCallback(() => {

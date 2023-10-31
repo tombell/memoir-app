@@ -28,7 +28,7 @@ const ArtworkUploader = ({ name, label, onUpload }: Props) => {
         onUpload(artwork.value);
       }
     },
-    [onUpload, artwork],
+    [uploadArtwork, onUpload, artwork],
   );
 
   return artwork.value ? (

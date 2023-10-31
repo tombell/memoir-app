@@ -7,10 +7,9 @@ import Input from "components/Input";
 import Subheader from "components/Subheader";
 import TrackItem from "components/TrackItem";
 
-import { useTracklist } from "hooks/memoir";
+import { usePatchTracklist, useTracklist } from "hooks/memoir";
 
 import { formatYearMonthDay } from "services/datetime";
-import { patchTracklist } from "services/memoir";
 import { Tracklist } from "services/memoir/types";
 
 interface Props extends RoutableProps {
@@ -26,13 +25,15 @@ const handleChange =
 const Edit = ({ id }: Props) => {
   const { data: tracklist } = useTracklist(id!);
 
+  const { perform: patchTracklist } = usePatchTracklist(id!);
+
   const handleSubmit = useCallback(async () => {
     const resp = await patchTracklist(tracklist.value!);
 
     if (resp) {
       route(`/tracklist/${resp.id}`);
     }
-  }, [tracklist.value]);
+  }, [patchTracklist, tracklist.value]);
 
   return (
     <div class="space-y-4">

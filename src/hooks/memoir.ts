@@ -1,8 +1,29 @@
 import { batch, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
-import { request } from "services/memoir";
-import { Artwork, Track, Tracklist } from "services/memoir/types";
+import request from "services/memoir";
+import { Artwork, NewTracklist, Track, Tracklist } from "services/memoir/types";
+
+const useRequest = <TResponse>(url: string) => {
+  const isLoading = useSignal(false);
+
+  const perform = async (query: string): Promise<TResponse | null> => {
+    try {
+      isLoading.value = true;
+
+      const resp = await request(url + query, "GET");
+      const json = await resp.json();
+
+      return json;
+    } catch (err) {
+      return null;
+    } finally {
+      isLoading.value = false;
+    }
+  };
+
+  return { isLoading, perform };
+};
 
 const useFetch = <T>(url: string) => {
   const isLoading = useSignal(false);
@@ -31,6 +52,29 @@ const useFetch = <T>(url: string) => {
   return { isLoading, data, hasMore };
 };
 
+const usePerform = <TPayload, TResponse>(method: string, url: string) => {
+  const isLoading = useSignal(false);
+
+  const perform = async (body?: TPayload): Promise<TResponse | null> => {
+    try {
+      isLoading.value = true;
+
+      const payload =
+        body instanceof FormData ? body : JSON.stringify(body ?? {});
+      const resp = await request(url, method, body ? payload : undefined);
+      const json = await resp.json();
+
+      return json;
+    } catch (err) {
+      return null;
+    } finally {
+      isLoading.value = false;
+    }
+  };
+
+  return { isLoading, perform };
+};
+
 export const useTracklists = (page: number) =>
   useFetch<Tracklist[]>(`/tracklists?page=${page}`);
 
@@ -43,22 +87,13 @@ export const useTracklist = (id: string) =>
 export const useMostPlayedTracks = () =>
   useFetch<Track[]>("/tracks/mostplayed");
 
-export const usePostFetch = <T>(url: string) => {
-  const isLoading = useSignal(false);
+export const usePostArtwork = () =>
+  usePerform<FormData, Artwork>("POST", "/artwork");
 
-  const perform = async (body?: T | FormData): Promise<T | null> => {
-    try {
-      const payload =
-        body instanceof FormData ? body : JSON.stringify(body ?? {});
-      const resp = await request(url, "POST", payload);
-      const json = await resp.json();
-      return json;
-    } catch {
-      return null;
-    }
-  };
+export const usePostTracklist = () =>
+  usePerform<NewTracklist, Tracklist>("POST", "/tracklists");
 
-  return { isLoading, perform };
-};
+export const usePatchTracklist = (id: string) =>
+  usePerform<Tracklist, Tracklist>("PATCH", `/tracklists/${id}`);
 
-export const usePostArtwork = () => usePostFetch<Artwork>("/artwork");
+export const useSearchTracks = () => useRequest<Track[]>("/tracks/search?q=");

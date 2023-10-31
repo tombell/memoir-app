@@ -7,7 +7,6 @@ import {
   postTracklist,
   request,
   searchTracks,
-  uploadArtwork,
 } from "services/memoir";
 import { NewTracklist, Tracklist } from "services/memoir/types";
 
@@ -180,37 +179,6 @@ describe("searchTracks", () => {
     mockFetchThrows();
 
     const data = await searchTracks(query);
-
-    expect(data).toBeNull();
-  });
-});
-
-describe("uploadArtwork", () => {
-  const file = new File(["fake file"], "artwork.jpg", { type: "image/jpeg" });
-
-  test("returns data of the uploaded artwork", async () => {
-    const response = { key: "asdf-asdf-asdf" };
-
-    mockFetchResponse(response);
-
-    const data = await uploadArtwork(file);
-
-    expect(data).toStrictEqual(response);
-
-    const body = new FormData();
-    body.append("artwork", file);
-
-    expect(fetch).toHaveBeenCalledWith("/api/artwork", {
-      method: "POST",
-      body,
-      headers: {},
-    });
-  });
-
-  test("returns null when request fails", async () => {
-    mockFetchThrows();
-
-    const data = await uploadArtwork(file);
 
     expect(data).toBeNull();
   });

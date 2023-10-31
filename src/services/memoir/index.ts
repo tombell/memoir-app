@@ -54,15 +54,3 @@ export const searchTracks = async (query: string): Promise<Track[] | null> => {
     return null;
   }
 };
-
-export const uploadArtwork = async (file: File): Promise<Artwork | null> => {
-  try {
-    const data = new FormData();
-    data.append("artwork", file);
-    const resp = await request("/artwork", "POST", data);
-    const json = await resp.json();
-    return json;
-  } catch {
-    return null;
-  }
-};

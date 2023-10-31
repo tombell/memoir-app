@@ -33,8 +33,15 @@ describe("ArtworkUploader", () => {
   test("calls the on upload callback and renders the uploaded image", async () => {
     const user = userEvent.setup();
 
-    vi.mock("services/memoir", () => ({
-      uploadArtwork: vi.fn().mockReturnValue({ key: "asdfasdfasdf.jpg" }),
+    const { mockPerform } = vi.hoisted(() => ({
+      mockPerform: vi.fn().mockResolvedValue({ key: "asdfasdfasdf.jpg" }),
+    }));
+
+    vi.mock("hooks/memoir", () => ({
+      usePostArtwork: vi.fn().mockReturnValue({
+        isLoading: false,
+        perform: mockPerform,
+      }),
     }));
 
     const onUpload = vi.fn();
@@ -47,6 +54,10 @@ describe("ArtworkUploader", () => {
     await user.upload(input, file);
 
     expect(onUpload).toHaveBeenCalledWith("asdfasdfasdf.jpg");
+
+    const data = new FormData();
+    data.append("artwork", file);
+    expect(mockPerform).toHaveBeenCalledWith(data);
 
     const img = screen.getByRole("img");
 

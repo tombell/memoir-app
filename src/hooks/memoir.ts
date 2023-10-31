@@ -2,7 +2,7 @@ import { batch, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
 import { request } from "services/memoir";
-import { Track, Tracklist } from "services/memoir/types";
+import { Artwork, Track, Tracklist } from "services/memoir/types";
 
 const useFetch = <T>(url: string) => {
   const isLoading = useSignal(false);
@@ -42,3 +42,23 @@ export const useTracklist = (id: string) =>
 
 export const useMostPlayedTracks = () =>
   useFetch<Track[]>("/tracks/mostplayed");
+
+export const usePostFetch = <T>(url: string) => {
+  const isLoading = useSignal(false);
+
+  const perform = async (body?: T | FormData): Promise<T | null> => {
+    try {
+      const payload =
+        body instanceof FormData ? body : JSON.stringify(body ?? {});
+      const resp = await request(url, "POST", payload);
+      const json = await resp.json();
+      return json;
+    } catch {
+      return null;
+    }
+  };
+
+  return { isLoading, perform };
+};
+
+export const usePostArtwork = () => usePostFetch<Artwork>("/artwork");

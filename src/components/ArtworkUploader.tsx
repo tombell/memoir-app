@@ -3,7 +3,7 @@ import { useCallback } from "preact/hooks";
 
 import FilePicker from "components/FilePicker";
 
-import { uploadArtwork } from "services/memoir";
+import { usePostArtwork } from "hooks/memoir";
 
 interface Props {
   name: string;
@@ -14,9 +14,14 @@ interface Props {
 const ArtworkUploader = ({ name, label, onUpload }: Props) => {
   const artwork = useSignal<string | null>(null);
 
+  const { perform: uploadArtwork } = usePostArtwork();
+
   const handleSelect = useCallback(
     async (file: File) => {
-      const upload = await uploadArtwork(file);
+      const data = new FormData();
+      data.append("artwork", file);
+
+      const upload = await uploadArtwork(data);
 
       if (upload) {
         artwork.value = upload.key;

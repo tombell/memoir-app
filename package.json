@@ -40,7 +40,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-vitest": "^0.3.20",
     "husky": "^8.0.3",
-    "jsdom": "^22.1.0",
+    "jsdom": "^23.0.1",
     "lint-staged": "^15.2.0",
     "postcss": "^8.4.32",
     "preact": "^10.18.1",

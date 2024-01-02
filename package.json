@@ -13,7 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@preact/preset-vite": "^2.6.0",
+    "@preact/preset-vite": "^2.8.1",
     "@preact/signals": "^1.2.2",
     "@storybook/addon-a11y": "^7.6.7",
     "@storybook/addon-actions": "^7.6.7",

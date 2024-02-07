@@ -41,7 +41,7 @@
     "eslint-plugin-vitest": "^0.3.20",
     "husky": "^9.0.10",
     "jsdom": "^24.0.0",
-    "lint-staged": "^15.2.0",
+    "lint-staged": "^15.2.2",
     "postcss": "^8.4.32",
     "preact": "^10.19.3",
     "preact-router": "^4.1.2",

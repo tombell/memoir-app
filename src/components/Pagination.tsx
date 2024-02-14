@@ -7,7 +7,7 @@ interface Props {
   hasMore: boolean;
 }
 
-const Pagination = ({ path, id, page, hasMore }: Props) => {
+function Pagination({ path, id, page, hasMore }: Props) {
   const isFirstPage = page === 1;
 
   let prevUrl = `${path}?page=${page - 1}`;
@@ -29,6 +29,6 @@ const Pagination = ({ path, id, page, hasMore }: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export default Pagination;

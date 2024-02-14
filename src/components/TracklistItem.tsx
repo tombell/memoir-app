@@ -15,14 +15,14 @@ interface Props {
 const linearGradient =
   "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%)";
 
-const TracklistItem = ({
+function TracklistItem({
   loading = false,
   id,
   name,
   date,
   artwork,
   trackCount,
-}: Props) => {
+}: Props) {
   if (loading) {
     return (
       <div
@@ -73,6 +73,6 @@ const TracklistItem = ({
       </div>
     </Link>
   );
-};
+}
 
 export default TracklistItem;

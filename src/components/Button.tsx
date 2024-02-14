@@ -12,14 +12,16 @@ const classes = {
   small: "py-2 px-4 text-xs",
 };
 
-const Button = ({ text, variant = "large", onClick }: Props) => (
-  <button
-    class={`rounded bg-gray-800 font-bold text-white hover:bg-gray-700 active:bg-gray-800 ${classes[variant]}`}
-    type="button"
-    onClick={onClick}
-  >
-    {text}
-  </button>
-);
+function Button({ text, variant = "large", onClick }: Props) {
+  return (
+    <button
+      class={`rounded bg-gray-800 font-bold text-white hover:bg-gray-700 active:bg-gray-800 ${classes[variant]}`}
+      type="button"
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+}
 
 export default Button;

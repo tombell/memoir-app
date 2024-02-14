@@ -12,7 +12,7 @@ interface Props {
   onSelect: (tracks: string[][]) => void;
 }
 
-const TracklistPicker = ({ name, label, onSelect }: Props) => {
+function TracklistPicker({ name, label, onSelect }: Props) {
   const tracks = useSignal<string[][] | null>(null);
 
   const reader = useMemo(() => new FileReader(), []);
@@ -55,6 +55,6 @@ const TracklistPicker = ({ name, label, onSelect }: Props) => {
       onSelect={handleSelect}
     />
   );
-};
+}
 
 export default TracklistPicker;

@@ -11,7 +11,7 @@ interface Props {
   onFocus?: (e: Event) => void;
 }
 
-const Input = ({
+function Input({
   name,
   label,
   placeholder,
@@ -19,7 +19,7 @@ const Input = ({
   value,
   onInput,
   onFocus,
-}: Props) => {
+}: Props) {
   const input = useSignal(value);
 
   const handleInput = useCallback(
@@ -48,6 +48,6 @@ const Input = ({
       </label>
     </div>
   );
-};
+}
 
 export default Input;

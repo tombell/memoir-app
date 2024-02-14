@@ -13,12 +13,14 @@ interface Props {
   color?: Color;
 }
 
-const Tag = ({ text, color = "green" }: Props) => (
-  <div
-    class={`inline-block rounded py-1 px-2 text-center text-xs font-bold text-white ${classes[color]}`}
-  >
-    {text}
-  </div>
-);
+function Tag({ text, color = "green" }: Props) {
+  return (
+    <div
+      class={`inline-block rounded py-1 px-2 text-center text-xs font-bold text-white ${classes[color]}`}
+    >
+      {text}
+    </div>
+  );
+}
 
 export default Tag;

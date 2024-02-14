@@ -5,7 +5,7 @@ import TracklistItem from "@components/TracklistItem";
 
 import { useTracklists } from "@hooks/memoir";
 
-const Index = ({ path }: RoutableProps) => {
+function Index({ path }: RoutableProps) {
   const params = new URLSearchParams(window.location.search);
   const page = parseInt(params.get("page") || "1", 10);
 
@@ -29,6 +29,6 @@ const Index = ({ path }: RoutableProps) => {
       <Pagination path={path!} page={page} hasMore={hasMore.value} />
     </>
   );
-};
+}
 
 export default Index;

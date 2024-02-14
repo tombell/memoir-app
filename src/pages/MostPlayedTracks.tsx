@@ -5,7 +5,7 @@ import TrackItem from "@components/TrackItem";
 
 import { useMostPlayedTracks } from "@hooks/memoir";
 
-const MostPlayedTracks: FunctionalComponent = () => {
+function MostPlayedTracks() {
   const { isLoading, data: tracks } = useMostPlayedTracks();
 
   return (
@@ -27,6 +27,6 @@ const MostPlayedTracks: FunctionalComponent = () => {
           ))}
     </div>
   );
-};
+}
 
-export default MostPlayedTracks;
+export default MostPlayedTracks as FunctionalComponent;

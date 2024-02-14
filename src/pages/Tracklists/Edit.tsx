@@ -22,7 +22,7 @@ const handleChange =
     signal.value![key] = key === "date" ? `${val}T00:00:00Z` : val;
   };
 
-const Edit = ({ id }: Props) => {
+function Edit({ id }: Props) {
   const { data: tracklist } = useTracklist(id!);
 
   const { perform: patchTracklist } = usePatchTracklist(id!);
@@ -82,6 +82,6 @@ const Edit = ({ id }: Props) => {
       )}
     </div>
   );
-};
+}
 
 export default Edit;

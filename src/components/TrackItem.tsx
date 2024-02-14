@@ -11,7 +11,7 @@ interface Props {
   camelotKey?: string;
 }
 
-const TrackItem = ({
+function TrackItem({
   loading = false,
   id,
   artist,
@@ -19,7 +19,7 @@ const TrackItem = ({
   genre,
   bpm,
   camelotKey,
-}: Props) => {
+}: Props) {
   if (loading) {
     return (
       <div class="animate-pulse space-y-2" data-testid="track-loading">
@@ -43,6 +43,6 @@ const TrackItem = ({
       </div>
     </div>
   );
-};
+}
 
 export default TrackItem;

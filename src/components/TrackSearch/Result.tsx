@@ -18,19 +18,21 @@ interface Props {
   onClick: () => void;
 }
 
-const Result = ({ track, onClick }: Props) => (
-  <li class="my-2.5 mx-2 list-none truncate text-white">
-    <Link href={`/tracks/${track.id}`} onClick={onClick}>
-      <span
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: `${highlight(track.artistHighlighted)} - ${highlight(
-            track.nameHighlighted,
-          )}`,
-        }}
-      />
-    </Link>
-  </li>
-);
+function Result({ track, onClick }: Props) {
+  return (
+    <li class="my-2.5 mx-2 list-none truncate text-white">
+      <Link href={`/tracks/${track.id}`} onClick={onClick}>
+        <span
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: `${highlight(track.artistHighlighted)} - ${highlight(
+              track.nameHighlighted,
+            )}`,
+          }}
+        />
+      </Link>
+    </li>
+  );
+}
 
 export default Result;

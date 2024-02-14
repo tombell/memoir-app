@@ -14,37 +14,39 @@ import TrackSearch from "@components/TrackSearch";
 
 import "./App.css";
 
-const App = () => (
-  <div class="container mx-auto px-96">
-    <div class="my-4 flex justify-center">
-      <Header />
+function App() {
+  return (
+    <div class="container mx-auto px-96">
+      <div class="my-4 flex justify-center">
+        <Header />
+      </div>
+
+      <div class="mb-8">
+        <TrackSearch />
+      </div>
+
+      <Router>
+        <TracklistsIndex path="/tracklists" />
+        {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
+          <TracklistsAdd path="/tracklists/add" />
+        )}
+
+        <TracklistsShow path="/tracklist/:id" />
+        {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
+          <TracklistsEdit path="/tracklist/:id/edit" />
+        )}
+
+        <TracklistsByTrackPage path="/tracks/:id" />
+        <MostPlayedTracksPage path="/tracks/mostplayed" />
+
+        <NotFoundPage path="/404" default />
+      </Router>
+
+      <div class="my-8">
+        <Footer />
+      </div>
     </div>
-
-    <div class="mb-8">
-      <TrackSearch />
-    </div>
-
-    <Router>
-      <TracklistsIndex path="/tracklists" />
-      {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
-        <TracklistsAdd path="/tracklists/add" />
-      )}
-
-      <TracklistsShow path="/tracklist/:id" />
-      {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
-        <TracklistsEdit path="/tracklist/:id/edit" />
-      )}
-
-      <TracklistsByTrackPage path="/tracks/:id" />
-      <MostPlayedTracksPage path="/tracks/mostplayed" />
-
-      <NotFoundPage path="/404" default />
-    </Router>
-
-    <div class="my-8">
-      <Footer />
-    </div>
-  </div>
-);
+  );
+}
 
 export default App;

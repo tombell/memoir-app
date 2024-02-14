@@ -2,8 +2,8 @@ import { FunctionalComponent } from "preact";
 
 import Subheader from "@components/Subheader";
 
-const NotFoundPage: FunctionalComponent = () => (
-  <Subheader text="Page Not Found" />
-);
+function NotFoundPage() {
+  return <Subheader text="Page Not Found" />;
+}
 
-export default NotFoundPage;
+export default NotFoundPage as FunctionalComponent;

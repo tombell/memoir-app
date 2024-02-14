@@ -12,7 +12,7 @@ interface Props extends RoutableProps {
   id?: string;
 }
 
-const Show = ({ id }: Props) => {
+function Show({ id }: Props) {
   const { isLoading, data: tracklist } = useTracklist(id!);
 
   if (!tracklist.value) {
@@ -57,6 +57,6 @@ const Show = ({ id }: Props) => {
       )}
     </div>
   );
-};
+}
 
 export default Show;

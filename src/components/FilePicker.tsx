@@ -7,7 +7,7 @@ interface Props {
   onSelect: (file: File) => void;
 }
 
-const FilePicker = ({ name, label, accept, onSelect }: Props) => {
+function FilePicker({ name, label, accept, onSelect }: Props) {
   const input = useRef<HTMLInputElement>(null);
 
   const handleChange = useCallback(() => {
@@ -34,6 +34,6 @@ const FilePicker = ({ name, label, accept, onSelect }: Props) => {
       </div>
     </label>
   );
-};
+}
 
 export default FilePicker;

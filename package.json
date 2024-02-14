@@ -58,5 +58,18 @@
     "**/*.{ts,tsx,js,jsx,cjs}": [
       "prettier --write"
     ]
+  },
+  "prettier": {
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
+    "importOrder": [
+      "^@pages/(.*)$",
+      "^@components/(.*)$",
+      "^@services/(.*)$",
+      "^@hooks/(.*)$",
+      "^@test/(.*)$",
+      "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
   }
 }

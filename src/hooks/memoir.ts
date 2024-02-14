@@ -1,8 +1,13 @@
 import { batch, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
-import request from "services/memoir";
-import { Artwork, NewTracklist, Track, Tracklist } from "services/memoir/types";
+import request from "@services/memoir";
+import {
+  Artwork,
+  NewTracklist,
+  Track,
+  Tracklist,
+} from "@services/memoir/types";
 
 const useRequest = <TResponse>(url: string) => {
   const isLoading = useSignal(false);

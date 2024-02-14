@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/preact";
 
-import Header from "components/Header";
+import Header from "@components/Header";
 
 const meta: Meta = {
   component: Header,

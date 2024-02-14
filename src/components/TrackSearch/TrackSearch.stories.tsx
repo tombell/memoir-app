@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/preact";
 
-import TrackSearch from "components/TrackSearch";
+import TrackSearch from "@components/TrackSearch";
 
 const meta: Meta = {
   component: TrackSearch,

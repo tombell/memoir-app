@@ -1,9 +1,9 @@
 import { FunctionalComponent } from "preact";
 
-import Subheader from "components/Subheader";
-import TrackItem from "components/TrackItem";
+import Subheader from "@components/Subheader";
+import TrackItem from "@components/TrackItem";
 
-import { useMostPlayedTracks } from "hooks/memoir";
+import { useMostPlayedTracks } from "@hooks/memoir";
 
 const MostPlayedTracks: FunctionalComponent = () => {
   const { isLoading, data: tracks } = useMostPlayedTracks();

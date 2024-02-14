@@ -1,4 +1,4 @@
-import Link from "components/Link";
+import Link from "@components/Link";
 
 const Footer = () => (
   <footer class="flex text-xs font-bold">

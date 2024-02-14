@@ -1,4 +1,4 @@
-import Tag from "components/Tag";
+import Tag from "@components/Tag";
 
 interface Props {
   genres: string[];

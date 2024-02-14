@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/preact";
 import { afterEach, describe, expect, test } from "vitest";
 
-import Genres from "components/Genres";
+import Genres from "@components/Genres";
 
 describe("Genre", () => {
   afterEach(() => {

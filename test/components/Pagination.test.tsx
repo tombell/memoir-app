@@ -1,7 +1,7 @@
 import { cleanup, render } from "@testing-library/preact";
 import { afterEach, describe, expect, test } from "vitest";
 
-import Pagination from "components/Pagination";
+import Pagination from "@components/Pagination";
 
 describe("Pagination", () => {
   afterEach(() => {

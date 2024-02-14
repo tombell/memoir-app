@@ -17,11 +17,11 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "paths": {
-      "components/*": ["./src/components/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "pages/*": ["./src/pages/*"],
-      "services/*": ["./src/services/*"],
-      "test/*": ["./test/*"]
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@services/*": ["./src/services/*"],
+      "@test/*": ["./test/*"]
     }
   },
   "include": ["src", "test"],

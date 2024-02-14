@@ -1,9 +1,9 @@
 import { RoutableProps } from "preact-router";
 
-import Pagination from "components/Pagination";
-import TracklistItem from "components/TracklistItem";
+import Pagination from "@components/Pagination";
+import TracklistItem from "@components/TracklistItem";
 
-import { useTracklistsByTrack } from "hooks/memoir";
+import { useTracklistsByTrack } from "@hooks/memoir";
 
 interface Props extends RoutableProps {
   id?: string;

@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/preact";
 
-import Button from "components/Button";
+import Button from "@components/Button";
 
 const meta: Meta = {
   component: Button,

@@ -2,7 +2,7 @@ import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import Link from "components/Link";
+import Link from "@components/Link";
 
 describe("Link", () => {
   afterEach(() => {

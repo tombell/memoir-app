@@ -2,7 +2,6 @@ import { effect, useSignal } from "@preact/signals";
 import { useCallback, useRef } from "preact/hooks";
 
 import Input from "@components/Input";
-
 import Results from "@components/TrackSearch/Results";
 
 import { Track } from "@services/memoir/types";

@@ -1,7 +1,7 @@
 import { Signal, useComputed, useSignal } from "@preact/signals";
 import { FunctionalComponent } from "preact";
-import { useCallback } from "preact/hooks";
 import { route } from "preact-router";
+import { useCallback } from "preact/hooks";
 
 import ArtworkUploader from "@components/ArtworkUploader";
 import Button from "@components/Button";

@@ -23,14 +23,6 @@ module.exports = {
       },
     ],
     "react/require-default-props": "off",
-    "sort-imports": [
-      "error",
-      {
-        ignoreCase: false,
-        ignoreDeclarationSort: true,
-        ignoreMemberSort: false,
-      },
-    ],
   },
   overrides: [
     {

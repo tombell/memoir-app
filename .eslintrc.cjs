@@ -16,12 +16,6 @@ module.exports = {
       "error",
       { props: true, ignorePropertyModificationsFor: ["signal"] },
     ],
-    "react/function-component-definition": [
-      2,
-      {
-        namedComponents: "arrow-function",
-      },
-    ],
     "react/no-unknown-property": [
       "error",
       {

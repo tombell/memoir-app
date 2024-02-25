@@ -11,6 +11,11 @@ module.exports = {
   parserOptions: {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
   },
+  settings: {
+    react: {
+      version: "18",
+    },
+  },
   rules: {
     "no-param-reassign": [
       "error",

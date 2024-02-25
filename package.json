@@ -66,13 +66,12 @@
       "@trivago/prettier-plugin-sort-imports"
     ],
     "importOrder": [
-      "<BUILTIN_MODULES>",
       "<THIRD_PARTY_MODULES>",
-      "^@pages/(.*)$",
-      "^@components/(.*)$",
-      "^@services/(.*)$",
-      "^@hooks/(.*)$",
-      "^@test/(.*)$",
+      "^\\$pages/(.*)$",
+      "^\\$components/(.*)$",
+      "^\\$services/(.*)$",
+      "^\\$hooks/(.*)$",
+      "^\\$test/(.*)$",
       "^[./]"
     ],
     "importOrderSeparation": true,

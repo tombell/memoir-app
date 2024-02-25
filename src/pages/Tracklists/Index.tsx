@@ -1,9 +1,9 @@
 import { RoutableProps } from "preact-router";
 
-import Pagination from "@components/Pagination";
-import TracklistItem from "@components/TracklistItem";
+import Pagination from "$components/Pagination";
+import TracklistItem from "$components/TracklistItem";
 
-import { useTracklists } from "@hooks/memoir";
+import { useTracklists } from "$hooks/memoir";
 
 function Index({ path }: RoutableProps) {
   const params = new URLSearchParams(window.location.search);

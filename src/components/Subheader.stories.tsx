@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/preact";
 
-import Subheader from "@components/Subheader";
+import Subheader from "$components/Subheader";
 
 const meta: Meta = {
   component: Subheader,

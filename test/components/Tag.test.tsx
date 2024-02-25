@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/preact";
 import { afterEach, describe, expect, test } from "vitest";
 
-import Tag, { Color } from "@components/Tag";
+import Tag, { Color } from "$components/Tag";
 
 describe("Tag", () => {
   afterEach(() => {

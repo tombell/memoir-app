@@ -1,12 +1,12 @@
 import { effect, useSignal } from "@preact/signals";
 import { useCallback, useRef } from "preact/hooks";
 
-import Input from "@components/Input";
-import Results from "@components/TrackSearch/Results";
+import Input from "$components/Input";
+import Results from "$components/TrackSearch/Results";
 
-import { Track } from "@services/memoir/types";
+import { Track } from "$services/memoir/types";
 
-import { useSearchTracks } from "@hooks/memoir";
+import { useSearchTracks } from "$hooks/memoir";
 
 function Index() {
   const showResults = useSignal(false);

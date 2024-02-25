@@ -2,7 +2,7 @@ import { cleanup, render, screen, waitFor } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import TracklistPicker from "@components/TracklistPicker";
+import TracklistPicker from "$components/TracklistPicker";
 
 describe("TracklistPicker", () => {
   afterEach(() => {

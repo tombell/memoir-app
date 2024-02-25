@@ -1,12 +1,12 @@
 import { RoutableProps } from "preact-router";
 
-import Genres from "@components/Genres";
-import Link from "@components/Link";
-import Loading from "@components/Loading";
-import Subheader from "@components/Subheader";
-import TrackItem from "@components/TrackItem";
+import Genres from "$components/Genres";
+import Link from "$components/Link";
+import Loading from "$components/Loading";
+import Subheader from "$components/Subheader";
+import TrackItem from "$components/TrackItem";
 
-import { useTracklist } from "@hooks/memoir";
+import { useTracklist } from "$hooks/memoir";
 
 interface Props extends RoutableProps {
   id?: string;

@@ -1,10 +1,10 @@
 import { useSignal } from "@preact/signals";
 import { useCallback, useMemo } from "preact/hooks";
 
-import FilePicker from "@components/FilePicker";
-import Tag from "@components/Tag";
+import FilePicker from "$components/FilePicker";
+import Tag from "$components/Tag";
 
-import parse from "@services/tracklists";
+import parse from "$services/tracklists";
 
 interface Props {
   name: string;

@@ -1,5 +1,5 @@
-import Link from "@components/Link";
-import Tag from "@components/Tag";
+import Link from "$components/Link";
+import Tag from "$components/Tag";
 
 interface Props {
   loading?: boolean;

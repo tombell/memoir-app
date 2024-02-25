@@ -2,7 +2,7 @@ import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import ArtworkUploader from "@components/ArtworkUploader";
+import ArtworkUploader from "$components/ArtworkUploader";
 
 describe("ArtworkUploader", () => {
   afterEach(() => {
@@ -37,7 +37,7 @@ describe("ArtworkUploader", () => {
       mockPerform: vi.fn().mockResolvedValue({ key: "asdfasdfasdf.jpg" }),
     }));
 
-    vi.mock("@hooks/memoir", () => ({
+    vi.mock("$hooks/memoir", () => ({
       usePostArtwork: vi.fn().mockReturnValue({
         isLoading: false,
         perform: mockPerform,

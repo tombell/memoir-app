@@ -9,7 +9,7 @@ const highlight = (text?: string | null) => {
 
   return text.replace(
     /<<(.*?)>>/g,
-    (_a, str) => `<b class="italic font-bold text-purple-400">${str}</b>`,
+    (_, str) => `<b class="italic font-bold text-purple-400">${str}</b>`,
   );
 };
 

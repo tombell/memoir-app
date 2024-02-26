@@ -6,5 +6,8 @@ export default defineConfig(() => ({
   plugins: [tsconfigPaths(), preact()],
   test: {
     environment: "happy-dom",
+    coverage: {
+      exclude: ["**/*.cjs", "**/*.d.ts", ".storybook", "test/support/*.ts"],
+    },
   },
 }));

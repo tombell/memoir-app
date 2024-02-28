@@ -3,10 +3,10 @@ module.exports = {
     "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
-    "prettier",
     "plugin:react/jsx-runtime",
     "plugin:storybook/recommended",
     "plugin:vitest/recommended",
+    "prettier",
   ],
   parserOptions: {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
@@ -17,6 +17,7 @@ module.exports = {
     },
   },
   rules: {
+    "import/extensions": "off",
     "no-param-reassign": [
       "error",
       { props: true, ignorePropertyModificationsFor: ["signal"] },

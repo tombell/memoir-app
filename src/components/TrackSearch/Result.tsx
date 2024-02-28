@@ -20,7 +20,7 @@ interface Props {
 
 function Result({ track, onClick }: Props) {
   return (
-    <li class="my-2.5 mx-2 list-none truncate text-white">
+    <li class="mx-2 my-2.5 list-none truncate text-white">
       <Link href={`/tracks/${track.id}`} onClick={onClick}>
         <span
           // eslint-disable-next-line react/no-danger

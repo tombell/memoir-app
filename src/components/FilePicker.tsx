@@ -23,7 +23,7 @@ function FilePicker({ name, label, accept, onSelect }: Props) {
 
       <div class="rounded border border-solid border-gray-700 bg-gray-800 p-3 text-white">
         <input
-          class="block w-full text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-gray-900 hover:file:bg-violet-100"
+          class="block w-full text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-900 hover:file:bg-violet-100"
           name={name}
           type="file"
           ref={input}

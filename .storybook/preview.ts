@@ -10,7 +10,3 @@ export const decorators: Decorator[] = [
     return story();
   },
 ];
-
-global.MEMOIR_API_KEY = "asdf-asdf";
-global.MEMOIR_API_URL = "http://localhost:8080";
-global.MEMOIR_CDN_URL = "";

@@ -21,8 +21,8 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
-  env: (config) => ({
-    ...config,
+  env: (env) => ({
+    ...env,
     VITE_MEMOIR_API_KEY: "asdf-asdf",
     VITE_MEMOIR_API_URL: "http://localhost:8080",
     VITE_MEMOIR_CDN_URL: "",

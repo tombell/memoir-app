@@ -6,11 +6,11 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    ".storybook/main.ts",
-    ".storybook/preview.cjs",
     ".eslintrc.cjs",
-    "postcss.config.cjs",
-    "tailwind.config.cjs",
+    ".storybook/main.ts",
+    ".storybook/preview.ts",
+    "postcss.config.js",
+    "tailwind.config.ts",
     "vite.config.ts"
   ]
 }

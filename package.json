@@ -6,10 +6,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006 --no-open",
-    "lint": "eslint .storybook src test",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build",
     "prepare": "husky"
   },
   "dependencies": {
@@ -61,7 +62,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx,cjs}": [
+    "*.{cjs,js,ts,jsx,tsx,html,md,json,css}": [
       "prettier --write"
     ]
   },

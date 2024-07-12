@@ -28,7 +28,7 @@ describe("Tag", () => {
     purple: "bg-purple-600",
   };
 
-  Object.keys(colors).forEach((color) => {
+  for (const color of Object.keys(colors)) {
     test(`renders the text with ${color} background color`, () => {
       render(<Tag {...defaultProps} color={color as Color} />);
 
@@ -36,5 +36,5 @@ describe("Tag", () => {
 
       expect(tag.classList.contains(colors[color as Color])).toBeTruthy();
     });
-  });
+  }
 });

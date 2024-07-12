@@ -41,14 +41,14 @@ export const PlaceholderWithLabel = {
   },
 };
 
-export const Number = {
+export const NumberInput = {
   args: {
     name: "number",
     label: "Number input",
     type: "number",
   },
 };
-export const Date = {
+export const DateInput = {
   args: {
     name: "date",
     label: "Date input",

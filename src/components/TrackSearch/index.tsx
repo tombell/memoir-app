@@ -17,8 +17,8 @@ function Index() {
   const { perform: searchTracks } = useSearchTracks();
 
   const onBodyClick = useCallback(
-    ({ target }: any) => {
-      if (!ref.current?.contains(target)) {
+    ({ target }: MouseEvent) => {
+      if (!ref.current?.contains(target as Node)) {
         showResults.value = false;
       }
     },

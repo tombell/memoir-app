@@ -3,7 +3,7 @@ import { mergeConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
-  viteFinal: (cfg: any) => mergeConfig(cfg, { plugins: [tsconfigPaths()] }),
+  viteFinal: (cfg) => mergeConfig(cfg, { plugins: [tsconfigPaths()] }),
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   staticDirs: ["./public", "../public"],
   addons: [

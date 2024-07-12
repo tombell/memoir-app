@@ -1,8 +1,10 @@
+import type { ComponentChildren, JSX } from "preact";
+
 interface Props {
   className?: string;
   href?: string;
-  onClick?: any;
-  children: any;
+  onClick?: JSX.MouseEventHandler<HTMLAnchorElement>;
+  children: ComponentChildren;
 }
 
 function Link({ className, href, onClick, children }: Props) {

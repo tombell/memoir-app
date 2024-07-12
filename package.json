@@ -7,8 +7,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "lint": "prettier --check . && eslint .",
-    "format": "prettier --write .",
+    "lint": "biome lint --write --no-errors-on-unmatched .",
+    "format": "biome format --write --no-errors-on-unmatched .",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build",
     "prepare": "husky"
@@ -28,18 +28,7 @@
     "@testing-library/preact": "3.2.4",
     "@testing-library/user-event": "14.5.2",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
-    "@typescript-eslint/eslint-plugin": "7.1.1",
-    "@typescript-eslint/parser": "7.1.1",
     "autoprefixer": "10.4.19",
-    "eslint": "8.57.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-airbnb-typescript": "18.0.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-react": "7.34.0",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-storybook": "0.8.0",
-    "eslint-plugin-vitest": "0.3.22",
     "happy-dom": "14.12.3",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
@@ -56,25 +45,13 @@
     "vitest": "2.0.2"
   },
   "lint-staged": {
-    "*.{cjs,js,ts,jsx,tsx,html,md,json,css}": [
-      "prettier --write"
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --files-ignore-unknown=true",
+      "biome check --write --no-errors-on-unmatched",
+      "biome check --write --organize-imports-enabled=false --no-errors-on-unmatched",
+      "biome check --write --unsafe --no-errors-on-unmatched",
+      "biome format --write --no-errors-on-unmatched",
+      "biome lint --write --no-errors-on-unmatched"
     ]
-  },
-  "prettier": {
-    "plugins": [
-      "@trivago/prettier-plugin-sort-imports",
-      "prettier-plugin-tailwindcss"
-    ],
-    "importOrder": [
-      "<THIRD_PARTY_MODULES>",
-      "^\\$pages/(.*)$",
-      "^\\$components/(.*)$",
-      "^\\$services/(.*)$",
-      "^\\$hooks/(.*)$",
-      "^\\$test/(.*)$",
-      "^[./]"
-    ],
-    "importOrderSeparation": true,
-    "importOrderSortSpecifiers": true
   }
 }

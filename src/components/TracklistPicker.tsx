@@ -36,7 +36,10 @@ function TracklistPicker({ name, label, onSelect }: Props) {
   return tracks.value ? (
     <ol class="box-border w-full space-y-2 rounded bg-gray-800 p-8">
       {tracks.value.map((track, idx) => (
-        <li class="mx-0 list-inside list-none text-xs font-bold text-white">
+        <li
+          key={crypto.randomUUID()}
+          class="mx-0 list-inside list-none text-xs font-bold text-white"
+        >
           <p>{`${idx + 1}. ${track[1]} - ${track[0]}`}</p>
 
           <div class="mt-2 space-x-2" data-testid="track-details">

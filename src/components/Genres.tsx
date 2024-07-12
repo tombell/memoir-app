@@ -8,7 +8,7 @@ function Genres({ genres }: Props) {
   return (
     <div class="space-x-2">
       {genres.sort().map((genre) => (
-        <Tag text={genre} color="blue" />
+        <Tag key={genre} text={genre} color="blue" />
       ))}
     </div>
   );

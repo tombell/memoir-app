@@ -45,6 +45,7 @@ function Show({ id }: Props) {
 
           {tracklist.value.tracks.map((track) => (
             <TrackItem
+              key={track.id}
               id={track.id}
               artist={track.artist}
               name={track.name}

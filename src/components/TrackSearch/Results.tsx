@@ -19,7 +19,7 @@ function Results({ show, tracks, onResultClick }: Props) {
         {tracks.length === 0 && <li class="text-white">No results</li>}
 
         {tracks.map((track) => (
-          <Result track={track} onClick={onResultClick} />
+          <Result key={track.id} track={track} onClick={onResultClick} />
         ))}
       </ul>
     </div>

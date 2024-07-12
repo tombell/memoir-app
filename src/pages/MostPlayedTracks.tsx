@@ -13,7 +13,9 @@ function MostPlayedTracks() {
       <Subheader text="Most Played Tracks" center />
 
       {isLoading.value
-        ? [0, 1, 2, 3, 4].map(() => <TrackItem loading />)
+        ? [0, 1, 2, 3, 4].map(() => (
+            <TrackItem key={crypto.randomUUID()} loading />
+          ))
         : tracks.value?.map(({ id, artist, name, genre, bpm, key }) => (
             <TrackItem
               key={id}

@@ -22,7 +22,9 @@ function TracklistsByTrack({ path, id }: Props) {
   return (
     <>
       {isLoading.value
-        ? [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)
+        ? [0, 1, 2, 3, 4].map(() => (
+            <TracklistItem key={crypto.randomUUID()} loading />
+          ))
         : tracklists.value?.map(
             ({ id: trackId, name, date, artwork, trackCount }) => (
               <TracklistItem

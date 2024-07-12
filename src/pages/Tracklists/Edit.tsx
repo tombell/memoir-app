@@ -68,8 +68,9 @@ function Edit({ id }: Props) {
 
           <Button text="Update" onClick={handleSubmit} />
 
-          {tracklist.value.tracks!.map((track) => (
+          {tracklist.value.tracks?.map((track) => (
             <TrackItem
+              key={track.id}
               id={track.id}
               artist={track.artist}
               name={track.name}

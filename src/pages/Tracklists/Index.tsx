@@ -14,7 +14,9 @@ function Index({ path }: RoutableProps) {
   return (
     <>
       {isLoading.value
-        ? [0, 1, 2, 3, 4].map(() => <TracklistItem loading />)
+        ? [0, 1, 2, 3, 4].map(() => (
+            <TracklistItem key={crypto.randomUUID()} loading />
+          ))
         : tracklists.value?.map(({ id, name, date, artwork, trackCount }) => (
             <TracklistItem
               key={id}

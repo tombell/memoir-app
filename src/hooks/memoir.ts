@@ -2,7 +2,7 @@ import { batch, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
 import request from "$services/memoir";
-import {
+import type {
   Artwork,
   NewTracklist,
   Track,

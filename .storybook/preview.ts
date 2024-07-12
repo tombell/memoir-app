@@ -1,4 +1,4 @@
-import { Decorator, Parameters } from "@storybook/preact";
+import type { Decorator, Parameters } from "@storybook/preact";
 
 import "../src/components/App.css";
 

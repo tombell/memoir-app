@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/preact";
+import type { Meta } from "@storybook/preact";
 
 import TracklistPicker from "$components/TracklistPicker";
 

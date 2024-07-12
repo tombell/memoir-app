@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/preact";
+import type { Meta } from "@storybook/preact";
 
 import Input from "$components/Input";
 

@@ -1,5 +1,5 @@
-import { Signal, useComputed, useSignal } from "@preact/signals";
-import { FunctionalComponent } from "preact";
+import { type Signal, useComputed, useSignal } from "@preact/signals";
+import type { FunctionalComponent } from "preact";
 import { route } from "preact-router";
 import { useCallback } from "preact/hooks";
 
@@ -9,7 +9,7 @@ import Input from "$components/Input";
 import Subheader from "$components/Subheader";
 import TracklistPicker from "$components/TracklistPicker";
 
-import { NewTracklist } from "$services/memoir/types";
+import type { NewTracklist } from "$services/memoir/types";
 
 import { usePostTracklist } from "$hooks/memoir";
 

@@ -4,7 +4,7 @@ import { useCallback, useRef } from "preact/hooks";
 import Input from "$components/Input";
 import Results from "$components/TrackSearch/Results";
 
-import { Track } from "$services/memoir/types";
+import type { Track } from "$services/memoir/types";
 
 import { useSearchTracks } from "$hooks/memoir";
 

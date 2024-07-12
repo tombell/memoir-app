@@ -1,4 +1,4 @@
-import { RoutableProps } from "preact-router";
+import type { RoutableProps } from "preact-router";
 
 import Genres from "$components/Genres";
 import Link from "$components/Link";

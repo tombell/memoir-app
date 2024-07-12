@@ -1,5 +1,5 @@
-import { Signal } from "@preact/signals";
-import { RoutableProps, route } from "preact-router";
+import type { Signal } from "@preact/signals";
+import { type RoutableProps, route } from "preact-router";
 import { useCallback } from "preact/hooks";
 
 import Button from "$components/Button";
@@ -8,7 +8,7 @@ import Subheader from "$components/Subheader";
 import TrackItem from "$components/TrackItem";
 
 import { formatYearMonthDay } from "$services/datetime";
-import { Tracklist } from "$services/memoir/types";
+import type { Tracklist } from "$services/memoir/types";
 
 import { usePatchTracklist, useTracklist } from "$hooks/memoir";
 

@@ -1,4 +1,4 @@
-import { Mock, afterEach, vi } from "vitest";
+import { type Mock, afterEach, vi } from "vitest";
 
 // @ts-ignore
 global.fetch = vi.fn();

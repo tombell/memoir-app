@@ -1,4 +1,4 @@
-import { RoutableProps } from "preact-router";
+import type { RoutableProps } from "preact-router";
 
 import Pagination from "$components/Pagination";
 import TracklistItem from "$components/TracklistItem";

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/preact";
+import type { Meta } from "@storybook/preact";
 
 import Footer from "$components/Footer";
 

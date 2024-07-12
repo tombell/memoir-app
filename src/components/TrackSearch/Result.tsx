@@ -23,7 +23,7 @@ function Result({ track, onClick }: Props) {
     <li class="mx-2 my-2.5 list-none truncate text-white">
       <Link href={`/tracks/${track.id}`} onClick={onClick}>
         <span
-          // eslint-disable-next-line react/no-danger
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: required for emphasis highlights
           dangerouslySetInnerHTML={{
             __html: `${highlight(track.artistHighlighted)} - ${highlight(
               track.nameHighlighted,

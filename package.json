@@ -10,8 +10,7 @@
     "lint": "biome lint --write --no-errors-on-unmatched .",
     "format": "biome format --write --no-errors-on-unmatched .",
     "storybook": "storybook dev -p 6006 --no-open",
-    "build-storybook": "storybook build",
-    "prepare": "husky"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@biomejs/biome": "^1.8.3",
@@ -30,8 +29,7 @@
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "autoprefixer": "10.4.19",
     "happy-dom": "14.12.3",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
+    "lefthook": "^1.7.2",
     "postcss": "8.4.39",
     "preact": "10.22.1",
     "preact-router": "4.1.2",
@@ -43,15 +41,5 @@
     "vite": "5.3.3",
     "vite-tsconfig-paths": "4.3.2",
     "vitest": "2.0.2"
-  },
-  "lint-staged": {
-    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
-      "biome check --files-ignore-unknown=true",
-      "biome check --write --no-errors-on-unmatched",
-      "biome check --write --organize-imports-enabled=false --no-errors-on-unmatched",
-      "biome check --write --unsafe --no-errors-on-unmatched",
-      "biome format --write --no-errors-on-unmatched",
-      "biome lint --write --no-errors-on-unmatched"
-    ]
   }
 }

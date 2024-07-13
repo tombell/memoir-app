@@ -9,10 +9,20 @@ import type {
   Tracklist,
 } from "$services/memoir/types";
 
-const useRequest = <TResponse>(url: string) => {
+interface Meta {
+  current_page: number;
+  total_pages: number;
+}
+
+interface Response<T> {
+  meta: Meta | undefined;
+  data: T;
+}
+
+const useRequest = <T>(url: string) => {
   const isLoading = useSignal(false);
 
-  const perform = async (query: string): Promise<TResponse | null> => {
+  const perform = async (query: string): Promise<T | null> => {
     try {
       isLoading.value = true;
 
@@ -44,15 +54,15 @@ const useFetch = <T>(url: string | null) => {
       isLoading.value = true;
 
       const resp = await request(url);
-      const json = await resp.json();
-      const current = resp.headers.get("Current-Page");
-      const total = resp.headers.get("Total-Pages");
+      const { meta, data: payload }: Response<T> = await resp.json();
 
-      data.value = json;
+      const current = meta?.current_page;
+      const total = meta?.total_pages;
+
+      data.value = payload;
 
       if (current && total) {
-        hasMore.value =
-          Number.parseInt(current, 10) < Number.parseInt(total, 10);
+        hasMore.value = current < total;
       }
 
       isLoading.value = false;

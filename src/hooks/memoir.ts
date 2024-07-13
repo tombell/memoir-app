@@ -19,15 +19,15 @@ interface Response<T> {
   data: T;
 }
 
-const useRequest = <T>(url: string) => {
+const useRequest = <TResponse>(url: string) => {
   const isLoading = useSignal(false);
 
-  const perform = async (query: string): Promise<T | null> => {
+  const perform = async (query: string): Promise<TResponse | null> => {
     try {
       isLoading.value = true;
 
       const resp = await request(url + query, "GET");
-      const { data: payload }: Response<T> = await resp.json();
+      const { data: payload }: Response<TResponse> = await resp.json();
 
       return payload;
     } catch (err) {
@@ -40,9 +40,9 @@ const useRequest = <T>(url: string) => {
   return { isLoading, perform };
 };
 
-const useFetch = <T>(url: string | null) => {
+const useFetch = <TResponse>(url: string | null) => {
   const isLoading = useSignal(false);
-  const data = useSignal<T | null>(null);
+  const data = useSignal<TResponse | null>(null);
   const hasMore = useSignal(false);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const useFetch = <T>(url: string | null) => {
       isLoading.value = true;
 
       const resp = await request(url);
-      const { meta, data: payload }: Response<T> = await resp.json();
+      const { meta, data: payload }: Response<TResponse> = await resp.json();
 
       const current = meta?.current_page;
       const total = meta?.total_pages;

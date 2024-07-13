@@ -27,9 +27,9 @@ const useRequest = <T>(url: string) => {
       isLoading.value = true;
 
       const resp = await request(url + query, "GET");
-      const json = await resp.json();
+      const { data: payload }: Response<T> = await resp.json();
 
-      return json;
+      return payload;
     } catch (err) {
       return null;
     } finally {
@@ -89,9 +89,9 @@ const usePerform = <TPayload, TResponse>(
       const payload =
         body instanceof FormData ? body : JSON.stringify(body ?? {});
       const resp = await request(url, method, body ? payload : undefined);
-      const json = await resp.json();
+      const { data }: Response<TResponse> = await resp.json();
 
-      return json;
+      return data;
     } catch (err) {
       return null;
     } finally {

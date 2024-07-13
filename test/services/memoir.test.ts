@@ -39,7 +39,7 @@ describe("request", () => {
       expect(fetch).toHaveBeenCalledWith("/api/endpoint", {
         method: "POST",
         body,
-        headers: {},
+        headers: { "Content-Type": "application/json" },
       });
     });
   });
@@ -72,7 +72,10 @@ describe("request", () => {
       expect(fetch).toHaveBeenCalledWith("/api/endpoint", {
         method: "POST",
         body,
-        headers: { "API-Token": "asdf-asdf" },
+        headers: {
+          "API-Token": "asdf-asdf",
+          "Content-Type": "application/json",
+        },
       });
     });
   });

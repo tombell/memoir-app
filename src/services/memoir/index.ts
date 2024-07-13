@@ -9,6 +9,10 @@ const request = async (
     headers["API-Token"] = import.meta.env.VITE_MEMOIR_API_KEY;
   }
 
+  if (body && !(body instanceof FormData)) {
+    headers["Content-Type"] = "application/json";
+  }
+
   return fetch(`${import.meta.env.VITE_MEMOIR_API_URL}${endpoint}`, {
     method,
     body,

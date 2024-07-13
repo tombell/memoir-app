@@ -11,11 +11,11 @@ function FilePicker({ name, label, accept, onSelect }: Props) {
   const input = useRef<HTMLInputElement>(null);
 
   const handleChange = useCallback(() => {
-    if (input.current && input.current.files) {
+    if (input.current?.files) {
       const file = input.current.files[0];
       onSelect(file);
     }
-  }, [input, onSelect]);
+  }, [onSelect]);
 
   return (
     <label htmlFor={name}>

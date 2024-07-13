@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@biomejs/biome": "^1.8.3",
-    "@preact/preset-vite": "2.8.1",
+    "@preact/preset-vite": "2.9.0",
     "@preact/signals": "1.2.2",
     "@storybook/addon-a11y": "^8.2.2",
     "@storybook/addon-actions": "^8.2.2",

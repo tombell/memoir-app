@@ -30,13 +30,17 @@ const useRequest = <TResponse>(url: string) => {
   return { isLoading, perform };
 };
 
-const useFetch = <T>(url: string) => {
+const useFetch = <T>(url: string | null) => {
   const isLoading = useSignal(false);
   const data = useSignal<T | null>(null);
   const hasMore = useSignal(false);
 
   useEffect(() => {
     batch(async () => {
+      if (!url) {
+        return;
+      }
+
       isLoading.value = true;
 
       const resp = await request(url);
@@ -47,7 +51,8 @@ const useFetch = <T>(url: string) => {
       data.value = json;
 
       if (current && total) {
-        hasMore.value = parseInt(current, 10) < parseInt(total, 10);
+        hasMore.value =
+          Number.parseInt(current, 10) < Number.parseInt(total, 10);
       }
 
       isLoading.value = false;
@@ -57,11 +62,18 @@ const useFetch = <T>(url: string) => {
   return { isLoading, data, hasMore };
 };
 
-const usePerform = <TPayload, TResponse>(method: string, url: string) => {
+const usePerform = <TPayload, TResponse>(
+  method: string,
+  url: string | null,
+) => {
   const isLoading = useSignal(false);
 
   const perform = async (body?: TPayload): Promise<TResponse | null> => {
     try {
+      if (!url) {
+        return null;
+      }
+
       isLoading.value = true;
 
       const payload =
@@ -83,11 +95,11 @@ const usePerform = <TPayload, TResponse>(method: string, url: string) => {
 export const useTracklists = (page: number) =>
   useFetch<Tracklist[]>(`/tracklists?page=${page}`);
 
-export const useTracklistsByTrack = (id: string, page: number) =>
-  useFetch<Tracklist[]>(`/tracks/${id!}/tracklists?page=${page}`);
+export const useTracklistsByTrack = (id: string | undefined, page: number) =>
+  useFetch<Tracklist[]>(id ? `/tracks/${id}/tracklists?page=${page}` : null);
 
-export const useTracklist = (id: string) =>
-  useFetch<Tracklist>(`/tracklists/${id}`);
+export const useTracklist = (id: string | undefined) =>
+  useFetch<Tracklist>(id ? `/tracklists/${id}` : null);
 
 export const useMostPlayedTracks = () =>
   useFetch<Track[]>("/tracks/mostplayed");
@@ -98,7 +110,7 @@ export const usePostArtwork = () =>
 export const usePostTracklist = () =>
   usePerform<NewTracklist, Tracklist>("POST", "/tracklists");
 
-export const usePatchTracklist = (id: string) =>
-  usePerform<Tracklist, Tracklist>("PATCH", `/tracklists/${id}`);
+export const usePatchTracklist = (id: string | undefined) =>
+  usePerform<Tracklist, Tracklist>("PATCH", id ? `/tracklists/${id}` : null);
 
 export const useSearchTracks = () => useRequest<Track[]>("/tracks/search?q=");

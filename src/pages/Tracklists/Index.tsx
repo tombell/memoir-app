@@ -7,7 +7,7 @@ import { useTracklists } from "$hooks/memoir";
 
 function Index({ path }: RoutableProps) {
   const params = new URLSearchParams(window.location.search);
-  const page = parseInt(params.get("page") || "1", 10);
+  const page = Number.parseInt(params.get("page") || "1", 10);
 
   const { isLoading, hasMore, data: tracklists } = useTracklists(page);
 
@@ -28,7 +28,7 @@ function Index({ path }: RoutableProps) {
             />
           ))}
 
-      <Pagination path={path!} page={page} hasMore={hasMore.value} />
+      {path && <Pagination path={path} page={page} hasMore={hasMore.value} />}
     </>
   );
 }

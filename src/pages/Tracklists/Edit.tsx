@@ -19,16 +19,24 @@ interface Props extends RoutableProps {
 const handleChange =
   (key: "name" | "date" | "url", signal: Signal<Tracklist | null>) =>
   (val: string) => {
-    signal.value![key] = key === "date" ? `${val}T00:00:00Z` : val;
+    if (!signal.value) {
+      return;
+    }
+
+    signal.value[key] = key === "date" ? `${val}T00:00:00Z` : val;
   };
 
 function Edit({ id }: Props) {
-  const { data: tracklist } = useTracklist(id!);
+  const { data: tracklist } = useTracklist(id);
 
-  const { perform: patchTracklist } = usePatchTracklist(id!);
+  const { perform: patchTracklist } = usePatchTracklist(id);
 
   const handleSubmit = useCallback(async () => {
-    const resp = await patchTracklist(tracklist.value!);
+    if (!tracklist.value) {
+      return;
+    }
+
+    const resp = await patchTracklist(tracklist.value);
 
     if (resp) {
       route(`/tracklist/${resp.id}`);

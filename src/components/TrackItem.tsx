@@ -37,9 +37,9 @@ function TrackItem({
       </div>
 
       <div class="space-x-2">
-        <Tag text={bpm!.toFixed(2)} color="purple" />
-        <Tag text={camelotKey!} color="lilac" />
-        <Tag text={genre!} color="blue" />
+        {bpm && <Tag text={bpm.toFixed(2)} color="purple" />}
+        {camelotKey && <Tag text={camelotKey} color="lilac" />}
+        {genre && <Tag text={genre} color="blue" />}
       </div>
     </div>
   );

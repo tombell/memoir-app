@@ -11,13 +11,13 @@ interface Props extends RoutableProps {
 
 function TracklistsByTrack({ path, id }: Props) {
   const params = new URLSearchParams(window.location.search);
-  const page = parseInt(params.get("page") || "1", 10);
+  const page = Number.parseInt(params.get("page") || "1", 10);
 
   const {
     isLoading,
     hasMore,
     data: tracklists,
-  } = useTracklistsByTrack(id!, page);
+  } = useTracklistsByTrack(id, page);
 
   return (
     <>
@@ -38,7 +38,9 @@ function TracklistsByTrack({ path, id }: Props) {
             ),
           )}
 
-      <Pagination path={path!} id={id} page={page} hasMore={hasMore.value} />
+      {path && (
+        <Pagination path={path} id={id} page={page} hasMore={hasMore.value} />
+      )}
     </>
   );
 }

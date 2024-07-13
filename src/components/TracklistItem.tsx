@@ -67,7 +67,7 @@ function TracklistItem({
 
           <div class="ml-auto space-x-2">
             <Tag text={`${trackCount} Tracks`} color="lilac" />
-            <Tag text={formatFriendlyDate(date!)} color="lightblue" />
+            {date && <Tag text={formatFriendlyDate(date)} color="lightblue" />}
           </div>
         </div>
       </div>

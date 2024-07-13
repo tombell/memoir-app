@@ -13,7 +13,7 @@ interface Props extends RoutableProps {
 }
 
 function Show({ id }: Props) {
-  const { isLoading, data: tracklist } = useTracklist(id!);
+  const { isLoading, data: tracklist } = useTracklist(id);
 
   if (!tracklist.value) {
     return null;

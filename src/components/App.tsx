@@ -10,6 +10,7 @@ import TracklistsByTrackPage from "$pages/TracklistsByTrack";
 
 import Footer from "$components/Footer";
 import Header from "$components/Header";
+import Redirect from "$components/Redirect";
 import TrackSearch from "$components/TrackSearch";
 
 import "./App.css";
@@ -26,6 +27,8 @@ function App() {
       </div>
 
       <Router>
+        <Redirect path="/" to="/tracklists" />
+
         <TracklistsIndex path="/tracklists" />
         {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
           <TracklistsAdd path="/tracklists/add" />

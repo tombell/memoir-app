@@ -9,7 +9,7 @@ const request = async (
     headers["API-Token"] = import.meta.env.VITE_MEMOIR_API_KEY;
   }
 
-  if (body && !(body instanceof FormData)) {
+  if (body && typeof body === "string") {
     headers["Content-Type"] = "application/json";
   }
 

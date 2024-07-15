@@ -7,7 +7,13 @@ export default defineConfig(() => ({
   test: {
     environment: "happy-dom",
     coverage: {
-      exclude: ["**/*.cjs", "**/*.d.ts", ".storybook", "test/support/*.ts"],
+      exclude: [
+        "*.config.js",
+        "*.config.ts",
+        "**/*.d.ts",
+        ".storybook",
+        "test/**/*",
+      ],
     },
   },
 }));

@@ -32,7 +32,7 @@
     "autoprefixer": "10.4.20",
     "happy-dom": "14.12.3",
     "lefthook": "^1.7.2",
-    "postcss": "8.4.39",
+    "postcss": "8.4.47",
     "preact": "10.22.1",
     "preact-router": "4.1.2",
     "storybook": "^8.4.1",

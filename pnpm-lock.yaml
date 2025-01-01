@@ -15,8 +15,8 @@ importers:
         specifier: ^2.9.3
         version: 2.9.3(@babel/core@7.26.0)(preact@10.25.4)(vite@6.0.6(@types/node@20.14.10)(jiti@1.21.7)(yaml@2.7.0))
       '@preact/signals':
-        specifier: ^1.3.1
-        version: 1.3.1(preact@10.25.4)
+        specifier: ^2.0.0
+        version: 2.0.0(preact@10.25.4)
       '@storybook/addon-a11y':
         specifier: ^8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.2.5))
@@ -588,8 +588,8 @@ packages:
   '@preact/signals-core@1.8.0':
     resolution: {integrity: sha512-OBvUsRZqNmjzCZXWLxkZfhcgT+Fk8DDcT/8vD6a1xhDemodyy87UJRJfASMuSD8FaAIeGgGm85ydXhm7lr4fyA==}
 
-  '@preact/signals@1.3.1':
-    resolution: {integrity: sha512-nNvSF2O7RDzxp1Rm7SkA5QhN1a2kN8pGE8J5o6UjgDof0F0Vlg6d6HUUVxxqZ1uJrN9xnH2DpL6rpII3Es0SsQ==}
+  '@preact/signals@2.0.0':
+    resolution: {integrity: sha512-wzx6YEXw2a+vKdE+p+XlIGsmH2bDjJzzevirtshT9ixoNIV2WJg83kG+QErPHs/ZkeR+MsqgRIFB6x22fDVRlg==}
     peerDependencies:
       preact: 10.x
 
@@ -2507,7 +2507,7 @@ snapshots:
 
   '@preact/signals-core@1.8.0': {}
 
-  '@preact/signals@1.3.1(preact@10.25.4)':
+  '@preact/signals@2.0.0(preact@10.25.4)':
     dependencies:
       '@preact/signals-core': 1.8.0
       preact: 10.25.4

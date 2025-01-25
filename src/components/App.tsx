@@ -13,8 +13,6 @@ import Header from "$/components/Header";
 import Redirect from "$/components/Redirect";
 import TrackSearch from "$/components/TrackSearch";
 
-import "./App.css";
-
 function App() {
   return (
     <div class="container mx-auto px-96">

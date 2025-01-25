@@ -1,6 +1,6 @@
 {
-  "formatter": { "indentStyle": "space", "indentWidth": 2 },
-  "linter": {
-    "ignore": ["dist/**/*", "coverage/**/*"]
-  }
+  "files": {
+    "ignore": ["coverage/**/*", "dist/**/*"]
+  },
+  "formatter": { "indentStyle": "space" }
 }

@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest run",
     "coverage": "vitest run --coverage",
     "lint": "biome lint --write --no-errors-on-unmatched .",
     "format": "biome format --write --no-errors-on-unmatched .",

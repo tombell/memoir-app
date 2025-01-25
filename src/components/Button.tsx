@@ -12,7 +12,7 @@ const classes = {
   small: "py-2 px-4 text-xs",
 };
 
-function Button({ text, variant = "large", onClick }: Props) {
+export default function Button({ text, variant = "large", onClick }: Props) {
   return (
     <button
       class={`rounded-sm bg-gray-800 font-bold text-white hover:bg-gray-700 active:bg-gray-800 ${classes[variant]}`}
@@ -23,5 +23,3 @@ function Button({ text, variant = "large", onClick }: Props) {
     </button>
   );
 }
-
-export default Button;

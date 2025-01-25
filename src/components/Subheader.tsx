@@ -3,7 +3,7 @@ interface Props {
   center?: boolean;
 }
 
-function SubHeader({ text, center = false }: Props) {
+export default function SubHeader({ text, center = false }: Props) {
   return (
     <h2
       class={["text-left font-bold text-white", center && "text-center"]
@@ -14,5 +14,3 @@ function SubHeader({ text, center = false }: Props) {
     </h2>
   );
 }
-
-export default SubHeader;

@@ -1,4 +1,4 @@
-const request = async (
+export const request = async (
   endpoint: string,
   method = "GET",
   body: FormData | string | null = null,
@@ -19,5 +19,3 @@ const request = async (
     headers,
   });
 };
-
-export default request;

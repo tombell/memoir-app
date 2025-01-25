@@ -13,7 +13,7 @@ interface Props {
   color?: Color;
 }
 
-function Tag({ text, color = "green" }: Props) {
+export default function Tag({ text, color = "green" }: Props) {
   return (
     <div
       class={`inline-block rounded-sm px-2 py-1 text-center text-xs font-bold text-white ${classes[color]}`}
@@ -22,5 +22,3 @@ function Tag({ text, color = "green" }: Props) {
     </div>
   );
 }
-
-export default Tag;

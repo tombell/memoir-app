@@ -11,7 +11,7 @@ interface Props {
   camelotKey?: string;
 }
 
-function TrackItem({
+export default function TrackItem({
   loading = false,
   id,
   artist,
@@ -44,5 +44,3 @@ function TrackItem({
     </div>
   );
 }
-
-export default TrackItem;

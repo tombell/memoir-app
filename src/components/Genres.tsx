@@ -4,7 +4,7 @@ interface Props {
   genres: string[];
 }
 
-function Genres({ genres }: Props) {
+export default function Genres({ genres }: Props) {
   return (
     <div class="space-x-2">
       {genres.sort().map((genre) => (
@@ -13,5 +13,3 @@ function Genres({ genres }: Props) {
     </div>
   );
 }
-
-export default Genres;

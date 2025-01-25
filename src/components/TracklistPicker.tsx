@@ -4,7 +4,7 @@ import { useCallback, useMemo } from "preact/hooks";
 import FilePicker from "$/components/FilePicker";
 import Tag from "$/components/Tag";
 
-import parse from "$/services/tracklists";
+import { parse } from "$/services/tracklists";
 
 interface Props {
   name: string;
@@ -12,7 +12,7 @@ interface Props {
   onSelect: (tracks: string[][]) => void;
 }
 
-function TracklistPicker({ name, label, onSelect }: Props) {
+export default function TracklistPicker({ name, label, onSelect }: Props) {
   const tracks = useSignal<string[][] | null>(null);
 
   const reader = useMemo(() => new FileReader(), []);
@@ -59,5 +59,3 @@ function TracklistPicker({ name, label, onSelect }: Props) {
     />
   );
 }
-
-export default TracklistPicker;

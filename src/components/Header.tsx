@@ -1,6 +1,6 @@
 import Link from "$/components/Link";
 
-function Header() {
+export default function Header() {
   return (
     <header>
       <Link href="/tracklists">
@@ -9,5 +9,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

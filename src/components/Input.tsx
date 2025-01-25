@@ -11,7 +11,7 @@ interface Props {
   onFocus?: (e: Event) => void;
 }
 
-function Input({
+export default function Input({
   name,
   label,
   placeholder,
@@ -49,5 +49,3 @@ function Input({
     </div>
   );
 }
-
-export default Input;

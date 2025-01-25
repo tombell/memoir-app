@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, test } from "vitest";
 
-import request from "$/services/memoir";
+import { request } from "$/services/memoir";
 
 import { mockFetchResponse } from "$/test/support/fetch";
 

@@ -7,7 +7,7 @@ interface Props {
   children: ComponentChildren;
 }
 
-function Link({ className, href, onClick, children }: Props) {
+export default function Link({ className, href, onClick, children }: Props) {
   return (
     <a
       class={[
@@ -23,5 +23,3 @@ function Link({ className, href, onClick, children }: Props) {
     </a>
   );
 }
-
-export default Link;

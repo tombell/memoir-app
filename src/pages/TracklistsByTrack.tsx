@@ -9,7 +9,7 @@ interface Props extends RoutableProps {
   id?: string;
 }
 
-function TracklistsByTrack({ path, id }: Props) {
+export default function TracklistsByTrack({ path, id }: Props) {
   const params = new URLSearchParams(window.location.search);
   const page = Number.parseInt(params.get("page") || "1", 10);
 
@@ -44,5 +44,3 @@ function TracklistsByTrack({ path, id }: Props) {
     </>
   );
 }
-
-export default TracklistsByTrack;

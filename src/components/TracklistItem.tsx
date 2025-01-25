@@ -15,7 +15,7 @@ interface Props {
 const linearGradient =
   "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%)";
 
-function TracklistItem({
+export default function TracklistItem({
   loading = false,
   id,
   name,
@@ -74,5 +74,3 @@ function TracklistItem({
     </Link>
   );
 }
-
-export default TracklistItem;

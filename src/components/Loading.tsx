@@ -1,4 +1,4 @@
-function Loading() {
+export default function Loading() {
   return (
     <div class="flex items-center text-white">
       <svg
@@ -26,5 +26,3 @@ function Loading() {
     </div>
   );
 }
-
-export default Loading;

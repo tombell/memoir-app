@@ -8,7 +8,7 @@ import type { Track } from "$/services/memoir/types";
 
 import { useSearchTracks } from "$/hooks/memoir";
 
-function Index() {
+export default function TrackSearch() {
   const showResults = useSignal(false);
   const tracks = useSignal<Track[] | null>(null);
 
@@ -76,5 +76,3 @@ function Index() {
     </div>
   );
 }
-
-export default Index;

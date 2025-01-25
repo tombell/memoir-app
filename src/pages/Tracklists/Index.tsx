@@ -5,7 +5,7 @@ import TracklistItem from "$/components/TracklistItem";
 
 import { useTracklists } from "$/hooks/memoir";
 
-function Index({ path }: RoutableProps) {
+export default function Index({ path }: RoutableProps) {
   const params = new URLSearchParams(window.location.search);
   const page = Number.parseInt(params.get("page") || "1", 10);
 
@@ -32,5 +32,3 @@ function Index({ path }: RoutableProps) {
     </>
   );
 }
-
-export default Index;

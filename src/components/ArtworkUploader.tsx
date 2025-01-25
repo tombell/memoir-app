@@ -11,7 +11,7 @@ interface Props {
   onUpload: (artwork: string) => void;
 }
 
-function ArtworkUploader({ name, label, onUpload }: Props) {
+export default function ArtworkUploader({ name, label, onUpload }: Props) {
   const artwork = useSignal<string | null>(null);
 
   const { perform: uploadArtwork } = usePostArtwork();
@@ -48,5 +48,3 @@ function ArtworkUploader({ name, label, onUpload }: Props) {
     />
   );
 }
-
-export default ArtworkUploader;

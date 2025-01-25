@@ -13,7 +13,7 @@ import Header from "$/components/Header";
 import Redirect from "$/components/Redirect";
 import TrackSearch from "$/components/TrackSearch";
 
-function App() {
+export default function App() {
   return (
     <div class="container mx-auto px-96">
       <div class="my-4 flex justify-center">
@@ -49,5 +49,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

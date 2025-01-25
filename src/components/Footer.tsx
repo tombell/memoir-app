@@ -1,6 +1,6 @@
 import Link from "$/components/Link";
 
-function Footer() {
+export default function Footer() {
   return (
     <footer class="flex text-xs font-bold">
       <div class="flex-1 space-x-4">
@@ -20,5 +20,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

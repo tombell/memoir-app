@@ -8,7 +8,7 @@ interface Props {
   onResultClick: () => void;
 }
 
-function Results({ show, tracks, onResultClick }: Props) {
+export default function Results({ show, tracks, onResultClick }: Props) {
   if (!tracks || !show) {
     return null;
   }
@@ -25,5 +25,3 @@ function Results({ show, tracks, onResultClick }: Props) {
     </div>
   );
 }
-
-export default Results;

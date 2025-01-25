@@ -19,7 +19,7 @@ const handleChange =
     signal.value = val;
   };
 
-function Add() {
+export default function Add() {
   const name = useSignal("");
   const date = useSignal("");
   const url = useSignal("");
@@ -92,5 +92,3 @@ function Add() {
     </div>
   );
 }
-
-export default Add as FunctionalComponent;

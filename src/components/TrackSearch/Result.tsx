@@ -18,7 +18,7 @@ interface Props {
   onClick: () => void;
 }
 
-function Result({ track, onClick }: Props) {
+export default function Result({ track, onClick }: Props) {
   return (
     <li class="mx-2 my-2.5 list-none truncate text-white">
       <Link href={`/tracks/${track.id}`} onClick={onClick}>
@@ -34,5 +34,3 @@ function Result({ track, onClick }: Props) {
     </li>
   );
 }
-
-export default Result;

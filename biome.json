@@ -1,9 +1,4 @@
 {
-  "json": {
-    "parser": {
-      "allowComments": true
-    }
-  },
   "formatter": { "indentStyle": "space", "indentWidth": 2 },
   "linter": {
     "ignore": ["dist/**/*", "coverage/**/*"]

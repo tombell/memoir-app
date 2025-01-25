@@ -1,6 +1,6 @@
 import type { Decorator, Parameters } from "@storybook/preact";
 
-import "../src/components/App.css";
+import "../src/index.css";
 
 export const parameters: Parameters = {};
 

@@ -36,7 +36,7 @@ function Input({
         {label && <span class="mb-2 block font-bold text-white">{label}</span>}
 
         <input
-          class="box-border w-full rounded border border-solid border-gray-700 bg-gray-800 p-3 text-white"
+          class="box-border w-full rounded-sm border border-solid border-gray-700 bg-gray-800 p-3 text-white"
           type={type}
           id={name}
           name={name}

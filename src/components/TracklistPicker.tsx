@@ -34,7 +34,7 @@ function TracklistPicker({ name, label, onSelect }: Props) {
   );
 
   return tracks.value ? (
-    <ol class="box-border w-full space-y-2 rounded bg-gray-800 p-8">
+    <ol class="box-border w-full space-y-2 rounded-sm bg-gray-800 p-8">
       {tracks.value.map((track, idx) => (
         <li
           key={crypto.randomUUID()}

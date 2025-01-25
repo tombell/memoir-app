@@ -16,7 +16,7 @@ interface Props {
 function Tag({ text, color = "green" }: Props) {
   return (
     <div
-      class={`inline-block rounded px-2 py-1 text-center text-xs font-bold text-white ${classes[color]}`}
+      class={`inline-block rounded-sm px-2 py-1 text-center text-xs font-bold text-white ${classes[color]}`}
     >
       {text}
     </div>

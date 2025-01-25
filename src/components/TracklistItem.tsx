@@ -26,15 +26,15 @@ function TracklistItem({
   if (loading) {
     return (
       <div
-        class="mb-2.5 animate-pulse items-center rounded border border-solid border-gray-700 p-2"
+        class="mb-2.5 animate-pulse items-center rounded-sm border border-solid border-gray-700 p-2"
         data-testid="tracklist-loading"
       >
         <div class="flex items-center space-x-3">
-          <div class="rounded border border-solid border-gray-700">
+          <div class="rounded-sm border border-solid border-gray-700">
             <div class="h-20 w-20" />
           </div>
 
-          <h3 class="m-0 w-full rounded border border-solid border-gray-700 font-bold leading-5">
+          <h3 class="m-0 w-full rounded-sm border border-solid border-gray-700 font-bold leading-5">
             &nbsp;
           </h3>
         </div>
@@ -51,11 +51,11 @@ function TracklistItem({
   return (
     <Link href={`/tracklist/${id}`}>
       <div
-        class="mb-2.5 items-center rounded border border-solid border-gray-700 bg-cover bg-no-repeat p-2"
+        class="mb-2.5 items-center rounded-sm border border-solid border-gray-700 bg-cover bg-no-repeat p-2"
         style={background}
       >
         <div class="flex items-center space-x-3">
-          <div class="rounded border border-solid border-gray-700">
+          <div class="rounded-sm border border-solid border-gray-700">
             <img
               class="h-20 w-20"
               alt={`${name} Artwork`}

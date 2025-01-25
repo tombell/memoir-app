@@ -23,9 +23,9 @@ function TrackItem({
   if (loading) {
     return (
       <div class="animate-pulse space-y-2" data-testid="track-loading">
-        <h3 class="m-0 rounded border border-gray-700">&nbsp;</h3>
+        <h3 class="m-0 rounded-sm border border-gray-700">&nbsp;</h3>
 
-        <h3 class="m-0 rounded border border-gray-700 py-0.5">&nbsp;</h3>
+        <h3 class="m-0 rounded-sm border border-gray-700 py-0.5">&nbsp;</h3>
       </div>
     );
   }

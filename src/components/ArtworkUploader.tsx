@@ -32,7 +32,7 @@ function ArtworkUploader({ name, label, onUpload }: Props) {
   );
 
   return artwork.value ? (
-    <div class="box-border w-full rounded bg-gray-800 p-4 text-center">
+    <div class="box-border w-full rounded-sm bg-gray-800 p-4 text-center">
       <img
         class="h-24 w-24 border border-solid border-gray-700"
         alt="Mix Artwork"

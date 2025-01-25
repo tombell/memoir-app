@@ -1,10 +1,7 @@
 import type { StorybookConfig } from "@storybook/preact-vite";
-import { mergeConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
-  viteFinal: (cfg) => mergeConfig(cfg, { plugins: [tsconfigPaths()] }),
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
   staticDirs: ["./public", "../public"],
   addons: [
     "@storybook/addon-controls",

@@ -1,9 +1,16 @@
+import { resolve } from "node:path";
+
 import preact from "@preact/preset-vite";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(() => ({
-  plugins: [tsconfigPaths(), preact()],
+  plugins: [tailwindcss(), preact()],
+  resolve: {
+    alias: {
+      $: resolve(__dirname, "./src"),
+    },
+  },
   test: {
     environment: "happy-dom",
     coverage: {
@@ -12,7 +19,7 @@ export default defineConfig(() => ({
         "*.config.ts",
         "**/*.d.ts",
         ".storybook",
-        "test/**/*",
+        "src/test/**/*",
       ],
     },
   },

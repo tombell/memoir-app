@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/preact";
 import { afterEach, describe, expect, test } from "vitest";
 
-import Footer from "$components/Footer";
+import Footer from "$/components/Footer";
 
 describe("Footer", () => {
   afterEach(() => {

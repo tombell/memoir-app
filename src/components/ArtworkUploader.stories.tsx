@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/preact";
 
-import ArtworkUploader from "$components/ArtworkUploader";
+import ArtworkUploader from "$/components/ArtworkUploader";
 
 const meta: Meta = {
   component: ArtworkUploader,

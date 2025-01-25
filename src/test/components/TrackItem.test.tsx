@@ -1,7 +1,7 @@
 import { cleanup, render, screen } from "@testing-library/preact";
 import { afterEach, describe, expect, test } from "vitest";
 
-import TrackItem from "$components/TrackItem";
+import TrackItem from "$/components/TrackItem";
 
 describe("TrackItem", () => {
   afterEach(() => {

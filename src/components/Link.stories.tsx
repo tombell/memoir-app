@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/preact";
 
-import Link from "$components/Link";
+import Link from "$/components/Link";
 
 const meta: Meta = {
   component: Link,

@@ -1,6 +1,6 @@
-import Link from "$components/Link";
+import Link from "$/components/Link";
 
-import type { Track } from "$services/memoir/types";
+import type { Track } from "$/services/memoir/types";
 
 const highlight = (text?: string | null) => {
   if (!text) {

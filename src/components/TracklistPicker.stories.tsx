@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/preact";
 
-import TracklistPicker from "$components/TracklistPicker";
+import TracklistPicker from "$/components/TracklistPicker";
 
 const meta: Meta = {
   component: TracklistPicker,

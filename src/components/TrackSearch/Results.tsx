@@ -1,6 +1,6 @@
-import Result from "$components/TrackSearch/Result";
+import Result from "$/components/TrackSearch/Result";
 
-import type { Track } from "$services/memoir/types";
+import type { Track } from "$/services/memoir/types";
 
 interface Props {
   show: boolean;

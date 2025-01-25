@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/preact";
 
-import TracklistItem from "$components/TracklistItem";
+import TracklistItem from "$/components/TracklistItem";
 
 const meta: Meta = {
   component: TracklistItem,

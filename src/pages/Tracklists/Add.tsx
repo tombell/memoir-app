@@ -3,15 +3,15 @@ import type { FunctionalComponent } from "preact";
 import { route } from "preact-router";
 import { useCallback } from "preact/hooks";
 
-import ArtworkUploader from "$components/ArtworkUploader";
-import Button from "$components/Button";
-import Input from "$components/Input";
-import Subheader from "$components/Subheader";
-import TracklistPicker from "$components/TracklistPicker";
+import ArtworkUploader from "$/components/ArtworkUploader";
+import Button from "$/components/Button";
+import Input from "$/components/Input";
+import Subheader from "$/components/Subheader";
+import TracklistPicker from "$/components/TracklistPicker";
 
-import type { NewTracklist } from "$services/memoir/types";
+import type { NewTracklist } from "$/services/memoir/types";
 
-import { usePostTracklist } from "$hooks/memoir";
+import { usePostTracklist } from "$/hooks/memoir";
 
 const handleChange =
   <T,>(signal: Signal<T>) =>

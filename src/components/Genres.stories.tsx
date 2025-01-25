@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/preact";
 
-import Genres from "$components/Genres";
+import Genres from "$/components/Genres";
 
 const meta: Meta = {
   component: Genres,

@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/preact";
 
-import FilePicker from "$components/FilePicker";
+import FilePicker from "$/components/FilePicker";
 
 const meta: Meta = {
   component: FilePicker,

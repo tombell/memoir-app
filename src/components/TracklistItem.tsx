@@ -1,7 +1,7 @@
-import Link from "$components/Link";
-import Tag from "$components/Tag";
+import Link from "$/components/Link";
+import Tag from "$/components/Tag";
 
-import { formatFriendlyDate } from "$services/datetime";
+import { formatFriendlyDate } from "$/services/datetime";
 
 interface Props {
   loading?: boolean;

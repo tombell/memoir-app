@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/preact";
 
-import Pagination from "$components/Pagination";
+import Pagination from "$/components/Pagination";
 
 const meta: Meta = {
   component: Pagination,

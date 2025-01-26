@@ -2,5 +2,5 @@
   "files": {
     "ignore": ["coverage/**/*", "dist/**/*"]
   },
-  "formatter": { "indentStyle": "space" }
+  "formatter": { "useEditorconfig": true }
 }

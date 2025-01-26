@@ -26,7 +26,7 @@ const useRequest = <TResponse>(url: string) => {
     try {
       isLoading.value = true;
 
-      const resp = await request(url + query, "GET");
+      const resp = await request(url + query);
       const { data: payload }: Response<TResponse> = await resp.json();
 
       return payload;

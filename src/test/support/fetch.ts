@@ -1,17 +1,18 @@
-import { type Mock, afterEach, vi } from "vitest";
+import { afterEach, mock } from "bun:test";
 
-// @ts-ignore
-global.fetch = vi.fn();
+const mockFetch = mock();
+
+global.fetch = mockFetch;
 
 afterEach(() => {
-  (fetch as Mock).mockReset();
+  mockFetch.mockReset();
 });
 
 export const mockFetchResponse = (
   data: object,
   headers: { [key: string]: string } = {},
 ) => {
-  (fetch as Mock).mockResolvedValue({
+  mockFetch.mockResolvedValue({
     json: () => Promise.resolve(data),
     headers: {
       get: (key: string) => headers[key] || null,
@@ -20,7 +21,7 @@ export const mockFetchResponse = (
 };
 
 export const mockFetchThrows = () => {
-  (fetch as Mock).mockImplementation(() => {
+  mockFetch.mockImplementation(() => {
     throw new Error("boom town");
   });
 };

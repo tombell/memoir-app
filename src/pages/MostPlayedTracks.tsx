@@ -1,9 +1,11 @@
+import type { FunctionalComponent } from "preact";
+
 import Subheader from "$/components/Subheader";
 import TrackItem from "$/components/TrackItem";
 
 import { useMostPlayedTracks } from "$/hooks/memoir";
 
-export default function MostPlayedTracks() {
+function MostPlayedTracks() {
   const { isLoading, data: tracks } = useMostPlayedTracks();
 
   return (
@@ -28,3 +30,5 @@ export default function MostPlayedTracks() {
     </div>
   );
 }
+
+export default MostPlayedTracks as FunctionalComponent;

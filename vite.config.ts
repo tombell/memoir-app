@@ -11,16 +11,4 @@ export default defineConfig(() => ({
       $: resolve(__dirname, "./src"),
     },
   },
-  test: {
-    environment: "happy-dom",
-    coverage: {
-      exclude: [
-        "*.config.js",
-        "*.config.ts",
-        "**/*.d.ts",
-        ".storybook",
-        "src/test/**/*",
-      ],
-    },
-  },
 }));

@@ -1,0 +1,5 @@
+[test]
+preload = [
+  "./src/test/support/happydom.ts",
+  "./src/test/support/testing-library.ts",
+]

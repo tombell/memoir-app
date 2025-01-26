@@ -1,6 +1,7 @@
+import { afterEach, describe, expect, mock, test } from "bun:test";
+
 import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
-import { afterEach, describe, expect, test, vi } from "vitest";
 
 import Button from "$/components/Button";
 
@@ -24,7 +25,7 @@ describe("Button", () => {
   test("calls the on click callback", async () => {
     const user = userEvent.setup();
 
-    const onClick = vi.fn();
+    const onClick = mock();
 
     render(<Button {...defaultProps} onClick={onClick} />);
 

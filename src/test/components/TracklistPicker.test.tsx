@@ -1,6 +1,7 @@
+import { afterEach, describe, expect, mock, test } from "bun:test";
+
 import { cleanup, render, screen, waitFor } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
-import { afterEach, describe, expect, test, vi } from "vitest";
 
 import TracklistPicker from "$/components/TracklistPicker";
 
@@ -24,7 +25,7 @@ describe("TracklistPicker", () => {
   test("calls the on select callback and renders the tracks", async () => {
     const user = userEvent.setup();
 
-    const onSelect = vi.fn();
+    const onSelect = mock();
 
     render(<TracklistPicker {...defaultProps} onSelect={onSelect} />);
 

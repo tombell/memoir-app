@@ -1,6 +1,7 @@
+import { afterEach, describe, expect, mock, test } from "bun:test";
+
 import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
-import { afterEach, describe, expect, test, vi } from "vitest";
 
 import Input from "$/components/Input";
 
@@ -33,7 +34,7 @@ describe("Input", () => {
   test("calls the on input callback", async () => {
     const user = userEvent.setup();
 
-    const onInput = vi.fn();
+    const onInput = mock();
 
     render(<Input {...defaultProps} onInput={onInput} />);
 
@@ -47,7 +48,7 @@ describe("Input", () => {
   });
 
   test("calls the on focus callback", () => {
-    const onFocus = vi.fn();
+    const onFocus = mock();
 
     render(<Input {...defaultProps} onFocus={onFocus} />);
 

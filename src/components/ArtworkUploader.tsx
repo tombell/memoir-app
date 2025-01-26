@@ -25,7 +25,7 @@ export default function ArtworkUploader({ name, label, onUpload }: Props) {
 
       if (upload) {
         artwork.value = upload.key;
-        onUpload(artwork.value);
+        onUpload(artwork.value as string);
       }
     },
     [uploadArtwork, onUpload, artwork],

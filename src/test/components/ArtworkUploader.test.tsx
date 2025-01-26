@@ -1,6 +1,7 @@
+import { afterEach, describe, expect, mock, test } from "bun:test";
+
 import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
-import { afterEach, describe, expect, test, vi } from "vitest";
 
 import ArtworkUploader from "$/components/ArtworkUploader";
 
@@ -33,18 +34,16 @@ describe("ArtworkUploader", () => {
   test("calls the on upload callback and renders the uploaded image", async () => {
     const user = userEvent.setup();
 
-    const { mockPerform } = vi.hoisted(() => ({
-      mockPerform: vi.fn().mockResolvedValue({ key: "asdfasdfasdf.jpg" }),
-    }));
+    const mockPerform = mock().mockResolvedValue({ key: "asdfasdfasdf.jpg" });
 
-    vi.mock("$/hooks/memoir", () => ({
-      usePostArtwork: vi.fn().mockReturnValue({
+    mock.module("$/hooks/memoir", () => ({
+      usePostArtwork: mock(() => ({
         isLoading: false,
         perform: mockPerform,
-      }),
+      })),
     }));
 
-    const onUpload = vi.fn();
+    const onUpload = mock(() => {});
 
     render(<ArtworkUploader {...defaultProps} onUpload={onUpload} />);
 

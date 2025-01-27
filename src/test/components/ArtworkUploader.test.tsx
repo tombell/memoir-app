@@ -3,7 +3,7 @@ import { afterEach, describe, expect, mock, test } from "bun:test";
 import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
-import ArtworkUploader from "$/components/ArtworkUploader";
+import ArtworkUploader from "~/components/ArtworkUploader";
 
 describe("ArtworkUploader", () => {
   afterEach(() => {
@@ -36,7 +36,7 @@ describe("ArtworkUploader", () => {
 
     const mockPerform = mock().mockResolvedValue({ key: "asdfasdfasdf.jpg" });
 
-    mock.module("$/hooks/memoir", () => ({
+    mock.module("~/hooks/memoir", () => ({
       usePostArtwork: mock(() => ({
         isLoading: false,
         perform: mockPerform,

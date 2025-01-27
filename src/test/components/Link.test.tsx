@@ -3,7 +3,7 @@ import { afterEach, describe, expect, mock, test } from "bun:test";
 import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
-import Link from "$/components/Link";
+import Link from "~/components/Link";
 
 describe("Link", () => {
   afterEach(() => {

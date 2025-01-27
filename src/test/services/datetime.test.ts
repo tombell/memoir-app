@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { formatFriendlyDate, formatYearMonthDay } from "$/services/datetime";
+import { formatFriendlyDate, formatYearMonthDay } from "~/services/datetime";
 
 describe("formatFriendlyDate", () => {
   test("returns the formatted string with zero padded month", () => {

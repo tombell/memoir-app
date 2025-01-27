@@ -1,9 +1,9 @@
 import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
 
-import FilePicker from "$/components/FilePicker";
+import FilePicker from "~/components/FilePicker";
 
-import { usePostArtwork } from "$/hooks/memoir";
+import { usePostArtwork } from "~/hooks/memoir";
 
 interface Props {
   name: string;

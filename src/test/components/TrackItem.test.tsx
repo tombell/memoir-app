@@ -2,7 +2,7 @@ import { afterEach, describe, expect, test } from "bun:test";
 
 import { cleanup, render, screen } from "@testing-library/preact";
 
-import TrackItem from "$/components/TrackItem";
+import TrackItem from "~/components/TrackItem";
 
 describe("TrackItem", () => {
   afterEach(() => {

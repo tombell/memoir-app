@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 
-import { request } from "$/services/memoir";
+import { request } from "~/services/memoir";
 
-import { mockFetchResponse } from "$/test/support/fetch";
+import { mockFetchResponse } from "~/test/support/fetch";
 
 afterEach(() => {
   import.meta.env.VITE_MEMOIR_API_KEY = "";

@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { parse } from "$/services/tracklists";
+import { parse } from "~/services/tracklists";
 
 describe("parse", () => {
   test("returns an array of track parts", () => {

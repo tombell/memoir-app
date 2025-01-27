@@ -3,7 +3,7 @@ import { afterEach, describe, expect, mock, test } from "bun:test";
 import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
-import Input from "$/components/Input";
+import Input from "~/components/Input";
 
 describe("Input", () => {
   afterEach(() => {

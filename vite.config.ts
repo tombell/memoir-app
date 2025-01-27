@@ -8,7 +8,7 @@ export default defineConfig(() => ({
   plugins: [tailwindcss(), preact()],
   resolve: {
     alias: {
-      $: resolve(__dirname, "./src"),
+      "~": resolve(__dirname, "./src"),
     },
   },
 }));

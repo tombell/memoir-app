@@ -21,7 +21,6 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/preact": "^3.2.4",
     "@testing-library/user-event": "^14.6.1",
-    "@tombell/valid": "^0.0.3",
     "@types/bun": "^1.2.0",
     "@types/node": "^22.10.10",
     "lefthook": "^1.10.10",

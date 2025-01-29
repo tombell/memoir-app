@@ -16,7 +16,7 @@
     "@happy-dom/global-registrator": "^16.7.3",
     "@preact/preset-vite": "^2.10.0",
     "@preact/signals": "^2.0.1",
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/preact": "^3.2.4",

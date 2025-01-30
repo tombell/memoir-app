@@ -3,11 +3,11 @@ import Link from "~/components/Link";
 interface Props {
   path: string;
   id?: string;
-  page: number;
+  page?: number;
   hasMore: boolean;
 }
 
-export default function Pagination({ path, id, page, hasMore }: Props) {
+export default function Pagination({ path, id, page = 1, hasMore }: Props) {
   const isFirstPage = page === 1;
 
   let prevUrl = `${path}?page=${page - 1}`;

@@ -45,7 +45,7 @@ export default function TracklistPicker({ name, label, onSelect }: Props) {
           <div class="mt-2 space-x-2" data-testid="track-details">
             <Tag text={track[2]} color="purple" />
             <Tag text={track[3]} color="lilac" />
-            <Tag text={track[4]} color="blue" />
+            {track[4] && <Tag text={track[4]} color="blue" />}
           </div>
         </li>
       ))}

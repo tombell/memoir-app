@@ -1,6 +1,0 @@
-{
-  "files": {
-    "ignore": ["coverage/**/*", "dist/**/*"]
-  },
-  "formatter": { "useEditorconfig": true }
-}

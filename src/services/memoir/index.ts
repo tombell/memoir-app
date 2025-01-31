@@ -6,7 +6,7 @@ const request = async (
   const headers: Record<string, string> = {};
 
   if (import.meta.env.VITE_MEMOIR_API_KEY) {
-    headers["API-Token"] = import.meta.env.VITE_MEMOIR_API_KEY;
+    headers["API-Token"] = import.meta.env.VITE_MEMOIR_API_KEY as string;
   }
 
   if (body && typeof body === "string") {

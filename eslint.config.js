@@ -1,7 +1,6 @@
 import js from "@eslint/js";
 import prettierRecommended from "eslint-plugin-prettier/recommended";
 import react from "eslint-plugin-react";
-import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -11,10 +10,6 @@ export default tseslint.config(
 
   {
     languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,

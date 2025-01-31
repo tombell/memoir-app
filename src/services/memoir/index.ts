@@ -3,7 +3,7 @@ const request = async (
   method = "GET",
   body: FormData | string | null = null,
 ) => {
-  const headers: { [key: string]: string } = {};
+  const headers: Record<string, string> = {};
 
   if (import.meta.env.VITE_MEMOIR_API_KEY) {
     headers["API-Token"] = import.meta.env.VITE_MEMOIR_API_KEY;

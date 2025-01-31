@@ -5,7 +5,7 @@ global.fetch = mockFetch;
 
 export const mockFetchResponse = (
   data: object,
-  headers: { [key: string]: string } = {},
+  headers: Record<string, string> = {},
 ) => {
   mockFetch.mockResolvedValue({
     json: () => Promise.resolve(data),

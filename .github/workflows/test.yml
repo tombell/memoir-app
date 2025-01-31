@@ -17,7 +17,9 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install
-      - name: Lint
+      - name: Check formatting
+        run: bun check
+      - name: Run linter
         run: bun lint
       - name: Run tests
         run: bun coverage

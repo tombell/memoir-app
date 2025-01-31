@@ -1,5 +1,7 @@
 import { Router } from "preact-router";
 
+import Main from "~/layouts/Main";
+
 import MostPlayedTracksPage from "~/pages/MostPlayedTracks";
 import NotFoundPage from "~/pages/NotFound";
 import TracklistsAdd from "~/pages/Tracklists/Add";
@@ -8,22 +10,11 @@ import TracklistsIndex from "~/pages/Tracklists/Index";
 import TracklistsShow from "~/pages/Tracklists/Show";
 import TracklistsByTrackPage from "~/pages/TracklistsByTrack";
 
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
 import Redirect from "~/components/Redirect";
-import TrackSearch from "~/components/TrackSearch";
 
 export default function App() {
   return (
-    <div class="container mx-auto px-96">
-      <div class="my-4 flex justify-center">
-        <Header />
-      </div>
-
-      <div class="mb-8">
-        <TrackSearch />
-      </div>
-
+    <Main>
       <Router>
         <Redirect path="/" to="/tracklists" />
 
@@ -42,10 +33,6 @@ export default function App() {
 
         <NotFoundPage path="/404" default />
       </Router>
-
-      <div class="my-8">
-        <Footer />
-      </div>
-    </div>
+    </Main>
   );
 }

@@ -1,7 +1,8 @@
-import { type Signal, useComputed, useSignal } from "@preact/signals";
+import { useStore } from "@nanostores/preact";
+import { atom } from "nanostores";
 import type { FunctionalComponent } from "preact";
 import { route } from "preact-router";
-import { useCallback } from "preact/hooks";
+import { useCallback, useState } from "preact/hooks";
 
 import ArtworkUploader from "~/components/ArtworkUploader";
 import Button from "~/components/Button";
@@ -9,40 +10,31 @@ import Input from "~/components/Input";
 import Subheader from "~/components/Subheader";
 import TracklistPicker from "~/components/TracklistPicker";
 
-import type { NewTracklist } from "~/services/memoir/types";
+import type { APIResponse } from "~/services/memoir";
+import type { NewTracklist, Tracklist } from "~/services/memoir/types";
 
-import { usePostTracklist } from "~/hooks/memoir";
-
-const handleChange =
-  <T,>(signal: Signal<T>) =>
-  (val: T) => {
-    signal.value = val;
-  };
+import { createAddTracklistStore } from "~/stores/tracklists";
 
 function Add() {
-  const name = useSignal("");
-  const date = useSignal("");
-  const url = useSignal("");
-  const artwork = useSignal("");
-  const tracks = useSignal<string[][]>([]);
+  const $tracklist = atom<NewTracklist>({
+    name: "",
+    date: "",
+    url: "",
+    artwork: "",
+    tracks: [],
+  });
 
-  const tracklist = useComputed<NewTracklist>(() => ({
-    name: name.value,
-    date: `${date.value}T00:00:00Z`,
-    url: url.value,
-    artwork: artwork.value,
-    tracks: tracks.value,
-  }));
+  const [$addTracklist] = useState(createAddTracklistStore());
 
-  const { perform: postTracklist } = usePostTracklist();
+  const { mutate } = useStore($addTracklist);
 
   const handleSubmit = useCallback(async () => {
-    const resp = await postTracklist(tracklist.value);
+    const resp = (await mutate($tracklist.value)) as APIResponse<Tracklist>;
 
-    if (resp) {
-      route(`/tracklist/${resp.id}/edit`);
+    if (resp?.data) {
+      route(`/tracklist/${resp.data.id}/edit`);
     }
-  }, [postTracklist, tracklist.value]);
+  }, [mutate, $tracklist.value]);
 
   return (
     <div class="space-y-4">
@@ -53,7 +45,9 @@ function Add() {
           name="name"
           label="Name"
           placeholder="Name..."
-          onInput={handleChange(name)}
+          onInput={(val) => {
+            $tracklist.value.name = val;
+          }}
         />
 
         <Input
@@ -61,21 +55,27 @@ function Add() {
           label="Date"
           placeholder="Date..."
           type="date"
-          onInput={handleChange(date)}
+          onInput={(val) => {
+            $tracklist.value.date = `${val}T00:00:00Z`;
+          }}
         />
 
         <Input
           name="url"
           label="Mixcloud URL"
           placeholder="Mixcloud URL..."
-          onInput={handleChange(url)}
+          onInput={(val) => {
+            $tracklist.value.url = val;
+          }}
         />
 
         <div>
           <ArtworkUploader
             name="artwork-uploader"
             label="Artwork"
-            onUpload={handleChange(artwork)}
+            onUpload={(val) => {
+              $tracklist.value.artwork = val;
+            }}
           />
         </div>
 
@@ -83,7 +83,9 @@ function Add() {
           <TracklistPicker
             name="tracklist"
             label="Tracklist"
-            onSelect={handleChange(tracks)}
+            onSelect={(val) => {
+              $tracklist.value.tracks = val;
+            }}
           />
         </div>
 

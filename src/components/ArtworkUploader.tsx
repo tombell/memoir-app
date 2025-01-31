@@ -1,9 +1,13 @@
-import { useSignal } from "@preact/signals";
-import { useCallback } from "preact/hooks";
+import { useStore } from "@nanostores/preact";
+import { atom } from "nanostores";
+import { useCallback, useState } from "preact/hooks";
 
 import FilePicker from "~/components/FilePicker";
 
-import { usePostArtwork } from "~/hooks/memoir";
+import type { APIResponse } from "~/services/memoir";
+import type { Artwork } from "~/services/memoir/types";
+
+import { createAddArtworkStore } from "~/stores/artwork";
 
 interface Props {
   name: string;
@@ -12,34 +16,40 @@ interface Props {
 }
 
 export default function ArtworkUploader({ name, label, onUpload }: Props) {
-  const artwork = useSignal<string | null>(null);
+  const [$artwork] = useState(atom<string | null>(null));
+  const artwork = useStore($artwork);
 
-  const { perform: uploadArtwork } = usePostArtwork();
+  const [$addArtwork] = useState(createAddArtworkStore());
+  const { mutate } = useStore($addArtwork);
 
   const handleSelect = useCallback(
     async (file: File) => {
       const data = new FormData();
       data.append("artwork", file);
 
-      const upload = await uploadArtwork(data);
+      const resp = (await mutate(data)) as APIResponse<Artwork>;
 
-      if (upload) {
-        artwork.value = upload.key;
-        onUpload(artwork.value as string);
+      if (resp?.data) {
+        $artwork.set(resp.data.key);
+        onUpload(resp.data.key);
       }
     },
-    [uploadArtwork, onUpload, artwork],
+    [mutate, onUpload, $artwork.set],
   );
 
-  return artwork.value ? (
-    <div class="box-border w-full rounded-sm bg-gray-800 p-4 text-center">
-      <img
-        class="h-24 w-24 border border-solid border-gray-700"
-        alt="Mix Artwork"
-        src={`${import.meta.env.VITE_MEMOIR_CDN_URL}/${artwork.value}`}
-      />
-    </div>
-  ) : (
+  if (artwork) {
+    return (
+      <div class="box-border w-full rounded-sm bg-gray-800 p-4 text-center">
+        <img
+          class="h-24 w-24 border border-solid border-gray-700"
+          alt="Mix Artwork"
+          src={`${import.meta.env.VITE_MEMOIR_CDN_URL}/${artwork}`}
+        />
+      </div>
+    );
+  }
+
+  return (
     <FilePicker
       name={name}
       label={label}

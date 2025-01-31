@@ -5,8 +5,23 @@ import userEvent from "@testing-library/user-event";
 
 import ArtworkUploader from "~/components/ArtworkUploader";
 
+import type { APIResponse } from "~/services/memoir";
+
+import { beforeEach } from "bun:test";
+import { mockFetch, mockFetchResponse } from "~/test/support/fetch";
+
 describe("ArtworkUploader", () => {
+  const response: APIResponse<{ key: string }> = {
+    data: { key: "asdfasdfasdf.jpg" },
+  };
+
+  beforeEach(() => {
+    mockFetchResponse(response);
+  });
+
   afterEach(() => {
+    mockFetch.mockRestore();
+
     cleanup();
   });
 
@@ -34,15 +49,6 @@ describe("ArtworkUploader", () => {
   test("calls the on upload callback and renders the uploaded image", async () => {
     const user = userEvent.setup();
 
-    const mockPerform = mock().mockResolvedValue({ key: "asdfasdfasdf.jpg" });
-
-    mock.module("~/hooks/memoir", () => ({
-      usePostArtwork: mock(() => ({
-        isLoading: false,
-        perform: mockPerform,
-      })),
-    }));
-
     const onUpload = mock(() => {});
 
     render(<ArtworkUploader {...defaultProps} onUpload={onUpload} />);
@@ -56,7 +62,12 @@ describe("ArtworkUploader", () => {
 
     const data = new FormData();
     data.append("artwork", file);
-    expect(mockPerform).toHaveBeenCalledWith(data);
+
+    expect(mockFetch).toHaveBeenCalledWith("/api/artwork", {
+      method: "POST",
+      body: data,
+      headers: {},
+    });
 
     const img = screen.getByRole("img");
 

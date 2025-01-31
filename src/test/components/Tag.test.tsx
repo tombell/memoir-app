@@ -21,7 +21,7 @@ describe("Tag", () => {
     expect(tag.classList.contains("bg-lime-700")).toBeTruthy();
   });
 
-  const colors: { [key in Color]: string } = {
+  const colors: Record<Color, string> = {
     blue: "bg-blue-600",
     green: "bg-lime-700",
     lightblue: "bg-sky-700",

@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, mock, test } from "bun:test";
+import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 
 import { cleanup, render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
@@ -7,7 +7,6 @@ import ArtworkUploader from "~/components/ArtworkUploader";
 
 import type { APIResponse } from "~/services/memoir";
 
-import { beforeEach } from "bun:test";
 import { mockFetch, mockFetchResponse } from "~/test/support/fetch";
 
 describe("ArtworkUploader", () => {

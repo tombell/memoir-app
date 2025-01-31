@@ -34,7 +34,7 @@ export default function TracklistItem({
             <div class="h-20 w-20" />
           </div>
 
-          <h3 class="m-0 w-full rounded-sm border border-solid border-gray-700 font-bold leading-5">
+          <h3 class="m-0 w-full rounded-sm border border-solid border-gray-700 leading-5 font-bold">
             &nbsp;
           </h3>
         </div>
@@ -63,7 +63,7 @@ export default function TracklistItem({
             />
           </div>
 
-          <h3 class="m-0 flex-1 font-bold leading-5">{name}</h3>
+          <h3 class="m-0 flex-1 leading-5 font-bold">{name}</h3>
 
           <div class="ml-auto space-x-2">
             <Tag text={`${trackCount} Tracks`} color="lilac" />

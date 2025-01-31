@@ -30,7 +30,7 @@ describe("ArtworkUploader", () => {
   };
 
   test("renders input label", () => {
-    render(<ArtworkUploader {...defaultProps} onUpload={() => {}} />);
+    render(<ArtworkUploader {...defaultProps} onUpload={mock()} />);
 
     const label = screen.queryByText("Select artwork to upload");
 
@@ -38,7 +38,7 @@ describe("ArtworkUploader", () => {
   });
 
   test("renders file input", () => {
-    render(<ArtworkUploader {...defaultProps} onUpload={() => {}} />);
+    render(<ArtworkUploader {...defaultProps} onUpload={mock()} />);
 
     const input = screen.queryByTestId("filepicker");
 
@@ -48,7 +48,7 @@ describe("ArtworkUploader", () => {
   test("calls the on upload callback and renders the uploaded image", async () => {
     const user = userEvent.setup();
 
-    const onUpload = mock(() => {});
+    const onUpload = mock();
 
     render(<ArtworkUploader {...defaultProps} onUpload={onUpload} />);
 

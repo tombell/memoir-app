@@ -8,6 +8,7 @@
     "preview": "bunx --bun vite preview",
     "lint": "bunx eslint",
     "lint:fix": "bunx eslint --fix",
+    "check": "bunx prettier --check .",
     "test": "bun test",
     "coverage": "bun test --coverage"
   },

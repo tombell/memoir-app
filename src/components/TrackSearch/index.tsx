@@ -1,12 +1,14 @@
+import { useStore } from "@nanostores/preact";
 import { effect, useSignal } from "@preact/signals";
-import { useCallback, useRef } from "preact/hooks";
+import { useCallback, useRef, useState } from "preact/hooks";
 
 import Input from "~/components/Input";
 import Results from "~/components/TrackSearch/Results";
 
+import type { APIResponse } from "~/services/memoir";
 import type { Track } from "~/services/memoir/types";
 
-import { useSearchTracks } from "~/hooks/memoir";
+import { createSearchTracksStore } from "~/stores/tracks";
 
 export default function TrackSearch() {
   const showResults = useSignal(false);
@@ -14,7 +16,8 @@ export default function TrackSearch() {
 
   const ref = useRef<HTMLDivElement>(null);
 
-  const { perform: searchTracks } = useSearchTracks();
+  const [$searchTracks] = useState(createSearchTracksStore());
+  const { mutate } = useStore($searchTracks);
 
   const onBodyClick = useCallback(
     ({ target }: MouseEvent) => {
@@ -33,14 +36,15 @@ export default function TrackSearch() {
         return;
       }
 
-      const resp = await searchTracks(value);
+      const resp = (await mutate(value)) as APIResponse<Track[]>;
+      console.log("RESP:", resp);
 
-      if (resp) {
-        tracks.value = resp;
+      if (resp.data) {
+        tracks.value = resp.data;
         showResults.value = true;
       }
     },
-    [showResults, tracks, searchTracks],
+    [showResults, tracks, mutate],
   );
 
   const onInputFocus = useCallback(() => {

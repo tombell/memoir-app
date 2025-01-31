@@ -1,12 +1,7 @@
-import { afterEach, mock } from "bun:test";
+import { mock } from "bun:test";
 
-const mockFetch = mock();
-
+export const mockFetch = mock();
 global.fetch = mockFetch;
-
-afterEach(() => {
-  mockFetch.mockReset();
-});
 
 export const mockFetchResponse = (
   data: object,
@@ -17,11 +12,5 @@ export const mockFetchResponse = (
     headers: {
       get: (key: string) => headers[key] || null,
     },
-  });
-};
-
-export const mockFetchThrows = () => {
-  mockFetch.mockImplementation(() => {
-    throw new Error("boom town");
   });
 };

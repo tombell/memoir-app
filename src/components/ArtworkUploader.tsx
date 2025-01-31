@@ -34,7 +34,7 @@ export default function ArtworkUploader({ name, label, onUpload }: Props) {
         onUpload(resp.data.key);
       }
     },
-    [mutate, onUpload, $artwork.set],
+    [mutate, onUpload, $artwork],
   );
 
   if (artwork) {

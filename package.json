@@ -14,6 +14,8 @@
   "dependencies": {
     "@biomejs/biome": "^1.9.4",
     "@happy-dom/global-registrator": "^16.7.3",
+    "@nanostores/preact": "^0.5.2",
+    "@nanostores/query": "^0.3.4",
     "@preact/preset-vite": "^2.10.0",
     "@preact/signals": "^2.0.1",
     "@tailwindcss/vite": "^4.0.1",
@@ -23,6 +25,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/bun": "^1.2.1",
     "@types/node": "^22.12.0",
+    "nanostores": "^0.11.3",
     "preact": "^10.25.4",
     "preact-router": "^4.1.2",
     "tailwindcss": "^4.0.1",

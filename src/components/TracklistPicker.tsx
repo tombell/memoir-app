@@ -18,8 +18,8 @@ export default function TracklistPicker({ name, label, onSelect }: Props) {
   const reader = useMemo(() => new FileReader(), []);
 
   const onFileRead = useCallback(() => {
-    if (reader.result) {
-      const parsed = parse(reader.result.toString());
+    if (reader.result && typeof reader.result === "string") {
+      const parsed = parse(reader.result);
       tracks.value = parsed;
       onSelect(tracks.value);
     }

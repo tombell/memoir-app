@@ -1,34 +1,38 @@
+import { useStore } from "@nanostores/preact";
 import type { FunctionalComponent } from "preact";
+import { useState } from "preact/hooks";
 
-import Subheader from "~/components/Subheader";
 import TrackItem from "~/components/TrackItem";
 
-import { useMostPlayedTracks } from "~/hooks/memoir";
+import { createMostPlayedTracksStore } from "~/stores/tracks";
 
 function MostPlayedTracks() {
-  const { isLoading, data: tracks } = useMostPlayedTracks();
+  const [$tracks] = useState(createMostPlayedTracksStore());
 
-  return (
-    <div class="space-y-4">
-      <Subheader text="Most Played Tracks" center />
+  const { data: tracks, loading } = useStore($tracks);
 
-      {isLoading.value
-        ? [0, 1, 2, 3, 4].map(() => (
-            <TrackItem key={crypto.randomUUID()} loading />
-          ))
-        : tracks.value?.map(({ id, artist, name, genre, bpm, key }) => (
-            <TrackItem
-              key={id}
-              id={id}
-              artist={artist}
-              name={name}
-              genre={genre}
-              bpm={bpm}
-              camelotKey={key}
-            />
-          ))}
-    </div>
-  );
+  if (tracks?.data) {
+    return tracks.data.map(({ id, artist, name, genre, bpm, key }) => (
+      <TrackItem
+        key={id}
+        id={id}
+        artist={artist}
+        name={name}
+        genre={genre}
+        bpm={bpm}
+        camelotKey={key}
+      />
+    ));
+  }
+
+  if (loading) {
+    return [0, 1, 2, 3, 4].map(() => (
+      <TrackItem key={crypto.randomUUID()} loading />
+    ));
+  }
+
+  // TODO: render error
+  return null;
 }
 
 export default MostPlayedTracks as FunctionalComponent;

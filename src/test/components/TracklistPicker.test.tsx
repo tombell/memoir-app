@@ -15,7 +15,7 @@ describe("TracklistPicker", () => {
   };
 
   test("renders file input", () => {
-    render(<TracklistPicker {...defaultProps} onSelect={() => {}} />);
+    render(<TracklistPicker {...defaultProps} onSelect={mock()} />);
 
     const input = screen.getByTestId("filepicker");
 

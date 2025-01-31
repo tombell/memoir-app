@@ -13,7 +13,7 @@ describe("Input", () => {
   const defaultProps = {
     name: "test-input",
     placeholder: "Placeholder...",
-    onInput: () => {},
+    onInput: mock(),
   };
 
   test("renders input", () => {

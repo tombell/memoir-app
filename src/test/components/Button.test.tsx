@@ -15,7 +15,7 @@ describe("Button", () => {
   };
 
   test("renders the text", () => {
-    render(<Button {...defaultProps} onClick={() => {}} />);
+    render(<Button {...defaultProps} onClick={mock()} />);
 
     expect(
       screen.queryByRole("button", { name: "Test button" }),

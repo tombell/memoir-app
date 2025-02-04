@@ -21,21 +21,17 @@ describe("Tag", () => {
     expect(tag.classList.contains("bg-lime-700")).toBeTruthy();
   });
 
-  const colors: Record<Color, string> = {
-    blue: "bg-blue-600",
-    green: "bg-lime-700",
-    lightblue: "bg-sky-700",
-    lilac: "bg-indigo-700",
-    purple: "bg-purple-600",
-  };
+  test.each([
+    ["blue", "bg-blue-600"],
+    ["green", "bg-lime-700"],
+    ["lightblue", "bg-sky-700"],
+    ["lilac", "bg-indigo-700"],
+    ["purple", "bg-purple-600"],
+  ])(`renders the text with $a background color`, (color, expected) => {
+    render(<Tag {...defaultProps} color={color as Color} />);
 
-  for (const color of Object.keys(colors)) {
-    test(`renders the text with ${color} background color`, () => {
-      render(<Tag {...defaultProps} color={color as Color} />);
+    const tag = screen.getByText("My tag");
 
-      const tag = screen.getByText("My tag");
-
-      expect(tag.classList.contains(colors[color as Color])).toBeTruthy();
-    });
-  }
+    expect(tag.classList.contains(expected)).toBeTruthy();
+  });
 });

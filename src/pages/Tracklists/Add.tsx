@@ -1,8 +1,7 @@
 import { useStore } from "@nanostores/preact";
-import { atom } from "nanostores";
 import type { FunctionalComponent } from "preact";
 import { route } from "preact-router";
-import { useCallback, useState } from "preact/hooks";
+import { useCallback } from "preact/hooks";
 
 import ArtworkUploader from "~/components/ArtworkUploader";
 import Button from "~/components/Button";
@@ -11,30 +10,28 @@ import Subheader from "~/components/Subheader";
 import TracklistPicker from "~/components/TracklistPicker";
 
 import type { APIResponse } from "~/services/memoir";
-import type { NewTracklist, Tracklist } from "~/services/memoir/types";
+import type { Tracklist } from "~/services/memoir/types";
 
-import { createAddTracklistStore } from "~/stores/tracklists";
+import {
+  $addTracklist,
+  $data,
+  $validationErrors,
+  validate,
+} from "~/stores/add-tracklist";
 
 function Add() {
-  const $tracklist = atom<NewTracklist>({
-    name: "",
-    date: "",
-    url: "",
-    artwork: "",
-    tracks: [],
-  });
-
-  const [$addTracklist] = useState(createAddTracklistStore());
-
-  const { mutate } = useStore($addTracklist);
+  const errors = useStore($validationErrors);
 
   const handleSubmit = useCallback(async () => {
-    const resp = (await mutate($tracklist.value)) as APIResponse<Tracklist>;
+    const payload = validate();
 
-    if (resp?.data) {
-      route(`/tracklist/${resp.data.id}/edit`);
+    if (payload) {
+      const {
+        data: { id },
+      } = (await $addTracklist.mutate(payload)) as APIResponse<Tracklist>;
+      route(`/tracklist/${id}/edit`);
     }
-  }, [mutate, $tracklist.value]);
+  }, [$addTracklist]);
 
   return (
     <div class="space-y-4">
@@ -45,9 +42,8 @@ function Add() {
           name="name"
           label="Name"
           placeholder="Name..."
-          onInput={(val) => {
-            $tracklist.value.name = val;
-          }}
+          errors={errors.name}
+          onInput={(v) => $data.setKey("name", v)}
         />
 
         <Input
@@ -55,39 +51,31 @@ function Add() {
           label="Date"
           placeholder="Date..."
           type="date"
-          onInput={(val) => {
-            $tracklist.value.date = `${val}T00:00:00Z`;
-          }}
+          errors={errors.date}
+          onInput={(v) => $data.setKey("date", `${v}T00:00:00Z`)}
         />
 
         <Input
           name="url"
           label="Mixcloud URL"
           placeholder="Mixcloud URL..."
-          onInput={(val) => {
-            $tracklist.value.url = val;
-          }}
+          errors={errors.url}
+          onInput={(v) => $data.setKey("url", v)}
         />
 
-        <div>
-          <ArtworkUploader
-            name="artwork-uploader"
-            label="Artwork"
-            onUpload={(val) => {
-              $tracklist.value.artwork = val;
-            }}
-          />
-        </div>
+        <ArtworkUploader
+          name="artwork-uploader"
+          label="Artwork"
+          errors={errors.artwork}
+          onUpload={(v) => $data.setKey("artwork", v)}
+        />
 
-        <div>
-          <TracklistPicker
-            name="tracklist"
-            label="Tracklist"
-            onSelect={(val) => {
-              $tracklist.value.tracks = val;
-            }}
-          />
-        </div>
+        <TracklistPicker
+          name="tracklist"
+          label="Tracklist"
+          errors={errors.tracks}
+          onSelect={(v) => $data.setKey("tracks", v)}
+        />
 
         <Button text="Add" onClick={handleSubmit} />
       </div>

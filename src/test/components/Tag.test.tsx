@@ -27,7 +27,7 @@ describe("Tag", () => {
     ["lightblue", "bg-sky-700"],
     ["lilac", "bg-indigo-700"],
     ["purple", "bg-purple-600"],
-  ])(`renders the text with $a background color`, (color, expected) => {
+  ])(`renders the text with %p background color`, (color, expected) => {
     render(<Tag {...defaultProps} color={color as Color} />);
 
     const tag = screen.getByText("My tag");

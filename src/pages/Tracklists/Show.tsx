@@ -1,5 +1,4 @@
 import { useStore } from "@nanostores/preact";
-import type { RoutableProps } from "preact-router";
 import { useState } from "preact/hooks";
 
 import Genres from "~/components/Genres";
@@ -10,8 +9,8 @@ import TrackItem from "~/components/TrackItem";
 
 import { createTracklistStore } from "~/stores/tracklists";
 
-interface Props extends RoutableProps {
-  id?: string;
+interface Props {
+  id: string;
 }
 
 export default function Show({ id }: Props) {

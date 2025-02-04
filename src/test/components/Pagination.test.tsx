@@ -68,23 +68,4 @@ describe("Pagination", () => {
 
     expect(next.getAttribute("href")).toBe("/tracklists?page=3");
   });
-
-  test("renders id in the url in previous link and next link", () => {
-    const { getByText } = render(
-      <Pagination
-        path="/tracklists/:id"
-        id="my-resource-id"
-        page={2}
-        hasMore
-      />,
-    );
-
-    const prev = getByText("← Newer");
-
-    expect(prev.getAttribute("href")).toBe("/tracklists/my-resource-id?page=1");
-
-    const next = getByText("Older →");
-
-    expect(next.getAttribute("href")).toBe("/tracklists/my-resource-id?page=3");
-  });
 });

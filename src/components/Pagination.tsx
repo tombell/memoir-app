@@ -1,31 +1,22 @@
 import Link from "~/components/Link";
 
 interface Props {
-  path: string;
-  id?: string;
-  page?: number;
   hasMore: boolean;
+  page?: number;
+  path: string;
 }
 
-export default function Pagination({ path, id, page = 1, hasMore }: Props) {
+export default function Pagination({ hasMore, page = 1, path }: Props) {
   const isFirstPage = page === 1;
-
-  let prevUrl = `${path}?page=${page - 1}`;
-  let nextUrl = `${path}?page=${page + 1}`;
-
-  if (id) {
-    prevUrl = prevUrl.replace(":id", id);
-    nextUrl = nextUrl.replace(":id", id);
-  }
 
   return (
     <div class="my-12 flex items-center font-bold">
       <div class="flex flex-1 justify-center">
-        {!isFirstPage && <Link href={prevUrl}>← Newer</Link>}
+        {!isFirstPage && <Link href={`${path}?page=${page - 1}`}>← Newer</Link>}
       </div>
 
       <div class="flex flex-1 justify-center">
-        {hasMore && <Link href={nextUrl}>Older →</Link>}
+        {hasMore && <Link href={`${path}?page=${page + 1}`}>Older →</Link>}
       </div>
     </div>
   );

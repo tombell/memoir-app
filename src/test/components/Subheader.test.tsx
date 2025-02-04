@@ -1,14 +1,10 @@
-import { afterEach, describe, expect, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
-import { cleanup, render, screen } from "@testing-library/preact";
+import { render, screen } from "@testing-library/preact";
 
 import Subheader from "~/components/Subheader";
 
 describe("Subheader", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   const defaultProps = {
     text: "My subheader",
   };

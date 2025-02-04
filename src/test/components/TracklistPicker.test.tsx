@@ -1,15 +1,11 @@
-import { afterEach, describe, expect, mock, test } from "bun:test";
+import { describe, expect, mock, test } from "bun:test";
 
-import { cleanup, render, screen, waitFor } from "@testing-library/preact";
+import { render, screen, waitFor } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
 import TracklistPicker from "~/components/TracklistPicker";
 
 describe("TracklistPicker", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   const defaultProps = {
     name: "tracklist-picker",
   };

@@ -1,15 +1,11 @@
-import { afterEach, describe, expect, mock, test } from "bun:test";
+import { describe, expect, mock, test } from "bun:test";
 
-import { cleanup, render, screen } from "@testing-library/preact";
+import { render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
 import Input from "~/components/Input";
 
 describe("Input", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   const defaultProps = {
     name: "test-input",
     placeholder: "Placeholder...",

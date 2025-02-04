@@ -1,14 +1,10 @@
-import { afterEach, describe, expect, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
-import { cleanup, render, screen } from "@testing-library/preact";
+import { render, screen } from "@testing-library/preact";
 
 import Header from "~/components/Header";
 
 describe("Header", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   test("renders the image", () => {
     render(<Header />);
 

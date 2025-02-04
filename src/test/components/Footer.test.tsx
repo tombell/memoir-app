@@ -1,14 +1,10 @@
-import { afterEach, describe, expect, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
-import { cleanup, render, screen } from "@testing-library/preact";
+import { render, screen } from "@testing-library/preact";
 
 import Footer from "~/components/Footer";
 
 describe("Footer", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   test("renders the links", () => {
     render(<Footer />);
 

@@ -1,14 +1,10 @@
-import { afterEach, describe, expect, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
-import { cleanup, render, screen } from "@testing-library/preact";
+import { render, screen } from "@testing-library/preact";
 
 import TracklistItem from "~/components/TracklistItem";
 
 describe("TracklistItem", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   test("renders loading tracklist when loading", () => {
     render(<TracklistItem loading />);
 

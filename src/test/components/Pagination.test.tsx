@@ -1,14 +1,10 @@
-import { afterEach, describe, expect, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
-import { cleanup, render } from "@testing-library/preact";
+import { render } from "@testing-library/preact";
 
 import Pagination from "~/components/Pagination";
 
 describe("Pagination", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   const defaultProps = {
     path: "/tracklists",
   };

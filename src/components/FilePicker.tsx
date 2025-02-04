@@ -1,14 +1,26 @@
+import clsx from "clsx";
 import { useCallback, useRef } from "preact/hooks";
 
+import ValidationErrors from "~/components/ValidationErrors";
+
 interface Props {
-  name: string;
-  label?: string;
   accept: string;
+  errors?: string[];
+  label?: string;
+  name: string;
   onSelect: (file: File) => void;
 }
 
-export default function FilePicker({ name, label, accept, onSelect }: Props) {
+export default function FilePicker({
+  accept,
+  errors,
+  label,
+  name,
+  onSelect,
+}: Props) {
   const input = useRef<HTMLInputElement>(null);
+
+  const hasErrors = !!errors?.length;
 
   const handleChange = useCallback(() => {
     if (input.current?.files) {
@@ -18,12 +30,27 @@ export default function FilePicker({ name, label, accept, onSelect }: Props) {
   }, [onSelect]);
 
   return (
-    <label htmlFor={name}>
-      {label && <span class="mb-2 block font-bold text-white">{label}</span>}
+    <label class="flex flex-col gap-2">
+      {label && (
+        <span
+          class={clsx("block font-bold", {
+            "text-rose-600": hasErrors,
+            "text-white": !hasErrors,
+          })}
+        >
+          {label}
+        </span>
+      )}
 
-      <div class="rounded-sm border border-solid border-gray-700 bg-gray-800 p-3 text-white">
+      <div>
         <input
-          class="block w-full text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-900 hover:file:bg-violet-100"
+          class={clsx(
+            "box-border w-full rounded-sm border border-solid p-3 text-white scheme-dark file:mr-4 file:cursor-pointer file:rounded-full file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-900 hover:file:bg-violet-100",
+            {
+              "border-rose-800 bg-rose-950": hasErrors,
+              "border-gray-700 bg-gray-800": !hasErrors,
+            },
+          )}
           name={name}
           type="file"
           ref={input}
@@ -32,6 +59,8 @@ export default function FilePicker({ name, label, accept, onSelect }: Props) {
           data-testid="filepicker"
         />
       </div>
+
+      {hasErrors && <ValidationErrors errors={errors} />}
     </label>
   );
 }

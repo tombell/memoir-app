@@ -34,7 +34,7 @@ describe("Pagination", () => {
 
     const next = getByText("Older →");
 
-    expect(next.getAttribute("href")).toBe("/tracklists?page=2");
+    expect(next).toHaveAttribute("href", "/tracklists?page=2");
   });
 
   test("renders previous link and not next link when not on page one and does not have more", () => {
@@ -44,7 +44,7 @@ describe("Pagination", () => {
 
     const prev = getByText("← Newer");
 
-    expect(prev.getAttribute("href")).toBe("/tracklists?page=1");
+    expect(prev).toHaveAttribute("href", "/tracklists?page=1");
 
     const next = queryByText("Older →");
 
@@ -58,10 +58,10 @@ describe("Pagination", () => {
 
     const prev = getByText("← Newer");
 
-    expect(prev.getAttribute("href")).toBe("/tracklists?page=1");
+    expect(prev).toHaveAttribute("href", "/tracklists?page=1");
 
     const next = getByText("Older →");
 
-    expect(next.getAttribute("href")).toBe("/tracklists?page=3");
+    expect(next).toHaveAttribute("href", "/tracklists?page=3");
   });
 });

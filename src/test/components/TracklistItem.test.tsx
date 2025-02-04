@@ -25,11 +25,12 @@ describe("TracklistItem", () => {
 
     const link = screen.getByRole("link");
 
-    expect(link.getAttribute("href")).toBe("/tracklist/asdf-asdf-asdf");
+    expect(link).toHaveAttribute("href", "/tracklist/asdf-asdf-asdf");
 
     const artwork = screen.getByRole("img");
 
-    expect(artwork.getAttribute("src")).toBe(
+    expect(artwork).toHaveAttribute(
+      "src",
       "https://memoir-artwork-development.s3.amazonaws.com/artwork.jpg",
     );
 

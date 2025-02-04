@@ -10,15 +10,13 @@ describe("Footer", () => {
 
     const links = screen.getAllByRole("link");
 
-    expect(links[0].innerHTML).toBe("Tracklists");
-    expect(links[0].getAttribute("href")).toBe("/tracklists");
+    expect(links[0]).toContainHTML("Tracklists");
+    expect(links[0]).toHaveAttribute("href", "/tracklists");
 
-    expect(links[1].innerHTML).toBe("Most Played Tracks");
-    expect(links[1].getAttribute("href")).toBe("/tracks/mostplayed");
+    expect(links[1]).toContainHTML("Most Played Tracks");
+    expect(links[1]).toHaveAttribute("href", "/tracks/mostplayed");
 
-    expect(links[2].innerHTML).toBe("IAMDJRIFF on Mixcloud");
-    expect(links[2].getAttribute("href")).toBe(
-      "https://mixcloud.com/iamdjriff",
-    );
+    expect(links[2]).toContainHTML("IAMDJRIFF on Mixcloud");
+    expect(links[2]).toHaveAttribute("href", "https://mixcloud.com/iamdjriff");
   });
 });

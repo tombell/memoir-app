@@ -22,6 +22,6 @@ describe("Subheader", () => {
 
     const subheader = screen.getByText("My subheader");
 
-    expect(subheader.classList.contains("text-center")).toBeTruthy();
+    expect(subheader).toHaveClass("text-center");
   });
 });

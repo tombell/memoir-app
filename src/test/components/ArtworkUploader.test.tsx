@@ -65,7 +65,8 @@ describe("ArtworkUploader", () => {
 
     const img = screen.getByRole("img");
 
-    expect(img.getAttribute("src")).toBe(
+    expect(img).toHaveAttribute(
+      "src",
       "https://memoir-artwork-development.s3.amazonaws.com/asdfasdfasdf.jpg",
     );
   });

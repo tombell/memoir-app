@@ -14,7 +14,7 @@ describe("Tag", () => {
 
     const tag = screen.getByText("My tag");
 
-    expect(tag.classList.contains("bg-lime-700")).toBeTruthy();
+    expect(tag).toHaveClass("bg-lime-700");
   });
 
   test.each([
@@ -28,6 +28,6 @@ describe("Tag", () => {
 
     const tag = screen.getByText("My tag");
 
-    expect(tag.classList.contains(expected)).toBeTruthy();
+    expect(tag).toHaveClass(expected);
   });
 });

@@ -10,10 +10,10 @@ describe("Header", () => {
 
     const header = screen.getByRole("link");
 
-    expect(header.getAttribute("href")).toBe("/tracklists");
+    expect(header).toHaveAttribute("href", "/tracklists");
 
     const img = screen.getByRole("img");
 
-    expect(img.getAttribute("src")).toBe("/images/logo.svg");
+    expect(img).toHaveAttribute("src", "/images/logo.svg");
   });
 });

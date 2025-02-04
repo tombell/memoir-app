@@ -16,7 +16,7 @@ describe("Link", () => {
 
     const link = screen.getByText("My link");
 
-    expect(link.getAttribute("href")).toBe("https://example.com");
+    expect(link).toHaveAttribute("href", "https://example.com");
   });
 
   test("renders the class name", () => {
@@ -24,7 +24,7 @@ describe("Link", () => {
 
     const link = screen.getByText("My link");
 
-    expect(link.classList.contains("my-class")).toBeTruthy();
+    expect(link).toHaveClass("my-class");
   });
 
   test("calls the on click callback", async () => {

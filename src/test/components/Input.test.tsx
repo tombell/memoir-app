@@ -17,8 +17,8 @@ describe("Input", () => {
 
     const input = screen.getByRole("textbox");
 
-    expect(input.getAttribute("name")).toBe("test-input");
-    expect(input.getAttribute("placeholder")).toBe("Placeholder...");
+    expect(input).toHaveAttribute("name", "test-input");
+    expect(input).toHaveAttribute("placeholder", "Placeholder...");
   });
 
   test("renders label", () => {

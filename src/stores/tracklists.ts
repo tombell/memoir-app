@@ -1,7 +1,7 @@
 import { atom } from "nanostores";
 
-import { type APIResponse, patch, post } from "~/services/memoir";
-import type { NewTracklist, Tracklist } from "~/services/memoir/types";
+import { type APIResponse, patch } from "~/services/memoir";
+import type { Tracklist } from "~/services/memoir/types";
 
 import { createFetcherStore, createMutatorStore } from "~/stores/fetcher";
 
@@ -13,12 +13,6 @@ export const createTracklistsStore = (page: string) => () =>
 
 export const createTracklistStore = (id: string | undefined) => () =>
   createFetcherStore<APIResponse<Tracklist>>(["/tracklists/", atom(id)]);
-
-export const createAddTracklistStore = () => () =>
-  createMutatorStore<NewTracklist>(async ({ data: tracklist, revalidate }) => {
-    revalidate("/tracklists");
-    return post<NewTracklist>("/tracklists", tracklist);
-  });
 
 export const createUpdateTracklistStore = (id: string | undefined) => () =>
   createMutatorStore<Tracklist>(async ({ data: tracklist, revalidate }) => {

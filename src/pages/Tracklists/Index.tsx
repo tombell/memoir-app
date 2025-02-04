@@ -1,5 +1,4 @@
 import { useStore } from "@nanostores/preact";
-import type { RoutableProps } from "preact-router";
 import { useState } from "preact/hooks";
 
 import Pagination from "~/components/Pagination";
@@ -7,9 +6,12 @@ import TracklistItem from "~/components/TracklistItem";
 
 import { createTracklistsStore } from "~/stores/tracklists";
 
-export default function Index({ path }: RoutableProps) {
-  const page = new URLSearchParams(window.location.search).get("page") ?? "1";
+interface Props {
+  page?: string;
+  path: string;
+}
 
+export default function Index({ page = "1", path }: Props) {
   const [$tracklists] = useState(createTracklistsStore(page));
 
   const { data: tracklists, loading } = useStore($tracklists);
@@ -32,13 +34,11 @@ export default function Index({ path }: RoutableProps) {
           />
         ))}
 
-        {path && (
-          <Pagination
-            path={path}
-            page={tracklists.meta?.current_page}
-            hasMore={hasMore}
-          />
-        )}
+        <Pagination
+          hasMore={hasMore}
+          page={tracklists.meta?.current_page}
+          path={path}
+        />
       </>
     );
   }

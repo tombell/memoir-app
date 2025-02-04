@@ -8,22 +8,6 @@ export default tseslint.config(
     ignores: ["dist/*", "src/**/*.d.ts"],
   },
 
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-
-    settings: {
-      react: {
-        pragma: "h",
-        version: "18",
-      },
-    },
-  },
-
   js.configs.recommended,
 
   tseslint.configs.recommendedTypeChecked,
@@ -35,6 +19,20 @@ export default tseslint.config(
   prettierRecommended,
 
   {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+
+    settings: {
+      react: {
+        pragma: "h",
+        version: "19",
+      },
+    },
+
     rules: {
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",

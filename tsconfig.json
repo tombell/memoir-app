@@ -27,5 +27,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "eslint.config.js", "prettier.config.js", "vite.config.ts"]
+  "include": ["src", "eslint.config.ts", "prettier.config.js", "vite.config.ts"]
 }

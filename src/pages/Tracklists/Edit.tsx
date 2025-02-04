@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/preact";
-import { type RoutableProps, route } from "preact-router";
+import { redirectPage } from "@nanostores/router";
 import { useCallback, useState } from "preact/hooks";
 
 import Button from "~/components/Button";
@@ -15,10 +15,11 @@ import {
   $validationErrors,
   validate,
 } from "~/stores/edit-tracklist";
+import { $router } from "~/stores/router";
 import { createTracklistStore } from "~/stores/tracklists";
 
-interface Props extends RoutableProps {
-  id?: string;
+interface Props {
+  id: string;
 }
 
 export default function Edit({ id }: Props) {
@@ -42,9 +43,9 @@ export default function Edit({ id }: Props) {
 
     if (payload) {
       await $editTracklist.mutate(payload);
-      route(`/tracklist/${id}`);
+      redirectPage($router, "tracklistsShow", { id });
     }
-  }, [validate, $editTracklist.mutate, route]);
+  }, [validate, $editTracklist.mutate]);
 
   if (tracklist?.data) {
     const { name, date, url } = tracklist.data;

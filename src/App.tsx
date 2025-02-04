@@ -1,38 +1,59 @@
-import { Router } from "preact-router";
+import { useStore } from "@nanostores/preact";
+import { redirectPage } from "@nanostores/router";
+import { useCallback } from "preact/hooks";
 
 import Main from "~/layouts/Main";
 
-import MostPlayedTracksPage from "~/pages/MostPlayedTracks";
+import MostPlayedTracks from "~/pages/MostPlayedTracks";
 import NotFoundPage from "~/pages/NotFound";
-import TracklistsAdd from "~/pages/Tracklists/Add";
+import TracklistAdd from "~/pages/Tracklists/Add";
 import TracklistsEdit from "~/pages/Tracklists/Edit";
 import TracklistsIndex from "~/pages/Tracklists/Index";
 import TracklistsShow from "~/pages/Tracklists/Show";
-import TracklistsByTrackPage from "~/pages/TracklistsByTrack";
+import TracklistsByTrack from "~/pages/TracklistsByTrack";
 
-import Redirect from "~/components/Redirect";
+import { $router } from "~/stores/router";
+
+const isAdminEnabled = !!import.meta.env.VITE_MEMOIR_ADMIN_ENABLED;
 
 export default function App() {
-  return (
-    <Main>
-      <Router>
-        <Redirect path="/" to="/tracklists" />
+  const page = useStore($router);
 
-        <TracklistsIndex path="/tracklists" />
-        {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
-          <TracklistsAdd path="/tracklists/add" />
-        )}
+  const renderPage = useCallback(() => {
+    if (!page) {
+      return <NotFoundPage />;
+    }
 
-        <TracklistsShow path="/tracklist/:id" />
-        {import.meta.env.VITE_MEMOIR_ADMIN_ENABLED && (
-          <TracklistsEdit path="/tracklist/:id/edit" />
-        )}
+    switch (page.route) {
+      case "root":
+        redirectPage($router, "tracklistsIndex");
+        return null;
+      case "tracklistsIndex":
+        return <TracklistsIndex page={page.search.page} path={page.path} />;
+      case "tracklistsAdd":
+        return isAdminEnabled ? <TracklistAdd /> : <NotFoundPage />;
+      case "tracklistsShow":
+        return <TracklistsShow id={page.params.id} />;
+      case "tracklistsEdit":
+        return isAdminEnabled ? (
+          <TracklistsEdit id={page.params.id} />
+        ) : (
+          <NotFoundPage />
+        );
+      case "tracklistsByTrack":
+        return (
+          <TracklistsByTrack
+            id={page.params.id}
+            page={page.search.page}
+            path={page.path}
+          />
+        );
+      case "mostPlayedTracks":
+        return <MostPlayedTracks />;
+      default:
+        return <NotFoundPage />;
+    }
+  }, [page]);
 
-        <TracklistsByTrackPage path="/tracks/:id" />
-        <MostPlayedTracksPage path="/tracks/mostplayed" />
-
-        <NotFoundPage path="/404" default />
-      </Router>
-    </Main>
-  );
+  return <Main>{renderPage()}</Main>;
 }

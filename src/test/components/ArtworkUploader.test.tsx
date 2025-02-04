@@ -1,27 +1,22 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 
-import { cleanup, render, screen } from "@testing-library/preact";
+import { render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
 import ArtworkUploader from "~/components/ArtworkUploader";
 
-import type { APIResponse } from "~/services/memoir";
-
-import { mockFetch, mockFetchResponse } from "~/test/support/fetch";
-
 describe("ArtworkUploader", () => {
-  const response: APIResponse<{ key: string }> = {
-    data: { key: "asdfasdfasdf.jpg" },
-  };
+  const mockFetch = mock();
+  global.fetch = mockFetch;
 
   beforeEach(() => {
-    mockFetchResponse(response);
+    mockFetch.mockResolvedValue({
+      json: () => Promise.resolve({ data: { key: "asdfasdfasdf.jpg" } }),
+    });
   });
 
   afterEach(() => {
     mockFetch.mockRestore();
-
-    cleanup();
   });
 
   const defaultProps = {

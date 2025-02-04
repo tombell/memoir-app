@@ -1,28 +1,23 @@
-import { afterEach, beforeEach, describe, expect, test } from "bun:test";
+import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 
-import {
-  type APIResponse,
-  get,
-  patch,
-  post,
-  postFile,
-} from "~/services/memoir";
+import { get, patch, post, postFile } from "~/services/memoir";
 
-import { mockFetch, mockFetchResponse } from "~/test/support/fetch";
+const mockFetch = mock();
+global.fetch = mockFetch;
+
+const response = { data: { value: true } };
+
+beforeEach(() => {
+  mockFetch.mockResolvedValue({ json: () => Promise.resolve(response) });
+});
 
 afterEach(() => {
-  mockFetch.mockReset();
+  mockFetch.mockRestore();
 
   import.meta.env.VITE_MEMOIR_API_KEY = "";
 });
 
 describe("get", () => {
-  const response = { data: true };
-
-  beforeEach(() => {
-    mockFetchResponse(response);
-  });
-
   describe("without an api key", () => {
     test("returns data with a get request", async () => {
       const data = await get("/endpoint");
@@ -57,12 +52,6 @@ describe("get", () => {
 });
 
 describe("patch", () => {
-  const response: APIResponse<{ value: boolean }> = { data: { value: true } };
-
-  beforeEach(() => {
-    mockFetchResponse(response);
-  });
-
   describe("without an api key", () => {
     test("returns data with a get request", async () => {
       const payload = { value: false };
@@ -104,12 +93,6 @@ describe("patch", () => {
 });
 
 describe("post", () => {
-  const response: APIResponse<{ value: boolean }> = { data: { value: true } };
-
-  beforeEach(() => {
-    mockFetchResponse(response);
-  });
-
   describe("without an api key", () => {
     test("returns data with a get request", async () => {
       const payload = { value: false };
@@ -151,12 +134,6 @@ describe("post", () => {
 });
 
 describe("postFile", () => {
-  const response: APIResponse<{ value: boolean }> = { data: { value: true } };
-
-  beforeEach(() => {
-    mockFetchResponse(response);
-  });
-
   describe("without an api key", () => {
     test("returns data with a get request", async () => {
       const file = new File(["fake file"], "artwork.jpg", {

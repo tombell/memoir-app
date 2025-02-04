@@ -4,102 +4,94 @@ import { useCallback, useState } from "preact/hooks";
 
 import Button from "~/components/Button";
 import Input from "~/components/Input";
+import Loading from "~/components/Loading";
 import Subheader from "~/components/Subheader";
-import TrackItem from "~/components/TrackItem";
 
 import { formatYearMonthDay } from "~/services/datetime";
-import type { APIResponse } from "~/services/memoir";
-import type { Tracklist } from "~/services/memoir/types";
 
 import {
-  createTracklistStore,
-  createUpdateTracklistStore,
-} from "~/stores/tracklists";
+  $data,
+  $editTracklist,
+  $validationErrors,
+  validate,
+} from "~/stores/edit-tracklist";
+import { createTracklistStore } from "~/stores/tracklists";
 
 interface Props extends RoutableProps {
   id?: string;
 }
 
-const handleChange = (key: "name" | "date" | "url", tracklist: Tracklist) => {
-  return (val: string) => {
-    if (!tracklist) return;
-    tracklist[key] = key === "date" ? `${val}T00:00:00Z` : val;
-  };
-};
-
 export default function Edit({ id }: Props) {
   const [$tracklist] = useState(createTracklistStore(id));
-  const [$updateTracklist] = useState(createUpdateTracklistStore(id));
+
+  $tracklist.listen((tracklist) => {
+    if (tracklist.data) {
+      const {
+        data: { id, name, date, url },
+      } = tracklist.data;
+      $data.set({ id, name, date, url });
+    }
+  });
 
   const { data: tracklist, loading } = useStore($tracklist);
-  const { mutate } = useStore($updateTracklist);
+
+  const errors = useStore($validationErrors);
 
   const handleSubmit = useCallback(async () => {
-    if (!tracklist?.data) {
-      return;
-    }
+    const payload = validate();
 
-    const resp = (await mutate(tracklist.data)) as APIResponse<Tracklist>;
-
-    if (resp?.data) {
-      route(`/tracklist/${resp.data.id}`);
+    if (payload) {
+      await $editTracklist.mutate(payload);
+      route(`/tracklist/${id}`);
     }
-  }, [mutate, tracklist]);
+  }, [validate, $editTracklist.mutate, route]);
 
   if (tracklist?.data) {
+    const { name, date, url } = tracklist.data;
+
     return (
       <div class="space-y-4">
         <Subheader text="Edit Tracklist" center />
 
-        {tracklist.data && (
-          <div class="space-y-4">
-            <Input
-              name="name"
-              label="Name"
-              placeholder="Name..."
-              value={tracklist.data.name}
-              onInput={handleChange("name", tracklist.data)}
-            />
+        <div class="space-y-4">
+          <Input
+            name="name"
+            label="Name"
+            placeholder="Name..."
+            value={name}
+            errors={errors.name}
+            onInput={(v) => $data.setKey("name", v)}
+          />
 
-            <Input
-              name="date"
-              label="Date"
-              placeholder="Date..."
-              type="date"
-              value={formatYearMonthDay(new Date(tracklist.data.date))}
-              onInput={handleChange("date", tracklist.data)}
-            />
+          <Input
+            name="date"
+            label="Date"
+            placeholder="Date..."
+            type="date"
+            value={formatYearMonthDay(new Date(date))}
+            errors={errors.date}
+            onInput={(v) => $data.setKey("date", `${v}T00:00:00Z`)}
+          />
 
-            <Input
-              name="url"
-              label="Mixcloud URL"
-              placeholder="Mixcloud URL..."
-              value={tracklist.data.url}
-              onInput={handleChange("url", tracklist.data)}
-            />
+          <Input
+            name="url"
+            label="Mixcloud URL"
+            placeholder="Mixcloud URL..."
+            value={url}
+            errors={errors.url}
+            onInput={(v) => $data.setKey("url", v)}
+          />
 
-            <Button text="Update" onClick={handleSubmit} />
-
-            {tracklist.data.tracks?.map((track) => (
-              <TrackItem
-                key={track.id}
-                id={track.id}
-                artist={track.artist}
-                name={track.name}
-                genre={track.genre}
-                bpm={track.bpm}
-                camelotKey={track.key}
-              />
-            ))}
-          </div>
-        )}
+          <Button text="Update" onClick={handleSubmit} />
+        </div>
       </div>
     );
   }
 
   if (loading) {
-    return null;
+    return <Loading />;
   }
 
+  // TODO: render error
   return null;
 }

@@ -1,51 +1,64 @@
-import { useSignal } from "@preact/signals";
-import { useCallback } from "preact/hooks";
+import clsx from "clsx";
+
+import ValidationErrors from "~/components/ValidationErrors";
 
 interface Props {
-  name: string;
+  autocomplete?: string;
+  errors?: string[];
   label?: string;
+  name: string;
+  onFocus?: (e: Event) => void;
+  onInput: (value: string) => void;
   placeholder: string;
   type?: string;
   value?: string;
-  onInput: (value: string) => void;
-  onFocus?: (e: Event) => void;
 }
 
 export default function Input({
-  name,
+  autocomplete = "off",
+  errors,
   label,
+  name,
+  onFocus,
+  onInput,
   placeholder,
   type = "text",
   value,
-  onInput,
-  onFocus,
 }: Props) {
-  const input = useSignal(value);
-
-  const handleInput = useCallback(
-    (e: Event) => {
-      input.value = (e.target as HTMLInputElement).value;
-      onInput(input.value);
-    },
-    [input, onInput],
-  );
+  const hasErrors = !!errors?.length;
 
   return (
-    <div>
-      <label htmlFor={name}>
-        {label && <span class="mb-2 block font-bold text-white">{label}</span>}
+    <label class="flex flex-col gap-2">
+      {label && (
+        <span
+          class={clsx("block font-bold", {
+            "text-rose-600": hasErrors,
+            "text-white": !hasErrors,
+          })}
+        >
+          {label}
+        </span>
+      )}
 
-        <input
-          class="box-border w-full rounded-sm border border-solid border-gray-700 bg-gray-800 p-3 text-white"
-          type={type}
-          id={name}
-          name={name}
-          placeholder={placeholder}
-          value={input}
-          onInput={handleInput}
-          onFocus={onFocus}
-        />
-      </label>
-    </div>
+      <input
+        class={clsx(
+          "box-border w-full rounded-sm border border-solid p-3 text-white scheme-dark",
+          {
+            "border-rose-800 bg-rose-950": hasErrors,
+            "border-gray-700 bg-gray-800": !hasErrors,
+          },
+        )}
+        type={type}
+        id={name}
+        name={name}
+        autoComplete={autocomplete}
+        placeholder={placeholder}
+        value={value}
+        onInput={(e) => onInput(e.currentTarget.value)}
+        onFocus={onFocus}
+      />
+
+      {hasErrors && <ValidationErrors errors={errors} />}
+    </label>
   );
 }

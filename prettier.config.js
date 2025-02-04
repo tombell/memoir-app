@@ -12,6 +12,7 @@ export default {
     "^~/components/(.*)$",
     "^~/services/(.*)$",
     "^~/stores/(.*)$",
+    "^~/utils/(.*)$",
     "^~/tests/(.*)$",
     "^~/(.*)$",
     "^[./]",

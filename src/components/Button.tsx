@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 type Variant = "large" | "medium" | "small";
 
 interface Props {
@@ -6,16 +8,17 @@ interface Props {
   onClick: () => void;
 }
 
-const classes = {
-  large: "py-2 px-6 text-base",
-  medium: "py-2 px-4 text-sm",
-  small: "py-2 px-4 text-xs",
-};
-
 export default function Button({ text, variant = "large", onClick }: Props) {
   return (
     <button
-      class={`rounded-sm bg-gray-800 font-bold text-white hover:bg-gray-700 active:bg-gray-800 ${classes[variant]}`}
+      class={clsx(
+        "rounded-sm bg-gray-800 font-bold text-white hover:bg-gray-700 active:bg-gray-800",
+        {
+          "px-6 py-2 text-base": variant == "large",
+          "px-4 py-2 text-sm": variant == "medium",
+          "px-4 py-2 text-xs": variant == "small",
+        },
+      )}
       type="button"
       onClick={onClick}
     >

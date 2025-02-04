@@ -1,6 +1,5 @@
 import { useStore } from "@nanostores/preact";
-import type { FunctionalComponent } from "preact";
-import { route } from "preact-router";
+import { redirectPage } from "@nanostores/router";
 import { useCallback } from "preact/hooks";
 
 import ArtworkUploader from "~/components/ArtworkUploader";
@@ -18,8 +17,9 @@ import {
   $validationErrors,
   validate,
 } from "~/stores/add-tracklist";
+import { $router } from "~/stores/router";
 
-function Add() {
+export default function Add() {
   const errors = useStore($validationErrors);
 
   const handleSubmit = useCallback(async () => {
@@ -29,7 +29,8 @@ function Add() {
       const {
         data: { id },
       } = (await $addTracklist.mutate(payload)) as APIResponse<Tracklist>;
-      route(`/tracklist/${id}/edit`);
+
+      redirectPage($router, "tracklistsShow", { id });
     }
   }, [$addTracklist]);
 
@@ -82,5 +83,3 @@ function Add() {
     </div>
   );
 }
-
-export default Add as FunctionalComponent;

@@ -37,12 +37,9 @@ export default function TrackSearch() {
       }
 
       const resp = (await mutate(value)) as APIResponse<Track[]>;
-      console.log("RESP:", resp);
 
-      if (resp.data) {
-        tracks.value = resp.data;
-        showResults.value = true;
-      }
+      tracks.value = resp.data;
+      showResults.value = true;
     },
     [showResults, tracks, mutate],
   );

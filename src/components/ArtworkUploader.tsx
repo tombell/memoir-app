@@ -10,12 +10,18 @@ import type { Artwork } from "~/services/memoir/types";
 import { createAddArtworkStore } from "~/stores/artwork";
 
 interface Props {
-  name: string;
+  errors?: string[];
   label?: string;
+  name: string;
   onUpload: (artwork: string) => void;
 }
 
-export default function ArtworkUploader({ name, label, onUpload }: Props) {
+export default function ArtworkUploader({
+  errors,
+  label,
+  name,
+  onUpload,
+}: Props) {
   const [$artwork] = useState(atom<string | null>(null));
   const artwork = useStore($artwork);
 
@@ -54,6 +60,7 @@ export default function ArtworkUploader({ name, label, onUpload }: Props) {
       name={name}
       label={label}
       accept="image/jpeg, image/png"
+      errors={errors}
       onSelect={handleSelect}
     />
   );

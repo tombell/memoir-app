@@ -56,7 +56,6 @@ export default function FilePicker({
           ref={input}
           accept={accept}
           onChange={handleChange}
-          data-testid="filepicker"
         />
       </div>
 

@@ -8,12 +8,13 @@ import TracklistPicker from "~/components/TracklistPicker";
 describe("TracklistPicker", () => {
   const defaultProps = {
     name: "tracklist-picker",
+    label: "Select a tracklist...",
   };
 
   test("renders file input", () => {
     render(<TracklistPicker {...defaultProps} onSelect={mock()} />);
 
-    const input = screen.getByTestId("filepicker");
+    const input = screen.getByLabelText("Select a tracklist...");
 
     expect(input).not.toBeNull();
   });
@@ -38,7 +39,7 @@ describe("TracklistPicker", () => {
       },
     );
 
-    const input = screen.getByTestId("filepicker");
+    const input = screen.getByLabelText("Select a tracklist...");
 
     await user.upload(input, file);
 
@@ -82,7 +83,7 @@ describe("TracklistPicker", () => {
       screen.getByText("3. Manuel Grandi - Around The World (Club Mix)"),
     ).toBeDefined();
 
-    const tracks = screen.getAllByTestId("track-details");
+    const tracks = screen.getAllByRole("listitem");
 
     expect(tracks[0].innerHTML).toContain("126.00");
     expect(tracks[0].innerHTML).toContain("11A");

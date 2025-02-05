@@ -8,7 +8,7 @@ describe("TrackItem", () => {
   test("renders loading tracklist when loading", () => {
     render(<TrackItem loading />);
 
-    expect(screen.getByTestId("track-loading")).toBeDefined();
+    expect(screen.getByRole("progressbar")).toBeDefined();
   });
 
   test("renders the links", () => {

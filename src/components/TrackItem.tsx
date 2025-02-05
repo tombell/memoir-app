@@ -22,7 +22,7 @@ export default function TrackItem({
 }: Props) {
   if (loading) {
     return (
-      <div class="animate-pulse space-y-2" data-testid="track-loading">
+      <div class="animate-pulse space-y-2" role="progressbar">
         <h3 class="m-0 rounded-sm border border-gray-700">&nbsp;</h3>
 
         <h3 class="m-0 rounded-sm border border-gray-700 py-0.5">&nbsp;</h3>

@@ -35,7 +35,7 @@ describe("ArtworkUploader", () => {
   test("renders file input", () => {
     render(<ArtworkUploader {...defaultProps} onUpload={mock()} />);
 
-    const input = screen.queryByTestId("filepicker");
+    const input = screen.getByLabelText("Select artwork to upload");
 
     expect(input).not.toBeNull();
   });
@@ -48,7 +48,8 @@ describe("ArtworkUploader", () => {
     render(<ArtworkUploader {...defaultProps} onUpload={onUpload} />);
 
     const file = new File(["fake file"], "artwork.jpg", { type: "image/jpeg" });
-    const input = screen.getByTestId("filepicker");
+
+    const input = screen.getByLabelText("Select artwork to upload");
 
     await user.upload(input, file);
 

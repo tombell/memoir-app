@@ -52,7 +52,7 @@ export default function TracklistPicker({
           >
             <p>{`${idx + 1}. ${track[1]} - ${track[0]}`}</p>
 
-            <div class="mt-2 space-x-2" data-testid="track-details">
+            <div class="mt-2 space-x-2">
               <Tag text={track[2]} color="purple" />
               <Tag text={track[3]} color="lilac" />
               {track[4] && <Tag text={track[4]} color="blue" />}

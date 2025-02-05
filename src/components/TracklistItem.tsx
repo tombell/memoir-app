@@ -27,7 +27,7 @@ export default function TracklistItem({
     return (
       <div
         class="mb-2.5 animate-pulse items-center rounded-sm border border-solid border-gray-700 p-2"
-        data-testid="tracklist-loading"
+        role="progressbar"
       >
         <div class="flex items-center space-x-3">
           <div class="rounded-sm border border-solid border-gray-700">

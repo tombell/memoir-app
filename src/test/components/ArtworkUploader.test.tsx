@@ -27,9 +27,7 @@ describe("ArtworkUploader", () => {
   test("renders input label", () => {
     render(<ArtworkUploader {...defaultProps} onUpload={mock()} />);
 
-    const label = screen.queryByText("Select artwork to upload");
-
-    expect(label).not.toBeNull();
+    expect(screen.queryByText("Select artwork to upload")).not.toBeNull();
   });
 
   test("renders file input", () => {

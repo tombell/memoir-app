@@ -17,7 +17,7 @@
     "@nanostores/query": "^0.3.4",
     "@nanostores/router": "^0.16.1",
     "clsx": "^2.1.1",
-    "nanostores": "^0.11.3",
+    "nanostores": "^0.11.4",
     "preact": "^10.25.4",
     "zod": "^3.24.2"
   },

@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { get, patch, post, postFile } from "~/services/memoir";
 
 const mockFetch = mock();
+// @ts-expect-error: there is an error about missing property.
 global.fetch = mockFetch;
 
 const response = { data: { value: true } };

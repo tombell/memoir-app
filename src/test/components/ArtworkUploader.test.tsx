@@ -7,7 +7,7 @@ import ArtworkUploader from "~/components/ArtworkUploader";
 
 describe("ArtworkUploader", () => {
   const mockFetch = mock();
-  // @ts-ignore
+  // @ts-expect-error: mocked enough for tests
   global.fetch = mockFetch;
 
   beforeEach(() => {

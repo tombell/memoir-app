@@ -1,5 +1,5 @@
 import { map } from "nanostores";
-import { ZodError } from "zod";
+import * as z from "zod/mini";
 
 import { patch } from "~/services/memoir";
 import {
@@ -28,13 +28,12 @@ export const $editTracklist = createMutatorStore<EditTracklist>(
 );
 
 export const validate = () => {
-  try {
-    return editTracklistSchema.parse($data.get());
-  } catch (err) {
-    if (err instanceof ZodError) {
-      $validationErrors.set(err.flatten().fieldErrors);
-    }
+  const result = editTracklistSchema.safeParse($data.get());
 
+  if (result.error) {
+    $validationErrors.set(z.flattenError(result.error).fieldErrors);
     return null;
   }
+
+  return result.data;
 };

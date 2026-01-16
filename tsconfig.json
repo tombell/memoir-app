@@ -23,9 +23,10 @@
     "allowJs": true,
     "checkJs": true,
 
+    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "eslint.config.ts", "prettier.config.js", "vite.config.ts"]
+  "exclude": ["dist", "node_modules"]
 }

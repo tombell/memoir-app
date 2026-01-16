@@ -6,10 +6,9 @@
     "dev": "bunx --bun vite",
     "build": "tsc && bunx --bun vite build",
     "preview": "bunx --bun vite preview",
-    "lint": "bunx eslint",
-    "lint:fix": "bunx eslint --fix",
-    "check": "bunx prettier --check .",
-    "test": "bun test",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "check": "prettier --check .",
     "coverage": "bun test --coverage"
   },
   "dependencies": {

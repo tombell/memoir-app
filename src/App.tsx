@@ -14,7 +14,7 @@ import TracklistsByTrack from "~/pages/TracklistsByTrack";
 
 import { $router } from "~/stores/router";
 
-const isAdminEnabled = !!import.meta.env.VITE_MEMOIR_ADMIN_ENABLED;
+const isAdminEnabled = !!process.env.PUBLIC_MEMOIR_ADMIN_ENABLED;
 
 export default function App() {
   const page = useStore($router);

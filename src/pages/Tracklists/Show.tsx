@@ -26,7 +26,7 @@ export default function Show({ id }: Props) {
         <div class="space-x-4 text-center text-xs font-semibold">
           <Link href={tracklist.data.url}>Listen on Mixcloud</Link>
 
-          {import.meta.env.VITE_MEMOIR_API_KEY && (
+          {process.env.PUBLIC_MEMOIR_API_KEY && (
             <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>
           )}
         </div>

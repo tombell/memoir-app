@@ -5,15 +5,15 @@ const request = async (
 ) => {
   const headers: Record<string, string> = {};
 
-  if (import.meta.env.VITE_MEMOIR_API_KEY) {
-    headers["API-Token"] = import.meta.env.VITE_MEMOIR_API_KEY;
+  if (process.env.PUBLIC_MEMOIR_API_KEY) {
+    headers["API-Token"] = process.env.PUBLIC_MEMOIR_API_KEY;
   }
 
   if (body && typeof body === "string") {
     headers["Content-Type"] = "application/json";
   }
 
-  return fetch(`${import.meta.env.VITE_MEMOIR_API_URL}${endpoint}`, {
+  return fetch(`${process.env.PUBLIC_MEMOIR_API_URL}${endpoint}`, {
     method,
     body,
     headers,

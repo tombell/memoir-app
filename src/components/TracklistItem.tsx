@@ -42,7 +42,7 @@ export default function TracklistItem({
     );
   }
 
-  const backgroundImage = `${import.meta.env.VITE_MEMOIR_CDN_URL}/${artwork}`;
+  const backgroundImage = `${process.env.PUBLIC_MEMOIR_CDN_URL}/${artwork}`;
 
   const background = {
     backgroundImage: `${linearGradient}, url(${backgroundImage})`,

@@ -49,7 +49,7 @@ export default function ArtworkUploader({
         <img
           class="h-24 w-24 border border-solid border-gray-700"
           alt="Mix Artwork"
-          src={`${import.meta.env.VITE_MEMOIR_CDN_URL}/${artwork}`}
+          src={`${process.env.PUBLIC_MEMOIR_CDN_URL}/${artwork}`}
         />
       </div>
     );

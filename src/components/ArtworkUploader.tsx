@@ -7,7 +7,7 @@ import FilePicker from "~/components/FilePicker";
 import type { APIResponse } from "~/services/memoir";
 import type { Artwork } from "~/services/memoir/types";
 
-import { createAddArtworkStore } from "~/stores/artwork";
+import { $addArtwork } from "~/stores/artwork";
 
 interface Props {
   errors?: string[];
@@ -25,7 +25,6 @@ export default function ArtworkUploader({
   const [$artwork] = useState(atom<string | null>(null));
   const artwork = useStore($artwork);
 
-  const [$addArtwork] = useState(createAddArtworkStore());
   const { mutate } = useStore($addArtwork);
 
   const handleSelect = useCallback(

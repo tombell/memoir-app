@@ -3,10 +3,13 @@ import type { Track } from "~/services/memoir/types";
 
 import { createFetcherStore, createMutatorStore } from "~/stores/fetcher";
 
-export const createMostPlayedTracksStore = () => () =>
-  createFetcherStore<APIResponse<Track[]>>(["/tracks/mostplayed"]);
+// Singleton fetcher store - static key, no dependencies
+export const $mostPlayedTracks = createFetcherStore<APIResponse<Track[]>>([
+  "/tracks/mostplayed",
+]);
 
-export const createSearchTracksStore = () =>
-  createMutatorStore<string>(async ({ data: query }) =>
-    get<Track[]>(`/tracks/search?q=${query}`),
-  );
+// Singleton mutator for search (no caching, always fresh)
+export const $searchTracks = createMutatorStore<string>(
+  async ({ data: query }) => get<Track[]>(`/tracks/search?q=${query}`),
+  { throttleCalls: false },
+);

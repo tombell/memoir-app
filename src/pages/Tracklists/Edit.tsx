@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
-import { useCallback, useState } from "preact/hooks";
+import { useCallback, useEffect } from "preact/hooks";
 
 import Button from "~/components/Button";
 import Input from "~/components/Input";
@@ -16,36 +16,39 @@ import {
   validate,
 } from "~/stores/edit-tracklist";
 import { $router } from "~/stores/router";
-import { createTracklistStore } from "~/stores/tracklists";
+import { $currentTracklistId, $tracklist } from "~/stores/tracklists";
 
-interface Props {
-  id: string;
-}
+export default function Edit() {
+  const { data: tracklist, loading } = useStore($tracklist);
+  const id = useStore($currentTracklistId);
+  const errors = useStore($validationErrors);
 
-export default function Edit({ id }: Props) {
-  const [$tracklist] = useState(createTracklistStore(id));
+  // Reset form and validation errors when entering edit page or ID changes
+  useEffect(() => {
+    $validationErrors.set({});
+    $data.set({ id: "", name: "", date: "", url: "" });
+  }, [id]);
 
-  $tracklist.listen((tracklist) => {
-    if (tracklist.data) {
+  // Populate form when tracklist data loads
+  useEffect(() => {
+    if (tracklist?.data) {
       const {
         data: { id, name, date, url },
-      } = tracklist.data;
+      } = tracklist;
       $data.set({ id, name, date, url });
     }
-  });
-
-  const { data: tracklist, loading } = useStore($tracklist);
-
-  const errors = useStore($validationErrors);
+  }, [tracklist?.data?.id]);
 
   const handleSubmit = useCallback(async () => {
     const payload = validate();
 
     if (payload) {
       await $editTracklist.mutate(payload);
-      redirectPage($router, "tracklistsShow", { id });
+      if (id) {
+        redirectPage($router, "tracklistsShow", { id });
+      }
     }
-  }, [validate, $editTracklist.mutate]);
+  }, [id]);
 
   if (tracklist?.data) {
     const { name, date, url } = tracklist.data;

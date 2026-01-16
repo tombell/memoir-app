@@ -29,25 +29,15 @@ export default function App() {
         redirectPage($router, "tracklistsIndex");
         return null;
       case "tracklistsIndex":
-        return <TracklistsIndex page={page.search.page} path={page.path} />;
+        return <TracklistsIndex />;
       case "tracklistsAdd":
         return isAdminEnabled ? <TracklistAdd /> : <NotFoundPage />;
       case "tracklistsShow":
-        return <TracklistsShow id={page.params.id} />;
+        return <TracklistsShow />;
       case "tracklistsEdit":
-        return isAdminEnabled ? (
-          <TracklistsEdit id={page.params.id} />
-        ) : (
-          <NotFoundPage />
-        );
+        return isAdminEnabled ? <TracklistsEdit /> : <NotFoundPage />;
       case "tracklistsByTrack":
-        return (
-          <TracklistsByTrack
-            id={page.params.id}
-            page={page.search.page}
-            path={page.path}
-          />
-        );
+        return <TracklistsByTrack />;
       case "mostPlayedTracks":
         return <MostPlayedTracks />;
       default:

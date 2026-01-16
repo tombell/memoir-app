@@ -1,20 +1,13 @@
 import { useStore } from "@nanostores/preact";
-import { useState } from "preact/hooks";
 
 import Pagination from "~/components/Pagination";
 import TracklistItem from "~/components/TracklistItem";
 
-import { createTracklistsStore } from "~/stores/tracklists";
+import { $currentPath, $tracklists } from "~/stores/tracklists";
 
-interface Props {
-  page?: string;
-  path: string;
-}
-
-export default function Index({ page = "1", path }: Props) {
-  const [$tracklists] = useState(createTracklistsStore(page));
-
+export default function Index() {
   const { data: tracklists, loading } = useStore($tracklists);
+  const path = useStore($currentPath);
 
   if (tracklists?.data) {
     const hasMore = tracklists.meta
@@ -23,7 +16,7 @@ export default function Index({ page = "1", path }: Props) {
 
     return (
       <>
-        {tracklists.data?.map(({ id, name, date, artwork, trackCount }) => (
+        {tracklists.data.map(({ id, name, date, artwork, trackCount }) => (
           <TracklistItem
             key={id}
             id={id}

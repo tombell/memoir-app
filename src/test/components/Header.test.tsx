@@ -4,6 +4,8 @@ import { render, screen } from "@testing-library/preact";
 
 import Header from "~/components/Header";
 
+import logo from "~/images/logo.svg";
+
 describe("Header", () => {
   test("renders the image", () => {
     render(<Header />);
@@ -14,6 +16,6 @@ describe("Header", () => {
 
     const img = screen.getByRole("img");
 
-    expect(img).toHaveAttribute("src", "/images/logo.svg");
+    expect(img).toHaveAttribute("src", logo);
   });
 });

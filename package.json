@@ -3,9 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bunx --bun vite",
-    "build": "tsc && bunx --bun vite build",
-    "preview": "bunx --bun vite preview",
+    "dev": "bun --hot serve.ts",
+    "build": "rm -fr dist && tsc && bun build.ts",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "check": "prettier --check .",

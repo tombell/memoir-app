@@ -5,6 +5,7 @@ await build({
   target: "browser",
   entrypoints: ["src/index.html"],
   outdir: "dist",
+  publicPath: "/",
   plugins: [plugin],
   env: "inline",
   minify: true,

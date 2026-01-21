@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
-import { useCallback, useState } from "preact/hooks";
+import { useCallback } from "preact/hooks";
 
 import Button from "~/components/Button";
 import Input from "~/components/Input";
@@ -16,14 +16,12 @@ import {
   validate,
 } from "~/stores/edit-tracklist";
 import { $router } from "~/stores/router";
-import { createTracklistStore } from "~/stores/tracklists";
+import { $currentTracklistId, $tracklist } from "~/stores/tracklists";
 
-interface Props {
-  id: string;
-}
-
-export default function Edit({ id }: Props) {
-  const [$tracklist] = useState(createTracklistStore(id));
+export default function Edit() {
+  const { data: tracklist, loading } = useStore($tracklist);
+  const id = useStore($currentTracklistId);
+  const errors = useStore($validationErrors);
 
   $tracklist.listen((tracklist) => {
     if (tracklist.data) {
@@ -34,18 +32,17 @@ export default function Edit({ id }: Props) {
     }
   });
 
-  const { data: tracklist, loading } = useStore($tracklist);
-
-  const errors = useStore($validationErrors);
-
   const handleSubmit = useCallback(async () => {
     const payload = validate();
 
     if (payload) {
       await $editTracklist.mutate(payload);
-      redirectPage($router, "tracklistsShow", { id });
+
+      if (id) {
+        redirectPage($router, "tracklistsShow", { id });
+      }
     }
-  }, [validate, $editTracklist.mutate]);
+  }, [id]);
 
   if (tracklist?.data) {
     const { name, date, url } = tracklist.data;

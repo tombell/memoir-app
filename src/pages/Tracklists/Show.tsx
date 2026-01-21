@@ -1,5 +1,4 @@
 import { useStore } from "@nanostores/preact";
-import { useState } from "preact/hooks";
 
 import Genres from "~/components/Genres";
 import Link from "~/components/Link";
@@ -7,16 +6,11 @@ import Loading from "~/components/Loading";
 import Subheader from "~/components/Subheader";
 import TrackItem from "~/components/TrackItem";
 
-import { createTracklistStore } from "~/stores/tracklists";
+import { $currentTracklistId, $tracklist } from "~/stores/tracklists";
 
-interface Props {
-  id: string;
-}
-
-export default function Show({ id }: Props) {
-  const [$tracklist] = useState(createTracklistStore(id));
-
+export default function Show() {
   const { data: tracklist, loading } = useStore($tracklist);
+  const id = useStore($currentTracklistId);
 
   if (tracklist?.data) {
     return (

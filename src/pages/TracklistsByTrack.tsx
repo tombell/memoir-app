@@ -1,21 +1,13 @@
 import { useStore } from "@nanostores/preact";
-import { useState } from "preact/hooks";
 
 import Pagination from "~/components/Pagination";
 import TracklistItem from "~/components/TracklistItem";
 
-import { createTracklistsByTrackStore } from "~/stores/tracklists";
+import { $currentPath, $tracklistsByTrack } from "~/stores/tracklists";
 
-interface Props {
-  id: string;
-  page?: string;
-  path: string;
-}
-
-export default function TracklistsByTrack({ id, page = "1", path }: Props) {
-  const [$tracklists] = useState(createTracklistsByTrackStore(id, page));
-
-  const { data: tracklists, loading } = useStore($tracklists);
+export default function TracklistsByTrack() {
+  const { data: tracklists, loading } = useStore($tracklistsByTrack);
+  const path = useStore($currentPath);
 
   if (tracklists?.data) {
     const hasMore = tracklists.meta

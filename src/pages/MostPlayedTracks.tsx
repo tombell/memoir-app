@@ -1,15 +1,12 @@
 import { useStore } from "@nanostores/preact";
 import type { FunctionalComponent } from "preact";
-import { useState } from "preact/hooks";
 
 import TrackItem from "~/components/TrackItem";
 
-import { createMostPlayedTracksStore } from "~/stores/tracks";
+import { $mostPlayedTracks } from "~/stores/tracks";
 
 function MostPlayedTracks() {
-  const [$tracks] = useState(createMostPlayedTracksStore());
-
-  const { data: tracks, loading } = useStore($tracks);
+  const { data: tracks, loading } = useStore($mostPlayedTracks);
 
   if (tracks?.data) {
     return tracks.data.map(({ id, artist, name, genre, bpm, key }) => (

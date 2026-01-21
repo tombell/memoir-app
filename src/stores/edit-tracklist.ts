@@ -21,10 +21,11 @@ export const $data = map<EditTracklist>({
 $data.listen((_, __, changed) => $validationErrors.setKey(changed, undefined));
 
 export const $editTracklist = createMutatorStore<EditTracklist>(
-  async ({ data: tracklist, revalidate }) => {
-    revalidate(`/tracklists/${tracklist.id}`);
+  async ({ data: tracklist, invalidate }) => {
+    invalidate(`/tracklists/${tracklist.id}`);
     return patch<EditTracklist>(`/tracklists/${tracklist.id}`, tracklist);
   },
+  { throttleCalls: false },
 );
 
 export const validate = () => {

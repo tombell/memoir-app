@@ -3,7 +3,8 @@ import type { Artwork } from "~/services/memoir/types";
 
 import { createMutatorStore } from "~/stores/fetcher";
 
-export const createAddArtworkStore = () => () =>
-  createMutatorStore<FormData>(async ({ data: artwork }) => {
+export const $addArtwork = createMutatorStore<FormData>(
+  async ({ data: artwork }) => {
     return postFile<Artwork>("/artwork", artwork);
-  });
+  },
+);

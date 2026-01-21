@@ -23,6 +23,7 @@ export const $addTracklist = createMutatorStore<NewTracklist>(
     revalidate("/tracklists");
     return post<NewTracklist>("/tracklists", tracklist);
   },
+  { throttleCalls: false },
 );
 
 export const validate = () => {

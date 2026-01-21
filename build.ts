@@ -1,4 +1,4 @@
-import { build } from "bun";
+import { build } from "@tombell/bun-build-stats";
 import plugin from "bun-plugin-tailwind";
 
 await build({

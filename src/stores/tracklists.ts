@@ -56,9 +56,9 @@ export const $tracklist = createFetcherStore<APIResponse<Tracklist>>([
 ]);
 
 export const $tracklistsByTrack = createFetcherStore<APIResponse<Tracklist[]>>([
-  "/tracks/",
+  "/tracklists?track_id=",
   $tracklistsByTrackId,
-  "/tracklists?page=",
+  "&page=",
   $tracklistsByTrackPage,
 ]);
 

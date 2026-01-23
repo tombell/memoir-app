@@ -1,15 +1,15 @@
-import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
+import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 
 import { get, patch, post, postFile } from "~/services/memoir";
 
-const mockFetch = mock();
-// @ts-expect-error: there is an error about missing property.
-global.fetch = mockFetch;
+import { createMockFetch } from "~/test/support/test-helpers";
 
 const response = { data: { value: true } };
 
+let mockFetch: ReturnType<typeof createMockFetch>;
+
 beforeEach(() => {
-  mockFetch.mockResolvedValue({ json: () => Promise.resolve(response) });
+  mockFetch = createMockFetch(response);
 });
 
 afterEach(() => {

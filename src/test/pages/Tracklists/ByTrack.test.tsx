@@ -32,7 +32,7 @@ const mockTracklists: APIResponse<Tracklist[]> = {
   },
 };
 
-describe("TracklistsByTrack", () => {
+describe("Tracklists ByTrack", () => {
   beforeEach(async () => {
     await mock.module("@nanostores/preact", () => ({
       useStore: () => {

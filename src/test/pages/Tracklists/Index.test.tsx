@@ -49,7 +49,7 @@ const mockTracklistsPage2: APIResponse<Tracklist[]> = {
 };
 
 describe("Tracklists Index", () => {
-  describe("on first page", () => {
+  describe("when on the first page", () => {
     beforeEach(async () => {
       await mock.module("@nanostores/preact", () => ({
         useStore: () => ({ data: mockTracklistsPage1, loading: false }),
@@ -60,7 +60,7 @@ describe("Tracklists Index", () => {
       mock.restore();
     });
 
-    test("renders tracklist items", () => {
+    test("renders tracklists", () => {
       render(<Index />);
 
       expect(screen.getByText("Summer Mix 2023")).toBeDefined();
@@ -72,14 +72,14 @@ describe("Tracklists Index", () => {
       expect(screen.getByText("8 Tracks")).toBeDefined();
     });
 
-    test("renders older pagination link when more pages", () => {
+    test("renders older pagination link", () => {
       render(<Index />);
 
       expect(screen.getByText("Older →")).toBeDefined();
     });
   });
 
-  describe("on second page", () => {
+  describe("when on the second page", () => {
     beforeEach(async () => {
       await mock.module("@nanostores/preact", () => ({
         useStore: () => ({ data: mockTracklistsPage2, loading: false }),
@@ -96,7 +96,7 @@ describe("Tracklists Index", () => {
       expect(screen.getByText("← Newer")).toBeDefined();
     });
 
-    test("does not render older pagination link when no more pages", () => {
+    test("does not render older pagination link", () => {
       render(<Index />);
 
       expect(screen.queryByText("Older →")).toBeNull();

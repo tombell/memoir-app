@@ -7,10 +7,10 @@ import Main from "~/layouts/Main";
 import MostPlayedTracks from "~/pages/MostPlayedTracks";
 import NotFoundPage from "~/pages/NotFound";
 import TracklistAdd from "~/pages/Tracklists/Add";
+import TracklistsByTrack from "~/pages/Tracklists/ByTrack";
 import TracklistsEdit from "~/pages/Tracklists/Edit";
 import TracklistsIndex from "~/pages/Tracklists/Index";
 import TracklistsShow from "~/pages/Tracklists/Show";
-import TracklistsByTrack from "~/pages/TracklistsByTrack";
 
 import { $router } from "~/stores/router";
 

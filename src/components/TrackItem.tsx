@@ -33,7 +33,7 @@ export default function TrackItem({
   return (
     <div class="mb-6 items-center space-y-1">
       <div class="font-bold">
-        <Link href={`/tracks/${id}`}>{`${artist} - ${name}`}</Link>
+        <Link href={`/tracks/${id}/tracklists`}>{`${artist} - ${name}`}</Link>
       </div>
 
       <div class="space-x-2">

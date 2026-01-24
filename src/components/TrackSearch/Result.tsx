@@ -21,7 +21,7 @@ interface Props {
 export default function Result({ track, onClick }: Props) {
   return (
     <li class="mx-2 my-2.5 list-none truncate text-white">
-      <Link href={`/tracks/${track.id}`} onClick={onClick}>
+      <Link href={`/tracks/${track.id}/tracklists`} onClick={onClick}>
         <span
           dangerouslySetInnerHTML={{
             __html: `${highlight(track.artistHighlighted)} - ${highlight(

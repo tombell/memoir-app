@@ -9,5 +9,5 @@ export const $router = createRouter({
   tracklistsEdit: "/tracklist/:id/edit",
 
   mostPlayedTracks: "/tracks/mostplayed",
-  tracklistsByTrack: "/tracks/:id",
+  tracklistsByTrack: "/tracks/:id/tracklists",
 });

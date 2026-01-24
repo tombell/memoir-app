@@ -25,7 +25,7 @@ describe("TrackItem", () => {
 
     const link = screen.getByRole("link", { name: "Artist - Track Name" });
 
-    expect(link).toHaveAttribute("href", "/tracks/asdf-asdf-asdf");
+    expect(link).toHaveAttribute("href", "/tracks/asdf-asdf-asdf/tracklists");
     expect(screen.getByText("123.00")).toBeDefined();
     expect(screen.getByText("12B")).toBeDefined();
     expect(screen.getByText("Tech House")).toBeDefined();

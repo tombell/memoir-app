@@ -2,15 +2,15 @@ import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
 import { useCallback } from "preact/hooks";
 
-import Main from "~/layouts/Main";
+import Main from "~/layouts/main";
 
-import MostPlayedTracks from "~/pages/MostPlayedTracks";
-import NotFoundPage from "~/pages/NotFound";
-import TracklistAdd from "~/pages/Tracklists/Add";
-import TracklistsByTrack from "~/pages/Tracklists/ByTrack";
-import TracklistsEdit from "~/pages/Tracklists/Edit";
-import TracklistsIndex from "~/pages/Tracklists/Index";
-import TracklistsShow from "~/pages/Tracklists/Show";
+import MostPlayedTracks from "~/pages/most-played-tracks";
+import NotFoundPage from "~/pages/not-found";
+import TracklistAdd from "~/pages/tracklists/add";
+import TracklistsByTrack from "~/pages/tracklists/by-track";
+import TracklistsEdit from "~/pages/tracklists/edit";
+import TracklistsIndex from "~/pages/tracklists/index";
+import TracklistsShow from "~/pages/tracklists/show";
 
 import { $router } from "~/stores/router";
 

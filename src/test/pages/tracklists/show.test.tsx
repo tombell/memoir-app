@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 
 import { render, screen } from "@testing-library/preact";
 
-import Show from "~/pages/Tracklists/Show";
+import Show from "~/pages/tracklists/show";
 
 import type { APIResponse } from "~/services/memoir";
 import type { Tracklist } from "~/services/memoir/types";

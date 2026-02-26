@@ -1,6 +1,6 @@
 import { render } from "preact";
 
-import App from "~/App";
+import App from "~/app";
 
 if (import.meta.hot) {
   import.meta.hot.accept();

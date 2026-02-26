@@ -2,8 +2,8 @@ import { useStore } from "@nanostores/preact";
 import { map } from "nanostores";
 import { useCallback, useEffect, useRef } from "preact/hooks";
 
-import Input from "~/components/Input";
-import Results from "~/components/TrackSearch/Results";
+import Input from "~/components/input";
+import Results from "~/components/track-search/results";
 
 import type { APIResponse } from "~/services/memoir";
 import type { Track } from "~/services/memoir/types";

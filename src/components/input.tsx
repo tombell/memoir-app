@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import ValidationErrors from "~/components/ValidationErrors";
+import ValidationErrors from "~/components/validation-errors";
 
 interface Props {
   autocomplete?: string;

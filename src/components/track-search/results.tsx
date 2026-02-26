@@ -1,4 +1,4 @@
-import Result from "~/components/TrackSearch/Result";
+import Result from "~/components/track-search/result";
 
 import type { Track } from "~/services/memoir/types";
 

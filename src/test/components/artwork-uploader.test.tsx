@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import { render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
-import ArtworkUploader from "~/components/ArtworkUploader";
+import ArtworkUploader from "~/components/artwork-uploader";
 
 describe("ArtworkUploader", () => {
   const mockFetch = mock();

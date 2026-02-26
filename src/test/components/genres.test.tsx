@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render, screen } from "@testing-library/preact";
 
-import Genres from "~/components/Genres";
+import Genres from "~/components/genres";
 
 describe("Genre", () => {
   test("renders the tags", () => {

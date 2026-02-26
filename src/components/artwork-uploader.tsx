@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/preact";
 import { atom } from "nanostores";
 import { useCallback, useState } from "preact/hooks";
 
-import FilePicker from "~/components/FilePicker";
+import FilePicker from "~/components/file-picker";
 
 import type { APIResponse } from "~/services/memoir";
 import type { Artwork } from "~/services/memoir/types";

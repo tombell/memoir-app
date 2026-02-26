@@ -2,11 +2,11 @@ import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
 import { useCallback } from "preact/hooks";
 
-import ArtworkUploader from "~/components/ArtworkUploader";
-import Button from "~/components/Button";
-import Input from "~/components/Input";
-import Subheader from "~/components/Subheader";
-import TracklistPicker from "~/components/TracklistPicker";
+import ArtworkUploader from "~/components/artwork-uploader";
+import Button from "~/components/button";
+import Input from "~/components/input";
+import Subheader from "~/components/subheader";
+import TracklistPicker from "~/components/tracklist-picker";
 
 import type { APIResponse } from "~/services/memoir";
 import type { Tracklist } from "~/services/memoir/types";

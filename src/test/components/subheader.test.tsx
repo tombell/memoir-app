@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render, screen } from "@testing-library/preact";
 
-import Subheader from "~/components/Subheader";
+import Subheader from "~/components/subheader";
 
 describe("Subheader", () => {
   const defaultProps = {

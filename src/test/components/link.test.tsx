@@ -3,7 +3,7 @@ import { describe, expect, mock, test } from "bun:test";
 import { render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
 
-import Link from "~/components/Link";
+import Link from "~/components/link";
 
 describe("Link", () => {
   const defaultProps = {

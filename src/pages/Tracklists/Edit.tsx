@@ -2,10 +2,10 @@ import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
 import { useCallback } from "preact/hooks";
 
-import Button from "~/components/Button";
 import Input from "~/components/Input";
 import Loading from "~/components/Loading";
 import Subheader from "~/components/Subheader";
+import Button from "~/components/button";
 
 import { formatYearMonthDay } from "~/services/datetime";
 

@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render, screen } from "@testing-library/preact";
 
-import Footer from "~/components/Footer";
+import Footer from "~/components/footer";
 
 describe("Footer", () => {
   test("renders the links", () => {

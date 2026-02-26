@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render } from "@testing-library/preact";
 
-import Pagination from "~/components/Pagination";
+import Pagination from "~/components/pagination";
 
 describe("Pagination", () => {
   const defaultProps = {

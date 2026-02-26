@@ -2,8 +2,8 @@ import { useStore } from "@nanostores/preact";
 import { atom } from "nanostores";
 import { useCallback, useMemo } from "preact/hooks";
 
-import FilePicker from "~/components/FilePicker";
 import Tag from "~/components/Tag";
+import FilePicker from "~/components/file-picker";
 
 import { parse } from "~/services/tracklists";
 

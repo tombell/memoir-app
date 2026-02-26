@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useCallback, useRef } from "preact/hooks";
 
-import ValidationErrors from "~/components/ValidationErrors";
+import ValidationErrors from "~/components/validation-errors";
 
 interface Props {
   accept: string;

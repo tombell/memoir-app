@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/preact";
 
-import Pagination from "~/components/Pagination";
-import TracklistItem from "~/components/TracklistItem";
+import Pagination from "~/components/pagination";
+import TracklistItem from "~/components/tracklist-item";
 
 import { $currentPath, $tracklistsByTrack } from "~/stores/tracklists";
 

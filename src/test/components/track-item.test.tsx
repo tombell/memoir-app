@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render, screen } from "@testing-library/preact";
 
-import TrackItem from "~/components/TrackItem";
+import TrackItem from "~/components/track-item";
 
 describe("TrackItem", () => {
   test("renders loading tracklist when loading", () => {

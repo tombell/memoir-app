@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render, screen } from "@testing-library/preact";
 
-import Header from "~/components/Header";
+import Header from "~/components/header";
 
 import logo from "~/images/logo.svg";
 

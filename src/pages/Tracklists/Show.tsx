@@ -1,10 +1,10 @@
 import { useStore } from "@nanostores/preact";
 
-import Genres from "~/components/Genres";
-import Link from "~/components/Link";
-import Loading from "~/components/Loading";
-import Subheader from "~/components/Subheader";
-import TrackItem from "~/components/TrackItem";
+import Genres from "~/components/genres";
+import Link from "~/components/link";
+import Loading from "~/components/loading";
+import Subheader from "~/components/subheader";
+import TrackItem from "~/components/track-item";
 
 import { $currentTracklistId, $tracklist } from "~/stores/tracklists";
 

@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 
 import { render, screen } from "@testing-library/preact";
 
-import Tag, { type Color } from "~/components/Tag";
+import Tag, { type Color } from "~/components/tag";
 
 describe("Tag", () => {
   const defaultProps = {

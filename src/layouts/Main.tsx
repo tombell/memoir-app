@@ -1,8 +1,8 @@
 import type { ComponentChildren } from "preact";
 
-import Footer from "~/components/Footer";
-import Header from "~/components/Header";
-import TrackSearch from "~/components/TrackSearch";
+import Footer from "~/components/footer";
+import Header from "~/components/header";
+import TrackSearch from "~/components/track-search";
 
 interface Props {
   children: ComponentChildren;

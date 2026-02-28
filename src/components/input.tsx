@@ -41,13 +41,10 @@ export default function Input({
       )}
 
       <input
-        class={clsx(
-          "box-border w-full rounded-sm border border-solid p-3 text-white scheme-dark",
-          {
-            "border-rose-800 bg-rose-950": hasErrors,
-            "border-gray-700 bg-gray-800": !hasErrors,
-          },
-        )}
+        class={clsx("box-border w-full rounded-sm border border-solid p-3 text-white scheme-dark", {
+          "border-rose-800 bg-rose-950": hasErrors,
+          "border-gray-700 bg-gray-800": !hasErrors,
+        })}
         type={type}
         id={name}
         name={name}

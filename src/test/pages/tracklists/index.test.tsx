@@ -1,6 +1,5 @@
-import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
-
 import { render, screen } from "@testing-library/preact";
+import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 
 import Index from "~/pages/tracklists/index";
 

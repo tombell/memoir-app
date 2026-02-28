@@ -1,7 +1,6 @@
-import { describe, expect, mock, test } from "bun:test";
-
 import { render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, mock, test } from "bun:test";
 
 import Button from "~/components/button";
 
@@ -13,9 +12,7 @@ describe("Button", () => {
   test("renders the text", () => {
     render(<Button {...defaultProps} onClick={mock()} />);
 
-    expect(
-      screen.queryByRole("button", { name: "Test button" }),
-    ).not.toBeNull();
+    expect(screen.queryByRole("button", { name: "Test button" })).not.toBeNull();
   });
 
   test("calls the on click callback", async () => {

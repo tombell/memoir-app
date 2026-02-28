@@ -2,10 +2,7 @@ import { map } from "nanostores";
 import * as z from "zod/mini";
 
 import { patch } from "~/services/memoir";
-import {
-  type EditTracklist,
-  editTracklistSchema,
-} from "~/services/memoir/types";
+import { type EditTracklist, editTracklistSchema } from "~/services/memoir/types";
 
 import { createMutatorStore } from "~/stores/fetcher";
 

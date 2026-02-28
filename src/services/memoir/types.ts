@@ -45,15 +45,8 @@ export const newTracklistSchema = z.object({
   url,
   artwork: z
     .string()
-    .check(
-      z.regex(
-        /^[0-9a-f]{32}.[a-z0-9]+$/i,
-        "Must be an uploaded artwork filename",
-      ),
-    ),
-  tracks: z
-    .array(z.array(z.string()))
-    .check(z.minLength(1, "Must contain at least one track")),
+    .check(z.regex(/^[0-9a-f]{32}.[a-z0-9]+$/i, "Must be an uploaded artwork filename")),
+  tracks: z.array(z.array(z.string())).check(z.minLength(1, "Must contain at least one track")),
 });
 export type NewTracklist = z.infer<typeof newTracklistSchema>;
 

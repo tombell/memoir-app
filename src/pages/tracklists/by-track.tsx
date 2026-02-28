@@ -27,21 +27,13 @@ export default function TracklistsByTrack() {
           />
         ))}
 
-        {path && (
-          <Pagination
-            hasMore={hasMore}
-            page={tracklists.meta?.current_page}
-            path={path}
-          />
-        )}
+        {path && <Pagination hasMore={hasMore} page={tracklists.meta?.current_page} path={path} />}
       </>
     );
   }
 
   if (loading) {
-    return [0, 1, 2, 3, 4].map(() => (
-      <TracklistItem key={crypto.randomUUID()} loading />
-    ));
+    return [0, 1, 2, 3, 4].map(() => <TracklistItem key={crypto.randomUUID()} loading />);
   }
 
   // TODO: render error

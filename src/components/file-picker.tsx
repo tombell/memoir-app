@@ -11,13 +11,7 @@ interface Props {
   onSelect: (file: File) => void;
 }
 
-export default function FilePicker({
-  accept,
-  errors,
-  label,
-  name,
-  onSelect,
-}: Props) {
+export default function FilePicker({ accept, errors, label, name, onSelect }: Props) {
   const input = useRef<HTMLInputElement>(null);
 
   const hasErrors = !!errors?.length;

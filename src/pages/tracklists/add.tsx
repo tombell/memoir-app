@@ -11,12 +11,7 @@ import TracklistPicker from "~/components/tracklist-picker";
 import type { APIResponse } from "~/services/memoir";
 import type { Tracklist } from "~/services/memoir/types";
 
-import {
-  $addTracklist,
-  $data,
-  $validationErrors,
-  validate,
-} from "~/stores/add-tracklist";
+import { $addTracklist, $data, $validationErrors, validate } from "~/stores/add-tracklist";
 import { $router } from "~/stores/router";
 
 export default function Add() {

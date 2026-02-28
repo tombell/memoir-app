@@ -20,19 +20,13 @@ export default function Show() {
         <div class="space-x-4 text-center text-xs font-semibold">
           <Link href={tracklist.data.url}>Listen on Mixcloud</Link>
 
-          {process.env.PUBLIC_MEMOIR_API_KEY && (
-            <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>
-          )}
+          {process.env.PUBLIC_MEMOIR_API_KEY && <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>}
         </div>
 
         {tracklist.data.tracks && (
           <>
             <div class="text-center">
-              <Genres
-                genres={[
-                  ...new Set(tracklist.data.tracks.map((track) => track.genre)),
-                ]}
-              />
+              <Genres genres={[...new Set(tracklist.data.tracks.map((track) => track.genre))]} />
             </div>
 
             {tracklist.data.tracks.map((track) => (

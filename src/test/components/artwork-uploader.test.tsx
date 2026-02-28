@@ -1,7 +1,6 @@
-import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
-
 import { render, screen } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
+import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 
 import ArtworkUploader from "~/components/artwork-uploader";
 

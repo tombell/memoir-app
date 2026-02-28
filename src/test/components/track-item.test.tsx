@@ -1,6 +1,5 @@
-import { describe, expect, test } from "bun:test";
-
 import { render, screen } from "@testing-library/preact";
+import { describe, expect, test } from "bun:test";
 
 import TrackItem from "~/components/track-item";
 

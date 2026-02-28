@@ -12,8 +12,7 @@ interface Props {
   trackCount?: number;
 }
 
-const linearGradient =
-  "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%)";
+const linearGradient = "linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%)";
 
 export default function TracklistItem({
   loading = false,
@@ -56,11 +55,7 @@ export default function TracklistItem({
       >
         <div class="flex items-center space-x-3">
           <div class="rounded-sm border border-solid border-gray-700">
-            <img
-              class="h-20 w-20"
-              alt={`${name} Artwork`}
-              src={backgroundImage}
-            />
+            <img class="h-20 w-20" alt={`${name} Artwork`} src={backgroundImage} />
           </div>
 
           <h3 class="m-0 flex-1 leading-5 font-bold">{name}</h3>

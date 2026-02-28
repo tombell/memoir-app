@@ -2,8 +2,8 @@ import { useStore } from "@nanostores/preact";
 import { atom } from "nanostores";
 import { useCallback, useMemo } from "preact/hooks";
 
-import Tag from "~/components/Tag";
 import FilePicker from "~/components/file-picker";
+import Tag from "~/components/Tag";
 
 import { parse } from "~/services/tracklists";
 
@@ -16,12 +16,7 @@ interface Props {
 
 const $tracks = atom<string[][] | undefined>();
 
-export default function TracklistPicker({
-  errors,
-  label,
-  name,
-  onSelect,
-}: Props) {
+export default function TracklistPicker({ errors, label, name, onSelect }: Props) {
   const tracks = useStore($tracks);
 
   const reader = useMemo(() => new FileReader(), []);

@@ -8,9 +8,9 @@ import Results from "~/components/track-search/results";
 import type { APIResponse } from "~/services/memoir";
 import type { Track } from "~/services/memoir/types";
 
-import { $searchTracks } from "~/stores/tracks";
-
 import debounce from "~/utils/debounce";
+
+import { $searchTracks } from "~/stores/tracks";
 
 const $results = map<{ show: boolean; tracks: Track[] | undefined }>({
   show: false,

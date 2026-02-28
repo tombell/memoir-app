@@ -1,7 +1,6 @@
-import { describe, expect, mock, test } from "bun:test";
-
 import { render, screen, waitFor } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, mock, test } from "bun:test";
 
 import TracklistPicker from "~/components/tracklist-picker";
 
@@ -45,13 +44,7 @@ describe("TracklistPicker", () => {
 
     await waitFor(() => {
       expect(onSelect).toHaveBeenCalledWith([
-        [
-          "On The Block (Original Mix)",
-          "Eugenio Fico",
-          "126.00",
-          "11A",
-          "Funky House",
-        ],
+        ["On The Block (Original Mix)", "Eugenio Fico", "126.00", "11A", "Funky House"],
         [
           "It's A House Thing (Original Mix)",
           "Block & Crown, Paul Parsons",
@@ -59,29 +52,17 @@ describe("TracklistPicker", () => {
           "11A",
           "Funky House",
         ],
-        [
-          "Around The World (Club Mix)",
-          "Manuel Grandi",
-          "124.00",
-          "9A",
-          "Funky House",
-        ],
+        ["Around The World (Club Mix)", "Manuel Grandi", "124.00", "9A", "Funky House"],
       ]);
     });
 
-    expect(
-      screen.getByText("1. Eugenio Fico - On The Block (Original Mix)"),
-    ).toBeDefined();
+    expect(screen.getByText("1. Eugenio Fico - On The Block (Original Mix)")).toBeDefined();
 
     expect(
-      screen.getByText(
-        "2. Block & Crown, Paul Parsons - It's A House Thing (Original Mix)",
-      ),
+      screen.getByText("2. Block & Crown, Paul Parsons - It's A House Thing (Original Mix)"),
     ).toBeDefined();
 
-    expect(
-      screen.getByText("3. Manuel Grandi - Around The World (Club Mix)"),
-    ).toBeDefined();
+    expect(screen.getByText("3. Manuel Grandi - Around The World (Club Mix)")).toBeDefined();
 
     const tracks = screen.getAllByRole("listitem");
 

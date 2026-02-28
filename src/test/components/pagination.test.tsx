@@ -1,6 +1,5 @@
-import { describe, expect, test } from "bun:test";
-
 import { render } from "@testing-library/preact";
+import { describe, expect, test } from "bun:test";
 
 import Pagination from "~/components/pagination";
 
@@ -10,9 +9,7 @@ describe("Pagination", () => {
   };
 
   test("renders nothing when only one page", () => {
-    const { queryByText } = render(
-      <Pagination {...defaultProps} page={1} hasMore={false} />,
-    );
+    const { queryByText } = render(<Pagination {...defaultProps} page={1} hasMore={false} />);
 
     const prev = queryByText("← Newer");
 
@@ -24,9 +21,7 @@ describe("Pagination", () => {
   });
 
   test("renders next link when has more", () => {
-    const { queryByText, getByText } = render(
-      <Pagination {...defaultProps} page={1} hasMore />,
-    );
+    const { queryByText, getByText } = render(<Pagination {...defaultProps} page={1} hasMore />);
 
     const prev = queryByText("← Newer");
 
@@ -52,9 +47,7 @@ describe("Pagination", () => {
   });
 
   test("renders previous link and next link when not on page one and does have more", () => {
-    const { getByText } = render(
-      <Pagination {...defaultProps} page={2} hasMore />,
-    );
+    const { getByText } = render(<Pagination {...defaultProps} page={2} hasMore />);
 
     const prev = getByText("← Newer");
 

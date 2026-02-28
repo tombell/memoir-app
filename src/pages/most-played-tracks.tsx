@@ -1,5 +1,6 @@
-import { useStore } from "@nanostores/preact";
 import type { FunctionalComponent } from "preact";
+
+import { useStore } from "@nanostores/preact";
 
 import TrackItem from "~/components/track-item";
 
@@ -23,9 +24,7 @@ function MostPlayedTracks() {
   }
 
   if (loading) {
-    return [0, 1, 2, 3, 4].map(() => (
-      <TrackItem key={crypto.randomUUID()} loading />
-    ));
+    return [0, 1, 2, 3, 4].map(() => <TrackItem key={crypto.randomUUID()} loading />);
   }
 
   // TODO: render error

@@ -2,19 +2,14 @@ import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
 import { useCallback } from "preact/hooks";
 
+import Button from "~/components/button";
 import Input from "~/components/Input";
 import Loading from "~/components/Loading";
 import Subheader from "~/components/Subheader";
-import Button from "~/components/button";
 
 import { formatYearMonthDay } from "~/services/datetime";
 
-import {
-  $data,
-  $editTracklist,
-  $validationErrors,
-  validate,
-} from "~/stores/edit-tracklist";
+import { $data, $editTracklist, $validationErrors, validate } from "~/stores/edit-tracklist";
 import { $router } from "~/stores/router";
 import { $currentTracklistId, $tracklist } from "~/stores/tracklists";
 

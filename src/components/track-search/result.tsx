@@ -24,9 +24,7 @@ export default function Result({ track, onClick }: Props) {
       <Link href={`/tracks/${track.id}/tracklists`} onClick={onClick}>
         <span
           dangerouslySetInnerHTML={{
-            __html: `${highlight(track.artistHighlighted)} - ${highlight(
-              track.nameHighlighted,
-            )}`,
+            __html: `${highlight(track.artistHighlighted)} - ${highlight(track.nameHighlighted)}`,
           }}
         />
       </Link>

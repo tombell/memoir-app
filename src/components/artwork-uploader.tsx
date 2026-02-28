@@ -16,12 +16,7 @@ interface Props {
   onUpload: (artwork: string) => void;
 }
 
-export default function ArtworkUploader({
-  errors,
-  label,
-  name,
-  onUpload,
-}: Props) {
+export default function ArtworkUploader({ errors, label, name, onUpload }: Props) {
   const [$artwork] = useState(atom<string | null>(null));
   const artwork = useStore($artwork);
 

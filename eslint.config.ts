@@ -1,5 +1,4 @@
 import js from "@eslint/js";
-import prettierRecommended from "eslint-plugin-prettier/recommended";
 import react from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
@@ -16,8 +15,6 @@ export default defineConfig(
 
   react.configs.flat.recommended,
   react.configs.flat["jsx-runtime"],
-
-  prettierRecommended,
 
   {
     languageOptions: {

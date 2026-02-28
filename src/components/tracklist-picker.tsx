@@ -3,7 +3,7 @@ import { atom } from "nanostores";
 import { useCallback, useMemo } from "preact/hooks";
 
 import FilePicker from "~/components/file-picker";
-import Tag from "~/components/Tag";
+import Tag from "~/components/tag";
 
 import { parse } from "~/services/tracklists";
 

@@ -3,9 +3,9 @@ import { redirectPage } from "@nanostores/router";
 import { useCallback } from "preact/hooks";
 
 import Button from "~/components/button";
-import Input from "~/components/Input";
-import Loading from "~/components/Loading";
-import Subheader from "~/components/Subheader";
+import Input from "~/components/input";
+import Loading from "~/components/loading";
+import Subheader from "~/components/subheader";
 
 import { formatYearMonthDay } from "~/services/datetime";
 

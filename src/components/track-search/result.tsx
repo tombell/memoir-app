@@ -1,4 +1,4 @@
-import Link from "~/components/Link";
+import Link from "~/components/link";
 
 import type { Track } from "~/services/memoir/types";
 

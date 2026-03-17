@@ -1,19 +1,13 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "typescript",
-    "react"
-  ],
+  "plugins": ["typescript", "react"],
   "categories": {
     "correctness": "off"
   },
   "env": {
     "builtin": true
   },
-  "ignorePatterns": [
-    "dist",
-    "**/matchers.d.ts"
-  ],
+  "ignorePatterns": ["dist", "**/matchers.d.ts"],
   "rules": {
     "constructor-super": "error",
     "for-direction": "error",
@@ -163,9 +157,7 @@
     "react/no-unknown-property": [
       "error",
       {
-        "ignore": [
-          "class"
-        ]
+        "ignore": ["class"]
       }
     ],
     "react/require-render-return": "error"
@@ -177,12 +169,7 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.mts",
-        "**/*.cts"
-      ],
+      "files": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
       "rules": {
         "constructor-super": "off",
         "getter-return": "off",

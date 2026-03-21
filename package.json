@@ -10,7 +10,7 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@nanostores/preact": "^1.0.0",
+    "@nanostores/preact": "^1.1.0",
     "@nanostores/query": "^0.3.4",
     "@nanostores/router": "^1.0.0",
     "clsx": "^2.1.1",
@@ -26,15 +26,15 @@
     "@testing-library/preact": "^3.2.4",
     "@testing-library/user-event": "^14.6.1",
     "@tombell/bun-build-stats": "^0.0.1",
-    "@types/bun": "^1.3.10",
+    "@types/bun": "^1.3.11",
     "bun-plugin-tailwind": "^0.1.2",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "eslint-plugin-react": "^7.37.5",
     "jiti": "^2.6.1",
     "oxfmt": "^0.41.0",
     "oxlint": "^1.56.0",
-    "oxlint-tsgolint": "^0.17.0",
-    "tailwindcss": "^4.2.1",
+    "oxlint-tsgolint": "^0.17.1",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1"
   },

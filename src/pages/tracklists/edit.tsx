@@ -1,6 +1,5 @@
 import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
-import { useCallback } from "preact/hooks";
 
 import Button from "~/components/button";
 import Input from "~/components/input";
@@ -18,16 +17,16 @@ export default function Edit() {
   const id = useStore($currentTracklistId);
   const errors = useStore($validationErrors);
 
-  $tracklist.listen((tracklist) => {
-    if (tracklist.data) {
+  $tracklist.listen((nextTracklist) => {
+    if (nextTracklist.data) {
       const {
-        data: { id, name, date, url },
-      } = tracklist.data;
-      $data.set({ id, name, date, url });
+        data: { id: tracklistId, name, date, url },
+      } = nextTracklist.data;
+      $data.set({ id: tracklistId, name, date, url });
     }
   });
 
-  const handleSubmit = useCallback(async () => {
+  const handleSubmit = async () => {
     const payload = validate();
 
     if (payload) {
@@ -37,7 +36,7 @@ export default function Edit() {
         redirectPage($router, "tracklistsShow", { id });
       }
     }
-  }, [id]);
+  };
 
   if (tracklist?.data) {
     const { name, date, url } = tracklist.data;

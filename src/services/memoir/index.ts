@@ -11,8 +11,8 @@ const request = async (endpoint: string, method = "GET", body: FormData | string
 
   return fetch(`${process.env.PUBLIC_MEMOIR_API_URL}${endpoint}`, {
     method,
-    body,
     headers,
+    ...(method === "GET" ? {} : { body }),
   });
 };
 

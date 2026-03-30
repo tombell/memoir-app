@@ -27,7 +27,6 @@ describe("get", () => {
 
       expect(mockFetch).toHaveBeenCalledWith("/api/endpoint", {
         method: "GET",
-        body: null,
         headers: {},
       });
     });
@@ -45,7 +44,6 @@ describe("get", () => {
 
       expect(mockFetch).toHaveBeenCalledWith("/api/endpoint", {
         method: "GET",
-        body: null,
         headers: { "API-Token": "asdf-asdf" },
       });
     });

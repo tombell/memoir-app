@@ -1,6 +1,5 @@
 import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
-import { useCallback } from "preact/hooks";
 
 import ArtworkUploader from "~/components/artwork-uploader";
 import Button from "~/components/button";
@@ -17,7 +16,7 @@ import { $router } from "~/stores/router";
 export default function Add() {
   const errors = useStore($validationErrors);
 
-  const handleSubmit = useCallback(async () => {
+  const handleSubmit = async () => {
     const payload = validate();
 
     if (payload) {
@@ -27,7 +26,7 @@ export default function Add() {
 
       redirectPage($router, "tracklistsShow", { id });
     }
-  }, [$addTracklist]);
+  };
 
   return (
     <div class="space-y-4">

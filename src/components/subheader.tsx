@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import cx from "clsx";
 
 interface Props {
   center?: boolean;
@@ -6,5 +6,5 @@ interface Props {
 }
 
 export default function SubHeader({ center = false, text }: Props) {
-  return <h2 class={clsx("text-left font-bold text-white", { "text-center": center })}>{text}</h2>;
+  return <h2 class={cx("text-left font-bold text-white", { "text-center": center })}>{text}</h2>;
 }

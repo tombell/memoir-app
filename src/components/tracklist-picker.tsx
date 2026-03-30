@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/preact";
 import { atom } from "nanostores";
-import { useCallback, useMemo } from "preact/hooks";
+import { useCallback, useRef } from "preact/hooks";
 
 import FilePicker from "~/components/file-picker";
 import Tag from "~/components/tag";
@@ -19,22 +19,24 @@ const $tracks = atom<string[][] | undefined>();
 export default function TracklistPicker({ errors, label, name, onSelect }: Props) {
   const tracks = useStore($tracks);
 
-  const reader = useMemo(() => new FileReader(), []);
-
-  const onFileRead = useCallback(() => {
-    if (reader.result && typeof reader.result === "string") {
-      const parsed = parse(reader.result);
-      $tracks.set(parsed);
-      onSelect(parsed);
-    }
-  }, []);
+  const reader = useRef(new FileReader());
 
   const handleSelect = useCallback(
     (file: File) => {
-      reader.onload = onFileRead;
-      reader.readAsText(file);
+      const onLoad = () => {
+        const result = reader.current.result;
+
+        if (typeof result === "string") {
+          const parsed = parse(result);
+          $tracks.set(parsed);
+          onSelect(parsed);
+        }
+      };
+
+      reader.current.addEventListener("load", onLoad, { once: true });
+      reader.current.readAsText(file);
     },
-    [onFileRead, reader],
+    [onSelect],
   );
 
   if (tracks) {

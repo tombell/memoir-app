@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import cx from "clsx";
 
 type Variant = "large" | "medium" | "small";
 
@@ -11,7 +11,7 @@ interface Props {
 export default function Button({ text, variant = "large", onClick }: Props) {
   return (
     <button
-      class={clsx(
+      class={cx(
         "rounded-sm bg-gray-800 font-bold text-white hover:bg-gray-700 active:bg-gray-800",
         {
           "px-6 py-2 text-base": variant == "large",

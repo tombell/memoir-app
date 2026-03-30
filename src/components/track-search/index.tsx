@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/preact";
 import { map } from "nanostores";
-import { useCallback, useEffect, useRef } from "preact/hooks";
+import { useCallback, useEffect, useMemo, useRef } from "preact/hooks";
 
 import Input from "~/components/input";
 import Results from "~/components/track-search/results";
@@ -40,11 +40,12 @@ export default function TrackSearch() {
     return cleanup;
   }, [onBodyClick]);
 
-  const request = useCallback(
-    debounce(async (value: string) => {
+  const request = useMemo(
+    () =>
+      debounce(async (value: string) => {
       const resp = (await $searchTracks.mutate(value)) as APIResponse<Track[]>;
       $results.set({ show: true, tracks: resp.data });
-    }, 300),
+      }, 300),
     [],
   );
 
@@ -55,7 +56,7 @@ export default function TrackSearch() {
     }
 
     request(value);
-  }, []);
+  }, [request]);
 
   return (
     <div class="relative" ref={ref}>

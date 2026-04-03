@@ -43,20 +43,23 @@ export default function TrackSearch() {
   const request = useMemo(
     () =>
       debounce(async (value: string) => {
-      const resp = (await $searchTracks.mutate(value)) as APIResponse<Track[]>;
-      $results.set({ show: true, tracks: resp.data });
+        const resp = (await $searchTracks.mutate(value)) as APIResponse<Track[]>;
+        $results.set({ show: true, tracks: resp.data });
       }, 300),
     [],
   );
 
-  const onInput = useCallback((value: string) => {
-    if (value.length < 3) {
-      $results.set({ show: false, tracks: undefined });
-      return;
-    }
+  const onInput = useCallback(
+    (value: string) => {
+      if (value.length < 3) {
+        $results.set({ show: false, tracks: undefined });
+        return;
+      }
 
-    request(value);
-  }, [request]);
+      request(value);
+    },
+    [request],
+  );
 
   return (
     <div class="relative" ref={ref}>

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "bun --hot serve.ts",
     "build": "rm -fr dist && tsc && bun build.ts",
-    "lint": "oxlint --tsconfig tsconfig.json .",
+    "lint": "node ./node_modules/oxlint/bin/oxlint -c oxlint.config.ts --tsconfig tsconfig.json .",
     "fmt": "oxfmt -c oxfmt.config.ts",
     "fmt:check": "oxfmt -c oxfmt.config.ts --check"
   },

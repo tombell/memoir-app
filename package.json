@@ -6,8 +6,8 @@
     "dev": "bun --hot serve.ts",
     "build": "rm -fr dist && tsc && bun build.ts",
     "lint": "oxlint --tsconfig tsconfig.json .",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "fmt": "oxfmt -c oxfmt.config.ts",
+    "fmt:check": "oxfmt -c oxfmt.config.ts --check"
   },
   "dependencies": {
     "@nanostores/preact": "^1.1.0",

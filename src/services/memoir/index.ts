@@ -1,15 +1,17 @@
+import { config } from "~/config";
+
 const request = async (endpoint: string, method = "GET", body: FormData | string | null = null) => {
   const headers: Record<string, string> = {};
 
-  if (process.env.PUBLIC_MEMOIR_API_KEY) {
-    headers["API-Token"] = process.env.PUBLIC_MEMOIR_API_KEY;
+  if (config.memoirApiKey) {
+    headers["API-Token"] = config.memoirApiKey;
   }
 
   if (body && typeof body === "string") {
     headers["Content-Type"] = "application/json";
   }
 
-  return fetch(`${process.env.PUBLIC_MEMOIR_API_URL}${endpoint}`, {
+  return fetch(`${config.memoirApiUrl}${endpoint}`, {
     method,
     headers,
     ...(method === "GET" ? {} : { body }),

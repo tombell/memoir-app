@@ -12,9 +12,8 @@ import TracklistsEdit from "~/pages/tracklists/edit";
 import TracklistsIndex from "~/pages/tracklists/index";
 import TracklistsShow from "~/pages/tracklists/show";
 
+import { config } from "~/config";
 import { $router } from "~/stores/router";
-
-const isAdminEnabled = !!process.env.PUBLIC_MEMOIR_ADMIN_ENABLED;
 
 export default function App() {
   const page = useStore($router);
@@ -31,11 +30,11 @@ export default function App() {
       case "tracklistsIndex":
         return <TracklistsIndex />;
       case "tracklistsAdd":
-        return isAdminEnabled ? <TracklistAdd /> : <NotFoundPage />;
+        return config.isAdminEnabled ? <TracklistAdd /> : <NotFoundPage />;
       case "tracklistsShow":
         return <TracklistsShow />;
       case "tracklistsEdit":
-        return isAdminEnabled ? <TracklistsEdit /> : <NotFoundPage />;
+        return config.isAdminEnabled ? <TracklistsEdit /> : <NotFoundPage />;
       case "tracklistsByTrack":
         return <TracklistsByTrack />;
       case "mostPlayedTracks":

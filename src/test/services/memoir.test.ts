@@ -15,7 +15,7 @@ beforeEach(() => {
 afterEach(() => {
   mockFetch.mockRestore();
 
-  process.env.PUBLIC_MEMOIR_API_KEY = "";
+  process.env.VITE_MEMOIR_API_KEY = "";
 });
 
 describe("get", () => {
@@ -34,7 +34,7 @@ describe("get", () => {
 
   describe("with an api key", () => {
     beforeEach(() => {
-      process.env.PUBLIC_MEMOIR_API_KEY = "asdf-asdf";
+      process.env.VITE_MEMOIR_API_KEY = "asdf-asdf";
     });
 
     test("returns data with a get request", async () => {
@@ -69,7 +69,7 @@ describe("patch", () => {
 
   describe("with an api key", () => {
     beforeEach(() => {
-      process.env.PUBLIC_MEMOIR_API_KEY = "asdf-asdf";
+      process.env.VITE_MEMOIR_API_KEY = "asdf-asdf";
     });
 
     test("returns data with a get request", async () => {
@@ -110,7 +110,7 @@ describe("post", () => {
 
   describe("with an api key", () => {
     beforeEach(() => {
-      process.env.PUBLIC_MEMOIR_API_KEY = "asdf-asdf";
+      process.env.VITE_MEMOIR_API_KEY = "asdf-asdf";
     });
 
     test("returns data with a get request", async () => {
@@ -156,7 +156,7 @@ describe("postFile", () => {
 
   describe("with an api key", () => {
     beforeEach(() => {
-      process.env.PUBLIC_MEMOIR_API_KEY = "asdf-asdf";
+      process.env.VITE_MEMOIR_API_KEY = "asdf-asdf";
     });
 
     test("returns data with a get request", async () => {

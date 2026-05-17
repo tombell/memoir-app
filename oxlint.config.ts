@@ -24,7 +24,6 @@ export default defineConfig({
   },
   ignorePatterns: ["dist/**", "**/matchers.d.ts"],
   rules: {
-    "typescript/consistent-type-imports": "error",
     "react/react-in-jsx-scope": "off",
   },
 });

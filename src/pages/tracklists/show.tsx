@@ -6,6 +6,7 @@ import Loading from "~/components/loading";
 import Subheader from "~/components/subheader";
 import TrackItem from "~/components/track-item";
 
+import { config } from "~/config";
 import { $currentTracklistId, $tracklist } from "~/stores/tracklists";
 
 export default function Show() {
@@ -20,7 +21,7 @@ export default function Show() {
         <div class="space-x-4 text-center text-xs font-semibold">
           <Link href={tracklist.data.url}>Listen on Mixcloud</Link>
 
-          {process.env.PUBLIC_MEMOIR_API_KEY && <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>}
+          {config.memoirApiKey && <Link href={`/tracklist/${id}/edit`}>(Edit)</Link>}
         </div>
 
         {tracklist.data.tracks && (

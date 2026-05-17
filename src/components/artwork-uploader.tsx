@@ -7,6 +7,7 @@ import FilePicker from "~/components/file-picker";
 import type { APIResponse } from "~/services/memoir";
 import type { Artwork } from "~/services/memoir/types";
 
+import { config } from "~/config";
 import { $addArtwork } from "~/stores/artwork";
 
 interface Props {
@@ -43,7 +44,7 @@ export default function ArtworkUploader({ errors, label, name, onUpload }: Props
         <img
           class="h-24 w-24 border border-solid border-gray-700"
           alt="Mix Artwork"
-          src={`${process.env.PUBLIC_MEMOIR_CDN_URL}/${artwork}`}
+          src={`${config.memoirCdnUrl}/${artwork}`}
         />
       </div>
     );

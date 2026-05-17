@@ -3,6 +3,8 @@ import Tag from "~/components/tag";
 
 import { formatFriendlyDate } from "~/services/datetime";
 
+import { config } from "~/config";
+
 interface Props {
   loading?: boolean;
   id?: string;
@@ -41,7 +43,7 @@ export default function TracklistItem({
     );
   }
 
-  const backgroundImage = `${process.env.PUBLIC_MEMOIR_CDN_URL}/${artwork}`;
+  const backgroundImage = `${config.memoirCdnUrl}/${artwork}`;
 
   const background = {
     backgroundImage: `${linearGradient}, url(${backgroundImage})`,

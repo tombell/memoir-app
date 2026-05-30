@@ -3,11 +3,9 @@ import { atom } from "nanostores";
 import { useCallback, useState } from "preact/hooks";
 
 import FilePicker from "~/components/file-picker";
-
+import { config } from "~/config";
 import type { APIResponse } from "~/services/memoir";
 import type { Artwork } from "~/services/memoir/types";
-
-import { config } from "~/config";
 import { $addArtwork } from "~/stores/artwork";
 
 interface Props {

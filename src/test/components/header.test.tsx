@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/preact";
 import { describe, expect, test } from "bun:test";
 
-import Header from "~/components/header";
+import { render, screen } from "@testing-library/preact";
 
+import Header from "~/components/header";
 import logo from "~/images/logo.svg";
 
 describe("Header", () => {

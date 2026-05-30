@@ -1,6 +1,7 @@
+import { describe, expect, mock, test } from "bun:test";
+
 import { render, screen, waitFor } from "@testing-library/preact";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, mock, test } from "bun:test";
 
 import TracklistPicker from "~/components/tracklist-picker";
 

@@ -4,7 +4,6 @@ import { useCallback, useRef } from "preact/hooks";
 
 import FilePicker from "~/components/file-picker";
 import Tag from "~/components/tag";
-
 import { parse } from "~/services/tracklists";
 
 interface Props {

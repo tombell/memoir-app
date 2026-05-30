@@ -1,9 +1,7 @@
+import { useStore } from "@nanostores/preact";
 import type { FunctionalComponent } from "preact";
 
-import { useStore } from "@nanostores/preact";
-
 import TrackItem from "~/components/track-item";
-
 import { $mostPlayedTracks } from "~/stores/tracks";
 
 function MostPlayedTracks() {

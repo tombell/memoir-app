@@ -1,5 +1,6 @@
-import { render } from "@testing-library/preact";
 import { describe, expect, test } from "bun:test";
+
+import { render } from "@testing-library/preact";
 
 import Pagination from "~/components/pagination";
 

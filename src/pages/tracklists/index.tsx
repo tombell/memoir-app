@@ -2,7 +2,6 @@ import { useStore } from "@nanostores/preact";
 
 import Pagination from "~/components/pagination";
 import TracklistItem from "~/components/tracklist-item";
-
 import { $currentPath, $tracklists } from "~/stores/tracklists";
 
 export default function Index() {

@@ -1,5 +1,4 @@
 import Link from "~/components/link";
-
 import logo from "~/images/logo.svg";
 
 export default function Header() {

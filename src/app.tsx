@@ -2,8 +2,8 @@ import { useStore } from "@nanostores/preact";
 import { redirectPage } from "@nanostores/router";
 import { useCallback } from "preact/hooks";
 
+import { config } from "~/config";
 import Main from "~/layouts/main";
-
 import MostPlayedTracks from "~/pages/most-played-tracks";
 import NotFoundPage from "~/pages/not-found";
 import TracklistAdd from "~/pages/tracklists/add";
@@ -11,8 +11,6 @@ import TracklistsByTrack from "~/pages/tracklists/by-track";
 import TracklistsEdit from "~/pages/tracklists/edit";
 import TracklistsIndex from "~/pages/tracklists/index";
 import TracklistsShow from "~/pages/tracklists/show";
-
-import { config } from "~/config";
 import { $router } from "~/stores/router";
 
 export default function App() {

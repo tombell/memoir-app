@@ -1,9 +1,7 @@
 import Link from "~/components/link";
 import Tag from "~/components/tag";
-
-import { formatFriendlyDate } from "~/services/datetime";
-
 import { config } from "~/config";
+import { formatFriendlyDate } from "~/services/datetime";
 
 interface Props {
   loading?: boolean;
